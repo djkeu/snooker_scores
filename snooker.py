@@ -64,7 +64,6 @@ class SnookerGame:
             self.score_player_1 = score_1
             self.score_player_2 = score_2
             self.red_balls = red_balls
-            # Note:
             self.available -= (score_1 + score_2)
             self.calculate_possible_scores()
             print(f"Starting scores set: Player 1 = {self.score_player_1}, Player 2 = {self.score_player_2}")
