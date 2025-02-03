@@ -1,0 +1,7 @@
+# VSCode
+.vscode/settings.json
+
+# Python
+__pycache__
+.pytest_cache
+snooker_env
