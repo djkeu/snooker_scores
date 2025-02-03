@@ -23,7 +23,6 @@ class SnookerGame:
         }
         self.first_input = True  # Initialize first_input here
 
-
     def get_shot_value(self):
         """Prompt the user for the shot value and handle input validation."""
         while True:
@@ -34,7 +33,7 @@ class SnookerGame:
 
             if shot == "q":
                 sys.exit("Bye!")
-            elif shot == "s":
+            elif shot == "s" and self.first_input:
                 self.set_starting_scores()
                 continue  # Return to the input prompt after setting scores
 
