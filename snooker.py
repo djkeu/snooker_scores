@@ -234,12 +234,10 @@ if __name__ == "__main__":
 
 # ## ToDo Section ## #
 """
-- Done: assign key 's' to set_starting_scores()
 - ToDo: assign key 'p'/'f' to snookers/penalties/fouls
 - ToDo: snookers needed stage
 - ToDo: penalties for misses
 - ToDo: lose game after three misses
-- Done: set scores while game is already in action
 """
 
 
