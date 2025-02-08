@@ -1,5 +1,4 @@
 from snooker import SnookerGame
-# from deep_snooker import SnookerGame
 
 
 def main():
