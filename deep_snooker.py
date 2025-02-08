@@ -214,5 +214,6 @@ def main():
     score = SnookerScores()
     score.show_scores()
 
+
 if __name__ == "__main__":
     main()
