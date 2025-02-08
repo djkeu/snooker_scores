@@ -1,7 +1,7 @@
 from snooker import SnookerScores
 
 def main():
-    """Run the snooker game."""
+    """Show the snooker scores."""
     score = SnookerScores()
     score.play()
 
