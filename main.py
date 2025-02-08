@@ -1,5 +1,6 @@
 from snooker import SnookerScores
 
+
 def main():
     """Show the snooker scores."""
     score = SnookerScores()
@@ -11,7 +12,7 @@ if __name__ == "__main__":
 
 
 
-# ## ToDo Section ## #
+# ToDo Section
 """
 - ToDo: assign key 'p'/'f' to snookers/penalties/fouls
 - ToDo: snookers needed stage
@@ -20,8 +21,7 @@ if __name__ == "__main__":
 - ToDo: lose game after three misses
 """
 
-
-# ## Snooker rules ## #
+# Snooker rules
 """
 Points are also scored if the opponent makes the following mistakes:
     Do not touch any ball with the cue ball,
