@@ -220,24 +220,3 @@ class SnookerGame:
         """Run the snooker game."""
         self.play_main_game()
         self.play_endgame()
-
-
-# ## ToDo Section ## #
-"""
-- ToDo: assign key 'p'/'f' to snookers/penalties/fouls
-- ToDo: snookers needed stage
-- ToDo: penalties for misses
-- ToDo: lose game after three misses
-"""
-
-
-# ## Snooker rules ## #
-"""
-Points are also scored if the opponent makes the following mistakes:
-    Do not touch any ball with the cue ball,
-    Hitting or pocketing a wrong color ball,
-    Pocketing the cue ball,
-    Get a ball out of the playing area,
-    Use another cue ball than the white ball,
-    Push balls.
-"""
