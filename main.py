@@ -1,9 +1,8 @@
-from snooker import SnookerGame
-
+from snooker import SnookerScores
 
 def main():
     """Run the snooker game."""
-    game = SnookerGame()
+    game = SnookerScores()
     game.play()
 
 

@@ -1,7 +1,7 @@
 import sys
 
 
-class SnookerGame:
+class SnookerScores:
     def __init__(self):
         """Initialize the game state."""
         self.available = 147
@@ -211,7 +211,7 @@ class SnookerGame:
 
 def main():
     """Run the snooker game."""
-    game = SnookerGame()
+    game = SnookerScores()
     game.play()
 
 if __name__ == "__main__":
