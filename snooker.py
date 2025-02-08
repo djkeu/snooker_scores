@@ -222,16 +222,6 @@ class SnookerGame:
         self.play_endgame()
 
 
-def main():
-    """Run the snooker game."""
-    game = SnookerGame()
-    game.play()
-
-
-if __name__ == "__main__":
-    main()
-
-
 # ## ToDo Section ## #
 """
 - ToDo: assign key 'p'/'f' to snookers/penalties/fouls
