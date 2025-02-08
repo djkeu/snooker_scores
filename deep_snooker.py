@@ -211,8 +211,8 @@ class SnookerScores:
 
 def main():
     """Run the snooker game."""
-    game = SnookerScores()
-    game.play()
+    score = SnookerScores()
+    score.play()
 
 if __name__ == "__main__":
     main()
