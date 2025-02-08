@@ -17,6 +17,7 @@ if __name__ == "__main__":
 - ToDo: assign key 'p'/'f' to snookers/penalties/fouls
 - ToDo: snookers needed stage
 - ToDo: penalties for misses
+- ToDo: possibility for putting ball back after miss
 - ToDo: lose game after three misses
 """
 
