@@ -3,7 +3,7 @@ import sys
 
 class SnookerScores:
     def __init__(self):
-        """Initialize the game state."""
+        """Initialize the game scores state."""
         self.available = 147
         self.red_balls = 15
         self.red_needed_next = True
