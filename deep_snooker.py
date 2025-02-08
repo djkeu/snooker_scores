@@ -209,7 +209,6 @@ class SnookerGame:
         self.play_endgame()
 
 
-"""
 def main():
     """Run the snooker game."""
     game = SnookerGame()
@@ -217,4 +216,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-"""
