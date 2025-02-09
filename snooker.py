@@ -160,7 +160,7 @@ class SnookerScores:
 
 
     def red_balls_phase(self):
-        """Simulate the main phase of the snooker game."""
+        """Simulate the first phase of the snooker game."""
         print("This is snooker at its best!")
         while self.red_balls > 0 and self.available >= 27 + 7:
             shot = self.get_shot_value()
@@ -194,7 +194,7 @@ class SnookerScores:
 
 
     def colored_balls_phase(self):
-        """Simulate the endgame phase of the snooker game."""
+        """Simulate the second phase of the snooker game."""
         print("\nEntering colored balls endgame!\n")
         self.available = 27
         print(f"Available for endgame: {self.available}")
