@@ -127,10 +127,7 @@ class SnookerScores:
 
 
     def calculate_possible_scores(self):
-        """
-        Calculate the possible scores for both players.
-        Which is their current score plus the remaining available points
-        """
+        """Current score plus remaining available points."""
         self.possible_score_player_1 = self.score_player_1 + self.available
         self.possible_score_player_2 = self.score_player_2 + self.available
 
