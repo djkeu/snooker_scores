@@ -159,7 +159,7 @@ class SnookerScores:
                 print("Player 2 must pot a colored ball next.")
 
 
-    def main_game(self):
+    def red_balls_phase(self):
         """Simulate the main phase of the snooker game."""
         print("This is snooker at its best!")
         while self.red_balls > 0 and self.available >= 27 + 7:
@@ -193,7 +193,7 @@ class SnookerScores:
                 break
 
 
-    def endgame(self):
+    def colored_balls_phase(self):
         """Simulate the endgame phase of the snooker game."""
         print("\nEntering colored balls endgame!\n")
         self.available = 27
@@ -218,5 +218,5 @@ class SnookerScores:
 
     def show_scores(self):
         """Show all scores."""
-        self.main_game()
-        self.endgame()
+        self.red_balls_phase()
+        self.colored_balls_phase()
