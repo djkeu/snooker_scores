@@ -35,12 +35,12 @@ class SnookerScores:
                 sys.exit("Bye!")
             elif shot == "s" and self.first_input:
                 self.set_starting_scores()
-                continue  # Return to the input prompt after setting scores
+                continue
 
             try:
                 shot = int(shot)
                 if 0 <= shot <= 7:
-                    self.first_input = False  # Set first_input to False after the first valid input
+                    self.first_input = False
                     return shot
                 else:
                     print(f"\nYou can't score {shot} points with one shot!")
