@@ -12,7 +12,7 @@ class SnookerScores:
         self.score_player_2 = 0
         self.possible_score_player_1 = 147
         self.possible_score_player_2 = 147
-        self.needed_ball = 2  # For the endgame, starts with yellow ball
+        self.needed_ball = 2  # colored_balls_phase starts with yellow ball
         self.colored_balls = {
             2: "yellow",
             3: "green",
@@ -21,7 +21,7 @@ class SnookerScores:
             6: "pink",
             7: "black",
         }
-        self.first_input = True  # Initialize first_input here
+        self.first_input = True  # In case the user wants to set starting scores
 
     def get_shot_value(self):
         """Prompt the user for the shot value and handle input validation."""
