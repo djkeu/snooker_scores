@@ -115,9 +115,12 @@ class SnookerScores:
 
 
     def handle_miss(self):
-        """Handle logic for when a shot is missed."""
+        """
+        Handle logic for when a shot is missed
+        Note: This program is essentially written to keep track of this
+        FixMe: move note to readme.md
+        """
         if not self.red_needed_next:
-            # Player missed a color ball
             self.available -= 7
         self.red_needed_next = True
         self.switch_players()
