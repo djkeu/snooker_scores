@@ -48,7 +48,6 @@ class SnookerScores:
                 print("\nOnly numbers between 0 and 7 are valid!")
                 self.display_game_state()
 
-
     def set_starting_scores(self):
         """Set starting scores for both players and the number of red balls left."""
         if not self.red_needed_next:
@@ -75,7 +74,6 @@ class SnookerScores:
         except ValueError:
             print("Invalid input. Please enter numeric values.")
 
-
     def update_score(self, shot):
         """Update the current player's score."""
         if self.player_1_turn:
@@ -83,11 +81,9 @@ class SnookerScores:
         else:
             self.score_player_2 += shot
 
-
     def switch_players(self):
         """Switch turns between players."""
         self.player_1_turn = not self.player_1_turn
-
 
     def handle_red_ball(self, shot):
         """Handle logic for when a red ball is hit."""
@@ -101,7 +97,6 @@ class SnookerScores:
             self.switch_players()
             self.red_needed_next = True
 
-
     def handle_color_ball(self, shot):
         """Handle logic for when a color ball is hit."""
         if self.red_needed_next:
@@ -112,7 +107,6 @@ class SnookerScores:
             self.available -= 7
             self.red_needed_next = True
             self.update_score(shot)
-
 
     def handle_miss(self):
         """
@@ -125,12 +119,10 @@ class SnookerScores:
         self.red_needed_next = True
         self.switch_players()
 
-
     def calculate_possible_scores(self):
         """Current score plus remaining available points."""
         self.possible_score_player_1 = self.score_player_1 + self.available
         self.possible_score_player_2 = self.score_player_2 + self.available
-
 
     def display_game_state(self):
         """Display the current state of the game in the desired format."""
@@ -143,7 +135,6 @@ class SnookerScores:
         print(f"Red balls left: {self.red_balls}")
 
         self.display_next_ball()
-
 
     def display_next_ball(self):
         """Display which ball the current player must pot next."""
@@ -158,7 +149,6 @@ class SnookerScores:
                 print("Player 1 must pot a colored ball next.")
             else:
                 print("Player 2 must pot a colored ball next.")
-
 
     def red_balls_phase(self):
         """Simulate the first phase of the snooker game."""
@@ -180,7 +170,6 @@ class SnookerScores:
         if self.red_balls == 0:
             self.handle_last_colored_ball()
 
-
     def handle_last_colored_ball(self):
         """Handle last colored ball before starting colored balls phase."""
         print("\nNo more red balls left! Pot the last colored ball to start the endgame.")
@@ -195,7 +184,6 @@ class SnookerScores:
                 self.update_score(shot)
                 self.display_game_state()
                 break
-
 
     def colored_balls_phase(self):
         """Simulate the colored balls phase."""
@@ -218,7 +206,6 @@ class SnookerScores:
             self.display_game_state()
 
         print("\nNo more balls to play!")
-
 
     def show_scores(self):
         """Show all scores."""
