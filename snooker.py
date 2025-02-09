@@ -182,8 +182,9 @@ class SnookerScores:
 
 
     def handle_last_colored_ball(self):
-        """Handle the last colored ball before starting the endgame."""
+        """Handle last colored ball before starting colored balls phase."""
         print("\nNo more red balls left! Pot the last colored ball to start the endgame.")
+
         while self.available > 27:
             shot = self.get_shot_value()
 
