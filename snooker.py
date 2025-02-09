@@ -198,7 +198,7 @@ class SnookerScores:
 
 
     def colored_balls_phase(self):
-        """Simulate the second phase of the snooker game."""
+        """Simulate the colored balls phase."""
         print("\nEntering colored balls endgame!\n")
         self.available = 27
         print(f"Available for endgame: {self.available}")
