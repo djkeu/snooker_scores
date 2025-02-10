@@ -60,9 +60,9 @@ class SnookerScores:
             return
 
         try:
+            red_balls = int(input("Enter the number of red balls left: "))
             score_1 = int(input("Enter starting score for Player 1: "))
             score_2 = int(input("Enter starting score for Player 2: "))
-            red_balls = int(input("Enter the number of red balls left: "))
 
             if score_1 < 0 or score_2 < 0 or red_balls < 0 or red_balls > 15:
                 print(
