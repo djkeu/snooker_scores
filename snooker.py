@@ -21,15 +21,17 @@ class SnookerScores:
             6: "pink",
             7: "black",
         }
-        self.first_input = True  # In case the user wants to set starting scores
+        self.first_input = True  # In case user wants to set starting scores
 
     def get_shot_value(self):
-        """Prompt the user for the shot value and handle input validation."""
+        """Prompt user for the shot value and handle input validation."""
+        prompt = "What's the value of the shot: (enter 'q' to quit"
+        if self.first_input:
+            prompt += ", 's' to set starting scores"
+        prompt += ") "
+
         while True:
-            if self.first_input:
-                shot = input("What's the value of the shot: (enter 'q' to quit, 's' to set starting scores) ")
-            else:
-                shot = input("What's the value of the shot: (enter 'q' to quit) ")
+            shot = input(prompt)
 
             if shot == "q":
                 sys.exit("Bye!")
@@ -47,7 +49,7 @@ class SnookerScores:
             except ValueError:
                 print("\nOnly numbers between 0 and 7 are valid!")
                 self.display_game_state()
-
+    
     def set_starting_scores(self):
         """Set starting scores for both players and the number of red balls left."""
         if not self.red_needed_next:
