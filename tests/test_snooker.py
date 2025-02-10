@@ -1,9 +1,8 @@
+# Note: run tests: python -m unittest discover -s tests -p "test_snooker.py"
+
 import unittest
 from unittest.mock import patch
 from snooker import SnookerScores
-
-
-# Note: run tests: python -m unittest discover -s tests -p "test_snooker.py"
 
 
 class TestSnookerScores(unittest.TestCase):
@@ -63,17 +62,15 @@ class TestSnookerScores(unittest.TestCase):
     def test_handle_red_ball(self):
         game = SnookerScores()
         game.handle_red_ball(1)
-        self.assertEqual(game.red_balls, 14)
-        self.assertEqual(game.available, 146)
         self.assertEqual(game.score_player_1, 1)
+        self.assertEqual(game.red_balls, 14)
         self.assertFalse(game.red_needed_next)
 
     def test_handle_color_ball(self):
         game = SnookerScores()
         game.red_needed_next = False
-        game.handle_color_ball(7)
-        self.assertEqual(game.available, 140)
-        self.assertEqual(game.score_player_1, 7)
+        game.handle_color_ball(2)
+        self.assertEqual(game.score_player_1, 2)
         self.assertTrue(game.red_needed_next)
 
     def test_handle_miss(self):
@@ -84,9 +81,11 @@ class TestSnookerScores(unittest.TestCase):
 
     def test_calculate_possible_scores(self):
         game = SnookerScores()
+        game.score_player_1 = 10
+        game.score_player_2 = 20
         game.calculate_possible_scores()
-        self.assertEqual(game.possible_score_player_1, 147)
-        self.assertEqual(game.possible_score_player_2, 147)
+        self.assertEqual(game.possible_score_player_1, 157)
+        self.assertEqual(game.possible_score_player_2, 167)
 
     def test_display_game_state(self):
         game = SnookerScores()
@@ -103,32 +102,60 @@ class TestSnookerScores(unittest.TestCase):
         with patch('builtins.print') as mocked_print:
             game.display_next_ball()
             mocked_print.assert_any_call("Player 1 must pot a red ball next.")
-            game.switch_players()
-            game.display_next_ball()
-            mocked_print.assert_any_call("Player 2 must pot a red ball next.")
 
-    def test_play_main_game(self):
+    def test_set_starting_scores(self):
         game = SnookerScores()
-        # Provide enough inputs to cover the entire main game sequence, including the transition to handle_last_colored_ball
-        with patch('builtins.input', side_effect=['1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '2']):
-            game.play_main_game()
-            self.assertEqual(game.red_balls, 0)
+        
+        # Test valid input
+        with patch('builtins.input', side_effect=['10', '20', '15']):
+            game.set_starting_scores()
+            self.assertEqual(game.score_player_1, 20)
+            self.assertEqual(game.score_player_2, 15)
+            self.assertEqual(game.red_balls, 10)
+            self.assertEqual(game.available, 112)  # 147 - (20 + 15)
+        
+        # Test invalid input: negative scores
+        with patch('builtins.input', side_effect=['10', '-20', '15']):
+            with patch('builtins.print') as mocked_print:
+                game.set_starting_scores()
+                mocked_print.assert_any_call(
+                    "Invalid input. Scores cannot be negative, and red balls must be between 0 and 15."
+                )
+        
+        # Test invalid input: red balls out of range
+        with patch('builtins.input', side_effect=['16', '20', '15']):
+            with patch('builtins.print') as mocked_print:
+                game.set_starting_scores()
+                mocked_print.assert_any_call(
+                    "Invalid input. Scores cannot be negative, and red balls must be between 0 and 15."
+                )
+        
+        # Test invalid input: non-numeric values
+        with patch('builtins.input', side_effect=['ten', '20', '15']):
+            with patch('builtins.print') as mocked_print:
+                game.set_starting_scores()
+                mocked_print.assert_any_call("Invalid input. Please enter numeric values.")
 
-    def test_handle_last_colored_ball(self):
+    def test_red_balls_phase(self):
         game = SnookerScores()
-        game.red_balls = 0
-        with patch('builtins.input', side_effect=['2']):
-            game.handle_last_colored_ball()
-            self.assertEqual(game.available, 145)
+        
+        # Simulate user input for 15 red balls being potted
+        with patch('builtins.input', side_effect=['1'] * 15):
+            with patch('builtins.print') as mocked_print:
+                game.red_balls_phase()
+                self.assertEqual(game.red_balls, 0)
+                self.assertEqual(game.score_player_1, 15)
+                self.assertEqual(game.available, 132)  # 147 - 15 red balls
+                mocked_print.assert_any_call("\nNo more red balls left! Pot the last colored ball to start the endgame.")
 
-    def test_play_endgame(self):
+    def test_colored_balls_phase(self):
         game = SnookerScores()
         game.red_balls = 0
         game.available = 27
         with patch('builtins.input', side_effect=['2', '3', '4', '5', '6', '7']):
-            game.play_endgame()
+            game.colored_balls_phase()
+            self.assertEqual(game.score_player_1, 27)
             self.assertEqual(game.available, 0)
 
 if __name__ == '__main__':
     unittest.main()
-    

@@ -37,6 +37,7 @@ class SnookerScores:
                 sys.exit("Bye!")
             elif shot == "s" and self.first_input:
                 self.set_starting_scores()
+                self.first_input = False
                 continue
 
             try:
@@ -54,8 +55,8 @@ class SnookerScores:
         """Set starting scores and the number of red balls left."""
         if not self.red_needed_next:
             print(
-                "Starting scores can only be set \
-                when a red ball is needed next."
+                "Starting scores can only be set "
+                "when a red ball is needed next."
             )
             return
 
@@ -66,9 +67,9 @@ class SnookerScores:
 
             if score_1 < 0 or score_2 < 0 or red_balls < 0 or red_balls > 15:
                 print(
-                    "Invalid input. \
-                    Scores cannot be negative, \
-                    and red balls must be between 0 and 15."
+                    "Invalid input. "
+                    "Scores cannot be negative, "
+                    "and red balls must be between 0 and 15."
                 )
                 return
 
@@ -78,9 +79,9 @@ class SnookerScores:
             self.available -= (score_1 + score_2)
             self.calculate_possible_scores()
             print(
-                f"Starting scores set: \
-                Player 1 = {self.score_player_1}, \
-                Player 2 = {self.score_player_2}"
+                f"Starting scores set: "
+                f"Player 1 = {self.score_player_1}, "
+                f"Player 2 = {self.score_player_2}"
             )
             print(f"Red balls left: {self.red_balls}")
         except ValueError:
@@ -167,6 +168,7 @@ class SnookerScores:
         """Simulate the first phase of the snooker game."""
         while self.red_balls > 0 and self.available >= 27 + 7:
             shot = self.get_shot_value()
+            print(f"Shot value: {shot}, Red balls left: {self.red_balls}, Available points: {self.available}")
 
             if shot == 0:
                 self.handle_miss()
