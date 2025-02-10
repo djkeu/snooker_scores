@@ -121,11 +121,7 @@ class SnookerScores:
             self.update_score(shot)
 
     def handle_miss(self):
-        """
-        Handle logic for when a shot is missed
-        Note: This program is essentially written to keep track of this
-        FixMe: move note to readme.md
-        """
+        """Handle logic for when a shot is missed."""
         if not self.red_needed_next:
             self.available -= 7
         self.red_needed_next = True
