@@ -15,6 +15,7 @@ This program was written to display how many points are still available througho
 - ToDo: possibility for putting ball back after miss
 - ToDo: lose game after three misses
 - ToDo: random startup messages
+- ToDo: GUI
 
 
 ### Snooker rules
