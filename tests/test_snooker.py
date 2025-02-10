@@ -4,7 +4,6 @@ import unittest
 from unittest.mock import patch
 from snooker import SnookerScores
 
-
 class TestSnookerScores(unittest.TestCase):
 
     def test_initial_state(self):
