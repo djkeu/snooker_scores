@@ -161,7 +161,7 @@ class SnookerScores:
     def red_balls_phase(self):
         """Simulate the first phase of the snooker game."""
         print("This is snooker at its best!")
-        # Note: create helper function to deliver random messages
+        # Todo: create function to deliver random startup message
 
         while self.red_balls > 0 and self.available >= 27 + 7:
             shot = self.get_shot_value()
