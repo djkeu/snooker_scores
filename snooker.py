@@ -158,11 +158,13 @@ class SnookerScores:
             else:
                 print("Player 2 must pot a colored ball next.")
 
+    def display_startup_message(self):
+        """Display a random startup message."""
+        print("This is snooker at its best!")
+        # Todo: random startup message
+
     def red_balls_phase(self):
         """Simulate the first phase of the snooker game."""
-        print("This is snooker at its best!")
-        # Todo: create function to deliver random startup message
-
         while self.red_balls > 0 and self.available >= 27 + 7:
             shot = self.get_shot_value()
 
@@ -224,5 +226,6 @@ class SnookerScores:
 
     def show_scores(self):
         """Show all scores."""
+        self.display_startup_message()
         self.red_balls_phase()
         self.colored_balls_phase()
