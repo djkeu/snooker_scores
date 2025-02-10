@@ -49,11 +49,14 @@ class SnookerScores:
             except ValueError:
                 print("\nOnly numbers between 0 and 7 are valid!")
                 self.display_game_state()
-    
+
     def set_starting_scores(self):
-        """Set starting scores for both players and the number of red balls left."""
+        """Set starting scores and the number of red balls left."""
         if not self.red_needed_next:
-            print("Starting scores can only be set when a red ball is needed next.")
+            print(
+                "Starting scores can only be set \
+                when a red ball is needed next."
+            )
             return
 
         try:
@@ -62,7 +65,11 @@ class SnookerScores:
             red_balls = int(input("Enter the number of red balls left: "))
 
             if score_1 < 0 or score_2 < 0 or red_balls < 0 or red_balls > 15:
-                print("Invalid input. Scores cannot be negative, and red balls must be between 0 and 15.")
+                print(
+                    "Invalid input. \
+                    Scores cannot be negative, \
+                    and red balls must be between 0 and 15."
+                )
                 return
 
             self.score_player_1 = score_1
@@ -71,7 +78,11 @@ class SnookerScores:
             # Note:
             self.available -= (score_1 + score_2)
             self.calculate_possible_scores()
-            print(f"Starting scores set: Player 1 = {self.score_player_1}, Player 2 = {self.score_player_2}")
+            print(
+                f"Starting scores set: \
+                Player 1 = {self.score_player_1}, \
+                Player 2 = {self.score_player_2}"
+            )
             print(f"Red balls left: {self.red_balls}")
         except ValueError:
             print("Invalid input. Please enter numeric values.")
@@ -174,7 +185,10 @@ class SnookerScores:
 
     def handle_last_colored_ball(self):
         """Handle last colored ball before starting colored balls phase."""
-        print("\nNo more red balls left! Pot the last colored ball to start the endgame.")
+        print(
+            "\nNo more red balls left! \
+            Pot the last colored ball to start the endgame."
+        )
 
         while self.available > 27:
             shot = self.get_shot_value()
@@ -194,7 +208,11 @@ class SnookerScores:
         print(f"Available for endgame: {self.available}")
 
         while self.available > 0:
-            print(f"Next ball to pot: {self.colored_balls[self.needed_ball]} ({self.needed_ball} points)")
+            print(
+                f"Next ball to pot: \
+                {self.colored_balls[self.needed_ball]} \
+                ({self.needed_ball} points)"
+            )
             shot = self.get_shot_value()
 
             if shot != self.needed_ball:
