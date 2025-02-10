@@ -14,7 +14,8 @@ This program was written to display how many points are still available througho
 - ToDo: penalties for misses
 - ToDo: possibility for putting ball back after miss
 - ToDo: lose game after three misses
-- ToDo: red_balls_phase(): create function to deliver random startup message
+- ToDo: random startup messages
+
 
 ### Snooker rules
 Points are also scored if the opponent makes the following mistakes:
