@@ -8,6 +8,7 @@ This program was written to display how many points are still available througho
 
 
 ### ToDo Section
+- ToDo: add more info to readme.md
 - ToDo: assign key 'p'/'f' to snookers/penalties/fouls
 - ToDo: snookers needed stage
 - ToDo: penalties for misses
