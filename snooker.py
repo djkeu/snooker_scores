@@ -12,7 +12,7 @@ class SnookerScores:
         self.score_player_2 = 0
         self.possible_score_player_1 = 147
         self.possible_score_player_2 = 147
-        self.needed_ball = 2  # colored_balls_phase starts with yellow ball
+        self.color_needed = 2  # colored_balls_phase starts with yellow ball
         self.colored_balls = {
             2: "yellow",
             3: "green",
@@ -209,18 +209,18 @@ class SnookerScores:
         while self.available > 0:
             print(
                 f"Next ball to pot: "
-                f"{self.colored_balls[self.needed_ball]} "
-                f"({self.needed_ball} points)"
+                f"{self.colored_balls[self.color_needed]} "
+                f"({self.color_needed} points)"
             )
             shot = self.get_shot_value()
 
-            if shot != self.needed_ball:
+            if shot != self.color_needed:
                 print("Wrong ball!")
                 self.switch_players()
             else:
-                self.available -= self.needed_ball
+                self.available -= self.color_needed
                 self.update_score(shot)
-                self.needed_ball += 1
+                self.color_needed += 1
 
             self.display_game_state()
 
