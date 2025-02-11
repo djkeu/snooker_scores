@@ -105,6 +105,7 @@ class SnookerScores:
             self.red_balls -= 1
             self.red_needed_next = False
             self.update_score(shot)
+            print(f"Red ball potted. Available: {self.available}")  # Debug logging
         else:
             print("\nYou need to hit a color!")
             self.switch_players()
