@@ -38,3 +38,6 @@ Points are also scored if the opponent makes the following mistakes:
 
 #### Imports
 - sys
+
+#### Testing
+- pytest
