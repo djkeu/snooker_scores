@@ -58,7 +58,7 @@ class SnookerScores:
                 "Starting scores can only be set "
                 "when a red ball is needed next."
             )
-            return
+            return  # Note: not very subtle
 
         try:
             red_balls = int(input("Enter the number of red balls left: "))
