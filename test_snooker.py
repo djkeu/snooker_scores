@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch
-from deep_snooker import SnookerScores
+from snooker import SnookerScores
 
 
 def test_initial_state():
