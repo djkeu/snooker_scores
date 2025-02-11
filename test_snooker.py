@@ -1,6 +1,7 @@
 import pytest
 from unittest.mock import patch
-from snooker import SnookerScores
+from deep_snooker import SnookerScores
+
 
 def test_initial_state():
     """Test the initial state of the SnookerScores class."""
@@ -22,12 +23,14 @@ def test_initial_state():
     }
     assert game.first_input is True
 
+
 def test_get_shot_value_quit():
     """Test quitting the game using 'q'."""
     game = SnookerScores()
     with patch("builtins.input", side_effect=["q"]):
         with pytest.raises(SystemExit):
             game.get_shot_value()
+
 
 def test_get_shot_value_set_starting_scores():
     """Test setting starting scores using 's'."""
@@ -36,6 +39,7 @@ def test_get_shot_value_set_starting_scores():
         with pytest.raises(SystemExit):
             game.get_shot_value()
         assert game.first_input is False
+
 
 def test_update_score():
     """Test updating player scores."""
@@ -46,6 +50,7 @@ def test_update_score():
     game.update_score(3)
     assert game.score_player_2 == 3
 
+
 def test_switch_players():
     """Test switching turns between players."""
     game = SnookerScores()
@@ -55,6 +60,7 @@ def test_switch_players():
     game.switch_players()
     assert game.player_1_turn is True
 
+
 def test_handle_red_ball():
     """Test handling a red ball."""
     game = SnookerScores()
@@ -63,11 +69,13 @@ def test_handle_red_ball():
     assert game.red_balls == 14
     assert game.red_needed_next is False
 
+
 def test_handle_red_ball_reduces_available():
     """Test that handle_red_ball reduces available points correctly."""
     game = SnookerScores()
     game.handle_red_ball(1)
     assert game.available == 146  # 147 - 1
+
 
 def test_handle_color_ball():
     """Test handling a colored ball."""
@@ -77,6 +85,7 @@ def test_handle_color_ball():
     assert game.score_player_1 == 2
     assert game.red_needed_next is True
 
+
 def test_handle_color_ball_reduces_available():
     """Test that handle_color_ball reduces available points correctly."""
     game = SnookerScores()
@@ -84,12 +93,14 @@ def test_handle_color_ball_reduces_available():
     game.handle_color_ball(2)
     assert game.available == 140  # 147 - 7
 
+
 def test_handle_miss():
     """Test handling a missed shot."""
     game = SnookerScores()
     game.handle_miss()
     assert game.red_needed_next is True
     assert game.player_1_turn is False
+
 
 def test_calculate_possible_scores():
     """Test calculating possible scores."""
@@ -100,6 +111,7 @@ def test_calculate_possible_scores():
     assert game.possible_score_player_1 == 157
     assert game.possible_score_player_2 == 167
 
+
 def test_set_starting_scores_valid():
     """Test setting valid starting scores."""
     game = SnookerScores()
@@ -109,6 +121,7 @@ def test_set_starting_scores_valid():
         assert game.score_player_2 == 15
         assert game.red_balls == 10
         assert game.available == 112  # 147 - (20 + 15)
+
 
 def test_set_starting_scores_invalid():
     """Test setting invalid starting scores."""
@@ -123,13 +136,14 @@ def test_set_starting_scores_invalid():
 def test_red_balls_phase():
     """Test the red balls phase."""
     game = SnookerScores()
-    with patch("builtins.input", side_effect=["1", "2"] * 15):
+    with patch("builtins.input", side_effect=["1", "2"] * 15 + ["2"]):  # Add '2' for the last colored ball
         with patch("builtins.print") as mocked_print:
             game.red_balls_phase()
             assert game.red_balls == 0
             assert game.score_player_1 == 45  # 15 red balls (1 point) + 15 yellow balls (2 points)
-            assert game.available == 27  # 147 - (15 * 1) - (15 * 7)
+            assert game.available == 25  # 147 - (15 * 1) - (15 * 7) - 2 (last colored ball)
             mocked_print.assert_any_call("\nNo more red balls left! Pot the last colored ball to start the endgame.")
+
 
 def test_colored_balls_phase():
     """Test the colored balls phase."""
@@ -156,6 +170,7 @@ def test_colored_balls_phase():
             mocked_print.assert_any_call("Next ball to pot: pink (6 points)")
             mocked_print.assert_any_call("Next ball to pot: black (7 points)")
             mocked_print.assert_any_call("\nNo more balls to play!")
+
 
 if __name__ == "__main__":
     pytest.main()
