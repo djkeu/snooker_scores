@@ -121,6 +121,7 @@ class SnookerScores:
             self.available -= 7
             self.red_needed_next = True
             self.update_score(shot)
+            print(f"Colored ball potted. Available: {self.available}")  # Debug logging
 
     def handle_miss(self):
         """Handle logic for when a shot is missed."""
