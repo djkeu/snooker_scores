@@ -63,6 +63,12 @@ def test_handle_red_ball():
     assert game.red_balls == 14
     assert game.red_needed_next is False
 
+def test_handle_red_ball_reduces_available():
+    """Test that handle_red_ball reduces available points correctly."""
+    game = SnookerScores()
+    game.handle_red_ball(1)
+    assert game.available == 146  # 147 - 1
+
 def test_handle_color_ball():
     """Test handling a colored ball."""
     game = SnookerScores()
@@ -70,6 +76,13 @@ def test_handle_color_ball():
     game.handle_color_ball(2)
     assert game.score_player_1 == 2
     assert game.red_needed_next is True
+
+def test_handle_color_ball_reduces_available():
+    """Test that handle_color_ball reduces available points correctly."""
+    game = SnookerScores()
+    game.red_needed_next = False  # Simulate that a red ball was just potted
+    game.handle_color_ball(2)
+    assert game.available == 140  # 147 - 7
 
 def test_handle_miss():
     """Test handling a missed shot."""
