@@ -195,7 +195,7 @@ class SnookerScores:
             if shot < 2 or shot > 7:
                 print("\nYou must pot a colored ball!")
             else:
-                self.available -= 2  # Reduce by 2 (yellow ball value)
+                self.available -= shot
                 self.update_score(shot)
                 self.display_game_state()
                 break
@@ -231,3 +231,4 @@ class SnookerScores:
         self.display_startup_message()
         self.red_balls_phase()
         self.colored_balls_phase()
+
