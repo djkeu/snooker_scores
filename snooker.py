@@ -168,7 +168,7 @@ class SnookerScores:
 
     def red_balls_phase(self):
         """Simulate the first phase of the snooker game."""
-        while self.red_balls > 0 and self.available >= 27 + 7:
+        while self.red_balls > 0:
             shot = self.get_shot_value()
             print(f"Shot value: {shot}, Red balls left: {self.red_balls}, Available points: {self.available}")
 
