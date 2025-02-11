@@ -14,7 +14,7 @@ class TestSnookerScores(unittest.TestCase):
         self.assertEqual(game.score_player_2, 0)
         self.assertEqual(game.possible_score_player_1, 147)
         self.assertEqual(game.possible_score_player_2, 147)
-        self.assertEqual(game.needed_ball, 2)
+        self.assertEqual(game.color_needed, 2)
         self.assertEqual(game.colored_balls, {
             2: "yellow",
             3: "green",
