@@ -133,16 +133,17 @@ def test_set_starting_scores_invalid():
                 "Invalid input. Scores cannot be negative, and red balls must be between 0 and 15."
             )
 
+
 def test_red_balls_phase():
     """Test the red balls phase."""
     game = SnookerScores()
-    with patch("builtins.input", side_effect=["1", "2"] * 14 + ["1", "2"]):  # Simulate potting 14 reds and 14 yellows, then last red and last yellow
+    with patch("builtins.input", side_effect=["1", "2"] * 14 + ["1", "5"]):  # Simulate potting 14 reds and 14 yellows, then last red and blue (5 points)
         with patch("builtins.print") as mocked_print:
             game.red_balls_phase()
             assert game.red_balls == 0
-            assert game.score_player_1 == 45  # 15 red balls (1 point) + 14 yellow balls (2 points) + last yellow (2 points)
-            assert game.available == 32  # 147 - (15 * 1) - (14 * 7) - 2 (last colored ball)
-            mocked_print.assert_any_call("\nNo more red balls left! Pot the last colored ball to start the endgame.")
+            assert game.score_player_1 == 48  # 15 red balls (1 point) + 14 yellow balls (2 points) + last blue (5 points)
+            assert game.available == 29  # 147 - (15 * 1) - (14 * 7) - 5 (last colored ball)
+            mocked_print.assert_any_call("\nNo more red balls left! Pot a colored ball to start the endgame.")
 
 
 def test_colored_balls_phase():

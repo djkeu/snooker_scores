@@ -167,7 +167,7 @@ class SnookerScores:
         # Todo: random startup message
 
     def red_balls_phase(self):
-        while self.red_balls > 0:  # Corrected condition
+        while self.red_balls > 0:
             shot = self.get_shot_value()
             print(f"Shot value: {shot}, Red balls left: {self.red_balls}, Available points: {self.available}")
 
@@ -180,13 +180,14 @@ class SnookerScores:
 
             self.display_game_state()
 
+        # After all red balls are potted, handle the last colored ball
         if self.red_balls == 0:
             self.handle_last_colored_ball()
 
     def handle_last_colored_ball(self):
         print(
             "\nNo more red balls left! "
-            "Pot the last colored ball to start the endgame."
+            "Pot a colored ball to start the endgame."
         )
 
         while self.available > 0:
@@ -195,7 +196,7 @@ class SnookerScores:
             if shot < 2 or shot > 7:
                 print("\nYou must pot a colored ball!")
             else:
-                self.available -= shot
+                self.available -= shot  # Reduce by the value of the colored ball potted
                 self.update_score(shot)
                 self.display_game_state()
                 break
