@@ -13,6 +13,7 @@ This program was/is being written to display how many points are still available
 
 
 ### ToDo Section
+- ToDo: rename available to available_points; snooker.py, test_snooker.py
 - ToDo: add more info to readme.md
 - ToDo: assign key 'p'/'f' to snookers/penalties/fouls
 - ToDo: snookers needed stage
