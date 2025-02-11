@@ -232,4 +232,3 @@ class SnookerScores:
         self.display_startup_message()
         self.red_balls_phase()
         self.colored_balls_phase()
-
