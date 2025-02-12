@@ -130,27 +130,35 @@ def test_set_starting_scores_invalid():
         with patch("builtins.print") as mocked_print:
             game.set_starting_scores()
             mocked_print.assert_called_with(
-                "Invalid input. Scores cannot be negative, and red balls must be between 0 and 15."
+                "Invalid input. "
+                "Scores cannot be negative, "
+                "and red balls must be between 0 and 15."
             )
 
 
 def test_red_balls_phase():
     """Test the red balls phase."""
     game = SnookerScores()
-    with patch("builtins.input", side_effect=["1", "2"] * 14 + ["1", "5"]):  # Simulate potting 14 reds and 14 yellows, then last red and blue (5 points)
+    with patch("builtins.input", side_effect=["1", "2"] * 14 + ["1", "5"]):
+        # (14 * 1) + (14 * 2), 1 + 5 (last blue)
         with patch("builtins.print") as mocked_print:
             game.red_balls_phase()
             assert game.red_balls == 0
-            assert game.score_player_1 == 48  # 15 red balls (1 point) + 14 yellow balls (2 points) + last blue (5 points)
-            assert game.available == 29  # 147 - (15 * 1) - (14 * 7) - 5 (last colored ball)
-            mocked_print.assert_any_call("\nNo more red balls left! Pot a colored ball to start the endgame.")
+            assert game.score_player_1 == 48
+            # (15 * 1) + (14 * 2) + 5 (last blue ball)
+            assert game.available == 29
+            # 147 - (15 * 1) - (14 * 7) - 5 (last blue ball)
+            mocked_print.assert_any_call(
+                "\nNo more red balls left! "
+                "Pot a colored ball to start the endgame."
+            )
 
 
 def test_colored_balls_phase():
     """Test the colored balls phase."""
     game = SnookerScores()
-    game.red_balls = 0  # All red balls have been potted
-    game.available = 27  # Available points for the colored balls phase
+    game.red_balls = 0
+    game.available = 27
     game.score_player_1 = 0  # Reset player scores
     game.score_player_2 = 0  # Reset player scores
     game.color_needed = 2  # Start with the yellow ball
@@ -161,7 +169,7 @@ def test_colored_balls_phase():
             assert game.score_player_1 == 27  # Player 1 pots all colored balls
             assert game.score_player_2 == 0   # Player 2 does not score
             assert game.available == 0        # All points have been potted
-            assert game.color_needed == 8     # All colored balls have been potted
+            assert game.color_needed == 8
             mocked_print.assert_any_call("\nEntering colored balls endgame!\n")
             mocked_print.assert_any_call("Available for endgame: 27")
             mocked_print.assert_any_call("Next ball to pot: yellow (2 points)")
