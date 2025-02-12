@@ -32,6 +32,23 @@ Points are also scored if the opponent makes the following mistakes:
 - Use another cue ball than the white ball,
 - Push balls.
 
+#### De fouten
+Als een stoot een fout geeft, dan krijgt uw tegenstander penalty punten:
+
+- 4 punten als de witte (cue) bal werd gepot.
+- 7 punten als de tijd om het stoten verstreken is ( 60 seconden/ stoot).
+- als de witte bal de verkeerde bal eerst raakt dan de punten van dat kleur. Met een minimum van 4 punten.
+- Als de verkeerde bal eerst wordt gepot, dan de punten van dat kleur. Met een minimum van 4 punten.
+
+Dus wanneer een stoot een fout is. Krijgt de tegenstander die strafpunten bij zijn score.
+Strafpunten hebben een minimum van 4 punten.
+Nadat er een fout werd gemaakt mag de tegenspeler:
+
+- Stoten op de ballen zoals ze liggen.
+- Zijn beurt doorgeven, En hem die stoot laten doen. (Zonder terug te keren naar de vorige positie van het spel.).
+
+
+
 
 ### Requirements
 
