@@ -169,7 +169,10 @@ class SnookerScores:
     def red_balls_phase(self):
         while self.red_balls > 0:
             shot = self.get_shot_value()
-            print(f"Shot value: {shot}, Red balls left: {self.red_balls}, Available points: {self.available}")
+            print(
+                f"Shot value: {shot}, "
+                f"Red balls left: {self.red_balls}, "
+                f"Available points: {self.available}")
 
             if shot == 0:
                 self.handle_miss()
@@ -196,7 +199,7 @@ class SnookerScores:
             if shot < 2 or shot > 7:
                 print("\nYou must pot a colored ball!")
             else:
-                self.available -= shot  # Reduce by the value of the colored ball potted
+                self.available -= shot
                 self.update_score(shot)
                 self.display_game_state()
                 break
