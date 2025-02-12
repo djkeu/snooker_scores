@@ -22,16 +22,15 @@ class SnookerScores:
             7: "black",
         }
         self.first_input = True  # In case user wants to set starting scores
+        self.prompt = "What's the value of the shot: (enter 'q' to quit"
+        if self.first_input:
+            self.prompt += ", 's' to set starting scores"
+        self.prompt += ") "
 
     def get_shot_value(self):
         """Prompt user for the shot value and handle input validation."""
-        prompt = "What's the value of the shot: (enter 'q' to quit"
-        if self.first_input:
-            prompt += ", 's' to set starting scores"
-        prompt += ") "
-
         while True:
-            shot = input(prompt)
+            shot = input(self.prompt)
 
             if shot == "q":
                 sys.exit("Bye!")
@@ -40,16 +39,23 @@ class SnookerScores:
                 self.first_input = False
                 continue
 
-            try:
-                shot = int(shot)
-                if 0 <= shot <= 7:
-                    self.first_input = False
-                    return shot
-                else:
-                    print(f"\nYou can't score {shot} points with one shot!")
-            except ValueError:
-                print("\nOnly numbers between 0 and 7 are valid!")
-                self.display_game_state()
+            if self.validate_shot(shot):
+                self.first_input = False
+                return int(shot)
+
+    def validate_shot(self, shot):
+        """Validate the shot value."""
+        try:
+            shot = int(shot)
+            if 0 <= shot <= 7:
+                return True
+            else:
+                print(f"\nYou can't score {shot} points with one shot!")
+                return False
+        except ValueError:
+            print("\nOnly numbers between 0 and 7 are valid!")
+            self.display_game_state()
+            return False
 
     def set_starting_scores(self):
         """Set starting scores and the number of red balls left."""

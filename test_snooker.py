@@ -41,6 +41,26 @@ def test_get_shot_value_set_starting_scores():
         assert game.first_input is False
 
 
+def test_get_shot_value_invalid():
+    """Test entering an invalid shot value."""
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["8", "q"]):
+        with patch("builtins.print") as mocked_print:
+            with pytest.raises(SystemExit):
+                game.get_shot_value()
+            mocked_print.assert_any_call("\nYou can't score 8 points with one shot!")
+
+
+def test_get_shot_value_non_numeric():
+    """Test entering a non-numeric shot value."""
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["abc", "q"]):
+        with patch("builtins.print") as mocked_print:
+            with pytest.raises(SystemExit):
+                game.get_shot_value()
+            mocked_print.assert_any_call("\nOnly numbers between 0 and 7 are valid!")
+
+
 def test_update_score():
     """Test updating player scores."""
     game = SnookerScores()
