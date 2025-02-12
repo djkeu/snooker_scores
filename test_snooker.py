@@ -70,11 +70,11 @@ def test_handle_red_ball():
     assert game.red_needed_next is False
 
 
-def test_handle_red_ball_reduces_available():
+def test_handle_red_ball_reduces_available_points():
     """Test that handle_red_ball reduces available points correctly."""
     game = SnookerScores()
     game.handle_red_ball(1)
-    assert game.available == 146  # 147 - 1
+    assert game.available_points == 146  # 147 - 1
 
 
 def test_handle_color_ball():
@@ -86,12 +86,12 @@ def test_handle_color_ball():
     assert game.red_needed_next is True
 
 
-def test_handle_color_ball_reduces_available():
+def test_handle_color_ball_reduces_available_points():
     """Test that handle_color_ball reduces available points correctly."""
     game = SnookerScores()
     game.red_needed_next = False  # red ball was just potted
     game.handle_color_ball(2)
-    assert game.available == 140  # 147 - 7
+    assert game.available_points == 140  # 147 - 7
 
 
 def test_handle_miss():
@@ -120,7 +120,7 @@ def test_set_starting_scores_valid():
         assert game.score_player_1 == 20
         assert game.score_player_2 == 15
         assert game.red_balls == 10
-        assert game.available == 112
+        assert game.available_points == 112
 
 
 def test_set_starting_scores_invalid():
@@ -145,7 +145,7 @@ def test_red_balls_phase():
             game.red_balls_phase()
             assert game.red_balls == 0
             assert game.score_player_1 == 48
-            assert game.available == 29
+            assert game.available_points == 29
             # 147 - (15) - (98) - 5 (last blue ball)
             mocked_print.assert_any_call(
                 "\nNo more red balls left! "
@@ -157,7 +157,7 @@ def test_colored_balls_phase():
     """Test the colored balls phase."""
     game = SnookerScores()
     game.red_balls = 0
-    game.available = 27
+    game.available_points = 27
     game.score_player_1 = 0
     game.score_player_2 = 0
     game.color_needed = 2
@@ -167,7 +167,7 @@ def test_colored_balls_phase():
             game.colored_balls_phase()
             assert game.score_player_1 == 27  # Player 1 pots all colored balls
             assert game.score_player_2 == 0
-            assert game.available == 0
+            assert game.available_points == 0
             assert game.color_needed == 8
             mocked_print.assert_any_call("\nEntering colored balls endgame!\n")
             mocked_print.assert_any_call("Available for endgame: 27")
