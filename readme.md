@@ -14,6 +14,7 @@ This program was/is being written to display how many points are still available
 
 ### ToDo Section
 - ToDo: add more info to readme.md
+- ToDo: check the tests in test_snooker.py for accuracy
 - ToDo: assign key 'p'/'f' to snookers/penalties/fouls
 - ToDo: snookers needed stage
 - ToDo: penalties for misses
