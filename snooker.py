@@ -53,13 +53,6 @@ class SnookerScores:
 
     def set_starting_scores(self):
         """Set starting scores and the number of red balls left."""
-        if not self.red_needed_next:
-            print(
-                "Starting scores can only be set "
-                "when a red ball is needed next."
-            )
-            return  # Note: not very subtle
-
         try:
             red_balls = int(input("Enter the number of red balls left: "))
             score_1 = int(input("Enter starting score for Player 1: "))
