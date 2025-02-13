@@ -22,10 +22,15 @@ class SnookerScores:
             7: "black",
         }
         self.first_input = True  # In case user wants to set starting scores
-        self.prompt = "What's the value of the shot: (enter 'q' to quit"
+        self.prompt = self.initialize_prompt()
+
+    def initialize_prompt(self):
+        """Initialize the prompt message."""
+        prompt = "What's the value of the shot: (enter 'q' to quit"
         if self.first_input:
-            self.prompt += ", 's' to set starting scores"
-        self.prompt += ") "
+            prompt += ", 's' to set starting scores"
+        prompt += ") "
+        return prompt
 
     def get_shot_value(self):
         """Prompt user for the shot value and handle input validation."""
