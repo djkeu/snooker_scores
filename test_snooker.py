@@ -6,6 +6,8 @@ from snooker import SnookerScores
 def test_initial_state():
     """Test the initial state of the SnookerScores class."""
     game = SnookerScores()
+    assert game.available_points == 147
+    assert game.red_balls == 15
     assert game.red_needed_next is True
     assert game.player_1_turn is True
     assert game.score_player_1 == 0
@@ -22,7 +24,7 @@ def test_initial_state():
         7: "black",
     }
     assert game.first_input is True
-
+    assert game.prompt == "What's the value of the shot: (enter 'q' to quit, 's' to set starting scores) "
 
 def test_get_shot_value_quit():
     """Test quitting the game using 'q'."""
