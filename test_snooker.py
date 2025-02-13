@@ -26,6 +26,7 @@ def test_initial_state():
     assert game.first_input is True
     assert game.prompt == "What's the value of the shot: (enter 'q' to quit, 's' to set starting scores) "
 
+
 def test_get_shot_value_quit():
     """Test quitting the game using 'q'."""
     game = SnookerScores()
@@ -50,7 +51,9 @@ def test_get_shot_value_invalid():
         with patch("builtins.print") as mocked_print:
             with pytest.raises(SystemExit):
                 game.get_shot_value()
-            mocked_print.assert_any_call("\nYou can't score 8 points with one shot!")
+            mocked_print.assert_any_call(
+                "\nYou can't score 8 points with one shot!"
+            )
 
 
 def test_get_shot_value_non_numeric():
@@ -60,7 +63,9 @@ def test_get_shot_value_non_numeric():
         with patch("builtins.print") as mocked_print:
             with pytest.raises(SystemExit):
                 game.get_shot_value()
-            mocked_print.assert_any_call("\nOnly numbers between 0 and 7 are valid!")
+            mocked_print.assert_any_call(
+                "\nOnly numbers between 0 and 7 are valid!"
+            )
 
 
 def test_update_score():
