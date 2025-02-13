@@ -132,6 +132,8 @@ def test_calculate_possible_scores():
     game.score_player_1 = 10
     game.score_player_2 = 20
     game.calculate_possible_scores()
+    # FixMe: 147 - 10 = 137
+    # FixMe: 147 - 20 = 127
     assert game.possible_score_player_1 == 157
     assert game.possible_score_player_2 == 167
 
