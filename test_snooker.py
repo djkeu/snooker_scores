@@ -111,9 +111,11 @@ def test_handle_color_ball():
 def test_handle_color_ball_reduces_available_points():
     """Test that handle_color_ball reduces available points correctly."""
     game = SnookerScores()
-    game.red_needed_next = False  # red ball was just potted
-    game.handle_color_ball(2)
-    assert game.available_points == 140  # 147 - 7
+    game.red_balls = 13
+    game.available_points = 138  # 147 - 1 - 7 - 1
+    game.red_needed_next = False
+    game.handle_color_ball(3)  # green ball
+    assert game.available_points == 131  # 138 - 7
 
 
 def test_handle_miss():
