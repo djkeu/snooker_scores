@@ -43,6 +43,8 @@ class SnookerScores:
                 self.set_starting_scores()
                 self.first_input = False
                 continue
+            elif shot == 'p':
+                continue
 
             if self.validate_shot(shot):
                 self.first_input = False
