@@ -172,6 +172,13 @@ class SnookerScores:
         print("This is snooker at its best!")
         # Todo: random startup message
 
+    def add_penalty(self):
+        """Add a penalty to the current player's score."""
+        if self.player_1_turn:
+            self.score_player_2 += 4
+        else:
+            self.score_player_1 += 4
+
     def red_balls_phase(self):
         while self.red_balls > 0:
             shot = self.get_shot_value()
