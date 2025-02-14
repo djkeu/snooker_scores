@@ -117,38 +117,39 @@ def test_add_penalty():
     snooker_scores = SnookerScores()
 
     # Test valid penalty input
-    with patch('builtins.input', side_effect=['4']):
+    with patch('builtins.input', side_effect=['4', 'n']):
         snooker_scores.player_1_turn = True
         snooker_scores.add_penalty()
         assert snooker_scores.score_player_2 == 4
         assert snooker_scores.player_1_turn == False
 
     # Test invalid penalty input (out of range)
-    with patch('builtins.input', side_effect=['8', '4']):
+    with patch('builtins.input', side_effect=['8', '4', 'n']):
         snooker_scores.player_1_turn = False
         snooker_scores.add_penalty()
         assert snooker_scores.score_player_1 == 4
         assert snooker_scores.player_1_turn == True
 
     # Test invalid penalty input (non-numeric)
-    with patch('builtins.input', side_effect=['a', '3']):
+    with patch('builtins.input', side_effect=['a', '3', 'n']):
         snooker_scores.player_1_turn = True
         snooker_scores.add_penalty()
         assert snooker_scores.score_player_2 == 7
         assert snooker_scores.player_1_turn == False
 
-    # Test respot balls
+    # Test respot balls with 'y' input
     with patch('builtins.input', side_effect=['3', 'y']):
         snooker_scores.player_1_turn = False
         snooker_scores.add_penalty()
         assert snooker_scores.score_player_1 == 7
-        assert snooker_scores.player_1_turn == True
-
+        assert snooker_scores.player_1_turn == False
+    # Test respot balls with 'n' input
     with patch('builtins.input', side_effect=['3', 'n']):
         snooker_scores.player_1_turn = True
         snooker_scores.add_penalty()
         assert snooker_scores.score_player_2 == 10
         assert snooker_scores.red_needed_next == True
+
 
 def test_update_score():
     """Test updating player scores."""
