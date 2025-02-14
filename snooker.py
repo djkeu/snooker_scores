@@ -151,8 +151,10 @@ class SnookerScores:
 
     def calculate_possible_scores(self):
         """Current score plus remaining available points."""
-        self.possible_score_player_1 = self.score_player_1 + self.available_points
-        self.possible_score_player_2 = self.score_player_2 + self.available_points
+        self.possible_score_player_1 = \
+            self.score_player_1 + self.available_points
+        self.possible_score_player_2 = \
+            self.score_player_2 + self.available_points
 
     def display_game_state(self):
         """Display the current state of the game in the desired format."""
