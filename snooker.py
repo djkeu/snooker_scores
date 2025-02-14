@@ -121,14 +121,17 @@ class SnookerScores:
 
     def respot_balls(self):
         """Respot the balls after a foul."""
-        respot = input("Do you want a respot? (y/n) ")
+        while True:
+            respot = input("Do you want a respot? (y/n) ").lower()
+            if respot in ['y', 'n']:
+                break
+            else:
+                print("Invalid input. Please enter 'y' or 'n'.")
+
         if respot == 'y':
             self.switch_players()
-        elif respot == 'n':
+        elif self.red_balls > 0:
             self.red_needed_next = True
-        else:
-            print("Invalid input. Please enter 'y' or 'n'.")
-            self.respot_balls()
 
     def switch_players(self):
         """Switch turns between players."""
