@@ -14,7 +14,9 @@ This program was/is being written to display how many points are still available
 
 ### ToDo Section
 - ToDo: add more info to readme.md
-- ToDo: assign key 'p'/'f' to snookers/penalties/fouls
+- ToDo: add penalty prompt
+- ToDo: check if players must switch after penalty
+- ToDo: assign key to switch_players if needed
 - ToDo: snookers needed stage
 - ToDo: penalties for misses
 - ToDo: possibility for sitting player to put ball back after miss

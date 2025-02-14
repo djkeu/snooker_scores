@@ -174,10 +174,13 @@ class SnookerScores:
 
     def add_penalty(self):
         """Add a penalty to the current player's score."""
+        # Todo: add penalty prompt
+        penalty = 4
+
         if self.player_1_turn:
-            self.score_player_2 += 4
+            self.score_player_2 += penalty
         else:
-            self.score_player_1 += 4
+            self.score_player_1 += penalty
 
     def red_balls_phase(self):
         while self.red_balls > 0:
