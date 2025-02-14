@@ -44,7 +44,7 @@ class SnookerScores:
                 self.first_input = False
                 continue
             elif shot == 'p':
-                continue
+                self.add_penalty()
 
             if self.validate_shot(shot):
                 self.first_input = False
