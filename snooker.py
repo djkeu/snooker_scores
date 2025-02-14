@@ -99,8 +99,18 @@ class SnookerScores:
 
     def add_penalty(self):
         """Add points to the other player's score."""
-        # Todo: prompt for value of penalty
-        penalty = 4
+        penalty = input("Enter the penalty value: ")
+
+        try:
+            penalty = int(penalty)
+            if penalty < 0 or penalty > 7:
+                print("Invalid penalty value. Penalty must be between 0 and 7.")
+                self.add_penalty()
+                return
+        except ValueError:
+            print("Invalid input. Please enter a numeric value.")
+            self.add_penalty()
+            return
 
         if self.player_1_turn:
             self.score_player_2 += penalty
