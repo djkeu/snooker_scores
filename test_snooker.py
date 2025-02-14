@@ -26,6 +26,7 @@ def test_initial_state():
     assert game.first_input is True
     assert game.prompt == "What's the value of the shot: (enter 'q' to quit, 's' to set starting scores) "
 
+
 # Ball handling
 def test_initialize_prompt():
     snooker_scores = SnookerScores()
@@ -132,6 +133,7 @@ def test_update_score():
     game.update_score(3)
     assert game.score_player_2 == 3
 
+
 def test_switch_players():
     """Test switching turns between players."""
     game = SnookerScores()
@@ -140,6 +142,7 @@ def test_switch_players():
     assert game.player_1_turn is False
     game.switch_players()
     assert game.player_1_turn is True
+
 
 def test_calculate_possible_scores():
     """Test calculating possible scores."""
@@ -151,6 +154,7 @@ def test_calculate_possible_scores():
     assert game.possible_score_player_1 == 127
     assert game.possible_score_player_2 == 137
 
+
 def test_set_starting_scores_valid():
     """Test setting valid starting scores."""
     game = SnookerScores()
@@ -160,6 +164,7 @@ def test_set_starting_scores_valid():
         assert game.score_player_2 == 15
         assert game.red_balls == 10
         assert game.available_points == 112
+
 
 def test_set_starting_scores_invalid():
     """Test setting invalid starting scores."""
@@ -177,34 +182,34 @@ def test_set_starting_scores_invalid():
 def test_add_penalty():
     snooker_scores = SnookerScores()
 
-    # Test valid penalty input
     with patch('builtins.input', side_effect=['4', 'n']):
         snooker_scores.player_1_turn = True
         snooker_scores.add_penalty()
         assert snooker_scores.score_player_2 == 4
         assert snooker_scores.player_1_turn == False
 
-    # Test invalid penalty input (out of range)
+    # Input out of range
     with patch('builtins.input', side_effect=['8', '4', 'n']):
         snooker_scores.player_1_turn = False
         snooker_scores.add_penalty()
         assert snooker_scores.score_player_1 == 4
         assert snooker_scores.player_1_turn == True
 
-    # Test invalid penalty input (non-numeric)
+    # Non-numeric input)
     with patch('builtins.input', side_effect=['a', '3', 'n']):
         snooker_scores.player_1_turn = True
         snooker_scores.add_penalty()
         assert snooker_scores.score_player_2 == 7
         assert snooker_scores.player_1_turn == False
 
-    # Test respot balls with 'y' input
+    # Respot balls with 'y'
     with patch('builtins.input', side_effect=['3', 'y']):
         snooker_scores.player_1_turn = False
         snooker_scores.add_penalty()
         assert snooker_scores.score_player_1 == 7
         assert snooker_scores.player_1_turn == False
-    # Test respot balls with 'n' input
+
+    # Respot balls with 'n'
     with patch('builtins.input', side_effect=['3', 'n']):
         snooker_scores.player_1_turn = True
         snooker_scores.add_penalty()
@@ -217,7 +222,7 @@ def test_red_balls_phase():
     """Test the red balls phase."""
     game = SnookerScores()
     with patch("builtins.input", side_effect=["1", "2"] * 14 + ["1", "5"]):
-        # (14 * 1) + (14 * 2), 1 + 5 (last blue)
+        # (14 * 1) + (14 * 2) + 1 + 5 (last blue)
         with patch("builtins.print") as mocked_print:
             game.red_balls_phase()
             assert game.red_balls == 0
@@ -241,7 +246,7 @@ def test_colored_balls_phase():
     with patch("builtins.input", side_effect=["2", "3", "4", "5", "6", "7"]):
         with patch("builtins.print") as mocked_print:
             game.colored_balls_phase()
-            assert game.score_player_1 == 27  # Player 1 pots all colored balls
+            assert game.score_player_1 == 27
             assert game.score_player_2 == 0
             assert game.available_points == 0
             assert game.color_needed == 8
