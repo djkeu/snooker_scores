@@ -4,7 +4,7 @@ import sys
 class SnookerScores:
     def __init__(self):
         """Initialize the game scores state."""
-        self.available = 147
+        self.available_points = 147
         self.red_balls = 15
         self.red_needed_next = True
         self.player_1_turn = True
@@ -12,7 +12,7 @@ class SnookerScores:
         self.score_player_2 = 0
         self.possible_score_player_1 = 147
         self.possible_score_player_2 = 147
-        self.needed_ball = 2  # For the endgame, starts with yellow ball
+        self.color_needed = 2  # colored_balls_phase starts with yellow ball
         self.colored_balls = {
             2: "yellow",
             3: "green",
@@ -21,74 +21,56 @@ class SnookerScores:
             6: "pink",
             7: "black",
         }
-        self.first_input = True  # Initialize first_input here
+        self.first_input = True  # In case user wants to set starting scores
+        self.prompt = self.initialize_prompt()
+
+    # Ball handling
+    def initialize_prompt(self):
+        """Initialize the prompt message."""
+        prompt = "What's the value of the shot: (enter 'q' to quit"
+        if self.first_input:
+            prompt += ", 's' to set starting scores"
+        prompt += ") "
+        return prompt
 
     def get_shot_value(self):
-        """Prompt the user for the shot value and handle input validation."""
+        """Prompt user for the shot value and handle input validation."""
         while True:
-            if self.first_input:
-                shot = input("What's the value of the shot: (enter 'q' to quit, 's' to set starting scores) ")
-            else:
-                shot = input("What's the value of the shot: (enter 'q' to quit) ")
+            shot = input(self.prompt)
 
             if shot == "q":
                 sys.exit("Bye!")
             elif shot == "s" and self.first_input:
                 self.set_starting_scores()
-                continue  # Return to the input prompt after setting scores
+                self.first_input = False
+                continue
+            elif shot == 'p':
+                self.add_penalty()
 
-            try:
-                shot = int(shot)
-                if 0 <= shot <= 7:
-                    self.first_input = False  # Set first_input to False after the first valid input
-                    return shot
-                else:
-                    print(f"\nYou can't score {shot} points with one shot!")
-            except ValueError:
-                print("\nOnly numbers between 0 and 7 are valid!")
-                self.display_game_state()
+            if self.validate_shot(shot):
+                self.first_input = False
+                return int(shot)
 
-    def set_starting_scores(self):
-        """Set starting scores for both players and the number of red balls left."""
-        if not self.red_needed_next:
-            print("Starting scores can only be set when a red ball is needed next.")
-            return
-
+    def validate_shot(self, shot):
+        """Validate the shot value."""
         try:
-            score_1 = int(input("Enter starting score for Player 1: "))
-            score_2 = int(input("Enter starting score for Player 2: "))
-            red_balls = int(input("Enter the number of red balls left: "))
-
-            if score_1 < 0 or score_2 < 0 or red_balls < 0 or red_balls > 15:
-                print("Invalid input. Scores cannot be negative, and red balls must be between 0 and 15.")
-                return
-
-            self.score_player_1 = score_1
-            self.score_player_2 = score_2
-            self.red_balls = red_balls
-            self.available -= (score_1 + score_2)
-            self.calculate_possible_scores()
-            self.first_input = False  # Update first_input to False after setting scores
-            print(f"Starting scores set: Player 1 = {self.score_player_1}, Player 2 = {self.score_player_2}")
-            print(f"Red balls left: {self.red_balls}")
+            shot = int(shot)
+            if 0 <= shot <= 7:
+                self.first_input = False
+                self.prompt = self.initialize_prompt()
+                return True
+            else:
+                print(f"\nYou can't score {shot} points with one shot!")
+                return False
         except ValueError:
-            print("Invalid input. Please enter numeric values.")
-
-    def update_score(self, shot):
-        """Update the current player's score."""
-        if self.player_1_turn:
-            self.score_player_1 += shot
-        else:
-            self.score_player_2 += shot
-
-    def switch_players(self):
-        """Switch turns between players."""
-        self.player_1_turn = not self.player_1_turn
+            print("\nOnly numbers between 0 and 7 are valid!")
+            self.display_game_state()
+            return False
 
     def handle_red_ball(self, shot):
         """Handle logic for when a red ball is hit."""
         if self.red_needed_next:
-            self.available -= 1
+            self.available_points -= 1
             self.red_balls -= 1
             self.red_needed_next = False
             self.update_score(shot)
@@ -104,25 +86,77 @@ class SnookerScores:
             self.switch_players()
             self.red_needed_next = True
         else:
-            self.available -= 7
+            self.available_points -= 7
             self.red_needed_next = True
             self.update_score(shot)
 
     def handle_miss(self):
         """Handle logic for when a shot is missed."""
         if not self.red_needed_next:
-            # Player missed a color ball
-            self.available -= 7
+            self.available_points -= 7
         self.red_needed_next = True
         self.switch_players()
 
+    def add_penalty(self):
+        """Add points to the other player's score."""
+        # Todo: prompt for value of penalty
+        penalty = 4
+
+        if self.player_1_turn:
+            self.score_player_2 += penalty
+        else:
+            self.score_player_1 += penalty
+
+        self.switch_players()
+        # ToDo: prompt for switch of player back to original player
+
+    def switch_players(self):
+        """Switch turns between players."""
+        self.player_1_turn = not self.player_1_turn
+
+    # Score handling
+    def set_starting_scores(self):
+        """Set starting scores and the number of red balls left."""
+        try:
+            red_balls = int(input("Enter the number of red balls left: "))
+            score_1 = int(input("Enter starting score for Player 1: "))
+            score_2 = int(input("Enter starting score for Player 2: "))
+
+            if score_1 < 0 or score_2 < 0 or red_balls < 0 or red_balls > 15:
+                print(
+                    "Invalid input. "
+                    "Scores cannot be negative, "
+                    "and red balls must be between 0 and 15."
+                )
+                return
+
+            self.score_player_1 = score_1
+            self.score_player_2 = score_2
+            self.red_balls = red_balls
+            self.available_points -= (score_1 + score_2)
+            self.calculate_possible_scores()
+            print(
+                f"Starting scores set: "
+                f"Player 1 = {self.score_player_1}, "
+                f"Player 2 = {self.score_player_2}"
+            )
+            print(f"Red balls left: {self.red_balls}")
+        except ValueError:
+            print("Invalid input. Please enter numeric values.")
+
+    def update_score(self, shot):
+        """Update the current player's score."""
+        if self.player_1_turn:
+            self.score_player_1 += shot
+        else:
+            self.score_player_2 += shot
+
     def calculate_possible_scores(self):
-        """
-        Calculate the possible scores for both players.
-        Which is their current score plus the remaining available points
-        """
-        self.possible_score_player_1 = self.score_player_1 + self.available
-        self.possible_score_player_2 = self.score_player_2 + self.available
+        """Current score plus remaining available points."""
+        self.possible_score_player_1 = \
+            self.score_player_1 + self.available_points
+        self.possible_score_player_2 = \
+            self.score_player_2 + self.available_points
 
     def display_game_state(self):
         """Display the current state of the game in the desired format."""
@@ -138,6 +172,7 @@ class SnookerScores:
 
     def display_next_ball(self):
         """Display which ball the current player must pot next."""
+        # Note: prints possibly abundant, leave for now
         if self.red_needed_next:
             if self.player_1_turn:
                 print("Player 1 must pot a red ball next.")
@@ -149,11 +184,19 @@ class SnookerScores:
             else:
                 print("Player 2 must pot a colored ball next.")
 
-    def main_game(self):
-        """Simulate the main phase of the snooker game."""
+    # Game phases
+    def display_startup_message(self):
+        """Display a random startup message."""
         print("This is snooker at its best!")
-        while self.red_balls > 0 and self.available >= 27 + 7:
+        # Todo: random startup message
+
+    def red_balls_phase(self):
+        while self.red_balls > 0:
             shot = self.get_shot_value()
+            print(
+                f"Shot value: {shot}, "
+                f"Red balls left: {self.red_balls}, "
+                f"Available points: {self.available_points}")
 
             if shot == 0:
                 self.handle_miss()
@@ -164,56 +207,55 @@ class SnookerScores:
 
             self.display_game_state()
 
+        # After all red balls are potted, handle the last colored ball
         if self.red_balls == 0:
             self.handle_last_colored_ball()
 
     def handle_last_colored_ball(self):
-        """Handle the last colored ball before starting the endgame."""
-        print("\nNo more red balls left! Pot the last colored ball to start the endgame.")
-        while self.available > 27:
+        print(
+            "\nNo more red balls left! "
+            "Pot a colored ball to start the endgame."
+        )
+
+        while self.available_points > 0:
             shot = self.get_shot_value()
 
             if shot < 2 or shot > 7:
                 print("\nYou must pot a colored ball!")
             else:
-                self.available -= shot
+                self.available_points -= shot
                 self.update_score(shot)
                 self.display_game_state()
                 break
 
-    def endgame(self):
-        """Simulate the endgame phase of the snooker game."""
+    def colored_balls_phase(self):
+        """Simulate the colored balls phase."""
         print("\nEntering colored balls endgame!\n")
-        self.available = 27
-        print(f"Available for endgame: {self.available}")
+        self.available_points = 27
+        print(f"Available for endgame: {self.available_points}")
 
-        while self.available > 0:
-            print(f"Next ball to pot: {self.colored_balls[self.needed_ball]} ({self.needed_ball} points)")
+        while self.available_points > 0:
+            print(
+                f"Next ball to pot: "
+                f"{self.colored_balls[self.color_needed]} "
+                f"({self.color_needed} points)"
+            )
             shot = self.get_shot_value()
 
-            if shot != self.needed_ball:
+            if shot != self.color_needed:
                 print("Wrong ball!")
                 self.switch_players()
             else:
-                self.available -= self.needed_ball
+                self.available_points -= self.color_needed
                 self.update_score(shot)
-                self.needed_ball += 1
+                self.color_needed += 1
 
             self.display_game_state()
 
         print("\nNo more balls to play!")
 
-    def show_scores(self):
-        """Show all snooker scores."""
-        self.main_game()
-        self.endgame()
-
-
-def main():
-    """Show the snooker scores."""
-    score = SnookerScores()
-    score.show_scores()
-
-
-if __name__ == "__main__":
-    main()
+    def start_game(self):
+        """Start the program."""
+        self.display_startup_message()
+        self.red_balls_phase()
+        self.colored_balls_phase()
