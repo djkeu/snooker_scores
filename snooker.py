@@ -178,6 +178,7 @@ class SnookerScores:
             self.score_player_1 += penalty
 
         self.switch_players()
+        # ToDo: prompt for switch of player
 
     def display_startup_message(self):
         """Display a random startup message."""
