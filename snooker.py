@@ -167,20 +167,21 @@ class SnookerScores:
             else:
                 print("Player 2 must pot a colored ball next.")
 
-    def display_startup_message(self):
-        """Display a random startup message."""
-        print("This is snooker at its best!")
-        # Todo: random startup message
-
     def add_penalty(self):
-        """Add a penalty to the current player's score."""
-        # Todo: add penalty prompt
+        """Add points to the other player's score."""
+        # Todo: prompt for value of penalty
         penalty = 4
 
         if self.player_1_turn:
             self.score_player_2 += penalty
         else:
             self.score_player_1 += penalty
+
+
+    def display_startup_message(self):
+        """Display a random startup message."""
+        print("This is snooker at its best!")
+        # Todo: random startup message
 
     def red_balls_phase(self):
         while self.red_balls > 0:
