@@ -3,6 +3,7 @@ from unittest.mock import patch
 from snooker import SnookerScores
 
 
+# Ball handling
 def test_initial_state():
     """Test the initial state of the SnookerScores class."""
     game = SnookerScores()
@@ -151,6 +152,7 @@ def test_add_penalty():
         assert snooker_scores.red_needed_next == True
 
 
+# Score handling
 def test_update_score():
     """Test updating player scores."""
     game = SnookerScores()
@@ -201,6 +203,8 @@ def test_set_starting_scores_invalid():
                 "and red balls must be between 0 and 15."
             )
 
+
+# Game phases
 def test_red_balls_phase():
     """Test the red balls phase."""
     game = SnookerScores()
