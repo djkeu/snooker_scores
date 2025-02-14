@@ -56,6 +56,8 @@ class SnookerScores:
         try:
             shot = int(shot)
             if 0 <= shot <= 7:
+                self.first_input = False
+                self.prompt = self.initialize_prompt()
                 return True
             else:
                 print(f"\nYou can't score {shot} points with one shot!")
