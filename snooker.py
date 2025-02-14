@@ -24,6 +24,7 @@ class SnookerScores:
         self.first_input = True  # In case user wants to set starting scores
         self.prompt = self.initialize_prompt()
 
+    # Ball handling
     def initialize_prompt(self):
         """Initialize the prompt message."""
         prompt = "What's the value of the shot: (enter 'q' to quit"
@@ -64,6 +65,56 @@ class SnookerScores:
             self.display_game_state()
             return False
 
+    def handle_red_ball(self, shot):
+        """Handle logic for when a red ball is hit."""
+        if self.red_needed_next:
+            self.available_points -= 1
+            self.red_balls -= 1
+            self.red_needed_next = False
+            self.update_score(shot)
+            print(f"Red ball potted. Available: {self.available_points}")  # Debug logging
+        else:
+            print("\nYou need to hit a color!")
+            self.switch_players()
+            self.red_needed_next = True
+
+    def handle_color_ball(self, shot):
+        """Handle logic for when a color ball is hit."""
+        if self.red_needed_next:
+            print("\nYou need to hit a red ball first!")
+            self.switch_players()
+            self.red_needed_next = True
+        else:
+            self.available_points -= 7  # Always reduce by 7 (black ball value)
+            self.red_needed_next = True
+            self.update_score(shot)
+            print(f"Colored ball potted. Available: {self.available_points}")  # Debug logging
+
+    def handle_miss(self):
+        """Handle logic for when a shot is missed."""
+        if not self.red_needed_next:
+            self.available_points -= 7
+        self.red_needed_next = True
+        self.switch_players()
+
+    def add_penalty(self):
+        """Add points to the other player's score."""
+        # Todo: prompt for value of penalty
+        penalty = 4
+
+        if self.player_1_turn:
+            self.score_player_2 += penalty
+        else:
+            self.score_player_1 += penalty
+
+        self.switch_players()
+        # ToDo: prompt for switch of player back to original player
+
+    def switch_players(self):
+        """Switch turns between players."""
+        self.player_1_turn = not self.player_1_turn
+
+    # Score handling
     def set_starting_scores(self):
         """Set starting scores and the number of red balls left."""
         try:
@@ -100,42 +151,6 @@ class SnookerScores:
         else:
             self.score_player_2 += shot
 
-    def switch_players(self):
-        """Switch turns between players."""
-        self.player_1_turn = not self.player_1_turn
-
-    def handle_red_ball(self, shot):
-        """Handle logic for when a red ball is hit."""
-        if self.red_needed_next:
-            self.available_points -= 1
-            self.red_balls -= 1
-            self.red_needed_next = False
-            self.update_score(shot)
-            print(f"Red ball potted. Available: {self.available_points}")  # Debug logging
-        else:
-            print("\nYou need to hit a color!")
-            self.switch_players()
-            self.red_needed_next = True
-
-    def handle_color_ball(self, shot):
-        """Handle logic for when a color ball is hit."""
-        if self.red_needed_next:
-            print("\nYou need to hit a red ball first!")
-            self.switch_players()
-            self.red_needed_next = True
-        else:
-            self.available_points -= 7  # Always reduce by 7 (black ball value)
-            self.red_needed_next = True
-            self.update_score(shot)
-            print(f"Colored ball potted. Available: {self.available_points}")  # Debug logging
-
-    def handle_miss(self):
-        """Handle logic for when a shot is missed."""
-        if not self.red_needed_next:
-            self.available_points -= 7
-        self.red_needed_next = True
-        self.switch_players()
-
     def calculate_possible_scores(self):
         """Current score plus remaining available points."""
         self.possible_score_player_1 = self.score_player_1 + self.available_points
@@ -167,19 +182,7 @@ class SnookerScores:
             else:
                 print("Player 2 must pot a colored ball next.")
 
-    def add_penalty(self):
-        """Add points to the other player's score."""
-        # Todo: prompt for value of penalty
-        penalty = 4
-
-        if self.player_1_turn:
-            self.score_player_2 += penalty
-        else:
-            self.score_player_1 += penalty
-
-        self.switch_players()
-        # ToDo: prompt for switch of player back to original player
-
+    # Game phases
     def display_startup_message(self):
         """Display a random startup message."""
         print("This is snooker at its best!")
