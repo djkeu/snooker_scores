@@ -97,42 +97,6 @@ class SnookerScores:
         self.red_needed_next = True
         self.switch_players()
 
-    def add_penalty(self):
-        """Add points to the other player's score."""
-        while True:
-            penalty = input("Enter the penalty value: ")
-
-            try:
-                penalty = int(penalty)
-                if 0 <= penalty <= 7:
-                    break
-                else:
-                    print("Invalid penalty value. Penalty must be between 0 and 7.")
-            except ValueError:
-                print("Invalid input. Please enter a numeric value.")
-
-        if self.player_1_turn:
-            self.score_player_2 += penalty
-        else:
-            self.score_player_1 += penalty
-
-        self.switch_players()
-        self.respot_balls()
-
-    def respot_balls(self):
-        """Respot the balls after a foul."""
-        while True:
-            respot = input("Do you want a respot? (y/n) ").lower()
-            if respot in ['y', 'n']:
-                break
-            else:
-                print("Invalid input. Please enter 'y' or 'n'.")
-
-        if respot == 'y':
-            self.switch_players()
-        elif self.red_balls > 0:
-            self.red_needed_next = True
-
     def switch_players(self):
         """Switch turns between players."""
         self.player_1_turn = not self.player_1_turn
@@ -206,6 +170,42 @@ class SnookerScores:
                 print("Player 1 must pot a colored ball next.")
             else:
                 print("Player 2 must pot a colored ball next.")
+
+    def add_penalty(self):
+        """Add points to the other player's score."""
+        while True:
+            penalty = input("Enter the penalty value: ")
+
+            try:
+                penalty = int(penalty)
+                if 0 <= penalty <= 7:
+                    break
+                else:
+                    print("Invalid penalty value. Penalty must be between 0 and 7.")
+            except ValueError:
+                print("Invalid input. Please enter a numeric value.")
+
+        if self.player_1_turn:
+            self.score_player_2 += penalty
+        else:
+            self.score_player_1 += penalty
+
+        self.switch_players()
+        self.respot_balls()
+
+    def respot_balls(self):
+        """Respot the balls after a foul."""
+        while True:
+            respot = input("Do you want a respot? (y/n) ").lower()
+            if respot in ['y', 'n']:
+                break
+            else:
+                print("Invalid input. Please enter 'y' or 'n'.")
+
+        if respot == 'y':
+            self.switch_players()
+        elif self.red_balls > 0:
+            self.red_needed_next = True
 
     # Game phases
     def display_startup_message(self):
