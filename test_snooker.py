@@ -75,24 +75,6 @@ def test_get_shot_value_non_numeric():
                 "\nOnly numbers between 0 and 7 are valid!"
             )
 
-def test_update_score():
-    """Test updating player scores."""
-    game = SnookerScores()
-    game.update_score(5)
-    assert game.score_player_1 == 5
-    game.switch_players()
-    game.update_score(3)
-    assert game.score_player_2 == 3
-
-def test_switch_players():
-    """Test switching turns between players."""
-    game = SnookerScores()
-    assert game.player_1_turn is True
-    game.switch_players()
-    assert game.player_1_turn is False
-    game.switch_players()
-    assert game.player_1_turn is True
-
 def test_handle_red_ball():
     """Test handling a red ball."""
     game = SnookerScores()
@@ -130,6 +112,61 @@ def test_handle_miss():
     game.handle_miss()
     assert game.red_needed_next is True
     assert game.player_1_turn is False
+
+def test_add_penalty():
+    snooker_scores = SnookerScores()
+
+    # Test valid penalty input
+    with patch('builtins.input', side_effect=['4']):
+        snooker_scores.player_1_turn = True
+        snooker_scores.add_penalty()
+        assert snooker_scores.score_player_2 == 4
+        assert snooker_scores.player_1_turn == False
+
+    # Test invalid penalty input (out of range)
+    with patch('builtins.input', side_effect=['8', '4']):
+        snooker_scores.player_1_turn = False
+        snooker_scores.add_penalty()
+        assert snooker_scores.score_player_1 == 4
+        assert snooker_scores.player_1_turn == True
+
+    # Test invalid penalty input (non-numeric)
+    with patch('builtins.input', side_effect=['a', '3']):
+        snooker_scores.player_1_turn = True
+        snooker_scores.add_penalty()
+        assert snooker_scores.score_player_2 == 7
+        assert snooker_scores.player_1_turn == False
+
+    # Test respot balls
+    with patch('builtins.input', side_effect=['3', 'y']):
+        snooker_scores.player_1_turn = False
+        snooker_scores.add_penalty()
+        assert snooker_scores.score_player_1 == 7
+        assert snooker_scores.player_1_turn == True
+
+    with patch('builtins.input', side_effect=['3', 'n']):
+        snooker_scores.player_1_turn = True
+        snooker_scores.add_penalty()
+        assert snooker_scores.score_player_2 == 10
+        assert snooker_scores.red_needed_next == True
+
+def test_update_score():
+    """Test updating player scores."""
+    game = SnookerScores()
+    game.update_score(5)
+    assert game.score_player_1 == 5
+    game.switch_players()
+    game.update_score(3)
+    assert game.score_player_2 == 3
+
+def test_switch_players():
+    """Test switching turns between players."""
+    game = SnookerScores()
+    assert game.player_1_turn is True
+    game.switch_players()
+    assert game.player_1_turn is False
+    game.switch_players()
+    assert game.player_1_turn is True
 
 def test_calculate_possible_scores():
     """Test calculating possible scores."""
