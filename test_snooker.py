@@ -26,6 +26,17 @@ def test_initial_state():
     assert game.first_input is True
     assert game.prompt == "What's the value of the shot: (enter 'q' to quit, 's' to set starting scores) "
 
+def test_initialize_prompt():
+    snooker_scores = SnookerScores()
+    
+    # Test when first_input is True
+    expected_prompt = "What's the value of the shot: (enter 'q' to quit, 's' to set starting scores) "
+    assert snooker_scores.initialize_prompt() == expected_prompt
+    
+    # Test when first_input is False
+    snooker_scores.first_input = False
+    expected_prompt = "What's the value of the shot: (enter 'q' to quit) "
+    assert snooker_scores.initialize_prompt() == expected_prompt
 
 def test_get_shot_value_quit():
     """Test quitting the game using 'q'."""
@@ -34,7 +45,6 @@ def test_get_shot_value_quit():
         with pytest.raises(SystemExit):
             game.get_shot_value()
 
-
 def test_get_shot_value_set_starting_scores():
     """Test setting starting scores using 's'."""
     game = SnookerScores()
@@ -42,7 +52,6 @@ def test_get_shot_value_set_starting_scores():
         with pytest.raises(SystemExit):
             game.get_shot_value()
         assert game.first_input is False
-
 
 def test_get_shot_value_invalid():
     """Test entering an invalid shot value."""
@@ -55,7 +64,6 @@ def test_get_shot_value_invalid():
                 "\nYou can't score 8 points with one shot!"
             )
 
-
 def test_get_shot_value_non_numeric():
     """Test entering a non-numeric shot value."""
     game = SnookerScores()
@@ -67,7 +75,6 @@ def test_get_shot_value_non_numeric():
                 "\nOnly numbers between 0 and 7 are valid!"
             )
 
-
 def test_update_score():
     """Test updating player scores."""
     game = SnookerScores()
@@ -76,7 +83,6 @@ def test_update_score():
     game.switch_players()
     game.update_score(3)
     assert game.score_player_2 == 3
-
 
 def test_switch_players():
     """Test switching turns between players."""
@@ -87,7 +93,6 @@ def test_switch_players():
     game.switch_players()
     assert game.player_1_turn is True
 
-
 def test_handle_red_ball():
     """Test handling a red ball."""
     game = SnookerScores()
@@ -96,13 +101,11 @@ def test_handle_red_ball():
     assert game.red_balls == 14
     assert game.red_needed_next is False
 
-
 def test_handle_red_ball_reduces_available_points():
     """Test that handle_red_ball reduces available points correctly."""
     game = SnookerScores()
     game.handle_red_ball(1)
     assert game.available_points == 146  # 147 - 1
-
 
 def test_handle_color_ball():
     """Test handling a colored ball."""
@@ -111,7 +114,6 @@ def test_handle_color_ball():
     game.handle_color_ball(2)
     assert game.score_player_1 == 2
     assert game.red_needed_next is True
-
 
 def test_handle_color_ball_reduces_available_points():
     """Test that handle_color_ball reduces available points correctly."""
@@ -122,14 +124,12 @@ def test_handle_color_ball_reduces_available_points():
     game.handle_color_ball(3)  # green ball
     assert game.available_points == 131  # 138 - 7
 
-
 def test_handle_miss():
     """Test handling a missed shot."""
     game = SnookerScores()
     game.handle_miss()
     assert game.red_needed_next is True
     assert game.player_1_turn is False
-
 
 def test_calculate_possible_scores():
     """Test calculating possible scores."""
@@ -141,7 +141,6 @@ def test_calculate_possible_scores():
     assert game.possible_score_player_1 == 127
     assert game.possible_score_player_2 == 137
 
-
 def test_set_starting_scores_valid():
     """Test setting valid starting scores."""
     game = SnookerScores()
@@ -151,7 +150,6 @@ def test_set_starting_scores_valid():
         assert game.score_player_2 == 15
         assert game.red_balls == 10
         assert game.available_points == 112
-
 
 def test_set_starting_scores_invalid():
     """Test setting invalid starting scores."""
@@ -164,7 +162,6 @@ def test_set_starting_scores_invalid():
                 "Scores cannot be negative, "
                 "and red balls must be between 0 and 15."
             )
-
 
 def test_red_balls_phase():
     """Test the red balls phase."""
@@ -181,7 +178,6 @@ def test_red_balls_phase():
                 "\nNo more red balls left! "
                 "Pot a colored ball to start the endgame."
             )
-
 
 def test_colored_balls_phase():
     """Test the colored balls phase."""
