@@ -72,7 +72,6 @@ class SnookerScores:
             self.red_balls -= 1
             self.red_needed_next = False
             self.update_score(shot)
-            print(f"Red ball potted. Available: {self.available_points}")  # Debug logging
         else:
             print("\nYou need to hit a color!")
             self.switch_players()
@@ -85,10 +84,9 @@ class SnookerScores:
             self.switch_players()
             self.red_needed_next = True
         else:
-            self.available_points -= 7  # Always reduce by 7 (black ball value)
+            self.available_points -= 7
             self.red_needed_next = True
             self.update_score(shot)
-            print(f"Colored ball potted. Available: {self.available_points}")  # Debug logging
 
     def handle_miss(self):
         """Handle logic for when a shot is missed."""
