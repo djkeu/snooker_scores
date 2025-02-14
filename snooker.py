@@ -177,6 +177,7 @@ class SnookerScores:
         else:
             self.score_player_1 += penalty
 
+        self.switch_players()
 
     def display_startup_message(self):
         """Display a random startup message."""
