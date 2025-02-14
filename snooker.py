@@ -252,8 +252,8 @@ class SnookerScores:
 
         print("\nNo more balls to play!")
 
-    def show_scores(self):
-        """Show all scores."""
+    def start_game(self):
+        """Start the program."""
         self.display_startup_message()
         self.red_balls_phase()
         self.colored_balls_phase()
