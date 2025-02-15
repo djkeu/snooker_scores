@@ -160,7 +160,7 @@ def test_set_starting_scores_negative_scores():
 
     with patch('builtins.input', side_effect=["10", "-10", "20", "10", "50", "60"]):
         game.set_starting_scores()
-    
+
     assert game.red_balls == 10
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
@@ -172,7 +172,7 @@ def test_set_starting_scores_total_score_exceeds_147():
 
     with patch('builtins.input', side_effect=["10", "100", "50", "10", "50", "60"]):
         game.set_starting_scores()
-    
+
     assert game.red_balls == 10
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
@@ -185,7 +185,7 @@ def test_set_starting_scores_invalid_red_balls():
     with patch('builtins.input', side_effect=["20", "10", "50", "10", "50", "60"]):
         with patch('builtins.print') as mocked_print:
             game.set_starting_scores()
-    
+
     mocked_print.assert_any_call("\nNumber of red balls must be between 0 and 15.")
     assert game.red_balls == 10
     assert game.score_player_1 == 50
@@ -198,7 +198,7 @@ def test_set_starting_scores_non_numeric_input():
 
     with patch('builtins.input', side_effect=["abc", "10", "50", "60"]):
         game.set_starting_scores()
-    
+
     assert game.red_balls == 10
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
@@ -211,35 +211,35 @@ def test_add_penalty():
         snooker_scores.player_1_turn = True
         snooker_scores.add_penalty()
         assert snooker_scores.score_player_2 == 4
-        assert snooker_scores.player_1_turn == False
+        assert snooker_scores.player_1_turn is False
 
     # Input out of range
     with patch('builtins.input', side_effect=['8', '4', 'n']):
         snooker_scores.player_1_turn = False
         snooker_scores.add_penalty()
         assert snooker_scores.score_player_1 == 4
-        assert snooker_scores.player_1_turn == True
+        assert snooker_scores.player_1_turn is True
 
     # Non-numeric input)
     with patch('builtins.input', side_effect=['a', '3', 'n']):
         snooker_scores.player_1_turn = True
         snooker_scores.add_penalty()
         assert snooker_scores.score_player_2 == 7
-        assert snooker_scores.player_1_turn == False
+        assert snooker_scores.player_1_turn is False
 
     # Respot balls with 'y'
     with patch('builtins.input', side_effect=['3', 'y']):
         snooker_scores.player_1_turn = False
         snooker_scores.add_penalty()
         assert snooker_scores.score_player_1 == 7
-        assert snooker_scores.player_1_turn == False
+        assert snooker_scores.player_1_turn is False
 
     # Respot balls with 'n'
     with patch('builtins.input', side_effect=['3', 'n']):
         snooker_scores.player_1_turn = True
         snooker_scores.add_penalty()
         assert snooker_scores.score_player_2 == 10
-        assert snooker_scores.red_needed_next == True
+        assert snooker_scores.red_needed_next is True
 
 
 # Game phases
