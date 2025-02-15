@@ -29,10 +29,10 @@ def test_initial_state():
 # Ball handling
 def test_initialize_prompt():
     snooker_scores = SnookerScores()
-    
+
     expected_prompt = "What's the value of the shot: (enter 'q' to quit, 's' to set starting scores) "
     assert snooker_scores.initialize_prompt() == expected_prompt
-    
+
     snooker_scores.first_input = False
     expected_prompt = "What's the value of the shot: (enter 'q' to quit) "
     assert snooker_scores.initialize_prompt() == expected_prompt
@@ -148,7 +148,7 @@ def test_set_starting_scores_valid_input():
 
     with patch('builtins.input', side_effect=["10", "50", "60"]):
         game.set_starting_scores()
-    
+
     assert game.red_balls == 10
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
