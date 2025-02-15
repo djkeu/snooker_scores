@@ -109,25 +109,22 @@ class SnookerScores:
             score_1 = int(input("Enter starting score for Player 1: "))
             score_2 = int(input("Enter starting score for Player 2: "))
 
-            if score_1 < 0 or score_2 < 0 or red_balls < 0 or red_balls > 15:
-                print(
-                    "Invalid input. "
-                    "Scores cannot be negative, "
-                    "and red balls must be between 0 and 15."
-                )
-                return
+            if score_1 < 0 or score_2 < 0:
+                print("\nScores cannot be negative")
+                self.set_starting_scores()
+            elif score_1 + score_2 > 147:
+                print("\nTotal score must be less than 147")
+                self.set_starting_scores()
+            elif red_balls < 0 or red_balls > 15:
+                print("\nRed balls must be between 0 and 15.")
+                self.set_starting_scores()
 
             self.score_player_1 = score_1
             self.score_player_2 = score_2
             self.red_balls = red_balls
             self.available_points -= (score_1 + score_2)
             self.calculate_possible_scores()
-            print(
-                f"Starting scores set: "
-                f"Player 1 = {self.score_player_1}, "
-                f"Player 2 = {self.score_player_2}"
-            )
-            print(f"Red balls left: {self.red_balls}")
+            self.display_game_state()
         except ValueError:
             print("Invalid input. Please enter numeric values.")
 
