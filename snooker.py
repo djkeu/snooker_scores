@@ -114,11 +114,11 @@ class SnookerScores:
                 if score_1 < 0 or score_2 < 0:
                     print("\nScores cannot be negative")
                     continue
-                elif score_1 + score_2 > 147:  # FixMe: calculate with red balls
-                    print("\nTotal score must be less than 147")
-                    continue
                 elif red_balls < 0 or red_balls > 15:
                     print("\nNumber of red balls must be between 0 and 15.")
+                    continue
+                elif score_1 + score_2 + red_balls * 8 > 147:
+                    print("\nTotal score must be less than 147")
                     continue
 
                 self.score_player_1 = score_1
