@@ -13,7 +13,6 @@ This program was/is being written to display how many points are still available
 
 
 ### ToDo Section
-- ToDo: add leading underscore to internal function names
 - ToDo: move prints to seperate functions
 - ToDo: assign + key to show more information
 - ToDo: add hotkeys + explanation to display_startup_message
