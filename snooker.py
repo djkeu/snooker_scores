@@ -116,7 +116,7 @@ class SnookerScores:
                 print("\nTotal score must be less than 147")
                 self.set_starting_scores()
             elif red_balls < 0 or red_balls > 15:
-                print("\nRed balls must be between 0 and 15.")
+                print("\nNumber of red balls must be between 0 and 15.")
                 self.set_starting_scores()
 
             self.score_player_1 = score_1
