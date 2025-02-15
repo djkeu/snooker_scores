@@ -21,7 +21,7 @@ class SnookerScores:
             6: "pink",
             7: "black",
         }
-        self.first_input = True  # In case user wants to set starting scores
+        self.first_input = True
         self.prompt = self.initialize_prompt()
 
     # Ball handling
