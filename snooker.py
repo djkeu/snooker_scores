@@ -182,10 +182,9 @@ class SnookerScores:
                 if 0 <= penalty <= 7:
                     break
                 else:
-                    print("Invalid penalty value. "
-                          "Penalty must be between 0 and 7.")
+                    raise ValueError
             except ValueError:
-                print("Invalid input. Please enter a numeric value.")
+                print("Penalty must be between 0 and 7")
 
         if self.player_1_turn:
             self.score_player_2 += penalty
