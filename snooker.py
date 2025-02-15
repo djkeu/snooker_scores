@@ -62,11 +62,10 @@ class SnookerScores:
                 self.prompt = self.initialize_prompt()
                 return True
             else:
-                print(f"\nYou can't score {shot} points with one shot!")
-                return False
+                raise ValueError
         except ValueError:
             print("\nOnly numbers between 0 and 7 are valid!")
-            self.display_game_state()
+            # self.display_game_state()
             return False
 
     def handle_red_ball(self, shot):

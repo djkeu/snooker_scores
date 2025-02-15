@@ -60,7 +60,7 @@ def test_get_shot_value_invalid():
             with pytest.raises(SystemExit):
                 game.get_shot_value()
             mocked_print.assert_any_call(
-                "\nYou can't score 8 points with one shot!"
+                "\nOnly numbers between 0 and 7 are valid!"
             )
 
 def test_get_shot_value_non_numeric():
