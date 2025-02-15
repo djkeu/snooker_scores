@@ -4,7 +4,6 @@ import sys
 class SnookerScores:
     def __init__(self):
         """Initialize the game scores state."""
-        # FixMe: hardcoded values in methods
         self.red_balls = 15
         self.available_points = self.red_balls * (8 + 27)
         self.red_needed_next = True
