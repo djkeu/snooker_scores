@@ -14,7 +14,7 @@ def test_initial_state():
     assert game.score_player_2 == 0
     assert game.possible_score_player_1 == 147
     assert game.possible_score_player_2 == 147
-    assert game.color_needed == 2
+    assert game.yellow_ball == 2
     assert game.colored_balls == {
         2: "yellow",
         3: "green",
@@ -266,7 +266,7 @@ def test_colored_balls_phase():
     game.available_points = 27
     game.score_player_1 = 0
     game.score_player_2 = 0
-    game.color_needed = 2
+    game.yellow_ball = 2
 
     with patch("builtins.input", side_effect=["2", "3", "4", "5", "6", "7"]):
         with patch("builtins.print") as mocked_print:
@@ -274,7 +274,7 @@ def test_colored_balls_phase():
             assert game.score_player_1 == 27
             assert game.score_player_2 == 0
             assert game.available_points == 0
-            assert game.color_needed == 8
+            assert game.yellow_ball == 8
             mocked_print.assert_any_call("\nEntering colored balls endgame!\n")
             mocked_print.assert_any_call("Available for endgame: 27")
             mocked_print.assert_any_call("Next ball to pot: yellow (2 points)")
