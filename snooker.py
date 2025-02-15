@@ -6,7 +6,7 @@ class SnookerScores:
         """Initialize the game scores state."""
         # FixMe: hardcoded values in methods
         self.red_balls = 15
-        self.available_points = self.red_balls * 8 + 27
+        self.available_points = self.red_balls * (8 + 27)
         self.red_needed_next = True
         self.player_1_turn = True
         self.score_player_1 = 0
