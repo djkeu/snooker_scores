@@ -148,11 +148,11 @@ class SnookerScores:
         """Display the current state of the game in the desired format."""
         self.calculate_possible_scores()
 
-        print(f"\nScore player 1: {self.score_player_1}")
-        print(f"Possible score player 1: {self.possible_score_player_1}")
-        print(f"Score player 2: {self.score_player_2}")
-        print(f"Possible score player 2: {self.possible_score_player_2}")
-        print(f"Red balls left: {self.red_balls}")
+        print(f"\nPlayer 1: score {self.score_player_1}, "
+              f"possible score {self.possible_score_player_1}")
+        print(f"Player 2: score {self.score_player_2}, "
+              f"possible score {self.possible_score_player_2}")
+        print(f"{self.red_balls} red balls left")
 
         self.display_next_ball()
 
