@@ -4,8 +4,8 @@ import sys
 class SnookerScores:
     def __init__(self):
         """Initialize the game scores state."""
-        self.available_points = 147
         self.red_balls = 15
+        self.available_points = self.red_balls * 8 + 27
         self.red_needed_next = True
         self.player_1_turn = True
         self.score_player_1 = 0
@@ -125,10 +125,10 @@ class SnookerScores:
                 self.score_player_1 = score_1
                 self.score_player_2 = score_2
                 self.red_balls = red_balls
-                self.available_points -= (score_1 + score_2)
+                self.available_points = (self.red_balls * 8) + 27
                 self.calculate_possible_scores()
                 self.display_game_state()
-                break  # Exit the loop if all inputs are valid
+                break
             except ValueError:
                 print("Invalid input. Please enter numeric values.")
 
