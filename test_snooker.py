@@ -26,7 +26,6 @@ def test_initial_state():
     assert game.first_input is True
     assert game.prompt == "What's the value of the shot: (enter 'q' to quit, 's' to set starting scores) "
 
-
 # Ball handling
 def test_initialize_prompt():
     snooker_scores = SnookerScores()
@@ -38,14 +37,12 @@ def test_initialize_prompt():
     expected_prompt = "What's the value of the shot: (enter 'q' to quit) "
     assert snooker_scores.initialize_prompt() == expected_prompt
 
-
 def test_get_shot_value_quit():
     """Test quitting the game using 'q'."""
     game = SnookerScores()
     with patch("builtins.input", side_effect=["q"]):
         with pytest.raises(SystemExit):
             game.get_shot_value()
-
 
 def test_get_shot_value_set_starting_scores():
     """Test setting starting scores using 's'."""
@@ -54,7 +51,6 @@ def test_get_shot_value_set_starting_scores():
         with pytest.raises(SystemExit):
             game.get_shot_value()
         assert game.first_input is False
-
 
 def test_get_shot_value_invalid():
     """Test entering an invalid shot value."""
@@ -67,7 +63,6 @@ def test_get_shot_value_invalid():
                 "\nYou can't score 8 points with one shot!"
             )
 
-
 def test_get_shot_value_non_numeric():
     """Test entering a non-numeric shot value."""
     game = SnookerScores()
@@ -79,7 +74,6 @@ def test_get_shot_value_non_numeric():
                 "\nOnly numbers between 0 and 7 are valid!"
             )
 
-
 def test_handle_red_ball():
     """Test handling a red ball."""
     game = SnookerScores()
@@ -88,13 +82,11 @@ def test_handle_red_ball():
     assert game.red_balls == 14
     assert game.red_needed_next is False
 
-
 def test_handle_red_ball_reduces_available_points():
     """Test that handle_red_ball reduces available points correctly."""
     game = SnookerScores()
     game.handle_red_ball(1)
     assert game.available_points == 146
-
 
 def test_handle_color_ball():
     """Test handling a colored ball."""
@@ -104,7 +96,6 @@ def test_handle_color_ball():
     assert game.score_player_1 == 2
     assert game.red_needed_next is True
 
-
 def test_handle_color_ball_reduces_available_points():
     """Test that handle_color_ball reduces available points correctly."""
     game = SnookerScores()
@@ -113,7 +104,6 @@ def test_handle_color_ball_reduces_available_points():
     game.red_needed_next = False
     game.handle_color_ball(3)  # green ball
     assert game.available_points == 131  # 138 - 7
-
 
 def test_handle_miss():
     """Test handling a missed shot."""
@@ -133,7 +123,6 @@ def test_update_score():
     game.update_score(3)
     assert game.score_player_2 == 3
 
-
 def test_switch_players():
     """Test switching turns between players."""
     game = SnookerScores()
@@ -142,7 +131,6 @@ def test_switch_players():
     assert game.player_1_turn is False
     game.switch_players()
     assert game.player_1_turn is True
-
 
 def test_calculate_possible_scores():
     """Test calculating possible scores."""
@@ -154,30 +142,67 @@ def test_calculate_possible_scores():
     assert game.possible_score_player_1 == 127
     assert game.possible_score_player_2 == 137
 
-
-def test_set_starting_scores_valid():
-    """Test setting valid starting scores."""
+def test_set_starting_scores_valid_input():
+    """Test valid input for set_starting_scores."""
     game = SnookerScores()
-    with patch("builtins.input", side_effect=["10", "20", "15"]):
+
+    with patch('builtins.input', side_effect=["10", "50", "60"]):
         game.set_starting_scores()
-        assert game.score_player_1 == 20
-        assert game.score_player_2 == 15
-        assert game.red_balls == 10
-        assert game.available_points == 112
+    
+    assert game.red_balls == 10
+    assert game.score_player_1 == 50
+    assert game.score_player_2 == 60
+    assert game.available_points == 147 - (50 + 60)
 
-
-def test_set_starting_scores_invalid():
-    """Test setting invalid starting scores."""
+def test_set_starting_scores_negative_scores():
+    """Test negative scores input."""
     game = SnookerScores()
-    with patch("builtins.input", side_effect=["16", "20", "15"]):
-        with patch("builtins.print") as mocked_print:
-            game.set_starting_scores()
-            mocked_print.assert_called_with(
-                "Invalid input. "
-                "Scores cannot be negative, "
-                "and red balls must be between 0 and 15."
-            )
 
+    with patch('builtins.input', side_effect=["10", "-10", "20", "10", "50", "60"]):
+        game.set_starting_scores()
+    
+    assert game.red_balls == 10
+    assert game.score_player_1 == 50
+    assert game.score_player_2 == 60
+    assert game.available_points == 147 - (50 + 60)
+
+def test_set_starting_scores_total_score_exceeds_147():
+    """Test total score exceeding 147."""
+    game = SnookerScores()
+
+    with patch('builtins.input', side_effect=["10", "100", "50", "10", "50", "60"]):
+        game.set_starting_scores()
+    
+    assert game.red_balls == 10
+    assert game.score_player_1 == 50
+    assert game.score_player_2 == 60
+    assert game.available_points == 147 - (50 + 60)
+
+def test_set_starting_scores_invalid_red_balls():
+    """Test invalid number of red balls."""
+    game = SnookerScores()
+
+    with patch('builtins.input', side_effect=["20", "10", "50", "10", "50", "60"]):
+        with patch('builtins.print') as mocked_print:
+            game.set_starting_scores()
+    
+    mocked_print.assert_any_call("\nNumber of red balls must be between 0 and 15.")
+    assert game.red_balls == 10
+    assert game.score_player_1 == 50
+    assert game.score_player_2 == 60
+    assert game.available_points == 147 - (50 + 60)
+
+def test_set_starting_scores_non_numeric_input():
+    """Test non-numeric input."""
+    game = SnookerScores()
+
+    with patch('builtins.input', side_effect=["abc", "10", "50", "60"]):
+        game.set_starting_scores()
+    
+    assert game.red_balls == 10
+    assert game.score_player_1 == 50
+    assert game.score_player_2 == 60
+    assert game.available_points == 147 - (50 + 60)
 
 def test_add_penalty():
     snooker_scores = SnookerScores()

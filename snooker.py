@@ -106,29 +106,31 @@ class SnookerScores:
     # Score handling
     def set_starting_scores(self):
         """Set starting scores and the number of red balls left."""
-        try:
-            red_balls = int(input("Enter the number of red balls left: "))
-            score_1 = int(input("Enter starting score for Player 1: "))
-            score_2 = int(input("Enter starting score for Player 2: "))
+        while True:
+            try:
+                red_balls = int(input("Enter the number of red balls left: "))
+                score_1 = int(input("Enter starting score for Player 1: "))
+                score_2 = int(input("Enter starting score for Player 2: "))
 
-            if score_1 < 0 or score_2 < 0:
-                print("\nScores cannot be negative")
-                self.set_starting_scores()
-            elif score_1 + score_2 > 147:
-                print("\nTotal score must be less than 147")
-                self.set_starting_scores()
-            elif red_balls < 0 or red_balls > 15:
-                print("\nNumber of red balls must be between 0 and 15.")
-                self.set_starting_scores()
+                if score_1 < 0 or score_2 < 0:
+                    print("\nScores cannot be negative")
+                    continue
+                elif score_1 + score_2 > 147:
+                    print("\nTotal score must be less than 147")
+                    continue
+                elif red_balls < 0 or red_balls > 15:
+                    print("\nNumber of red balls must be between 0 and 15.")
+                    continue
 
-            self.score_player_1 = score_1
-            self.score_player_2 = score_2
-            self.red_balls = red_balls
-            self.available_points -= (score_1 + score_2)
-            self.calculate_possible_scores()
-            self.display_game_state()
-        except ValueError:
-            print("Invalid input. Please enter numeric values.")
+                self.score_player_1 = score_1
+                self.score_player_2 = score_2
+                self.red_balls = red_balls
+                self.available_points -= (score_1 + score_2)
+                self.calculate_possible_scores()
+                self.display_game_state()
+                break  # Exit the loop if all inputs are valid
+            except ValueError:
+                print("Invalid input. Please enter numeric values.")
 
     def update_score(self, shot):
         """Update the current player's score."""
