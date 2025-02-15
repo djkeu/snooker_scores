@@ -146,63 +146,63 @@ def test_set_starting_scores_valid_input():
     """Test valid input for set_starting_scores."""
     game = SnookerScores()
 
-    with patch('builtins.input', side_effect=["10", "50", "60"]):
+    with patch('builtins.input', side_effect=["3", "50", "60"]):
         game.set_starting_scores()
 
-    assert game.red_balls == 10
+    assert game.red_balls == 3
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
-    assert game.available_points == 147 - (50 + 60)
+    assert game.available_points == game.red_balls * 8 + 27
 
 def test_set_starting_scores_negative_scores():
     """Test negative scores input."""
     game = SnookerScores()
 
-    with patch('builtins.input', side_effect=["10", "-10", "20", "10", "50", "60"]):
+    with patch('builtins.input', side_effect=["3", "-10", "20", "3", "50", "60"]):
         game.set_starting_scores()
 
-    assert game.red_balls == 10
+    assert game.red_balls == 3
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
-    assert game.available_points == 147 - (50 + 60)
+    assert game.available_points == game.red_balls * 8 + 27
 
 def test_set_starting_scores_total_score_exceeds_147():
     """Test total score exceeding 147."""
     game = SnookerScores()
 
-    with patch('builtins.input', side_effect=["10", "100", "50", "10", "50", "60"]):
+    with patch('builtins.input', side_effect=["3", "100", "50", "3", "50", "60"]):
         game.set_starting_scores()
 
-    assert game.red_balls == 10
+    assert game.red_balls == 3
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
-    assert game.available_points == 147 - (50 + 60)
+    assert game.available_points == game.red_balls * 8 + 27
 
 def test_set_starting_scores_invalid_red_balls():
     """Test invalid number of red balls."""
     game = SnookerScores()
 
-    with patch('builtins.input', side_effect=["20", "10", "50", "10", "50", "60"]):
+    with patch('builtins.input', side_effect=["20", "3", "50", "3", "50", "60"]):
         with patch('builtins.print') as mocked_print:
             game.set_starting_scores()
 
     mocked_print.assert_any_call("\nNumber of red balls must be between 0 and 15.")
-    assert game.red_balls == 10
+    assert game.red_balls == 3
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
-    assert game.available_points == 147 - (50 + 60)
+    assert game.available_points == game.red_balls * 8 + 27
 
 def test_set_starting_scores_non_numeric_input():
     """Test non-numeric input."""
     game = SnookerScores()
 
-    with patch('builtins.input', side_effect=["abc", "10", "50", "60"]):
+    with patch('builtins.input', side_effect=["abc", "3", "50", "60"]):
         game.set_starting_scores()
 
-    assert game.red_balls == 10
+    assert game.red_balls == 3
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
-    assert game.available_points == 147 - (50 + 60)
+    assert game.available_points == game.red_balls * 8 + 27
 
 def test_add_penalty():
     snooker_scores = SnookerScores()
