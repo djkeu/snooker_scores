@@ -18,8 +18,8 @@ This program was/is being written to display how many points are still available
 - ToDo: add leading underscore to internal function names
 - ToDo: move prints to seperate functions
 - ToDo: limit the amount of information shown
-- ToDo: assign key to show more information
-- ToDo: assign key to switch_players
+- ToDo: assign + key to show more information
+- Done: assign x key to switch_players
 - ToDo: add hotkeys + explanation to display_startup_message
 - ToDo: lose game after three misses  # Note: abundant?
 - ToDo: random startup messages
