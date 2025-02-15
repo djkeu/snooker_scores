@@ -13,11 +13,9 @@ This program was/is being written to display how many points are still available
 
 
 ### ToDo Section
-- ToDo: move prints to seperate functions
-- ToDo: assign + key to show more information
-- ToDo: add hotkeys + explanation to display_startup_message
-- ToDo: lose game after three misses  # Note: abundant?
 - ToDo: random startup messages
+- ToDo: add hotkeys + explanation to display_startup_message
+- ToDo: remove 'q' to quit from prompt
 - ToDo: GUI
 - ToDo: add more info to readme.md
 
