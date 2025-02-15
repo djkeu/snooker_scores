@@ -15,7 +15,8 @@ This program was/is being written to display how many points are still available
 ### ToDo Section
 - ToDo: add more info to readme.md
 - ToDo: add penalty value prompt
-- ToDo: prompt for switch player back to original player after penalty
+- ToDo: add leading underscore to internal function names
+- ToDo: move prints to seperate functions
 - ToDo: limit the amount of information shown
 - ToDo: assign key to show more information
 - ToDo: assign key to switch_players
