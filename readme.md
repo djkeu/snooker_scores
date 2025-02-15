@@ -13,6 +13,7 @@ This program was/is being written to display how many points are still available
 
 
 ### ToDo Section
+- FixMe: possible score is not calculated correctly when scores are set
 - ToDo: add leading underscore to internal function names
 - ToDo: move prints to seperate functions
 - ToDo: assign + key to show more information
