@@ -57,6 +57,13 @@ class SnookerScores:
         self.button_switch = tk.Button(self.root, text="Switch Players", command=self.switch_players)
         self.button_switch.pack()
 
+        self.button_starting_scores = tk.Button(
+            self.root, 
+            text="Set starting scores", 
+            command=self.set_starting_scores  # No parentheses here!
+        )
+        self.button_starting_scores.pack()
+
     def submit_shot(self):
         """Handle the shot submission."""
         shot = self.entry_shot.get()
@@ -132,9 +139,50 @@ class SnookerScores:
         self.display_game_state()
 
     def set_starting_scores(self):
-        """Set starting scores and the number of red balls left."""
-        # This method can be expanded to include a dialog for setting starting scores
-        pass
+        """Set starting scores and the number of red balls left using a tkinter dialog."""
+        def submit():
+            """Handle submission of the dialog."""
+            try:
+                red_balls = int(red_balls_entry.get())
+                score_1 = int(score_1_entry.get())
+                score_2 = int(score_2_entry.get())
+
+                if score_1 < 0 or score_2 < 0:
+                    messagebox.showerror("Invalid Input", "Scores cannot be negative")
+                elif red_balls < 0 or red_balls > 15:
+                    messagebox.showerror("Invalid Input", "Number of red balls must be between 0 and 15.")
+                elif score_1 + score_2 + (red_balls * 8) > self.available_points:
+                    messagebox.showerror("Invalid Input", "Total score must be less than 147")
+                else:
+                    self.score_player_1 = score_1
+                    self.score_player_2 = score_2
+                    self.red_balls = red_balls
+                    self.available_points = (self.red_balls * 8) + 27
+                    self.calculate_possible_scores()
+                    self.display_game_state()
+                    dialog.destroy()  # Close the dialog
+            except ValueError:
+                messagebox.showerror("Invalid Input", "Please enter numeric values.")
+
+        # Create a new dialog window
+        dialog = tk.Toplevel(self.root)
+        dialog.title("Set Starting Scores")
+
+        # Add labels and entry fields
+        tk.Label(dialog, text="Enter the number of red balls left:").grid(row=0, column=0, padx=10, pady=5)
+        red_balls_entry = tk.Entry(dialog)
+        red_balls_entry.grid(row=0, column=1, padx=10, pady=5)
+
+        tk.Label(dialog, text="Enter starting score for Player 1:").grid(row=1, column=0, padx=10, pady=5)
+        score_1_entry = tk.Entry(dialog)
+        score_1_entry.grid(row=1, column=1, padx=10, pady=5)
+
+        tk.Label(dialog, text="Enter starting score for Player 2:").grid(row=2, column=0, padx=10, pady=5)
+        score_2_entry = tk.Entry(dialog)
+        score_2_entry.grid(row=2, column=1, padx=10, pady=5)
+
+        # Add a submit button
+        tk.Button(dialog, text="Submit", command=submit).grid(row=3, column=0, columnspan=2, pady=10)
 
     def update_score(self, shot):
         """Update the current player's score."""
