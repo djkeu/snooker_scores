@@ -1,4 +1,4 @@
-from snooker import SnookerScores
+from snooker_scores import SnookerScores
 
 
 def main():
