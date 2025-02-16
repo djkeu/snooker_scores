@@ -158,18 +158,17 @@ class SnookerScores:
 
     def display_next_ball(self):
         """Display which ball the current player must pot next."""
-        # Note: prints possibly abundant, leave for now
-        # FixMe: nested if statements
-        if self.red_needed_next:
-            if self.player_1_turn:
-                print("Player 1 must pot a red ball next")
-            else:
-                print("Player 2 must pot a red ball next")
+        if self.player_1_turn:
+            player = "Player 1"
         else:
-            if self.player_1_turn:
-                print("Player 1 must pot a colored ball next")
-            else:
-                print("Player 2 must pot a colored ball next")
+            player = "Player 2"
+        
+        if self.red_needed_next:
+            ball = "red ball"
+        else:
+            ball = "colored ball"
+
+        print(f"{player} must pot a {ball} next")
 
     def add_penalty(self):
         """Add points to the other player's score."""
