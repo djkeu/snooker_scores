@@ -9,8 +9,6 @@ Watching a snooker game, it can be pretty confusing when it comes to seeing how 
 This program is to display how many points are still available for each player throughout the game. This could only be achieved by having the logic follow the games dynamics and rules. As a (desirable) side-effect, the program also shows the current scores and which balls are to be played next. 
 
 ## ToDo Section
-- Done: Rename repository
-- ToDo: Clone renamed repository
 - ToDo: GUI
 
 
