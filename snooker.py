@@ -161,14 +161,14 @@ class SnookerScores:
         # Note: prints possibly abundant, leave for now
         if self.red_needed_next:
             if self.player_1_turn:
-                print("Player 1 must pot a red ball next.")
+                print("Player 1 must pot a red ball next")
             else:
-                print("Player 2 must pot a red ball next.")
+                print("Player 2 must pot a red ball next")
         else:
             if self.player_1_turn:
-                print("Player 1 must pot a colored ball next.")
+                print("Player 1 must pot a colored ball next")
             else:
-                print("Player 2 must pot a colored ball next.")
+                print("Player 2 must pot a colored ball next")
 
     def add_penalty(self):
         """Add points to the other player's score."""
