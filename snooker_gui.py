@@ -21,7 +21,7 @@ class SnookerGUI:
 
         self.root.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")  # Set the window size to 400x400 and position it
         self.root.title("Snooker Scores")
-        self.root.configure(bg="lightgreen")  # Set the background color of the window
+        self.root.configure(bg="darkgreen")  # Set the background color of the window
 
         self.label_player_1 = tk.Label(self.root, text="Player 1: score 0, possible score 147")
         self.label_player_1.pack(padx=10, pady=5)
