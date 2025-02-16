@@ -1,11 +1,11 @@
-from snooker_scores import SnookerScores
-
+import tkinter as tk
+from snooker_gui import SnookerGUI
 
 def main():
-    """Show the snooker scores."""
-    scores = SnookerScores()
-    scores.start_game()
-
+    """Start the Snooker GUI."""
+    root = tk.Tk()
+    app = SnookerGUI(root)
+    app.start()
 
 if __name__ == "__main__":
     main()
