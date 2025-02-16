@@ -281,10 +281,16 @@ class SnookerScores:
 
             self.display_game_state()
 
-        print("\nNo more balls to play!")
+    def display_winner(self):
+        """Display the winner of the game."""
+        if self.score_player_1 > self.score_player_2:
+            print("\nPlayer 1 wins!")
+        elif self.score_player_1 < self.score_player_2:
+            print("\nPlayer 2 wins!")
 
     def start_game(self):
         """Start the program."""
         self.display_startup_message()
         self.red_balls_phase()
         self.colored_balls_phase()
+        self.display_winner()
