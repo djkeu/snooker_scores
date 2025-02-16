@@ -12,7 +12,9 @@ This program is to display how many points are still available for each player t
 - FixMe: The filename differs from the name of the program: snooker.py vs snooker_scores.py\
 For practical purposes this will remain the case for the time being.
 
-- ToDo: display_game_state: change prints when entering colored_balls_phase
+- FixMe: display_game_state:
+    - change prints when entering colored_balls_phase
+    - call of display_next_ball
 
 - ToDo: GUI
 - ToDo: add more info to readme.md
