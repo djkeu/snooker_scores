@@ -217,6 +217,10 @@ class SnookerScores:
                     welcome_message = line
         print(f"\n\t\t{welcome_message}")
 
+        with open("txt/hotkeys.txt") as f:
+            print(f.read())
+
+
 
     def red_balls_phase(self):
         """Take turns playing reds and colors."""
