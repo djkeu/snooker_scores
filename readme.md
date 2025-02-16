@@ -12,7 +12,7 @@ This program is to display how many points are still available for each player t
 - FixMe: The filename differs from the name of the program: snooker.py vs snooker_scores.py\
 For practical purposes this will remain the case for the time being.
 
-- ToDo: random startup messages
+- Done: random startup messages
 - ToDo: add hotkeys + explanation to display_startup_message
 - ToDo: remove 'q' to quit from prompt
 
