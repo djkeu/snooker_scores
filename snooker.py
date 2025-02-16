@@ -1,4 +1,5 @@
 import sys
+from random import randint
 
 
 class SnookerScores:
@@ -210,8 +211,13 @@ class SnookerScores:
     # Game phases
     def display_startup_message(self):
         """Display a startup message + hotkeys."""
-        print("This is snooker at its best!")
-        # Todo: random startup message
+        # print("This is snooker at its best!")
+        with open("welcome_messages.txt") as f:
+            for count, line in enumerate(f):
+                if count == randint(0, count):
+                    welcome_message = line
+        print(welcome_message)
+
 
     def red_balls_phase(self):
         """Take turns playing reds and colors."""
