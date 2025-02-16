@@ -211,7 +211,6 @@ class SnookerScores:
     # Game phases
     def display_startup_message(self):
         """Display a startup message + hotkeys."""
-        # print("This is snooker at its best!")
         with open("txt/welcome_messages.txt") as f:
             for count, line in enumerate(f):
                 if count == randint(0, count):
