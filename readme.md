@@ -11,6 +11,11 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - FixMe: The filename differs from the name of the program: snooker.py vs snooker_scores.py\
 For practical purposes this will remain the case for the time being.
+- FixMe: pytest
+    - test_initial_state: 525 == 147
+    - test_handle_red_ball_reduces_avialable_points: 524 == 146
+    - test_set_starting_scores_total_score_exceeds_147: 100 == 50
+    - test_red_balls_phase:  407 == 29
 
 - ToDo: random startup messages
 - ToDo: add hotkeys + explanation to display_startup_message
