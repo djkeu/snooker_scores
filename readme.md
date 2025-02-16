@@ -15,7 +15,6 @@ For practical purposes this will remain the case for the time being.
 - ToDo: random startup messages
 - ToDo: add hotkeys + explanation to display_startup_message
 - ToDo: remove 'q' to quit from prompt
-- ToDo: check docstrings for accuracy
 
 - ToDo: GUI
 - ToDo: add more info to readme.md

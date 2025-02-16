@@ -209,11 +209,12 @@ class SnookerScores:
 
     # Game phases
     def display_startup_message(self):
-        """Display a random startup message."""
+        """Display a startup message + hotkeys."""
         print("This is snooker at its best!")
         # Todo: random startup message
 
     def red_balls_phase(self):
+        """Take turns playing reds and colors."""
         while self.red_balls > 0:
             shot = self.get_shot_value()
             print(
@@ -235,6 +236,7 @@ class SnookerScores:
             self.handle_last_colored_ball()
 
     def handle_last_colored_ball(self):
+        """Handle last ball before colored balls phase."""
         print(
             "\nNo more red balls left! "
             "Pot a colored ball to start the endgame."
@@ -252,7 +254,7 @@ class SnookerScores:
                 break
 
     def colored_balls_phase(self):
-        """Simulate the colored balls phase."""
+        """The phase where all red balls are potted."""
         print("\nEntering colored balls endgame!\n")
         self.available_points = 27
         print(f"Available for endgame: {self.available_points}")
