@@ -12,39 +12,48 @@ class SnookerGUI:
 
     def setup_gui(self):
         """Setup the GUI components."""
+        window_width = 400
+        window_height = 400
+        screen_width = self.root.winfo_screenwidth()
+        screen_height = self.root.winfo_screenheight()
+        x_coordinate = int((screen_width / 2) - (window_width / 2))
+        y_coordinate = int(screen_height / 5)
+
+        self.root.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")  # Set the window size to 400x400 and position it
         self.root.title("Snooker Scores")
+        self.root.configure(bg="lightgreen")  # Set the background color of the window
 
         self.label_player_1 = tk.Label(self.root, text="Player 1: score 0, possible score 147")
-        self.label_player_1.pack()
+        self.label_player_1.pack(padx=10, pady=5)
 
         self.label_player_2 = tk.Label(self.root, text="Player 2: score 0, possible score 147")
-        self.label_player_2.pack()
+        self.label_player_2.pack(padx=10, pady=5)
 
         self.label_red_balls = tk.Label(self.root, text="15 red balls left")
-        self.label_red_balls.pack()
+        self.label_red_balls.pack(padx=10, pady=5)
 
         self.label_next_ball = tk.Label(self.root, text="Player 1 must pot a red ball next")
-        self.label_next_ball.pack()
+        self.label_next_ball.pack(padx=10, pady=5)
 
         self.entry_shot = tk.Entry(self.root)
-        self.entry_shot.pack()
+        self.entry_shot.pack(padx=10, pady=5)
 
         self.entry_shot.bind("<Return>", lambda event: self.submit_shot())      
         self.button_shot = tk.Button(self.root, text="Submit Shot", command=self.submit_shot)
-        self.button_shot.pack()
+        self.button_shot.pack(padx=10, pady=5)
 
         self.button_penalty = tk.Button(self.root, text="Add Penalty", command=self.add_penalty)
-        self.button_penalty.pack()
+        self.button_penalty.pack(padx=10, pady=5)
 
         self.button_switch = tk.Button(self.root, text="Switch Players", command=self.switch_players)
-        self.button_switch.pack()
+        self.button_switch.pack(padx=10, pady=5)
 
         self.button_starting_scores = tk.Button(
             self.root, 
             text="Set starting scores", 
             command=self.set_starting_scores
         )
-        self.button_starting_scores.pack()
+        self.button_starting_scores.pack(padx=10, pady=5)
 
     def submit_shot(self):
         """Handle the shot submission."""
