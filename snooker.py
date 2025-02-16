@@ -28,10 +28,7 @@ class SnookerScores:
     # Ball handling
     def initialize_prompt(self):
         """Initialize the prompt message."""
-        prompt = "What's the value of the shot: (enter 'q' to quit"
-        if self.first_input:
-            prompt += ", 's' to set starting scores"
-        prompt += ") "
+        prompt = "What's the value of the shot: "
         return prompt
 
     def get_shot_value(self):
@@ -219,8 +216,6 @@ class SnookerScores:
 
         with open("txt/hotkeys.txt") as f:
             print(f.read())
-
-
 
     def red_balls_phase(self):
         """Take turns playing reds and colors."""
