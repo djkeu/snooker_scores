@@ -10,7 +10,8 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: working test suite
-- FixMe: snooker_gui displays 147 instead of possible score
+- ToDo: width + height GUI
+- FixMe: call handle_last_colored_ball and colored_balls_phase when red_balls == 0
 
 
 ## Snooker rules
