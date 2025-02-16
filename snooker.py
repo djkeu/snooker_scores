@@ -216,7 +216,7 @@ class SnookerScores:
             for count, line in enumerate(f):
                 if count == randint(0, count):
                     welcome_message = line
-        print(welcome_message)
+        print(f"\n\t\t{welcome_message}")
 
 
     def red_balls_phase(self):
