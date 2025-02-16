@@ -9,12 +9,8 @@ Watching a snooker game, it can be pretty confusing when it comes to seeing how 
 This program is to display how many points are still available for each player throughout the game. This could only be achieved by having the logic follow the games dynamics and rules. As a (desirable) side-effect, the program also shows the current scores and which balls are to be played next. 
 
 ## ToDo Section
-Note: For practical purposes this will remain the case for the time being.
-- FixMe: The filename differs from the name of the program: snooker.py vs snooker_scores.py\
-- FixMe: Rename repository
-
+- ToDo: Rename repository
 - ToDo: GUI
-- ToDo: add more info to readme.md
 
 
 ## Snooker rules
