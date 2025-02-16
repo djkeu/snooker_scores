@@ -11,7 +11,6 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - FixMe: The filename differs from the name of the program: snooker.py vs snooker_scores.py\
 For practical purposes this will remain the case for the time being.
-- FixMe: nested if statements in display_next_ball
 - ToDo: GUI
 - ToDo: add more info to readme.md
 
