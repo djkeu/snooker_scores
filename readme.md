@@ -11,6 +11,8 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: real life test with video of snooker game
 - ToDo: GUI
+- Done: create new branch
+- Note: to revert: git checkout backup-before-gui
 
 
 ## Snooker rules
