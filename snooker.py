@@ -151,9 +151,10 @@ class SnookerScores:
               f"possible score {self.possible_score_player_1}")
         print(f"Player 2: score {self.score_player_2}, "
               f"possible score {self.possible_score_player_2}")
-        print(f"{self.red_balls} red balls left")
 
-        self.display_next_ball()
+        if self.available_points > 27:
+            print(f"{self.red_balls} red balls left")
+            self.display_next_ball()
 
     def display_next_ball(self):
         """Display which ball the current player must pot next."""
