@@ -5,7 +5,7 @@ class SnookerScores:
     def __init__(self):
         """Initialize the game scores state."""
         self.red_balls = 15
-        self.available_points = self.red_balls * (8 + 27)
+        self.available_points = (self.red_balls * 8) + 27
         self.red_needed_next = True
         self.player_1_turn = True
         self.score_player_1 = 0
