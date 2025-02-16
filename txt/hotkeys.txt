@@ -1,0 +1,6 @@
+Hotkeys:
+
+q: Quit the program
+s: Set starting scores
+x: Switch player
+p: Penalty
