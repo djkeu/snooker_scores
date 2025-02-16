@@ -64,6 +64,8 @@ class SnookerGUI:
                         self.game.red_balls_phase(shot)
                     else:
                         self.game.handle_last_colored_ball(shot)
+                    # Update possible scores
+                    self.game.calculate_possible_scores()
                     self.update_display()
             except ValueError as e:
                 messagebox.showerror("Invalid Input", str(e))
