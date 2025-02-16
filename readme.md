@@ -10,7 +10,7 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: working test suite
-
+- FixMe: snooker_gui displays 147 instead of possible score
 
 
 ## Snooker rules
