@@ -44,12 +44,13 @@ class SnookerGame:
     def handle_red_ball(self, shot):
         """Handle logic for when a red ball is hit."""
         if self.red_needed_next:
-            self.available_points -= 1
+            self.available_points -= 1  # Decrease by 1 for the red ball
             self.red_balls -= 1
             self.red_needed_next = False
             self.update_score(shot)
         else:
-            print("\nYou need to hit a color!")
+            # Player failed to pot a colored ball after a red ball
+            self.available_points -= 8  # Decrease by 8 (1 for red + 7 for colored)
             self.switch_players()
             self.red_needed_next = True
 
@@ -67,7 +68,15 @@ class SnookerGame:
     def handle_miss(self):
         """Handle logic for when a shot is missed."""
         if not self.red_needed_next:
-            self.available_points -= 7
+            # Player was supposed to pot a colored ball
+            self.available_points -= 7  # Decrease by 7 for the missed colored ball
+            if self.player_1_turn:
+                self.score_player_1 -= 7  # Penalize Player 1
+            else:
+                self.score_player_2 -= 7  # Penalize Player 2
+        else:
+            # Player was supposed to pot a red ball
+            self.available_points -= 1  # Decrease by 1 for the missed red ball
         self.red_needed_next = True
         self.switch_players()
 

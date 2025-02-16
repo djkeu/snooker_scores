@@ -29,6 +29,7 @@ class SnookerGUI:
         self.entry_shot = tk.Entry(self.root)
         self.entry_shot.pack()
 
+        self.entry_shot.bind("<Return>", lambda event: self.submit_shot())      
         self.button_shot = tk.Button(self.root, text="Submit Shot", command=self.submit_shot)
         self.button_shot.pack()
 
@@ -47,7 +48,8 @@ class SnookerGUI:
 
     def submit_shot(self):
         """Handle the shot submission."""
-        shot = self.entry_shot.get()
+        shot = self.entry_shot.get()  # Get the value from the input field
+
         if shot == "q":
             self.root.quit()
         elif shot == "s":
@@ -69,6 +71,11 @@ class SnookerGUI:
                     self.update_display()
             except ValueError as e:
                 messagebox.showerror("Invalid Input", str(e))
+
+        # Clear the input field after processing the shot
+        self.entry_shot.delete(0, tk.END)
+        # Set focus back to the input field
+        self.entry_shot.focus_set()
 
     def set_starting_scores(self):
         """Set starting scores using a dialog."""
