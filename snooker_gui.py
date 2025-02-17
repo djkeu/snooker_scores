@@ -1,10 +1,9 @@
 import tkinter as tk
 from tkinter import messagebox, simpledialog
-from tkinter import Toplevel, Label, Entry, Button
-
 from snooker_game import SnookerGame
 
 
+from tkinter import Toplevel, Label, Entry, Button
 
 class StartingScoresDialog(Toplevel):
     def __init__(self, parent):
@@ -13,21 +12,36 @@ class StartingScoresDialog(Toplevel):
         self.parent = parent
         self.result = None
 
+        # Set background color for the dialog
+        self.configure(bg="limegreen")
+
         # Add input fields
-        Label(self, text="Number of red balls left (0-15):").grid(row=0, column=0, padx=10, pady=5)
+        Label(self, text="Number of red balls left (0-15):", bg="lightgray").grid(row=0, column=0, padx=10, pady=5)
         self.red_balls_entry = Entry(self)
         self.red_balls_entry.grid(row=0, column=1, padx=10, pady=5)
 
-        Label(self, text="Starting score for Player 1:").grid(row=1, column=0, padx=10, pady=5)
+        Label(self, text="Starting score for Player 1:", bg="lightgray").grid(row=1, column=0, padx=10, pady=5)
         self.score_1_entry = Entry(self)
         self.score_1_entry.grid(row=1, column=1, padx=10, pady=5)
 
-        Label(self, text="Starting score for Player 2:").grid(row=2, column=0, padx=10, pady=5)
+        Label(self, text="Starting score for Player 2:", bg="lightgray").grid(row=2, column=0, padx=10, pady=5)
         self.score_2_entry = Entry(self)
         self.score_2_entry.grid(row=2, column=1, padx=10, pady=5)
 
         # Add submit button
-        Button(self, text="Submit", command=self.on_submit).grid(row=3, column=0, columnspan=2, pady=10)
+        Button(self, text="Submit", command=self.on_submit, bg="lightgray").grid(row=3, column=0, columnspan=2, pady=10)
+
+        # Center the dialog on the screen
+        self.center_dialog()
+
+    def center_dialog(self):
+        """Center the dialog on the screen."""
+        self.update_idletasks()  # Ensure the window dimensions are up-to-date
+        width = self.winfo_width()
+        height = self.winfo_height()
+        x = (self.winfo_screenwidth() // 2) - (width // 2)
+        y = (self.winfo_screenheight() // 2) - (height // 2)
+        self.geometry(f"+{x}+{y}")
 
     def on_submit(self):
         """Handle the submit button click."""
