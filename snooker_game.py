@@ -70,10 +70,6 @@ class SnookerGame:
         if not self.red_needed_next:
             # Player was supposed to pot a colored ball
             self.available_points -= 7  # Decrease by 7 for the missed colored ball
-            if self.player_1_turn:
-                self.score_player_1 -= 7  # Penalize Player 1
-            else:
-                self.score_player_2 -= 7  # Penalize Player 2
         else:
             # Player was supposed to pot a red ball
             self.available_points -= 1  # Decrease by 1 for the missed red ball
