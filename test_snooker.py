@@ -50,19 +50,50 @@ def test_get_shot_value_quit():
     """Test quitting the game using 'q'."""
     root = create_mock_root()
     game = SnookerGUI(root)
-    with patch("builtins.input", side_effect=["q"]):
-        with pytest.raises(SystemExit):
-            game.submit_shot()
+    with patch.object(game.root, 'quit') as mock_quit:
+        game.entry_shot.get = MagicMock(return_value="q")
+        game.submit_shot()
+        mock_quit.assert_called_once()
 
 
-def test_get_shot_value_set_starting_scores():
-    """Test setting starting scores using 's'."""
+def test_set_starting_scores_valid_input():
+    """Test valid input for set_starting_scores."""
     root = create_mock_root()
     game = SnookerGUI(root)
-    with patch("builtins.input", side_effect=["s", "10", "20", "15", "q"]):
-        with pytest.raises(SystemExit):
-            game.submit_shot()
-        assert game.game.first_input is False
+
+    game.game.set_starting_scores(3, 50, 60)
+
+    assert game.game.red_balls == 3
+    assert game.game.score_player_1 == 50
+    assert game.game.score_player_2 == 60
+    assert game.game.available_points == (3 * 8) + 27
+
+
+def test_set_starting_scores_negative_scores():
+    """Test negative scores input."""
+    root = create_mock_root()
+    game = SnookerGUI(root)
+
+    with pytest.raises(ValueError, match="Scores cannot be negative"):
+        game.game.set_starting_scores(3, -10, 20)
+
+
+def test_set_starting_scores_total_score_exceeds_147():
+    """Test total score exceeding 147."""
+    root = create_mock_root()
+    game = SnookerGUI(root)
+
+    with pytest.raises(ValueError, match="Total score must be less than 147"):
+        game.game.set_starting_scores(3, 100, 50)
+
+
+def test_set_starting_scores_invalid_red_balls():
+    """Test invalid number of red balls."""
+    root = create_mock_root()
+    game = SnookerGUI(root)
+
+    with pytest.raises(ValueError, match="Number of red balls must be between 0 and 15."):
+        game.game.set_starting_scores(20, 50, 60)
 
 
 def test_get_shot_value_invalid():
