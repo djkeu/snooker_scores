@@ -1,9 +1,9 @@
 import tkinter as tk
 from tkinter import messagebox, simpledialog
+from tkinter import Toplevel, Label, Entry, Button
+
 from snooker_game import SnookerGame
 
-
-from tkinter import Toplevel, Label, Entry, Button
 
 class StartingScoresDialog(Toplevel):
     def __init__(self, parent):
