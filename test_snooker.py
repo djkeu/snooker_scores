@@ -156,12 +156,17 @@ def test_get_shot_value_non_numeric():
     """Test entering a non-numeric shot value."""
     root = create_mock_root()
     game = SnookerGUI(root)
-    with patch("builtins.input", side_effect=["abc", "q"]):
-        with patch("builtins.print") as mocked_print:
-            with pytest.raises(SystemExit):
-                game.submit_shot()
-            mocked_print.assert_any_call(
-                "\nOnly numbers between 0 and 7 are valid!"
+
+    # Mock the entry widget to simulate non-numeric input
+    with patch.object(game.entry_shot, 'get', return_value="abc"):
+        # Mock messagebox.showerror to verify the error message
+        with patch('tkinter.messagebox.showerror') as mock_showerror:
+            # Call the submit_shot method
+            game.submit_shot()
+
+            # Verify that messagebox.showerror was called with the correct arguments
+            mock_showerror.assert_called_once_with(
+                "Invalid Input", "Only numbers between 0 and 7 are valid!"
             )
 
 

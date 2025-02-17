@@ -31,13 +31,11 @@ class SnookerGame:
         try:
             shot = int(shot)
             if 0 <= shot <= 7:
-                self.prompt = self.initialize_prompt()
                 return True
             else:
-                raise ValueError
+                raise ValueError("Only numbers between 0 and 7 are valid!")
         except ValueError:
-            print("\nOnly numbers between 0 and 7 are valid!")
-            return False
+            raise ValueError("Only numbers between 0 and 7 are valid!")
 
     def handle_red_ball(self, shot):
         """Handle logic for when a red ball is hit."""

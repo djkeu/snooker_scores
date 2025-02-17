@@ -89,7 +89,10 @@ class SnookerGUI:
                     self.game.calculate_possible_scores()
                     self.update_display()
             except ValueError as e:
-                messagebox.showerror("Invalid Input", str(e))
+                # Debugging: Print a message to verify this block is being executed
+                print("Error block executed")
+                # Display the error message in a message box
+                messagebox.showerror("Invalid Input", "Only numbers between 0 and 7 are valid!")
 
         # Clear the input field after processing the shot
         self.entry_shot.delete(0, tk.END)
