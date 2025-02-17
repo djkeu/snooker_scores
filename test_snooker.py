@@ -260,15 +260,15 @@ def test_set_starting_scores_invalid_red_balls():
     root = create_mock_root()
     game = SnookerGUI(root)
 
-    with patch('builtins.input', side_effect=["20", "3", "50", "3", "50", "60"]):
-        with patch('builtins.print') as mocked_print:
-            game.game.set_starting_scores(3, 50, 60)
+    # Mock messagebox.showerror to verify the error message
+    with patch('tkinter.messagebox.showerror') as mock_showerror:
+        # Call the method with invalid input (20 red balls)
+        game.game.set_starting_scores(20, 50, 60)
 
-    mocked_print.assert_any_call("\nNumber of red balls must be between 0 and 15.")
-    assert game.game.red_balls == 3
-    assert game.game.score_player_1 == 50
-    assert game.game.score_player_2 == 60
-    assert game.game.available_points == game.game.red_balls * 8 + 27
+        # Verify that messagebox.showerror was called with the correct arguments
+        mock_showerror.assert_called_once_with(
+            "Invalid Input", "The allowed maximum value is 15. Please try again"
+        )
 
 
 def test_set_starting_scores_non_numeric_input():
