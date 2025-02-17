@@ -1,7 +1,50 @@
 import tkinter as tk
 from tkinter import messagebox, simpledialog
+from tkinter import Toplevel, Label, Entry, Button
+
 from snooker_game import SnookerGame
 
+
+
+class StartingScoresDialog(Toplevel):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.title("Set Starting Scores")
+        self.parent = parent
+        self.result = None
+
+        # Add input fields
+        Label(self, text="Number of red balls left (0-15):").grid(row=0, column=0, padx=10, pady=5)
+        self.red_balls_entry = Entry(self)
+        self.red_balls_entry.grid(row=0, column=1, padx=10, pady=5)
+
+        Label(self, text="Starting score for Player 1:").grid(row=1, column=0, padx=10, pady=5)
+        self.score_1_entry = Entry(self)
+        self.score_1_entry.grid(row=1, column=1, padx=10, pady=5)
+
+        Label(self, text="Starting score for Player 2:").grid(row=2, column=0, padx=10, pady=5)
+        self.score_2_entry = Entry(self)
+        self.score_2_entry.grid(row=2, column=1, padx=10, pady=5)
+
+        # Add submit button
+        Button(self, text="Submit", command=self.on_submit).grid(row=3, column=0, columnspan=2, pady=10)
+
+    def on_submit(self):
+        """Handle the submit button click."""
+        try:
+            red_balls = int(self.red_balls_entry.get())
+            score_1 = int(self.score_1_entry.get())
+            score_2 = int(self.score_2_entry.get())
+            self.result = (red_balls, score_1, score_2)
+            self.destroy()
+        except ValueError:
+            messagebox.showerror("Invalid Input", "Please enter valid integers.")
+
+    def show(self):
+        """Show the dialog and wait for a result."""
+        self.wait_window()
+        return self.result
+    
 
 class SnookerGUI:
     def __init__(self, root):
@@ -100,17 +143,16 @@ class SnookerGUI:
         self.entry_shot.focus_set()
 
     def set_starting_scores(self):
-        """Set starting scores using a dialog."""
-        red_balls = simpledialog.askinteger("Input", "Enter the number of red balls left:", minvalue=0, maxvalue=15)
-        score_1 = simpledialog.askinteger("Input", "Enter starting score for Player 1:", minvalue=0)
-        score_2 = simpledialog.askinteger("Input", "Enter starting score for Player 2:", minvalue=0)
+        """Set starting scores using a custom dialog."""
+        dialog = StartingScoresDialog(self.root)
+        result = dialog.show()
 
-        if red_balls is not None and score_1 is not None and score_2 is not None:
+        if result:
+            red_balls, score_1, score_2 = result
             try:
                 self.game.set_starting_scores(red_balls, score_1, score_2)
                 self.update_display()
             except ValueError as e:
-                # Display the error message in a message box
                 messagebox.showerror("Invalid Input", str(e))
 
     def add_penalty(self):
