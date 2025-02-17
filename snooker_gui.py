@@ -73,8 +73,10 @@ class SnookerGUI:
                 if self.game.validate_shot(shot):
                     if self.game.red_balls > 0:
                         self.game.red_balls_phase(shot)
-                    else:
+                    elif self.game.available_points > 27:
                         self.game.handle_last_colored_ball(shot)
+                    else:
+                        self.game.colored_balls_phase(shot)
                     # Update possible scores
                     self.game.calculate_possible_scores()
                     self.update_display()
