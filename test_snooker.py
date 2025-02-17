@@ -91,18 +91,15 @@ def test_set_starting_scores_invalid_red_balls():
     root = create_mock_root()
     game = SnookerGUI(root)
 
-    # Mock simpledialog.askinteger to simulate invalid user input
-    with patch('tkinter.simpledialog.askinteger', side_effect=[20, 50, 60]) as mock_askinteger:
+    # Mock the StartingScoresDialog to simulate invalid input
+    with patch('snooker_gui.StartingScoresDialog') as mock_dialog:
+        # Mock the show method to return invalid input (20 red balls)
+        mock_dialog.return_value.show.return_value = (20, 50, 60)
+
         # Mock messagebox.showerror to verify the error message
         with patch('tkinter.messagebox.showerror') as mock_showerror:
-            # Call the GUI method that triggers set_starting_scores
+            # Call the set_starting_scores method
             game.set_starting_scores()
-
-            # Debugging: Print the calls to mock_askinteger
-            print("Calls to simpledialog.askinteger:", mock_askinteger.call_args_list)
-
-            # Debugging: Print the calls to mock_showerror
-            print("Calls to messagebox.showerror:", mock_showerror.call_args_list)
 
             # Verify that messagebox.showerror was called with the correct arguments
             mock_showerror.assert_called_once_with(
