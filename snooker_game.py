@@ -18,7 +18,6 @@ class SnookerGame:
             6: "pink",
             7: "black",
         }
-        self.first_input = True
         self.prompt = self.initialize_prompt()
 
     # Ball handling
@@ -32,7 +31,6 @@ class SnookerGame:
         try:
             shot = int(shot)
             if 0 <= shot <= 7:
-                self.first_input = False
                 self.prompt = self.initialize_prompt()
                 return True
             else:

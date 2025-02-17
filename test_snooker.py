@@ -30,7 +30,6 @@ def test_initial_state():
         6: "pink",
         7: "black",
     }
-    assert game.game.first_input is True
     assert game.game.prompt == "What's the value of the shot: "
 
 
@@ -41,7 +40,6 @@ def test_initialize_prompt():
     expected_prompt = "What's the value of the shot: "
     assert game.game.initialize_prompt() == expected_prompt
 
-    game.game.first_input = False
     expected_prompt = "What's the value of the shot: "
     assert game.game.initialize_prompt() == expected_prompt
 
