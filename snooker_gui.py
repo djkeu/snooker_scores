@@ -23,7 +23,12 @@ class SnookerGUI:
         self.root.title("Snooker Scores")
         self.root.configure(bg="darkgreen")  # Set the background color of the window
 
+        # Add heading
+        self.label_heading = tk.Label(self.root, text="Snooker Scores", fg="white", bg="darkgreen", font=("Helvetica", 20, "bold"))
+        self.label_heading.pack(padx=10, pady=10)
+
         self.label_player_1 = tk.Label(self.root, text="Player 1: score 0, possible score 147")
+
         self.label_player_1.pack(padx=10, pady=5)
 
         self.label_player_2 = tk.Label(self.root, text="Player 2: score 0, possible score 147")
