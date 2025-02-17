@@ -87,6 +87,8 @@ class SnookerGame:
     # Score handling
     def set_starting_scores(self, red_balls, score_1, score_2):
         """Set starting scores and the number of red balls left."""
+        self.available_points = 147
+
         if score_1 < 0 or score_2 < 0:
             raise ValueError("Scores cannot be negative")
         elif red_balls < 0 or red_balls > 15:
