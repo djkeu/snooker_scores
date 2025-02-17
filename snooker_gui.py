@@ -109,6 +109,20 @@ class SnookerGUI:
             except ValueError as e:
                 messagebox.showerror("Invalid Input", str(e))
 
+    def set_starting_scores(self):
+        """Set starting scores using a dialog."""
+        red_balls = simpledialog.askinteger("Input", "Enter the number of red balls left:", minvalue=0, maxvalue=15)
+        score_1 = simpledialog.askinteger("Input", "Enter starting score for Player 1:", minvalue=0)
+        score_2 = simpledialog.askinteger("Input", "Enter starting score for Player 2:", minvalue=0)
+
+        if red_balls is not None and score_1 is not None and score_2 is not None:
+            try:
+                self.game.set_starting_scores(red_balls, score_1, score_2)
+                self.update_display()
+            except ValueError as e:
+                # Display the error message in a message box
+                messagebox.showerror("Invalid Input", str(e))
+
     def add_penalty(self):
         """Add a penalty using a dialog."""
         penalty = simpledialog.askinteger("Input", "Enter the penalty value:", minvalue=0, maxvalue=7)

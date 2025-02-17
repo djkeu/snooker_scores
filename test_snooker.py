@@ -98,12 +98,17 @@ def test_set_starting_scores_invalid_red_balls():
     root = create_mock_root()
     game = SnookerGUI(root)
 
-    with patch('tkinter.messagebox.showerror') as mock_showerror:
-        game.game.set_starting_scores(20, 50, 60)
-        mock_showerror.assert_called_once_with(
-            "Invalid Input", "The allowed maximum value is 15. Please try again"
-        )
+    # Mock simpledialog.askinteger to simulate user input
+    with patch('tkinter.simpledialog.askinteger', side_effect=[20, 50, 60]):
+        # Mock messagebox.showerror to verify the error message
+        with patch('tkinter.messagebox.showerror') as mock_showerror:
+            # Call the method that triggers the GUI's set_starting_scores logic
+            game.set_starting_scores()
 
+            # Verify that messagebox.showerror was called with the correct arguments
+            mock_showerror.assert_called_once_with(
+                "Invalid Input", "Number of red balls must be between 0 and 15."
+            )
 
 def test_get_shot_value_invalid():
     """Test entering an invalid shot value."""
