@@ -55,6 +55,9 @@ class SnookerGUI:
         )
         self.button_starting_scores.pack(padx=10, pady=5)
 
+        # Bind the Escape key to quit the game
+        self.root.bind("<Escape>", lambda event: self.root.quit())
+
     def submit_shot(self):
         """Handle the shot submission."""
         shot = self.entry_shot.get()  # Get the value from the input field
