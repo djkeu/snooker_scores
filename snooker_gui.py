@@ -37,7 +37,7 @@ class SnookerGUI:
         self.label_red_balls = tk.Label(self.root, text="15 red balls left")
         self.label_red_balls.pack(padx=10, pady=5)
 
-        self.label_next_ball = tk.Label(self.root, text="Player 1 must pot a red ball next")
+        self.label_next_ball = tk.Label(self.root, text="Player 1 must pot a red ball")
         self.label_next_ball.pack(padx=10, pady=5)
 
         self.entry_shot = tk.Entry(self.root)
@@ -129,7 +129,7 @@ class SnookerGUI:
         self.label_player_1.config(text=f"Player 1: score {self.game.score_player_1}, possible score {self.game.possible_score_player_1}")
         self.label_player_2.config(text=f"Player 2: score {self.game.score_player_2}, possible score {self.game.possible_score_player_2}")
         self.label_red_balls.config(text=f"{self.game.red_balls} red balls left")
-        self.label_next_ball.config(text=f"{'Player 1' if self.game.player_1_turn else 'Player 2'} must pot a {'red ball' if self.game.red_needed_next else 'colored ball'} next")
+        self.label_next_ball.config(text=f"{'Player 1' if self.game.player_1_turn else 'Player 2'} must pot a {'red ball' if self.game.red_needed_next else 'colored ball'}")
 
     def start(self):
         """Start the GUI."""

@@ -139,7 +139,7 @@ class SnookerGame:
         else:
             ball = "colored ball"
 
-        print(f"{player} must pot a {ball} next")
+        print(f"{player} must pot a {ball}")
 
     def add_penalty(self, penalty):
         """Add points to the other player's score."""
