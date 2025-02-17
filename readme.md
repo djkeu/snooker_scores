@@ -10,9 +10,10 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: working test suite
-- FixMe: call handle_last_colored_ball and colored_balls_phase when red_balls == 0
-- FixMe: test_set_starting_scores_invalid_red_balls
-- FixMe: failing tests
+- FixMe: test_calculate_possible_scores - assert 130 == 137
+- FixMe: test_add_penalty - assert True is False
+- FixMe: test_red_balls_phase - assert 14 == 0
+- FixMe: test_colored_balls_phase - assert 2 == 27
 
 
 ## Snooker rules
