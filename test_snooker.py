@@ -59,7 +59,9 @@ def test_set_starting_scores_valid_input():
     root = create_mock_root()
     game = SnookerGUI(root)
 
-    game.game.set_starting_scores(3, 50, 60)
+    with patch('tkinter.messagebox.showerror') as mock_showerror:
+        game.game.set_starting_scores(3, 50, 60)
+        mock_showerror.assert_not_called()  # No error should be shown
 
     assert game.game.red_balls == 3
     assert game.game.score_player_1 == 50
@@ -72,8 +74,11 @@ def test_set_starting_scores_negative_scores():
     root = create_mock_root()
     game = SnookerGUI(root)
 
-    with pytest.raises(ValueError, match="Scores cannot be negative"):
+    with patch('tkinter.messagebox.showerror') as mock_showerror:
         game.game.set_starting_scores(3, -10, 20)
+        mock_showerror.assert_called_once_with(
+            "Invalid Input", "Scores cannot be negative"
+        )
 
 
 def test_set_starting_scores_total_score_exceeds_147():
@@ -81,8 +86,11 @@ def test_set_starting_scores_total_score_exceeds_147():
     root = create_mock_root()
     game = SnookerGUI(root)
 
-    with pytest.raises(ValueError, match="Total score must be less than 147"):
+    with patch('tkinter.messagebox.showerror') as mock_showerror:
         game.game.set_starting_scores(3, 100, 50)
+        mock_showerror.assert_called_once_with(
+            "Invalid Input", "Total score must be less than 147"
+        )
 
 
 def test_set_starting_scores_invalid_red_balls():
@@ -90,8 +98,11 @@ def test_set_starting_scores_invalid_red_balls():
     root = create_mock_root()
     game = SnookerGUI(root)
 
-    with pytest.raises(ValueError, match="Number of red balls must be between 0 and 15."):
+    with patch('tkinter.messagebox.showerror') as mock_showerror:
         game.game.set_starting_scores(20, 50, 60)
+        mock_showerror.assert_called_once_with(
+            "Invalid Input", "The allowed maximum value is 15. Please try again"
+        )
 
 
 def test_get_shot_value_invalid():
