@@ -9,8 +9,6 @@ Watching a snooker game, it can be pretty confusing when it comes to seeing how 
 This program is to display how many points are still available for each player throughout the game. This could only be achieved by having the logic follow the games dynamics and rules. As a (desirable) side-effect, the program also shows the current scores and which balls are to be played next. 
 
 ## ToDo Section
-- ToDo: working test suite
-- FixMe: test_calculate_possible_scores - assert 130 == 137
 - FixMe: test_add_penalty - assert True is False
 - FixMe: test_red_balls_phase - assert 14 == 0
 - FixMe: test_colored_balls_phase - assert 2 == 27
@@ -18,29 +16,31 @@ This program is to display how many points are still available for each player t
 
 ## File structure
 
-snooker_scores/
-|-  src/
-|   |-  __init__.py
-|   |-  main.py  
-|   |-  snooker_game.py
-|   |-  snooker_gui.py
-|-  tests/
-|   |-  __init__.py
-|   |-  conftest.py
-|   |-  test_game_phases.py
-|   |-  test_get_shot.py
-|   |-  test_handle_balls.py
-|   |-  test_inititialization.py
-|   |-  test_scores.py
-|   |-  test_set_scores.py
-|   .gitgnore
-|   pytest.ini
-|   readme.md
-
+```
+snooker_scores/ 
+├── src/ 
+│   ├──  __init__.py
+│   ├──  main.py
+│   ├──  snooker_game.py
+│   ├──  snooker_gui.py
+├── tests/ 
+│   ├──  __init__.py
+│   ├──  test_conftest.py
+│   ├──  test_game_phases.py
+│   ├──  test_get_shot.py
+│   ├──  test_handle_balls.py
+│   ├──  test_initialization.py
+│   ├──  test_scores.py
+│   ├──  test_set_starting_scores.py
+├── .gitignore 
+├── pytest.ini 
+└── readme.md
+```
 
 ## Pytest
+```
 $ pytest --setup-plan
-========================================================================== test session starts ===========================================================================
+                        === test session starts ===
 platform win32 -- Python 3.12.4, pytest-8.3.4, pluggy-1.5.0
 rootdir: E:\Gebruiker\Dev\snooker_scores
 configfile: pytest.ini
@@ -78,7 +78,7 @@ tests\test_set_scores.py
         tests/test_set_scores.py::test_set_starting_scores_total_score_exceeds_147
         tests/test_set_scores.py::test_set_starting_scores_invalid_red_balls
         tests/test_set_scores.py::test_set_starting_scores_non_numeric_input
-
+```
 
 ## Snooker rules
 Points are also scored if the opponent makes the following mistakes:
