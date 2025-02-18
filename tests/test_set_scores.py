@@ -59,7 +59,7 @@ def test_set_starting_scores_invalid_red_balls():
     game = SnookerGUI(root)
 
     # Mock the StartingScoresDialog to simulate invalid input
-    with patch('snooker_gui.StartingScoresDialog') as mock_dialog:
+    with patch('src.snooker_gui.StartingScoresDialog') as mock_dialog:
         # Mock the show method to return invalid input (20 red balls)
         mock_dialog.return_value.show.return_value = (20, 50, 60)
 
