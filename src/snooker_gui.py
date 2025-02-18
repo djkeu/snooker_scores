@@ -13,7 +13,7 @@ class StartingScoresDialog(Toplevel):
         self.result = None
 
         # Set background color for the dialog
-        self.configure(bg="limegreen")
+        self.configure(bg="lightgrey")
 
         # Add input fields
         Label(self, text="Number of red balls left (0-15):", bg="lightgray").grid(row=0, column=0, padx=10, pady=5)
@@ -40,7 +40,7 @@ class StartingScoresDialog(Toplevel):
         width = self.winfo_width()
         height = self.winfo_height()
         x = (self.winfo_screenwidth() // 2) - (width // 2)
-        y = (self.winfo_screenheight() // 2) - (height // 2)
+        y = (self.winfo_screenheight() // 4) - (height // 2)
         self.geometry(f"+{x}+{y}")
 
     def on_submit(self):
