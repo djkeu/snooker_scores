@@ -69,7 +69,7 @@ class SnookerGUI:
 
     def setup_gui(self):
         """Setup the GUI components."""
-        window_width = 400
+        window_width = 440
         window_height = 400
         screen_width = self.root.winfo_screenwidth()
         screen_height = self.root.winfo_screenheight()
