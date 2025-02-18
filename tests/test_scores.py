@@ -1,8 +1,8 @@
 import sys
 import pytest
 from unittest.mock import patch, MagicMock
-from snooker_gui import SnookerGUI
-from snooker_game import SnookerGame
+from src.snooker_game import SnookerGame
+from src.snooker_gui import SnookerGUI
 sys.path.append("../")
 
 
@@ -149,3 +149,7 @@ def test_add_penalty():
         game.game.add_penalty(3)
         assert game.game.score_player_2 == 10
         assert game.game.red_needed_next is True
+
+
+if __name__ == "__main__":
+    pytest.main()

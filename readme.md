@@ -16,6 +16,20 @@ This program is to display how many points are still available for each player t
 - FixMe: test_colored_balls_phase - assert 2 == 27
 
 
+## File structure
+Note: more test files are used
+snooker_scores/
+├── src/
+│   ├── snooker_game.py
+│   ├── snooker_gui.py
+│   └── main.py
+├── tests/
+│   ├── test_snooker_game.py
+│   ├── test_snooker_gui.py
+│   └── __init__.py
+└── README.md
+
+
 ## Snooker rules
 Points are also scored if the opponent makes the following mistakes:
 - Do not touch any ball with the cue ball,

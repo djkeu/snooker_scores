@@ -1,8 +1,8 @@
 import sys
 import pytest
 from unittest.mock import patch, MagicMock
-from snooker_gui import SnookerGUI
-from snooker_game import SnookerGame
+from src.snooker_game import SnookerGame
+from src.snooker_gui import SnookerGUI
 sys.path.append("../")
 
 
@@ -88,3 +88,5 @@ def test_set_starting_scores_non_numeric_input():
     assert game.game.available_points == game.game.red_balls * 8 + 27
 
 
+if __name__ == "__main__":
+    pytest.main()

@@ -1,8 +1,8 @@
 import sys
 import pytest
 from unittest.mock import patch, MagicMock
-from snooker_gui import SnookerGUI
-from snooker_game import SnookerGame
+from src.snooker_game import SnookerGame
+from src.snooker_gui import SnookerGUI
 sys.path.append("../")
 
 
@@ -55,3 +55,7 @@ def test_get_shot_value_non_numeric():
             mock_showerror.assert_called_once_with(
                 "Invalid Input", "Only numbers between 0 and 7 are valid!"
             )
+
+
+if __name__ == "__main__":
+    pytest.main()

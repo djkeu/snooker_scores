@@ -1,8 +1,8 @@
 import sys
 import pytest
 from unittest.mock import patch, MagicMock
-from snooker_gui import SnookerGUI
-from snooker_game import SnookerGame
+from src.snooker_game import SnookerGame
+from src.snooker_gui import SnookerGUI
 sys.path.append("../")
 
 
@@ -55,3 +55,7 @@ def test_switch_players():
     assert game.game.player_1_turn is False
     game.game.switch_players()
     assert game.game.player_1_turn is True
+
+
+if __name__ == "__main__":
+    pytest.main()

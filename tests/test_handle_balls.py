@@ -1,8 +1,8 @@
 import sys
 import pytest
 from unittest.mock import patch, MagicMock
-from snooker_gui import SnookerGUI
-from snooker_game import SnookerGame
+from src.snooker_game import SnookerGame
+from src.snooker_gui import SnookerGUI
 sys.path.append("../")
 
 
@@ -57,3 +57,7 @@ def test_handle_miss():
     game.game.handle_miss()
     assert game.game.red_needed_next is True
     assert game.game.player_1_turn is False
+
+
+if __name__ == "__main__":
+    pytest.main()
