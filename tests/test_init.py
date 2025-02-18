@@ -44,3 +44,14 @@ def test_initialize_prompt():
 
     expected_prompt = "What's the value of the shot: "
     assert game.game.initialize_prompt() == expected_prompt
+
+
+def test_switch_players():
+    """Test switching turns between players."""
+    root = create_mock_root()
+    game = SnookerGUI(root)
+    assert game.game.player_1_turn is True
+    game.game.switch_players()
+    assert game.game.player_1_turn is False
+    game.game.switch_players()
+    assert game.game.player_1_turn is True
