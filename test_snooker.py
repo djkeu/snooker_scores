@@ -237,16 +237,98 @@ def test_switch_players():
     assert game.game.player_1_turn is True
 
 
-def test_calculate_possible_scores():
-    """Test calculating possible scores."""
-    root = create_mock_root()
-    game = SnookerGUI(root)
-    game.game.score_player_1 = 10
-    game.game.score_player_2 = 20
-    game.game.available_points = 117
-    game.game.calculate_possible_scores()
-    assert game.game.possible_score_player_1 == 127
-    assert game.game.possible_score_player_2 == 137
+import pytest
+from snooker_game import SnookerGame
+
+
+def test_calculate_possible_scores_player_1_turn_red_needed_next():
+    """Test possible scores when it's Player 1's turn and a red ball is needed next."""
+    game = SnookerGame()
+    game.player_1_turn = True
+    game.red_needed_next = True
+    game.score_player_1 = 10
+    game.score_player_2 = 20
+    game.available_points = 100
+
+    game.calculate_possible_scores()
+
+    assert game.possible_score_player_1 == 110  # 10 + 100
+    assert game.possible_score_player_2 == 120  # 20 + 100
+
+
+def test_calculate_possible_scores_player_1_turn_colored_needed_next():
+    """Test possible scores when it's Player 1's turn and a colored ball is needed next."""
+    game = SnookerGame()
+    game.player_1_turn = True
+    game.red_needed_next = False
+    game.score_player_1 = 10
+    game.score_player_2 = 20
+    game.available_points = 100
+
+    game.calculate_possible_scores()
+
+    assert game.possible_score_player_1 == 110  # 10 + 100
+    assert game.possible_score_player_2 == 113  # 20 + 100 - 7
+
+
+def test_calculate_possible_scores_player_2_turn_red_needed_next():
+    """Test possible scores when it's Player 2's turn and a red ball is needed next."""
+    game = SnookerGame()
+    game.player_1_turn = False
+    game.red_needed_next = True
+    game.score_player_1 = 10
+    game.score_player_2 = 20
+    game.available_points = 100
+
+    game.calculate_possible_scores()
+
+    assert game.possible_score_player_1 == 110  # 10 + 100
+    assert game.possible_score_player_2 == 120  # 20 + 100
+
+
+def test_calculate_possible_scores_player_2_turn_colored_needed_next():
+    """Test possible scores when it's Player 2's turn and a colored ball is needed next."""
+    game = SnookerGame()
+    game.player_1_turn = False
+    game.red_needed_next = False
+    game.score_player_1 = 10
+    game.score_player_2 = 20
+    game.available_points = 100
+
+    game.calculate_possible_scores()
+
+    assert game.possible_score_player_1 == 103  # 10 + 100 - 7
+    assert game.possible_score_player_2 == 120  # 20 + 100
+
+
+def test_calculate_possible_scores_edge_case_zero_available_points():
+    """Test possible scores when available_points is 0."""
+    game = SnookerGame()
+    game.player_1_turn = True
+    game.red_needed_next = False
+    game.score_player_1 = 10
+    game.score_player_2 = 20
+    game.available_points = 0
+
+    game.calculate_possible_scores()
+
+    assert game.possible_score_player_1 == 10  # 10 + 0
+    assert game.possible_score_player_2 == 13  # 20 + 0 - 7
+
+
+def test_calculate_possible_scores_edge_case_negative_scores():
+    """Test possible scores when scores are negative."""
+    game = SnookerGame()
+    game.player_1_turn = False
+    game.red_needed_next = False
+    game.score_player_1 = -10
+    game.score_player_2 = -20
+    game.available_points = 100
+
+    game.calculate_possible_scores()
+
+    assert game.possible_score_player_1 == 83  # -10 + 100 - 7
+    assert game.possible_score_player_2 == 80  # -20 + 100
 
 
 def test_add_penalty():
