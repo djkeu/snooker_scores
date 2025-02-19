@@ -84,6 +84,15 @@ tests\test_set_scores.py
 ```
 
 
+Some possible test file names could be:
+
+    test_game_logic.py – For testing the main game logic, including handling shots, phases, and score calculations.
+    test_input_validation.py – For testing input validation, such as handling invalid values and ensuring correct user prompts.
+    test_score_calculation.py – For testing how scores are updated based on different scenarios.
+    test_game_flow.py – For testing the overall game flow from start to finish.
+
+
+
 ## Snooker rules
 Points are also scored if the opponent makes the following mistakes:
 - Do not touch any ball with the cue ball,
