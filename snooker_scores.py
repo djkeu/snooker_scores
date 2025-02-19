@@ -255,21 +255,28 @@ class SnookerScores:
         """Handle last ball before colored balls phase."""
         print("\nNo more red balls left! ")
 
-        while self.available_player_1 > 0:
+        while self.available_player_1 > 0 or self.available_player_2 > 0:
             shot = self.get_shot_value()
 
             if shot < 2 or shot > 7:
                 print("\nYou must pot a colored ball!")
             else:
-                self.available_player_1 -= shot
-                self.update_score(shot)
+                if self.player_1_turn:
+                    self.available_player_1 -= shot
+                    self.update_score(shot)
+                else:
+                    self.available_player_2 -= shot
+                    self.update_score(shot)
+
                 self.display_game_state()
                 break
 
+        self.available_player_1 = 27
+        self.available_player_2 = 27
+
+
     def colored_balls_phase(self):
         """Simulate colored balls phase."""
-        self.available_player_1 = 27
-
         while self.available_player_1 > 0:
             print(
                 f"Next ball to pot: "
