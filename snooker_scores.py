@@ -71,6 +71,8 @@ class SnookerScores:
     def handle_red_ball(self, shot):
         """Handle logic for when a red ball is hit."""
         if self.red_needed_next:
+            self.red_balls -= 1
+
             if self.player_1_turn:
                 self.available_player_1 -= 1
                 self.available_player_2 -= 8
@@ -78,7 +80,6 @@ class SnookerScores:
                 self.available_player_2 -= 1
                 self.available_player_1 -= 8
                 
-            self.red_balls -= 1
             self.red_needed_next = False
             self.update_score(shot)
         else:
