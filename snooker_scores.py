@@ -13,7 +13,7 @@ class SnookerScores:
         self.score_player_1 = 0
         self.score_player_2 = 0
         self.possible_score_player_1 = self.available_player_1
-        self.possible_score_player_2 = self.available_player_1
+        self.possible_score_player_2 = self.available_player_2
         self.yellow_ball = 2
         self.colored_balls = {
             2: "yellow",
