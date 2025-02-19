@@ -93,17 +93,18 @@ def test_set_starting_scores_valid_input():
     assert game.available_player_1 == 43  # Corrected calculation
     assert game.available_player_2 == 43
 
-# FixMe:
 def test_set_starting_scores_invalid_input():
-    # Test when invalid input is provided
-    with patch('builtins.input', side_effect=["-1", "15", "50", "60"]):  # First input is invalid, then valid
+    # Simulate invalid input (15 red balls and 50/60 points scored) followed by valid input (2 red balls, 50/60 points)
+    with patch('builtins.input', side_effect=["15", "50", "60", "2", "50", "60"]):  
         game = SnookerScores()
         game.set_starting_scores()
 
-    # Check if the invalid input is handled correctly (red_balls should be 15, as input is reset)
-    assert game.red_balls == 15
+    # Check if the correct valid scenario was accepted after invalid input
+    assert game.red_balls == 2
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
+    assert game.available_player_1 == 43  # Red balls * 8 + 27 = 2*8 + 27 = 43
+    assert game.available_player_2 == 43  # Red balls * 8 + 27 = 2*8 + 27 = 43
     
 # Test for adding penalty points
 def test_add_penalty_valid_input():
