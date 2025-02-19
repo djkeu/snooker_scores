@@ -106,13 +106,9 @@ class SnookerGame:
         if self.player_1_turn:
             self.possible_score_player_1 = self.score_player_1 + self.available_points
             self.possible_score_player_2 = self.score_player_2 + self.available_points
-            if self.red_needed_next == False:
-                self.possible_score_player_2 -= 7
         else:
             self.possible_score_player_1 = self.score_player_1 + self.available_points
             self.possible_score_player_2 = self.score_player_2 + self.available_points
-            if self.red_needed_next == False:
-                self.possible_score_player_1 -= 7
 
     def display_game_state(self):
         """Display the current state of the game in the desired format."""
