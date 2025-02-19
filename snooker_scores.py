@@ -289,3 +289,13 @@ class SnookerScores:
         self.red_balls_phase()
         self.colored_balls_phase()
         self.display_winner()
+
+
+def main():
+    """Show the snooker scores."""
+    scores = SnookerScores()
+    scores.start_game()
+
+
+if __name__ == "__main__":
+    main()
