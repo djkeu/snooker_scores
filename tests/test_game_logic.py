@@ -19,7 +19,6 @@ def test_initial_game_setup():
 def test_switch_players():
     game = SnookerScores()
     
-    # Test switching players after a shot
     game.switch_players()
     assert game.player_1_turn is False
     
@@ -66,102 +65,86 @@ def test_handle_color_ball_player_2():
 def test_handle_miss():
     game = SnookerScores()
     
-    # First, let's pot a red and then miss
     game.handle_red_ball(1)
     game.handle_color_ball(5)
     
-    # Now simulate a miss
     game.handle_miss()
-    assert game.available_player_1 == 139  # Player 1's available points shouldn't change
-    assert game.available_player_2 == 139  # Player 2's available points shouldn't change
+    assert game.available_player_1 == 139
+    assert game.available_player_2 == 139
 
 def test_handle_last_colored_ball():
     game = SnookerScores()
     
-    # Simulate game reaching the last colored ball
     game.red_balls = 0
     game.available_player_1 = 27
     game.available_player_2 = 27
     
-    # Player 1 pots the yellow ball (shot value 2)
-    game.switch_players()  # Switch to Player 1
+    game.switch_players()
     with mock_input("What's the value of the shot: ", "2"):
         game.handle_last_colored_ball()
     
-    # After potted last colored ball, the game should end
     assert game.available_player_1 == 27
     assert game.available_player_2 == 27
 
 
 def test_set_starting_scores_valid_input():
-    # Simulate the user entering invalid inputs first and valid ones second
-    with patch('builtins.input', side_effect=[16, 50, 60, 2, 50, 60]):  # First try invalid values, then valid ones
+    with patch('builtins.input', side_effect=[16, 50, 60, 2, 50, 60]):
         game = SnookerScores()
         game.set_starting_scores()
 
     assert game.red_balls == 2
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
-    assert game.available_player_1 == 43  # Corrected calculation
+    assert game.available_player_1 == 43
     assert game.available_player_2 == 43
 
 def test_set_starting_scores_invalid_input():
-    # Simulate invalid input (15 red balls and 50/60 points scored) followed by valid input (2 red balls, 50/60 points)
     with patch('builtins.input', side_effect=["15", "50", "60", "2", "50", "60"]):  
         game = SnookerScores()
         game.set_starting_scores()
 
-    # Check if the correct valid scenario was accepted after invalid input
     assert game.red_balls == 2
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
-    assert game.available_player_1 == 43  # Red balls * 8 + 27 = 2*8 + 27 = 43
-    assert game.available_player_2 == 43  # Red balls * 8 + 27 = 2*8 + 27 = 43
+    assert game.available_player_1 == 43
+    assert game.available_player_2 == 43
     
 def test_add_penalty_valid_input():
-    # Mocking the input function to simulate user input
-    with patch('builtins.input', side_effect=['5', 'n']):  # Simulating a penalty of 5 points and the response to not respot balls
-        game = SnookerScores()
-        game.score_player_1 = 50  # Set an initial score for Player 1
-        game.score_player_2 = 40  # Set an initial score for Player 2
-        game.add_penalty()
-
-    # Check that the penalty was correctly added to Player 2's score (since it's Player 1's turn)
-    assert game.score_player_2 == 45  # 40 + 5 penalty
-    assert game.score_player_1 == 50  # Player 1's score should not change
-    assert game.red_needed_next  # Red ball should be needed next, since no respot occurred
-
-def test_add_penalty_invalid_input():
-    # Test when invalid input is provided for penalty (invalid number and invalid respot input)
-    with patch('builtins.input', side_effect=["-1", "5", "y"]):  # First input is invalid, then valid
+    with patch('builtins.input', side_effect=['5', 'n']):
         game = SnookerScores()
         game.score_player_1 = 50
         game.score_player_2 = 40
         game.add_penalty()
 
-    # Assert that the penalty was correctly added after valid input
-    assert game.score_player_2 == 45  # Player 2 should have 45 after penalty
-    assert game.red_needed_next  # Red ball should be needed next
+    assert game.score_player_2 == 45
+    assert game.score_player_1 == 50
+    assert game.red_needed_next
+
+def test_add_penalty_invalid_input():
+    with patch('builtins.input', side_effect=["-1", "5", "y"]):
+        game = SnookerScores()
+        game.score_player_1 = 50
+        game.score_player_2 = 40
+        game.add_penalty()
+
+    assert game.score_player_2 == 45
+    assert game.red_needed_next
 
 
 def test_display_winner():
     game = SnookerScores()
     
-    # Simulate Player 1 and Player 2 scoring points
     game.score_player_1 = 50
     game.score_player_2 = 40
     
     with patch('builtins.print') as mock_print:
         game.display_winner()
-        mock_print.assert_called_with("\nPlayer 1 wins!")  # Check if Player 1 is declared winner
+        mock_print.assert_called_with("\nPlayer 1 wins!")
 
 def test_game_flow():
     game = SnookerScores()
     
-    # Simulate game flow with mock inputs
     with patch('builtins.input', side_effect=[1, 5, 2, 4, 1, 3, 'q']):
-        with pytest.raises(SystemExit):  # Expect the program to exit
-            game.red_balls_phase()  # Begin red ball phase
-            game.colored_balls_phase()  # Move to colored balls phase
-    
-    # Since the game exits, no need for further assertions
+        with pytest.raises(SystemExit):
+            game.red_balls_phase()
+            game.colored_balls_phase()  # Note: this phase is not reached
