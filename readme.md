@@ -15,13 +15,37 @@ This program is to display how many points are still available for each player t
 
 ## File structure
 
+### No GUI
+
+```
+snooker_scores/
+├── sn_env/
+├── tests/
+│   ├──  __init__.py
+│   ├──  test_game_logic.py
+│   ├──  tst_snooker.py
+├── txt/
+│   ├──  hotkeys.txt
+│   ├──  welcome_messages.txt
+├── .gitignore 
+├── main.py 
+├── pytest.ini 
+├── readme.md 
+├── snooker_scores.py 
+
+```
+
+
+### With GUI
+
+```
 snooker_scores/ 
 ├── src/ 
 │   ├──  __init__.py
 │   ├──  main.py
 │   ├──  snooker_game.py
 │   ├──  snooker_gui.py
-├── tests/ 
+├── tests/
 │   ├──  __init__.py
 │   ├──  test_conftest.py
 │   ├──  test_game_phases.py
@@ -32,7 +56,9 @@ snooker_scores/
 │   ├──  test_set_starting_scores.py
 ├── .gitignore 
 ├── pytest.ini 
-└── readme.md
+├── readme.md
+
+```
 
 
 ## Pytest
