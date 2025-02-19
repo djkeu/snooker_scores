@@ -13,6 +13,70 @@ This program is to display how many points are still available for each player t
 - ToDo: GUI
 
 
+## File structure
+
+snooker_scores/ 
+├── src/ 
+│   ├──  __init__.py
+│   ├──  main.py
+│   ├──  snooker_game.py
+│   ├──  snooker_gui.py
+├── tests/ 
+│   ├──  __init__.py
+│   ├──  test_conftest.py
+│   ├──  test_game_phases.py
+│   ├──  test_get_shot.py
+│   ├──  test_handle_balls.py
+│   ├──  test_initialization.py
+│   ├──  test_scores.py
+│   ├──  test_set_starting_scores.py
+├── .gitignore 
+├── pytest.ini 
+└── readme.md
+
+
+## Pytest
+$ pytest --setup-plan
+
+                        === test session starts ===
+platform win32 -- Python 3.12.4, pytest-8.3.4, pluggy-1.5.0
+rootdir: E:\Gebruiker\Dev\snooker_scores
+configfile: pytest.ini
+collected 26 items
+
+tests\test_get_shot.py 
+        tests/test_get_shot.py::test_get_shot_value_quit
+        tests/test_get_shot.py::test_get_shot_value_invalid
+        tests/test_get_shot.py::test_get_shot_value_non_numeric
+tests\test_handle_balls.py 
+        tests/test_handle_balls.py::test_handle_red_ball
+        tests/test_handle_balls.py::test_handle_red_ball_reduces_available_points
+        tests/test_handle_balls.py::test_handle_color_ball
+        tests/test_handle_balls.py::test_handle_color_ball_reduces_available_points
+        tests/test_handle_balls.py::test_handle_miss
+tests\test_init.py 
+        tests/test_init.py::test_initial_state
+        tests/test_init.py::test_initialize_prompt
+        tests/test_init.py::test_switch_players
+tests\test_phases.py 
+        tests/test_phases.py::test_red_balls_phase
+        tests/test_phases.py::test_colored_balls_phase
+tests\test_scores.py 
+        tests/test_scores.py::test_update_score
+        tests/test_scores.py::test_calculate_possible_scores_player_1_turn_red_needed_next
+        tests/test_scores.py::test_calculate_possible_scores_player_1_turn_colored_needed_next
+        tests/test_scores.py::test_calculate_possible_scores_player_2_turn_red_needed_next
+        tests/test_scores.py::test_calculate_possible_scores_player_2_turn_colored_needed_next
+        tests/test_scores.py::test_calculate_possible_scores_edge_case_zero_available_points
+        tests/test_scores.py::test_calculate_possible_scores_edge_case_negative_scores
+        tests/test_scores.py::test_add_penalty
+tests\test_set_scores.py 
+        tests/test_set_scores.py::test_set_starting_scores_valid_input
+        tests/test_set_scores.py::test_set_starting_scores_negative_scores
+        tests/test_set_scores.py::test_set_starting_scores_total_score_exceeds_147
+        tests/test_set_scores.py::test_set_starting_scores_invalid_red_balls
+        tests/test_set_scores.py::test_set_starting_scores_non_numeric_input
+
 ## Snooker rules
 Points are also scored if the opponent makes the following mistakes:
 - Do not touch any ball with the cue ball,
