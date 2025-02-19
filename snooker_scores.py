@@ -8,12 +8,12 @@ class SnookerScores:
         self.red_balls = 15
         self.available_player_1 = (self.red_balls * 8) + 27
         self.available_player_2 = (self.red_balls * 8) + 27
-        self.red_needed_next = True
-        self.player_1_turn = True
-        self.score_player_1 = 0
-        self.score_player_2 = 0
         self.possible_score_player_1 = self.available_player_1
         self.possible_score_player_2 = self.available_player_2
+        self.score_player_1 = 0
+        self.score_player_2 = 0
+        self.red_needed_next = True
+        self.player_1_turn = True
         self.yellow_ball = 2
         self.colored_balls = {
             2: "yellow",
@@ -92,10 +92,11 @@ class SnookerScores:
             self.switch_players()
             self.red_needed_next = True
         else:
+            color_ball_value = shot
             if self.player_1_turn:
-                self.available_player_1 -= (7 - shot)
+                self.available_player_1 -= 7  # Decrease by 7 and add the shot value
             else:
-                self.available_player_2 -= (7 - shot)
+                self.available_player_2 -= 7
             self.red_needed_next = True
             self.update_score(shot)
 
@@ -262,10 +263,10 @@ class SnookerScores:
                 print("\nYou must pot a colored ball!")
             else:
                 if self.player_1_turn:
-                    self.available_player_1 -= shot
+                    self.available_player_1 -= 7
                     self.update_score(shot)
                 else:
-                    self.available_player_2 -= shot
+                    self.available_player_2 -= 7
                     self.update_score(shot)
 
                 self.display_game_state()
