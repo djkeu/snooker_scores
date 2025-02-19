@@ -27,11 +27,11 @@ class SnookerScores:
         self.first_input = True
         self.shot_prompt = self.initialize_prompt()
 
-    # Ball handling
     def initialize_prompt(self):
         """Initialize the prompt message."""
         return "What's the value of the shot: "
 
+    # Ball handling
     def get_shot_value(self):
         """Prompt user for the shot value and handle input validation."""
         while True:
