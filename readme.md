@@ -37,6 +37,10 @@ snooker_scores/
 
 
 ## Pytest
+
+Note: obsolete
+
+```
 $ pytest --setup-plan
 
                         === test session starts ===
@@ -77,6 +81,8 @@ tests\test_set_scores.py
         tests/test_set_scores.py::test_set_starting_scores_total_score_exceeds_147
         tests/test_set_scores.py::test_set_starting_scores_invalid_red_balls
         tests/test_set_scores.py::test_set_starting_scores_non_numeric_input
+```
+
 
 ## Snooker rules
 Points are also scored if the opponent makes the following mistakes:
