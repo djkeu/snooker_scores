@@ -6,7 +6,7 @@ from snooker_scores import SnookerScores
 def test_initial_state():
     """Test the initial state of the SnookerScores class."""
     game = SnookerScores()
-    assert game.available_points == 147
+    assert game.available_player_1 == 147
     assert game.red_balls == 15
     assert game.red_needed_next is True
     assert game.player_1_turn is True
@@ -86,7 +86,7 @@ def test_handle_red_ball_reduces_available_points():
     """Test that handle_red_ball reduces available points correctly."""
     game = SnookerScores()
     game.handle_red_ball(1)
-    assert game.available_points == 146
+    assert game.available_player_1 == 146
 
 def test_handle_color_ball():
     """Test handling a colored ball."""
@@ -100,10 +100,10 @@ def test_handle_color_ball_reduces_available_points():
     """Test that handle_color_ball reduces available points correctly."""
     game = SnookerScores()
     game.red_balls = 13
-    game.available_points = 138  # 147 - 1 - 7 - 1
+    game.available_player_1 = 138  # 147 - 1 - 7 - 1
     game.red_needed_next = False
     game.handle_color_ball(3)  # green ball
-    assert game.available_points == 131  # 138 - 7
+    assert game.available_player_1 == 131  # 138 - 7
 
 def test_handle_miss():
     """Test handling a missed shot."""
@@ -137,7 +137,7 @@ def test_calculate_possible_scores():
     game = SnookerScores()
     game.score_player_1 = 10
     game.score_player_2 = 20
-    game.available_points = 117
+    game.available_player_1 = 117
     game.calculate_possible_scores()
     assert game.possible_score_player_1 == 127
     assert game.possible_score_player_2 == 137
@@ -152,7 +152,7 @@ def test_set_starting_scores_valid_input():
     assert game.red_balls == 3
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
-    assert game.available_points == game.red_balls * 8 + 27
+    assert game.available_player_1 == game.red_balls * 8 + 27
 
 def test_set_starting_scores_negative_scores():
     """Test negative scores input."""
@@ -164,7 +164,7 @@ def test_set_starting_scores_negative_scores():
     assert game.red_balls == 3
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
-    assert game.available_points == game.red_balls * 8 + 27
+    assert game.available_player_1 == game.red_balls * 8 + 27
 
 def test_set_starting_scores_total_score_exceeds_147():
     """Test total score exceeding 147."""
@@ -176,7 +176,7 @@ def test_set_starting_scores_total_score_exceeds_147():
     assert game.red_balls == 3
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
-    assert game.available_points == game.red_balls * 8 + 27
+    assert game.available_player_1 == game.red_balls * 8 + 27
 
 def test_set_starting_scores_invalid_red_balls():
     """Test invalid number of red balls."""
@@ -190,7 +190,7 @@ def test_set_starting_scores_invalid_red_balls():
     assert game.red_balls == 3
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
-    assert game.available_points == game.red_balls * 8 + 27
+    assert game.available_player_1 == game.red_balls * 8 + 27
 
 def test_set_starting_scores_non_numeric_input():
     """Test non-numeric input."""
@@ -202,7 +202,7 @@ def test_set_starting_scores_non_numeric_input():
     assert game.red_balls == 3
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
-    assert game.available_points == game.red_balls * 8 + 27
+    assert game.available_player_1 == game.red_balls * 8 + 27
 
 def test_add_penalty():
     snooker_scores = SnookerScores()
@@ -252,7 +252,7 @@ def test_red_balls_phase():
             game.red_balls_phase()
             assert game.red_balls == 0
             assert game.score_player_1 == 48
-            assert game.available_points == 29
+            assert game.available_player_1 == 29
             # 147 - (15) - (98) - 5 (last blue ball)
             mocked_print.assert_any_call(
                 "\nNo more red balls left! "
@@ -263,7 +263,7 @@ def test_colored_balls_phase():
     """Test the colored balls phase."""
     game = SnookerScores()
     game.red_balls = 0
-    game.available_points = 27
+    game.available_player_1 = 27
     game.score_player_1 = 0
     game.score_player_2 = 0
     game.yellow_ball = 2
@@ -273,7 +273,7 @@ def test_colored_balls_phase():
             game.colored_balls_phase()
             assert game.score_player_1 == 27
             assert game.score_player_2 == 0
-            assert game.available_points == 0
+            assert game.available_player_1 == 0
             assert game.yellow_ball == 8
             mocked_print.assert_any_call("\nEntering colored balls endgame!\n")
             mocked_print.assert_any_call("Available for endgame: 27")
