@@ -162,7 +162,6 @@ def test_handle_last_colored_ball():
     assert game.available_player_1 == 27
     assert game.available_player_2 == 27
 
-# FixMe:
 # Test for the game flow
 def test_game_flow():
     game = SnookerScores()
