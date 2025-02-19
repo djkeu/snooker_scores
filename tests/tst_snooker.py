@@ -24,7 +24,7 @@ def test_initial_state():
         7: "black",
     }
     assert game.first_input is True
-    assert game.prompt == "What's the value of the shot: (enter 'q' to quit, 's' to set starting scores) "
+    assert game.shot_prompt == "What's the value of the shot: (enter 'q' to quit, 's' to set starting scores) "
 
 # Ball handling
 def test_initialize_prompt():

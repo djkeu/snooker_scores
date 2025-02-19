@@ -25,7 +25,7 @@ class SnookerScores:
             7: "black",
         }
         self.first_input = True
-        self.prompt = self.initialize_prompt()
+        self.shot_prompt = self.initialize_prompt()
 
     # Ball handling
     def initialize_prompt(self):
@@ -35,7 +35,7 @@ class SnookerScores:
     def get_shot_value(self):
         """Prompt user for the shot value and handle input validation."""
         while True:
-            shot = input(self.prompt)
+            shot = input(self.shot_prompt)
 
             if shot == "q":
                 sys.exit("Bye!")
@@ -58,7 +58,7 @@ class SnookerScores:
             shot = int(shot)
             if 0 <= shot <= 7:
                 self.first_input = False
-                self.prompt = self.initialize_prompt()
+                self.shot_prompt = self.initialize_prompt()
                 return True
             else:
                 raise ValueError
