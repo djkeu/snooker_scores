@@ -3,12 +3,10 @@ from unittest.mock import patch
 from snooker_scores import SnookerScores
 
 
-# Helper function to mock user input
 def mock_input(prompt, value):
     return patch('builtins.input', return_value=value)
 
 
-# Test for initial game setup
 def test_initial_game_setup():
     game = SnookerScores()
     
@@ -18,7 +16,17 @@ def test_initial_game_setup():
     assert game.available_player_2 == 147
     assert game.red_balls == 15
 
-# Test red ball logic for Player 1
+def test_switch_players():
+    game = SnookerScores()
+    
+    # Test switching players after a shot
+    game.switch_players()
+    assert game.player_1_turn is False
+    
+    game.switch_players()
+    assert game.player_1_turn is True
+
+
 def test_handle_red_ball_player_1():
     game = SnookerScores()
 
@@ -28,7 +36,6 @@ def test_handle_red_ball_player_1():
     assert game.available_player_2 == 139
     assert game.score_player_1 == 1
 
-# Test red ball logic for Player 2
 def test_handle_red_ball_player_2():
     game = SnookerScores()
 
@@ -47,7 +54,6 @@ def test_handle_color_ball_player_1():
     assert game.score_player_1 == 6
     assert game.available_player_1 == 139
 
-# Test for handling color ball for player 2
 def test_handle_color_ball_player_2():
     game = SnookerScores()
 
@@ -57,7 +63,6 @@ def test_handle_color_ball_player_2():
     assert game.score_player_2 == 5
     assert game.available_player_2 == 139
 
-# Test for handling miss
 def test_handle_miss():
     game = SnookerScores()
     
@@ -70,16 +75,23 @@ def test_handle_miss():
     assert game.available_player_1 == 139  # Player 1's available points shouldn't change
     assert game.available_player_2 == 139  # Player 2's available points shouldn't change
 
-# Test for switching players
-def test_switch_players():
+def test_handle_last_colored_ball():
     game = SnookerScores()
     
-    # Test switching players after a shot
-    game.switch_players()
-    assert game.player_1_turn is False
+    # Simulate game reaching the last colored ball
+    game.red_balls = 0
+    game.available_player_1 = 27
+    game.available_player_2 = 27
     
-    game.switch_players()
-    assert game.player_1_turn is True
+    # Player 1 pots the yellow ball (shot value 2)
+    game.switch_players()  # Switch to Player 1
+    with mock_input("What's the value of the shot: ", "2"):
+        game.handle_last_colored_ball()
+    
+    # After potted last colored ball, the game should end
+    assert game.available_player_1 == 27
+    assert game.available_player_2 == 27
+
 
 def test_set_starting_scores_valid_input():
     # Simulate the user entering invalid inputs first and valid ones second
@@ -106,7 +118,6 @@ def test_set_starting_scores_invalid_input():
     assert game.available_player_1 == 43  # Red balls * 8 + 27 = 2*8 + 27 = 43
     assert game.available_player_2 == 43  # Red balls * 8 + 27 = 2*8 + 27 = 43
     
-# Test for adding penalty points
 def test_add_penalty_valid_input():
     # Mocking the input function to simulate user input
     with patch('builtins.input', side_effect=['5', 'n']):  # Simulating a penalty of 5 points and the response to not respot balls
@@ -132,7 +143,7 @@ def test_add_penalty_invalid_input():
     assert game.score_player_2 == 45  # Player 2 should have 45 after penalty
     assert game.red_needed_next  # Red ball should be needed next
 
-# Test for displaying the winner
+
 def test_display_winner():
     game = SnookerScores()
     
@@ -144,25 +155,6 @@ def test_display_winner():
         game.display_winner()
         mock_print.assert_called_with("\nPlayer 1 wins!")  # Check if Player 1 is declared winner
 
-# Test for handling last colored ball
-def test_handle_last_colored_ball():
-    game = SnookerScores()
-    
-    # Simulate game reaching the last colored ball
-    game.red_balls = 0
-    game.available_player_1 = 27
-    game.available_player_2 = 27
-    
-    # Player 1 pots the yellow ball (shot value 2)
-    game.switch_players()  # Switch to Player 1
-    with mock_input("What's the value of the shot: ", "2"):
-        game.handle_last_colored_ball()
-    
-    # After potted last colored ball, the game should end
-    assert game.available_player_1 == 27
-    assert game.available_player_2 == 27
-
-# Test for the game flow
 def test_game_flow():
     game = SnookerScores()
     
