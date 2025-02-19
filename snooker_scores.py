@@ -25,10 +25,14 @@ class SnookerScores:
             7: "black",
         }
         self.first_input = True
-        self.shot_prompt = self.initialize_prompt()
+        self.shot_prompt = "What's the value of the shot: "
 
     def initialize_prompt(self):
-        """Initialize the prompt message."""
+        """
+        Initialize the prompt message.
+        
+        FixMe: needed in handle_last_colored_ball(), test_game_flow
+        """
         return "What's the value of the shot: "
 
     # Ball handling
