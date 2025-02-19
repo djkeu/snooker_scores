@@ -81,20 +81,24 @@ def test_switch_players():
     game.switch_players()
     assert game.player_1_turn is True
 
-# FixMe:
-# Test for setting starting scores
 def test_set_starting_scores_valid_input():
-    # Mocking the input function to simulate user input
-    with patch('builtins.input', side_effect=[15, 50, 60]):  # Simulate the user entering 15, 50, and 60 for red balls, player 1 score, and player 2 score
+    # Simulate the user entering invalid inputs first and valid ones second
+    with patch('builtins.input', side_effect=[16, 50, 60, 2, 50, 60]):  # First try invalid values, then valid ones
         game = SnookerScores()
         game.set_starting_scores()
 
-    # Assert that the values were set correctly
-    assert game.red_balls == 15
+    assert game.red_balls == 2
     assert game.score_player_1 == 50
     assert game.score_player_2 == 60
-    assert game.available_player_1 == 147  # Because red balls * 8 + 27 = 15*8 + 27 = 147
-    assert game.available_player_2 == 147
+    assert game.available_player_1 == 43  # Corrected calculation
+    assert game.available_player_2 == 43
+
+    assert game.red_balls == 2
+    assert game.score_player_1 == 50
+    assert game.score_player_2 == 60
+    assert game.available_player_1 == 43  # Because red balls * 8 + 27 = 15*8 + 27 = 147
+    assert game.available_player_2 == 43
+
 
 # FixMe:
 def test_set_starting_scores_invalid_input():

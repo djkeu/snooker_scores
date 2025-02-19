@@ -128,7 +128,7 @@ class SnookerScores:
                 elif red_balls < 0 or red_balls > 15:
                     print("\nNumber of red balls must be between 0 and 15.")
                     continue
-                elif score_1 + score_2 + (red_balls * 8) > self.available_player_1:
+                elif score_1 + score_2 + (red_balls * 8) > self.maximum_score:
                     print("\nTotal score must be less than 147")
                     continue
 
