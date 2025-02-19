@@ -93,9 +93,9 @@ class SnookerScores:
             self.red_needed_next = True
         else:
             if self.player_1_turn:
-                self.available_player_1 -= shot
+                self.available_player_1 -= (7 - shot)
             else:
-                self.available_player_2 -= shot
+                self.available_player_2 -= (7 - shot)
             self.red_needed_next = True
             self.update_score(shot)
 
