@@ -70,7 +70,13 @@ class SnookerScores:
     def handle_red_ball(self, shot):
         """Handle logic for when a red ball is hit."""
         if self.red_needed_next:
-            self.available_player_1 -= 1
+            if self.player_1_turn:
+                self.available_player_1 -= 1
+                self.available_player_2 -= 8
+            else:
+                self.available_player_2 -= 1
+                self.available_player_1 -= 8
+                
             self.red_balls -= 1
             self.red_needed_next = False
             self.update_score(shot)
@@ -86,7 +92,10 @@ class SnookerScores:
             self.switch_players()
             self.red_needed_next = True
         else:
-            self.available_player_1 -= 7
+            if self.player_1_turn:
+                self.available_player_1 -= shot
+            else:
+                self.available_player_2 -= shot
             self.red_needed_next = True
             self.update_score(shot)
 
@@ -124,6 +133,7 @@ class SnookerScores:
                 self.score_player_2 = score_2
                 self.red_balls = red_balls
                 self.available_player_1 = (self.red_balls * 8) + 27
+                self.available_player_2 = (self.red_balls * 8) + 27
                 self.calculate_possible_scores()
                 self.display_game_state()
                 break
@@ -142,7 +152,7 @@ class SnookerScores:
         self.possible_score_player_1 = \
             self.score_player_1 + self.available_player_1
         self.possible_score_player_2 = \
-            self.score_player_2 + self.available_player_1
+            self.score_player_2 + self.available_player_2
 
     def display_game_state(self):
         """Display the current state of the game in the desired format."""
@@ -272,6 +282,7 @@ class SnookerScores:
                 self.switch_players()
             else:
                 self.available_player_1 -= self.yellow_ball
+                self.available_player_2 -= self.yellow_ball
                 self.update_score(shot)
                 self.yellow_ball += 1
 
