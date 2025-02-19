@@ -40,6 +40,7 @@ snooker_scores/
 ## Pytest
 ```
 $ pytest --setup-plan
+
                         === test session starts ===
 platform win32 -- Python 3.12.4, pytest-8.3.4, pluggy-1.5.0
 rootdir: E:\Gebruiker\Dev\snooker_scores
