@@ -27,14 +27,6 @@ class SnookerScores:
         self.first_input = True
         self.shot_prompt = "What's the value of the shot: "
 
-    def initialize_prompt(self):
-        """
-        Initialize the prompt message.
-        
-        FixMe: needed in handle_last_colored_ball(), test_game_flow
-        """
-        return "What's the value of the shot: "
-
     # Ball handling
     def get_shot_value(self):
         """Prompt user for the shot value and handle input validation."""
@@ -62,7 +54,6 @@ class SnookerScores:
             shot = int(shot)
             if 0 <= shot <= 7:
                 self.first_input = False
-                self.shot_prompt = self.initialize_prompt()
                 return True
             else:
                 raise ValueError
