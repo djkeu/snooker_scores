@@ -6,13 +6,13 @@ class SnookerScores:
     def __init__(self):
         """Initialize the game scores state."""
         self.red_balls = 15
+        self.score_player_1 = 0
+        self.score_player_2 = 0
         self.maximum_score = 147
         self.available_player_1 = self.maximum_score
         self.available_player_2 = self.maximum_score
         self.possible_score_player_1 = self.maximum_score
         self.possible_score_player_2 = self.maximum_score
-        self.score_player_1 = 0
-        self.score_player_2 = 0
         self.red_needed_next = True
         self.player_1_turn = True
         self.yellow_ball = 2
