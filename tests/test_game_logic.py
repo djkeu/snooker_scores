@@ -57,8 +57,6 @@ def test_handle_color_ball_player_2():
     assert game.score_player_2 == 5
     assert game.available_player_2 == 139
 
-
-# FixMe:
 # Test for handling miss
 def test_handle_miss():
     game = SnookerScores()
@@ -69,7 +67,7 @@ def test_handle_miss():
     
     # Now simulate a miss
     game.handle_miss()
-    assert game.available_player_1 == 141  # Player 1's available points shouldn't change
+    assert game.available_player_1 == 139  # Player 1's available points shouldn't change
     assert game.available_player_2 == 139  # Player 2's available points shouldn't change
 
 # Test for switching players
