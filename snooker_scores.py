@@ -30,8 +30,7 @@ class SnookerScores:
     # Ball handling
     def initialize_prompt(self):
         """Initialize the prompt message."""
-        prompt = "What's the value of the shot: "
-        return prompt
+        return "What's the value of the shot: "
 
     def get_shot_value(self):
         """Prompt user for the shot value and handle input validation."""
