@@ -276,7 +276,6 @@ class SnookerScores:
         self.available_player_1 = 27
         self.available_player_2 = 27
 
-
     def colored_balls_phase(self):
         """Simulate colored balls phase."""
         while self.available_player_1 > 0:
