@@ -65,7 +65,6 @@ class SnookerScores:
                 raise ValueError
         except ValueError:
             print("\nOnly numbers between 0 and 7 are valid!")
-            # self.display_game_state()
             return False
 
     def handle_red_ball(self, shot):
@@ -96,7 +95,7 @@ class SnookerScores:
         else:
             color_ball_value = shot
             if self.player_1_turn:
-                self.available_player_1 -= 7  # Decrease by 7 and add the shot value
+                self.available_player_1 -= 7
             else:
                 self.available_player_2 -= 7
             self.red_needed_next = True
