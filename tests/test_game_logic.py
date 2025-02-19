@@ -93,13 +93,6 @@ def test_set_starting_scores_valid_input():
     assert game.available_player_1 == 43  # Corrected calculation
     assert game.available_player_2 == 43
 
-    assert game.red_balls == 2
-    assert game.score_player_1 == 50
-    assert game.score_player_2 == 60
-    assert game.available_player_1 == 43  # Because red balls * 8 + 27 = 15*8 + 27 = 147
-    assert game.available_player_2 == 43
-
-
 # FixMe:
 def test_set_starting_scores_invalid_input():
     # Test when invalid input is provided
