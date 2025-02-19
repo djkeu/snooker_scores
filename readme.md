@@ -38,9 +38,36 @@ snooker_scores/
 
 ## Pytest
 
-Note: obsolete
+- test_game_logic.py – For testing the main game logic, including handling shots, phases, and score calculations.
+- test_input_validation.py – For testing input validation, such as handling invalid values and ensuring correct user prompts.
+- test_score_calculation.py – For testing how scores are updated based on different scenarios.
+- test_game_flow.py – For testing the overall game flow from start to finish.
+
 
 ```
+$ pytest --setup-plan
+
+tests\test_game_logic.py
+        tests/test_game_logic.py::test_initial_game_setup
+        tests/test_game_logic.py::test_handle_red_ball_player_1
+        tests/test_game_logic.py::test_handle_red_ball_player_2
+        tests/test_game_logic.py::test_handle_color_ball_player_1
+        tests/test_game_logic.py::test_handle_color_ball_player_2
+        tests/test_game_logic.py::test_handle_miss
+        tests/test_game_logic.py::test_switch_players
+        tests/test_game_logic.py::test_set_starting_scores_valid_input
+        tests/test_game_logic.py::test_set_starting_scores_invalid_input
+        tests/test_game_logic.py::test_add_penalty_valid_input
+        tests/test_game_logic.py::test_add_penalty_invalid_input
+        tests/test_game_logic.py::test_display_winner
+        tests/test_game_logic.py::test_handle_last_colored_ball
+        tests/test_game_logic.py::test_game_flow
+```
+
+
+```
+Note: obsolete
+
 $ pytest --setup-plan
 
                         === test session starts ===
@@ -82,14 +109,6 @@ tests\test_set_scores.py
         tests/test_set_scores.py::test_set_starting_scores_invalid_red_balls
         tests/test_set_scores.py::test_set_starting_scores_non_numeric_input
 ```
-
-
-Some possible test file names could be:
-
-    test_game_logic.py – For testing the main game logic, including handling shots, phases, and score calculations.
-    test_input_validation.py – For testing input validation, such as handling invalid values and ensuring correct user prompts.
-    test_score_calculation.py – For testing how scores are updated based on different scenarios.
-    test_game_flow.py – For testing the overall game flow from start to finish.
 
 
 
