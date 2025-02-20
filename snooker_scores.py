@@ -196,16 +196,16 @@ class SnookerScores:
         print(f"{player} must pot a {ball} next")
 
     def add_penalty(self):
-        """Handle penalty input and apply the penalty."""
-        penalty_value = self.get_penalty_input()  # Get the penalty input from the player
-        self.respot_balls()  # Switch players (not related to penalty)
-        self.apply_penalty(penalty_value)  # Apply the penalty to the game
+        """Handle penalty input, apply the penalty, and respot balls."""
+        penalty_value = self.get_penalty_input()
+        self.respot_balls()  # Respot balls after penalty
+        self.apply_penalty(penalty_value)  # Apply penalty after respot
 
     def get_penalty_input(self):
-        """Get the penalty input from the player."""
+        """Get and validate the penalty input from the player."""
         while True:
             try:
-                penalty = int(input("Enter the penalty value: "))  # Ensure valid input
+                penalty = int(input("Enter the penalty value: "))
                 if penalty < 0:
                     raise ValueError("Penalty must be a non-negative integer.")
                 return penalty
@@ -213,12 +213,14 @@ class SnookerScores:
                 print(f"Invalid input: {e}. Please enter a valid penalty value.")
 
     def apply_penalty(self, penalty_value):
+        """Apply penalty based on whose turn it is."""
         if self.player_1_turn:
             print(f"Penalty of {penalty_value} points applied to Player 1.")
             self.score_player_1 -= penalty_value
         else:
             print(f"Penalty of {penalty_value} points applied to Player 2.")
             self.score_player_2 -= penalty_value
+
 
     def get_respot_input(self):
         """Get and validate the player's choice for respotting balls."""
