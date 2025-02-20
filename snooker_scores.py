@@ -29,24 +29,19 @@ class SnookerScores:
 
     # Ball handling
     def get_shot_value(self):
-        """Prompt user for the shot value and handle input validation."""
         while True:
-            shot = input(self.shot_prompt)
+            shot = input(self.shot_prompt).strip().lower()
 
             if shot == "q":
-                sys.exit("Bye!")
-            elif shot == "s" and self.first_input:
-                self.set_starting_scores()
-                self.first_input = False
-                continue
-            elif shot == 'p':
+                sys.exit()
+            elif shot == "p":
                 self.add_penalty()
-            elif shot == 'x':
+            elif shot == "x":
                 self.switch_players()
-
-            if self.validate_shot(shot):
-                self.first_input = False
+            elif self.validate_shot(shot):
                 return int(shot)
+            else:
+                print("Only numbers between 0 and 7 are valid!")
 
     def validate_shot(self, shot):
         """Validate the shot value."""
@@ -103,8 +98,8 @@ class SnookerScores:
         self.switch_players()
 
     def switch_players(self):
-        """Switch turns between players."""
         self.player_1_turn = not self.player_1_turn
+        print(f"DEBUG: Player turn switched: {self.player_1_turn}")  # Debugging
 
     # Score handling
     def set_starting_scores(self):
