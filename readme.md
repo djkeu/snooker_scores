@@ -36,7 +36,7 @@ snooker_scores/
 ```
 
 
-### With GUI
+### With old GUI
 
 ```
 Note: obsolete
