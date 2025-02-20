@@ -13,11 +13,6 @@ This program is to display how many points are still available for each player t
 - ToDo: GUI
 
 - ToDo:
-3. Simplify Input Validation Logic
-
-Both get_shot_value and validate_shot deal with the validation of shot values. Consider combining the logic for input validation in a more reusable way.
-
-- ToDo:
 4. Combine Score Calculation Logic
 
 update_score and calculate_possible_scores could potentially be combined since they both deal with adjusting scores. If they are meant to do different things, you could rename them to clarify their roles.

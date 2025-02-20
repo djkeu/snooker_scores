@@ -8,16 +8,16 @@ def snooker_game():
     return SnookerScores()
 
 def test_validate_shot_valid(snooker_game):
-    assert snooker_game.validate_shot("0") is True
-    assert snooker_game.validate_shot("7") is True
+    assert snooker_game.validate_shot("0") == 0
+    assert snooker_game.validate_shot("7") == 7
 
 def test_validate_shot_invalid(snooker_game):
-    assert snooker_game.validate_shot("-1") is False
-    assert snooker_game.validate_shot("8") is False
-    assert snooker_game.validate_shot("100") is False
-    assert snooker_game.validate_shot("abc") is False
-    assert snooker_game.validate_shot("!") is False
-    assert snooker_game.validate_shot("") is False
+    assert snooker_game.validate_shot("-1") is None
+    assert snooker_game.validate_shot("8") is None
+    assert snooker_game.validate_shot("100") is None
+    assert snooker_game.validate_shot("abc") is None
+    assert snooker_game.validate_shot("!") is None
+    assert snooker_game.validate_shot("") is None
 
 @patch("sys.exit")
 def test_validate_shot_quit(mock_exit, snooker_game):

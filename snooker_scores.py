@@ -33,16 +33,18 @@ class SnookerScores:
         while True:
             shot = input(self.shot_prompt)
 
-            # Handle special input (like "q", "p", "x")
+            # Handle special input (like "q", "p", "x", "s")
             result = self.handle_special_input(shot)
             if result is not None:
                 return result
 
-            # Validate the shot and handle invalid input
-            if self.validate_shot(shot):
-                return int(shot)
-            else:
-                self.handle_invalid_input()
+            # Validate the shot and return if valid
+            valid_shot = self.validate_shot(shot)
+            if valid_shot is not None:
+                return valid_shot
+
+            self.handle_invalid_input()
+
 
     def handle_special_input(self, shot):
         """Handle special inputs (e.g., 'q', 'p', 'x')."""
@@ -70,17 +72,17 @@ class SnookerScores:
         return None  # This ensures the loop will keep asking for input
 
     def validate_shot(self, shot):
-        """Validate the shot value."""
+        """Validate the shot value and return it if valid."""
         try:
             shot = int(shot)
             if 0 <= shot <= 7:
                 self.first_input = False
-                return True
-            else:
-                raise ValueError
+                return shot  # Directly return the valid shot
         except ValueError:
-            print("\nOnly numbers between 0 and 7 are valid!")
-            return False
+            pass
+
+        print("\nOnly numbers between 0 and 7 are valid!")
+        return None
 
     def handle_ball(self, shot, is_red_ball):
         """Handle logic for both red and colored balls."""
