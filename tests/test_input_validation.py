@@ -21,10 +21,9 @@ def test_validate_shot_invalid(snooker_game):
 
 @patch("sys.exit")
 def test_validate_shot_quit(mock_exit, snooker_game):
-    # Mock user input with "q" to trigger quitting
     with patch("builtins.input", return_value="q"):
-        mock_exit.side_effect = SystemExit  # Ensure SystemExit is raised from sys.exit()
-        with pytest.raises(SystemExit):  # Expecting a SystemExit to be raised
+        mock_exit.side_effect = SystemExit
+        with pytest.raises(SystemExit):
             snooker_game.get_shot_value()
 
 def test_validate_shot_s(snooker_game):
@@ -45,4 +44,4 @@ def test_validate_shot_x(snooker_game):
         with patch("builtins.input", side_effect=["x", "1"]):
             assert snooker_game.get_shot_value() == 1
         mock_switch.assert_called_once()
-    assert snooker_game.player_1_turn != initial_turn  # Ensure player turn changed
+    assert snooker_game.player_1_turn != initial_turn
