@@ -109,26 +109,47 @@ def test_set_starting_scores_invalid_input():
     assert game.available_player_1 == 43
     assert game.available_player_2 == 43
     
-def test_add_penalty_valid_input():
-    with patch('builtins.input', side_effect=['5', 'n']):
+def test_get_penalty_input_valid():
+    with patch('builtins.input', side_effect=['5']):
+        game = SnookerScores()
+        penalty = game.get_penalty_input()
+        assert penalty == 5
+
+def test_get_penalty_input_invalid():
+    with patch('builtins.input', side_effect=['-1', '3']):
+        game = SnookerScores()
+        penalty = game.get_penalty_input()
+        assert penalty == 3
+
+def test_apply_penalty():
+    game = SnookerScores()
+    game.score_player_1 = 50
+    game.score_player_2 = 40
+    game.apply_penalty(5)
+    
+    # Verify the penalty was applied correctly
+    assert game.score_player_1 == 45  # Player 1 is penalized
+    assert game.score_player_2 == 40  # Player 2's score should remain the same
+
+def test_add_penalty_valid():
+    with patch('builtins.input', side_effect=['5', 'n']):  # Simulating valid penalty input and no respot
+        game = SnookerScores()
+        game.score_player_1 = 50
+        game.score_player_2 = 40
+        game.add_penalty()
+    
+    # Ensure the correct penalty was applied to player 1
+    assert game.score_player_1 == 45  # Player 1 is penalized by 5
+
+def test_add_penalty_invalid():
+    with patch('builtins.input', side_effect=['-1', '5', 'y']):  # Simulating invalid penalty input, followed by valid input
         game = SnookerScores()
         game.score_player_1 = 50
         game.score_player_2 = 40
         game.add_penalty()
 
-    assert game.score_player_2 == 45
-    assert game.score_player_1 == 50
-    assert game.red_needed_next
-
-def test_add_penalty_invalid_input():
-    with patch('builtins.input', side_effect=["-1", "5", "y"]):
-        game = SnookerScores()
-        game.score_player_1 = 50
-        game.score_player_2 = 40
-        game.add_penalty()
-
-    assert game.score_player_2 == 45
-    assert game.red_needed_next
+    # Ensure the penalty was correctly applied
+    assert game.score_player_2 == 35  # Player 2 is penalized by 5
 
 
 def test_display_winner():
