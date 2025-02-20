@@ -45,7 +45,6 @@ class SnookerScores:
 
             self.handle_invalid_input()
 
-
     def handle_special_input(self, shot):
         """Handle special inputs (e.g., 'q', 'p', 'x')."""
         if shot == "q":
@@ -62,7 +61,6 @@ class SnookerScores:
     def handle_invalid_input(self):
         """Handle invalid shot input."""
         print("Only numbers between 0 and 7 are valid!")
-
 
     def validate_and_return_shot(self, shot):
         """Validate the shot input and return it as an integer."""
