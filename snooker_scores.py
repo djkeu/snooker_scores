@@ -52,6 +52,8 @@ class SnookerScores:
             self.add_penalty()  # Apply penalty
         elif shot == "x":
             self.switch_players()  # Switch players
+        elif shot == "s":
+            self.set_starting_scores()  # Restart the game or any other action for 's'
         else:
             return None  # If no special input, return None to fall through to validation
 
@@ -80,20 +82,31 @@ class SnookerScores:
             print("\nOnly numbers between 0 and 7 are valid!")
             return False
 
-    def handle_red_ball(self, shot):
-        """Handle logic for when a red ball is hit."""
-        if self.red_needed_next:
+    def handle_ball(self, shot, is_red_ball):
+        """Handle logic for both red and colored balls."""
+        if is_red_ball:
             self.red_balls -= 1
-
             if self.player_1_turn:
                 self.available_player_1 -= 1
                 self.available_player_2 -= 8
             else:
                 self.available_player_2 -= 1
                 self.available_player_1 -= 8
-                
             self.red_needed_next = False
-            self.update_score(shot)
+        else:
+            if self.player_1_turn:
+                self.available_player_1 -= 7
+            else:
+                self.available_player_2 -= 7
+            self.red_needed_next = True
+
+        # Update score
+        self.update_score(shot)
+
+    def handle_red_ball(self, shot):
+        """Handle logic for when a red ball is hit."""
+        if self.red_needed_next:
+            self.handle_ball(shot, is_red_ball=True)
         else:
             print("\nYou need to hit a color!")
             self.switch_players()
@@ -106,13 +119,7 @@ class SnookerScores:
             self.switch_players()
             self.red_needed_next = True
         else:
-            color_ball_value = shot
-            if self.player_1_turn:
-                self.available_player_1 -= 7
-            else:
-                self.available_player_2 -= 7
-            self.red_needed_next = True
-            self.update_score(shot)
+            self.handle_ball(shot, is_red_ball=False)
 
     def handle_miss(self):
         """Handle logic for when a shot is missed."""

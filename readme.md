@@ -11,10 +11,6 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: real life test with video of snooker game
 - ToDo: GUI
-- ToDo:
-2. Refactor handle_red_ball and handle_color_ball for Clarity
-
-Both methods have similar logic with only slight differences between the red ball and colored ball phases. Extracting common logic into a helper function may make the code more readable.
 
 - ToDo:
 3. Simplify Input Validation Logic

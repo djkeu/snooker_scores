@@ -26,12 +26,6 @@ def test_validate_shot_quit(mock_exit, snooker_game):
         with pytest.raises(SystemExit):
             snooker_game.get_shot_value()
 
-def test_validate_shot_s(snooker_game):
-    snooker_game.first_input = True
-    with patch("builtins.input", side_effect=["s", "1"]):
-        assert snooker_game.get_shot_value() == 1
-    assert snooker_game.first_input is False
-
 def test_validate_shot_p(snooker_game):
     with patch.object(snooker_game, "add_penalty") as mock_penalty:
         with patch("builtins.input", side_effect=["p", "1"]):
@@ -46,14 +40,37 @@ def test_validate_shot_x(snooker_game):
         mock_switch.assert_called_once()
     assert snooker_game.player_1_turn != initial_turn
 
+def test_validate_shot_s(snooker_game):
+    snooker_game.first_input = True
+    with patch("builtins.input", side_effect=["s", "5", "10", "5", "1"]):
+        snooker_game.get_shot_value()
+        assert snooker_game.red_balls == 5
+        assert snooker_game.score_player_1 == 10
+        assert snooker_game.score_player_2 == 5
+        assert snooker_game.available_player_1 == 67
+        assert snooker_game.available_player_2 == 67
 
-def test_handle_special_input(snooker_game):
+def test_handle_special_input_q(snooker_game):
     with patch("sys.exit") as mock_exit:
-        with patch("builtins.input", side_effect=["5", "y"]):
-            snooker_game.handle_special_input("q")
-            mock_exit.assert_called_once()
+        snooker_game.handle_special_input("q")
+        mock_exit.assert_called_once()
 
-            snooker_game.handle_special_input("p")
+def test_handle_special_input_p(snooker_game):
+    # Test for 'p' which should apply penalty (mock add_penalty)
+    with patch.object(snooker_game, 'add_penalty') as mock_add_penalty:
+        snooker_game.handle_special_input("p")
+        mock_add_penalty.assert_called_once()
+
+def test_handle_special_input_x(snooker_game):
+    # Test for 'x' which should switch players (mock switch_players)
+    with patch.object(snooker_game, 'switch_players') as mock_switch_players:
+        snooker_game.handle_special_input("x")
+        mock_switch_players.assert_called_once()
+
+def test_handle_special_input_s(snooker_game):
+    with patch.object(snooker_game, 'set_starting_scores') as mock_set_starting_scores:
+        snooker_game.handle_special_input("s")
+        mock_set_starting_scores.assert_called_once()
 
 def test_handle_invalid_input(snooker_game, capfd):
     snooker_game.handle_invalid_input()
