@@ -99,7 +99,6 @@ class SnookerScores:
 
     def switch_players(self):
         self.player_1_turn = not self.player_1_turn
-        print(f"DEBUG: Player turn switched: {self.player_1_turn}")  # Debugging
 
     # Score handling
     def set_starting_scores(self):
