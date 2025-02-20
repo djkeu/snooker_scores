@@ -35,8 +35,10 @@ Currently, the respot_balls method calls get_respot_input and handles its result
 snooker_scores/
 ├── sn_env/
 ├── tests/
-│   ├──  __init__.py
+│   ├──  test_game_flow.py
 │   ├──  test_game_logic.py
+│   ├──  test_input_validation.py
+│   ├──  test_score_calculation.py
 │   ├──  tst_snooker.py
 ├── txt/
 │   ├──  hotkeys.txt
@@ -56,8 +58,10 @@ snooker_scores/
 snooker_scores/
 ├── sn_env/
 ├── tests/
-│   ├──  __init__.py
+│   ├──  test_game_flow.py
 │   ├──  test_game_logic.py
+│   ├──  test_input_validation.py
+│   ├──  test_score_calculation.py
 │   ├──  tst_snooker.py
 ├── txt/
 │   ├──  hotkeys.txt
