@@ -86,7 +86,6 @@ def test_handle_last_colored_ball():
     assert game.available_player_1 == 27
     assert game.available_player_2 == 27
 
-
 def test_set_starting_scores_valid_input():
     with patch('builtins.input', side_effect=[16, 50, 60, 2, 50, 60]):
         game = SnookerScores()
@@ -150,7 +149,6 @@ def test_add_penalty_invalid():
 
     # Ensure the penalty was correctly applied
     assert game.score_player_2 == 35  # Player 2 is penalized by 5
-
 
 def test_display_winner():
     game = SnookerScores()
