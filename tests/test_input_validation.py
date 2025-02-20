@@ -45,3 +45,17 @@ def test_validate_shot_x(snooker_game):
             assert snooker_game.get_shot_value() == 1
         mock_switch.assert_called_once()
     assert snooker_game.player_1_turn != initial_turn
+
+
+def test_handle_special_input(snooker_game):
+    with patch("sys.exit") as mock_exit:
+        with patch("builtins.input", side_effect=["5", "y"]):
+            snooker_game.handle_special_input("q")
+            mock_exit.assert_called_once()
+
+            snooker_game.handle_special_input("p")
+
+def test_handle_invalid_input(snooker_game, capfd):
+    snooker_game.handle_invalid_input()
+    captured = capfd.readouterr()
+    assert "Only numbers between 0 and 7 are valid!" in captured.out

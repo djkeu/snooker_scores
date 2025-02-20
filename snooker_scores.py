@@ -29,19 +29,43 @@ class SnookerScores:
 
     # Ball handling
     def get_shot_value(self):
+        """Get the shot value from the user and ensure it's valid."""
         while True:
             shot = input(self.shot_prompt)
 
-            if shot == "q":
-                sys.exit()
-            elif shot == "p":
-                self.add_penalty()
-            elif shot == "x":
-                self.switch_players()
-            elif self.validate_shot(shot):
+            # Handle special input (like "q", "p", "x")
+            result = self.handle_special_input(shot)
+            if result is not None:
+                return result
+
+            # Validate the shot and handle invalid input
+            if self.validate_shot(shot):
                 return int(shot)
             else:
-                print("Only numbers between 0 and 7 are valid!")
+                self.handle_invalid_input()
+
+    def handle_special_input(self, shot):
+        """Handle special inputs (e.g., 'q', 'p', 'x')."""
+        if shot == "q":
+            sys.exit()  # Quit the game
+        elif shot == "p":
+            self.add_penalty()  # Apply penalty
+        elif shot == "x":
+            self.switch_players()  # Switch players
+        else:
+            return None  # If no special input, return None to fall through to validation
+
+    def handle_invalid_input(self):
+        """Handle invalid shot input."""
+        print("Only numbers between 0 and 7 are valid!")
+
+
+    def validate_and_return_shot(self, shot):
+        """Validate the shot input and return it as an integer."""
+        if self.validate_shot(shot):
+            return int(shot)
+        print("Only numbers between 0 and 7 are valid!")
+        return None  # This ensures the loop will keep asking for input
 
     def validate_shot(self, shot):
         """Validate the shot value."""
