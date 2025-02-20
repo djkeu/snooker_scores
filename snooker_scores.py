@@ -220,14 +220,18 @@ class SnookerScores:
             print(f"Penalty of {penalty_value} points applied to Player 2.")
             self.score_player_2 -= penalty_value
 
-    def respot_balls(self):
-        """Respot the balls after a foul."""
+    def get_respot_input(self):
+        """Get and validate the player's choice for respotting balls."""
         while True:
             respot = input("Do you want a respot? (y/n) ").lower()
             if respot in ['y', 'n']:
-                break
+                return respot
             else:
                 print("Invalid input. Please enter 'y' or 'n'.")
+
+    def respot_balls(self):
+        """Respot the balls after a foul."""
+        respot = self.get_respot_input()
 
         if respot == 'y':
             self.switch_players()

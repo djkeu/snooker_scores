@@ -59,3 +59,20 @@ def test_handle_invalid_input(snooker_game, capfd):
     snooker_game.handle_invalid_input()
     captured = capfd.readouterr()
     assert "Only numbers between 0 and 7 are valid!" in captured.out
+
+def test_get_respot_input_valid():
+    with patch('builtins.input', return_value='y'):
+        game = SnookerScores()
+        result = game.get_respot_input()
+        assert result == 'y', f"Expected 'y', but got {result}"
+
+    with patch('builtins.input', return_value='n'):
+        game = SnookerScores()
+        result = game.get_respot_input()
+        assert result == 'n', f"Expected 'n', but got {result}"
+
+def test_get_respot_input_invalid():
+    with patch('builtins.input', side_effect=['a', 'y']):
+        game = SnookerScores()
+        result = game.get_respot_input()
+        assert result == 'y', f"Expected 'y', but got {result}"
