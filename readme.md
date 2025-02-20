@@ -39,6 +39,8 @@ snooker_scores/
 ### With GUI
 
 ```
+Note: obsolete
+
 snooker_scores/ 
 ├── src/ 
 │   ├──  __init__.py
