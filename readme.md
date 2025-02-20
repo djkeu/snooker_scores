@@ -36,6 +36,27 @@ snooker_scores/
 ```
 
 
+### New GUI
+
+```
+snooker_scores/
+├── sn_env/
+├── tests/
+│   ├──  __init__.py
+│   ├──  test_game_logic.py
+│   ├──  tst_snooker.py
+├── txt/
+│   ├──  hotkeys.txt
+│   ├──  welcome_messages.txt
+├── .gitignore 
+├── main.py 
+├── pytest.ini 
+├── readme.md 
+├── snooker_scores.py 
+
+```
+
+
 ### With old GUI
 
 ```
