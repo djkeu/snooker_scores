@@ -30,7 +30,7 @@ class SnookerScores:
     # Ball handling
     def get_shot_value(self):
         while True:
-            shot = input(self.shot_prompt).strip().lower()
+            shot = input(self.shot_prompt)
 
             if shot == "q":
                 sys.exit()
