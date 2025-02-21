@@ -7,6 +7,7 @@ from snooker_scores import SnookerScores
 def snooker_game():
     return SnookerScores()
 
+# Shot validation tests
 def test_validate_shot_valid(snooker_game):
     assert snooker_game.validate_shot("0") == 0
     assert snooker_game.validate_shot("7") == 7
@@ -50,6 +51,7 @@ def test_validate_shot_s(snooker_game):
         assert snooker_game.available_player_1 == 67
         assert snooker_game.available_player_2 == 67
 
+# Handle special inputs
 def test_handle_special_input_q(snooker_game):
     with patch("sys.exit") as mock_exit:
         snooker_game.handle_special_input("q")
@@ -77,6 +79,7 @@ def test_handle_invalid_input(snooker_game, capfd):
     captured = capfd.readouterr()
     assert "Only numbers between 0 and 7 are valid!" in captured.out
 
+# Re-spot input validation
 def test_get_respot_input_valid():
     with patch('builtins.input', return_value='y'):
         game = SnookerScores()
@@ -93,3 +96,40 @@ def test_get_respot_input_invalid():
         game = SnookerScores()
         result = game.get_respot_input()
         assert result == 'y', f"Expected 'y', but got {result}"
+
+# Starting scores validation
+def test_set_starting_scores_valid_input():
+    with patch('builtins.input', side_effect=[16, 50, 60, 2, 50, 60]):
+        game = SnookerScores()
+        game.set_starting_scores()
+
+    assert game.red_balls == 2
+    assert game.score_player_1 == 50
+    assert game.score_player_2 == 60
+    assert game.available_player_1 == 43
+    assert game.available_player_2 == 43
+
+def test_set_starting_scores_invalid_input():
+    with patch('builtins.input', side_effect=["15", "50", "60", "2", "50", "60"]):  
+        game = SnookerScores()
+        game.set_starting_scores()
+
+    assert game.red_balls == 2
+    assert game.score_player_1 == 50
+    assert game.score_player_2 == 60
+    assert game.available_player_1 == 43
+    assert game.available_player_2 == 43
+
+# Penalty input validation
+def test_get_penalty_input_valid():
+    with patch('builtins.input', side_effect=['5']):
+        game = SnookerScores()
+        penalty = game.get_penalty_input()
+        assert penalty == 5
+
+def test_get_penalty_input_invalid():
+    with patch('builtins.input', side_effect=['-1', '3']):
+        game = SnookerScores()
+        penalty = game.get_penalty_input()
+        assert penalty == 3
+
