@@ -13,7 +13,6 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - FixMe: hardcoded minimum score in set_starting_scores
-- FixMe: set_starting_scores: possible score is set to 147
 - ToDo: refactor red_balls_phase, handle_last_colored_ball, colored_balls_phase
 - ToDo: refactor display_winner
 - ToDo: move hardcode values to __init__

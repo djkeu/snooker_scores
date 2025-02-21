@@ -155,8 +155,8 @@ class SnookerScores:
         self.red_needed_next = True
         self.score_player_1 = score_player_1
         self.score_player_2 = score_player_2
-        self.available_player_1 = 147 - score_player_1
-        self.available_player_2 = 147 - score_player_2
+        self.available_player_1 = 147 - score_player_1 - score_player_2
+        self.available_player_2 = 147 - score_player_2 - score_player_1
 
         self.display_game_state()
 
