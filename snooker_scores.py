@@ -33,17 +33,15 @@ class SnookerScores:
         while True:
             shot = input(self.shot_prompt)
 
-            # Handle special input (like "q", "p", "x", "s")
             result = self.handle_special_input(shot)
             if result is not None:
                 return result
 
-            # Validate the shot and return if valid
             valid_shot = self.validate_shot(shot)
             if valid_shot is not None:
                 return valid_shot
 
-            self.handle_invalid_input()
+            # self.handle_invalid_input()
 
     def handle_special_input(self, shot):
         """Handle special inputs (e.g., 'q', 'p', 'x')."""
@@ -66,7 +64,7 @@ class SnookerScores:
         """Validate the shot input and return it as an integer."""
         if self.validate_shot(shot):
             return int(shot)
-        print("Only numbers between 0 and 7 are valid!")
+        # self.handle_invalid_input()
         return None  # This ensures the loop will keep asking for input
 
     def validate_shot(self, shot):
@@ -79,7 +77,7 @@ class SnookerScores:
         except ValueError:
             pass
 
-        print("\nOnly numbers between 0 and 7 are valid!")
+        # self.handle_invalid_input()
         return None
 
     def handle_ball(self, shot, is_red_ball):
@@ -158,9 +156,10 @@ class SnookerScores:
         self.red_balls = red_balls
         self.score_player_1 = score_player_1
         self.score_player_2 = score_player_2
-        self.available_player_1 = 147 - score_player_1  # Assuming available points calculation
+        self.available_player_1 = 147 - score_player_1
         self.available_player_2 = 147 - score_player_2
 
+        # self.display_game_state()
 
     def update_score(self, shot):
         """Update the current player's score."""
@@ -206,8 +205,8 @@ class SnookerScores:
     def add_penalty(self):
         """Handle penalty input, apply the penalty, and respot balls."""
         penalty_value = self.get_penalty_input()
-        self.apply_penalty(penalty_value)  # Apply penalty after respot
-        self.respot_balls()  # Respot balls after penalty
+        self.apply_penalty(penalty_value)
+        self.respot_balls()
 
     def get_penalty_input(self):
         """Get and validate the penalty input from the player."""
