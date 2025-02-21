@@ -159,7 +159,7 @@ class SnookerScores:
         self.available_player_1 = 147 - score_player_1
         self.available_player_2 = 147 - score_player_2
 
-        # self.display_game_state()
+        self.display_game_state()
 
     def update_score(self, shot):
         """Update the current player's score."""
