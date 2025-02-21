@@ -330,7 +330,7 @@ class SnookerScores:
 
             self.display_game_state()
 
-
+    # Game flow
     def display_winner(self):
         """Display the winner of the game."""
         if self.score_player_1 > self.score_player_2:
