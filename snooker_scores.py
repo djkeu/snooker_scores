@@ -266,12 +266,6 @@ class SnookerScores:
                 self.display_game_state()
                 continue
 
-            print(
-                f"Shot value: {shot}, "
-                f"Red balls left: {self.red_balls}, "
-                f"Available points: {self.available_player_1}"
-            )
-
             if shot == 0:
                 self.handle_miss()
             elif shot == 1:
