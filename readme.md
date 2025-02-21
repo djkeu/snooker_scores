@@ -10,8 +10,11 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - FixMe: hardcoded minimum score in set_starting_scores
+- ToDo: refactor red_balls_phase, handle_last_colored_ball, colored_balls_phase
+- ToDo: refactor display_winner
+- ToDo: move hardcode values to __init__
+
 - ToDo: real life test with video of snooker game
-- ToDo: GUI
 
 - ToDo:
 4. Combine Score Calculation Logic
@@ -27,6 +30,9 @@ You may find it more efficient to combine the logic for displaying the game stat
 6. Improve respot_balls to Avoid Duplication
 
 Currently, the respot_balls method calls get_respot_input and handles its result. Since the input is already validated in get_respot_input, respot_balls could be streamlined.
+
+- ToDo: GUI
+
 
 ## File structure
 
