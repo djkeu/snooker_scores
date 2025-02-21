@@ -35,26 +35,29 @@ class SnookerScores:
 
             result = self.handle_special_input(shot)
             if result is not None:
-                return result
+                # Special input was handled, so continue the loop to get the next shot
+                continue
 
             valid_shot = self.validate_shot(shot)
             if valid_shot is not None:
                 return valid_shot
-
+            
     def handle_special_input(self, shot):
         """Handle special inputs (e.g., 'q', 'p', 'x')."""
         if shot == "q":
             sys.exit()
         elif shot == "p":
             self.add_penalty()
+            return "penalty"  # Indicate that a penalty was applied
         elif shot == "x":
             self.switch_players()
+            return "switch"  # Indicate that players were switched
         elif shot == "s":
             self.set_starting_scores()
+            return "scores_set"  # Indicate that starting scores were set
         else:
-            return None
-        return None
-
+            return None  # Indicate that the input was not a special input
+    
     def validate_and_return_shot(self, shot):
         """Validate the shot input and return it as an integer."""
         if self.validate_shot(shot):
@@ -225,7 +228,6 @@ class SnookerScores:
             print(f"Penalty of {penalty_value} points applied to Player 2.")
             self.score_player_2 += penalty_value
 
-
     def get_respot_input(self):
         """Get and validate the player's choice for respotting balls."""
         while True:
@@ -260,10 +262,17 @@ class SnookerScores:
         """Take turns playing reds and colors."""
         while self.red_balls > 0:
             shot = self.get_shot_value()
+
+            if shot in ["switch", "scores_set", "penalty"]:
+                # Special input was handled, so continue the loop without processing a shot
+                self.display_game_state()
+                continue
+
             print(
                 f"Shot value: {shot}, "
                 f"Red balls left: {self.red_balls}, "
-                f"Available points: {self.available_player_1}")
+                f"Available points: {self.available_player_1}"
+            )
 
             if shot == 0:
                 self.handle_miss()
@@ -274,9 +283,10 @@ class SnookerScores:
 
             self.display_game_state()
 
-        # After all red balls are potted, handle the last colored ball
+        # Transition to the next phase after all red balls are potted
         if self.red_balls == 0:
             self.handle_last_colored_ball()
+            self.colored_balls_phase()
 
     def handle_last_colored_ball(self):
         """Handle last ball before colored balls phase."""
@@ -284,6 +294,11 @@ class SnookerScores:
 
         while self.available_player_1 > 0 or self.available_player_2 > 0:
             shot = self.get_shot_value()
+
+            if shot in ["switch", "scores_set", "penalty"]:
+                # Special input was handled, so continue the loop without processing a shot
+                self.display_game_state()
+                continue
 
             if shot < 2 or shot > 7:
                 print("\nYou must pot a colored ball!")
@@ -310,6 +325,11 @@ class SnookerScores:
             )
             shot = self.get_shot_value()
 
+            if shot in ["switch", "scores_set", "penalty"]:
+                # Special input was handled, so continue the loop without processing a shot
+                self.display_game_state()
+                continue
+
             if shot != self.yellow_ball:
                 print("Wrong ball!")
                 self.switch_players()
@@ -320,6 +340,7 @@ class SnookerScores:
                 self.yellow_ball += 1
 
             self.display_game_state()
+
 
     def display_winner(self):
         """Display the winner of the game."""
