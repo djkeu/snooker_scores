@@ -131,28 +131,24 @@ class SnookerScores:
 
     # Score handling
     def set_starting_scores(self):
-        # Input for red balls
         red_balls = int(input("Enter the number of red balls left: "))
         if red_balls < 0 or red_balls > 15:
             raise ValueError("Invalid number of red balls. It must be between 0 and 15.")
 
-        # Input for player scores
         score_player_1 = int(input("Enter score for Player 1: "))
         score_player_2 = int(input("Enter score for Player 2: "))
 
-        # Check if the total score is valid (e.g., total score should not exceed 147)
         if score_player_1 + score_player_2 > 147:
             raise ValueError("Total score cannot exceed 147.")
         
-        # Check if the total score is too low (you can adjust the logic if needed)
         if score_player_1 < 0 or score_player_2 < 0:
             raise ValueError("Scores must be positive values.")
         
-        # This check ensures each player has at least a certain score, adjust as necessary.
+        # FixMe: This check ensures each player has at least a certain score, adjust as necessary.
+        # FixMe: 30 should be calculated based on the number of red balls left.
         if score_player_1 + score_player_2 < 30:
             raise ValueError("Total score is too low. The total score should be at least 30.")
 
-        # Setting starting scores and red balls
         self.red_balls = red_balls
         self.score_player_1 = score_player_1
         self.score_player_2 = score_player_2
