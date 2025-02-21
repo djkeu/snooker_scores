@@ -53,6 +53,7 @@ class SnookerScores:
             self.set_starting_scores()
         else:
             return None
+        return None
 
     def validate_and_return_shot(self, shot):
         """Validate the shot input and return it as an integer."""
@@ -124,6 +125,8 @@ class SnookerScores:
         self.switch_players()
 
     def switch_players(self):
+        """Switch the active player."""
+        print("Switching players...")
         self.player_1_turn = not self.player_1_turn
 
     # Score handling
@@ -147,6 +150,7 @@ class SnookerScores:
             raise ValueError("Total score is too low. The total score should be at least 30.")
 
         self.red_balls = red_balls
+        self.red_needed_next = True
         self.score_player_1 = score_player_1
         self.score_player_2 = score_player_2
         self.available_player_1 = 147 - score_player_1

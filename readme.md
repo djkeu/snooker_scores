@@ -10,6 +10,7 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - FixMe: hardcoded minimum score in set_starting_scores
+- FixMe: 's' needs a red_need_next reset
 - ToDo: real life test with video of snooker game
 - ToDo: GUI
 
