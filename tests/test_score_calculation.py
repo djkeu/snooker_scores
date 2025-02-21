@@ -11,28 +11,31 @@ def test_apply_penalty():
     game = SnookerScores()
     game.score_player_1 = 50
     game.score_player_2 = 40
+
+    game.switch_players()  # After a missed or wrong ball
     game.apply_penalty(5)
     
-    # Verify the penalty was applied correctly
-    assert game.score_player_1 == 45  # Player 1 is penalized
-    assert game.score_player_2 == 40  # Player 2's score should remain the same
+    assert game.score_player_1 == 50
+    assert game.score_player_2 == 45
 
 def test_add_penalty_valid():
-    with patch('builtins.input', side_effect=['5', 'n']):  # Simulating valid penalty input and no respot
+    with patch('builtins.input', side_effect=['5', 'n']):
         game = SnookerScores()
         game.score_player_1 = 50
         game.score_player_2 = 40
+
+        game.switch_players()  # After a missed or wrong ball
         game.add_penalty()
     
-    # Ensure the correct penalty was applied to player 1
-    assert game.score_player_1 == 45  # Player 1 is penalized by 5
+    assert game.score_player_1 == 50
 
 def test_add_penalty_invalid():
-    with patch('builtins.input', side_effect=['-1', '5', 'y']):  # Simulating invalid penalty input, followed by valid input
+    with patch('builtins.input', side_effect=['-1', '5', 'y']):
         game = SnookerScores()
         game.score_player_1 = 50
         game.score_player_2 = 40
+
+        game.switch_players()  # After a missed or wrong ball
         game.add_penalty()
 
-    # Ensure the penalty was correctly applied
-    assert game.score_player_2 == 35  # Player 2 is penalized by 5
+    assert game.score_player_2 == 45
