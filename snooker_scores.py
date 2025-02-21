@@ -130,6 +130,8 @@ class SnookerScores:
         print("Switching players...")
         self.player_1_turn = not self.player_1_turn
 
+        self.display_game_state()
+
     # Score handling
     def set_starting_scores(self):
         red_balls = int(input("Enter the number of red balls left: "))
