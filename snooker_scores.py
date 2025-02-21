@@ -206,8 +206,8 @@ class SnookerScores:
     def add_penalty(self):
         """Handle penalty input, apply the penalty, and respot balls."""
         penalty_value = self.get_penalty_input()
-        self.respot_balls()  # Respot balls after penalty
         self.apply_penalty(penalty_value)  # Apply penalty after respot
+        self.respot_balls()  # Respot balls after penalty
 
     def get_penalty_input(self):
         """Get and validate the penalty input from the player."""
@@ -224,10 +224,10 @@ class SnookerScores:
         """Apply penalty based on whose turn it is."""
         if self.player_1_turn:
             print(f"Penalty of {penalty_value} points applied to Player 1.")
-            self.score_player_1 -= penalty_value
+            self.score_player_1 += penalty_value
         else:
             print(f"Penalty of {penalty_value} points applied to Player 2.")
-            self.score_player_2 -= penalty_value
+            self.score_player_2 += penalty_value
 
 
     def get_respot_input(self):
