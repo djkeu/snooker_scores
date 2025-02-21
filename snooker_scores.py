@@ -41,31 +41,24 @@ class SnookerScores:
             if valid_shot is not None:
                 return valid_shot
 
-            # self.handle_invalid_input()
-
     def handle_special_input(self, shot):
         """Handle special inputs (e.g., 'q', 'p', 'x')."""
         if shot == "q":
-            sys.exit()  # Quit the game
+            sys.exit()
         elif shot == "p":
-            self.add_penalty()  # Apply penalty
+            self.add_penalty()
         elif shot == "x":
-            self.switch_players()  # Switch players
+            self.switch_players()
         elif shot == "s":
-            self.set_starting_scores()  # Restart the game or any other action for 's'
+            self.set_starting_scores()
         else:
-            return None  # If no special input, return None to fall through to validation
-
-    def handle_invalid_input(self):
-        """Handle invalid shot input."""
-        print("Only numbers between 0 and 7 are valid!")
+            return None
 
     def validate_and_return_shot(self, shot):
         """Validate the shot input and return it as an integer."""
         if self.validate_shot(shot):
             return int(shot)
-        # self.handle_invalid_input()
-        return None  # This ensures the loop will keep asking for input
+        return None
 
     def validate_shot(self, shot):
         """Validate the shot value and return it if valid."""
@@ -73,12 +66,16 @@ class SnookerScores:
             shot = int(shot)
             if 0 <= shot <= 7:
                 self.first_input = False
-                return shot  # Directly return the valid shot
+                return shot
         except ValueError:
             pass
 
-        # self.handle_invalid_input()
+        self.handle_invalid_input()
         return None
+
+    def handle_invalid_input(self):
+        """Handle invalid shot input."""
+        print("Only numbers between 0 and 7 are valid!")
 
     def handle_ball(self, shot, is_red_ball):
         """Handle logic for both red and colored balls."""
