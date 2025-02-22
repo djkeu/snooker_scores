@@ -152,9 +152,8 @@ class SnookerScores:
         if score_player_1 < 0 or score_player_2 < 0:
             raise ValueError("Scores must be positive values.")
         
-        # FixMe: 30 should be calculated based on the number of red balls left.
-        if score_player_1 + score_player_2 < 30:
-            raise ValueError("Total score is too low. The total score should be at least 30.")
+        if score_player_1 + score_player_2 < red_balls * 2:
+            raise ValueError("Total score is too low.")
 
         self.red_balls = red_balls
         self.red_needed_next = True
