@@ -84,6 +84,23 @@ def test_start_game_multiple_invalid_inputs(capsys):
     captured = capsys.readouterr()
     assert "Only numbers between 0 and 7 are valid!" in captured.out
 
+def test_start_game_penalty_respot(capsys):
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["p", "5", "y", "q"]):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Penalty of 5 points applied to Player 1." in captured.out
+    assert "Switching players..." in captured.out
+
+def test_start_game_penalty_no_respot(capsys):
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["p", "5", "n", "q"]):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Penalty of 5 points applied to Player 1." in captured.out
+
 
 def test_game_flow():
     game = SnookerScores()
