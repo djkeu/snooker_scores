@@ -239,6 +239,12 @@ def test_get_valid_input_exhaust_retries():
                 max_retries=3
             )
 
+def test_get_valid_input_edge_cases():
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["invalid", "invalid", "5"]):
+        result = game.get_valid_input("Enter a number: ", lambda x: int(x), "Too many invalid inputs", max_retries=3)
+    assert result == 5
+
 def test_validate_red_balls_valid():
     """Test validate_red_balls with valid input."""
     game = SnookerScores()
