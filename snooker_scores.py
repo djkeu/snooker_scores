@@ -45,7 +45,7 @@ class SnookerScores:
             valid_shot = self.validate_shot(shot)
             if valid_shot is not None:
                 return valid_shot
-            
+
     def handle_special_input(self, shot):
         """Handle special inputs (e.g., 'q', 'p', 'x')."""
         if shot == "q":
@@ -61,7 +61,7 @@ class SnookerScores:
             return "scores_set"
         else:
             return None
-    
+
     def validate_and_return_shot(self, shot):
         """Validate the shot input and return it as an integer."""
         if self.validate_shot(shot):
@@ -148,10 +148,10 @@ class SnookerScores:
 
         if score_player_1 + score_player_2 > MAXIMUM_BREAK:
             raise ValueError("Total score cannot exceed 147.")
-        
+
         if score_player_1 < 0 or score_player_2 < 0:
             raise ValueError("Scores must be positive values.")
-        
+
         if score_player_1 + score_player_2 < red_balls * 2:
             raise ValueError("Total score is too low.")
 
@@ -197,7 +197,7 @@ class SnookerScores:
             player = "Player 1"
         else:
             player = "Player 2"
-        
+
         if self.red_needed_next:
             ball = "red ball"
         else:
