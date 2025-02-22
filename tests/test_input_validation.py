@@ -185,6 +185,31 @@ def test_get_valid_input_exhaust_retries():
                 max_retries=3
             )
 
+def test_validate_red_balls_valid():
+    """Test validate_red_balls with valid input."""
+    game = SnookerScores()
+    
+    # Test valid inputs
+    game.validate_red_balls(0)   # Minimum valid value
+    game.validate_red_balls(10)  # Middle valid value
+    game.validate_red_balls(15)  # Maximum valid value
+
+def test_validate_red_balls_invalid_low():
+    """Test validate_red_balls with invalid input (too low)."""
+    game = SnookerScores()
+    
+    # Test invalid input (too low)
+    with pytest.raises(ValueError, match="Invalid number of red balls. It must be between 0 and 15."):
+        game.validate_red_balls(-1)
+
+def test_validate_red_balls_invalid_high():
+    """Test validate_red_balls with invalid input (too high)."""
+    game = SnookerScores()
+    
+    # Test invalid input (too high)
+    with pytest.raises(ValueError, match="Invalid number of red balls. It must be between 0 and 15."):
+        game.validate_red_balls(16)
+
 # Penalty input validation
 def test_get_penalty_input_valid():
     with mock_input("Enter penalty value: ", "5"):
