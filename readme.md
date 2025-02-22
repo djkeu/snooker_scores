@@ -187,8 +187,14 @@ Nadat er een fout werd gemaakt mag de tegenspeler:
 
 ## Requirements
 
-### Imports
+### Imports main file
 - sys
+- from random import randint
 
-### Testing
+### Imports test files
 - pytest
+- from unittest.mock import patch
+- from snooker_scores import SnookerScores
+- import itertools
+- from io import StringIO
+- import sys
