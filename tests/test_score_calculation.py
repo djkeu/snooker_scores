@@ -18,6 +18,16 @@ def test_apply_penalty():
     assert game.score_player_1 == 50
     assert game.score_player_2 == 45
 
+def test_apply_penalty_edge_cases():
+    game = SnookerScores()
+    game.player_1_turn = True
+    game.apply_penalty(5)
+    assert game.score_player_1 == 5
+    game.player_1_turn = False
+    game.apply_penalty(3)
+    assert game.score_player_2 == 3
+
+
 def test_add_penalty_valid():
     with patch('builtins.input', side_effect=['5', 'n']):
         game = SnookerScores()
@@ -45,3 +55,24 @@ def test_add_penalty_edge_cases():
     with patch("builtins.input", side_effect=["-1", "5", "n"]):
         game.add_penalty()
     assert game.score_player_1 == 5
+
+
+def test_update_score_edge_cases():
+    game = SnookerScores()
+    game.player_1_turn = True
+    game.update_score(5)
+    assert game.score_player_1 == 5
+    game.player_1_turn = False
+    game.update_score(3)
+    assert game.score_player_2 == 3
+
+
+def test_calculate_potential_scores_edge_cases():
+    game = SnookerScores()
+    game.score_player_1 = 10
+    game.score_player_2 = 20
+    game.available_player_1 = 30
+    game.available_player_2 = 40
+    game.calculate_potential_scores()
+    assert game.potential_score_player_1 == 40
+    assert game.potential_score_player_2 == 60

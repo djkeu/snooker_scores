@@ -19,12 +19,21 @@ def test_initial_game_setup():
     assert game.available_player_2 == 147
     assert game.red_balls == 15
 
+
 def test_switch_players():
     game = SnookerScores()
 
     game.switch_players()
     assert game.player_1_turn is False
 
+    game.switch_players()
+    assert game.player_1_turn is True
+
+def test_switch_players_edge_cases():
+    game = SnookerScores()
+    game.player_1_turn = True
+    game.switch_players()
+    assert game.player_1_turn is False
     game.switch_players()
     assert game.player_1_turn is True
 

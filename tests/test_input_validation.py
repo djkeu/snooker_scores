@@ -59,6 +59,7 @@ def test_validate_shot_s():
                     with mock_input("Enter shot value: ", "1"):
                         snooker_game.get_shot_value()
 
+
 def test_validate_and_return_shot_valid():
     """Test validate_and_return_shot with valid input."""
     game = SnookerScores()
@@ -205,6 +206,7 @@ def test_set_starting_scores_edge_cases():
         assert game.score_player_1 == 0
         assert game.score_player_2 == 0
 
+
 def test_get_valid_input_valid():
     """Test get_valid_input with valid input."""
     with mock_input("Enter a number: ", "10"):
@@ -245,6 +247,7 @@ def test_get_valid_input_edge_cases():
         result = game.get_valid_input("Enter a number: ", lambda x: int(x), "Too many invalid inputs", max_retries=3)
     assert result == 5
 
+
 def test_validate_red_balls_valid():
     """Test validate_red_balls with valid input."""
     game = SnookerScores()
@@ -275,6 +278,7 @@ def test_validate_red_balls_edge_cases():
         game.validate_red_balls(16)
     game.validate_red_balls(0)
     game.validate_red_balls(15)
+
 
 def test_validate_player_scores_valid():
     """Test validate_player_scores with valid input."""
@@ -319,6 +323,7 @@ def test_validate_player_scores_edge_cases():
     game.validate_player_scores(0, 0)
     game.validate_player_scores(147, 0)
     game.validate_player_scores(0, 147)
+
 
 def test_validate_minimum_score_valid():
     """Test validate_minimum_score with valid input."""
