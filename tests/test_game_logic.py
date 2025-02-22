@@ -175,6 +175,20 @@ def test_handle_miss():
     assert game.available_player_1 == 139
     assert game.available_player_2 == 139
 
+def test_red_balls_phase_edge_cases(capsys):
+    game = SnookerScores()
+    game.red_balls = 1
+    game.player_1_turn = True
+    with patch("builtins.input", side_effect=["1", "7", "0", "2", "3", "4", "5", "6", "7", "0"]):
+        game.red_balls_phase()
+    captured = capsys.readouterr()
+    assert "Player 1: score 1, potential score 147" in captured.out
+    assert "Player 2: score 0, potential score 139" in captured.out
+    assert "0 red balls left" in captured.out
+    assert "No more red balls left!" in captured.out
+    assert game.red_balls == 0
+
+
 def test_handle_last_colored_ball():
     game = SnookerScores()
 
@@ -221,16 +235,32 @@ def test_colored_balls_phase(capsys):
     assert "Next ball to pot: yellow" in captured.out
     assert "Player 1: score 2" in captured.out
 
-    assert game.yellow_ball == 3  # Next ball should be green
-    assert game.available_player_1 == 0  # 2 - 2 (yellow)
-    assert game.score_player_1 == 2  # Player 1 gains 2 points
+    assert game.yellow_ball == 3
+    assert game.available_player_1 == 0
+    assert game.score_player_1 == 2
 
-def test_colored_balls_phase_edge_cases():
+def test_colored_balls_phase_basic():
     game = SnookerScores()
     game.available_player_1 = 2
     game.yellow_ball = 2
     with patch("builtins.input", side_effect=["2"]):
         game.colored_balls_phase()
+    assert game.available_player_1 == 0
+
+def test_colored_balls_phase_edge_cases(capsys):
+    game = SnookerScores()
+    game.available_player_1 = 27
+    game.yellow_ball = 2
+    game.player_1_turn = True
+    with patch("builtins.input", side_effect=["2", "3", "4", "5", "6", "7", "0"]):
+        game.colored_balls_phase()
+    captured = capsys.readouterr()
+    assert "Next ball to pot: yellow" in captured.out
+    assert "Next ball to pot: green" in captured.out
+    assert "Next ball to pot: brown" in captured.out
+    assert "Next ball to pot: blue" in captured.out
+    assert "Next ball to pot: pink" in captured.out
+    assert "Next ball to pot: black" in captured.out
     assert game.available_player_1 == 0
 
 
