@@ -210,6 +210,60 @@ def test_validate_red_balls_invalid_high():
     with pytest.raises(ValueError, match="Invalid number of red balls. It must be between 0 and 15."):
         game.validate_red_balls(16)
 
+def test_validate_player_scores_valid():
+    """Test validate_player_scores with valid input."""
+    game = SnookerScores()
+    
+    # Test valid inputs
+    game.validate_player_scores(50, 60)  # Valid scores
+    game.validate_player_scores(0, 0)    # Edge case: minimum valid scores
+    game.validate_player_scores(147, 0)  # Edge case: maximum valid total score
+
+def test_validate_player_scores_negative():
+    """Test validate_player_scores with negative scores."""
+    game = SnookerScores()
+    
+    # Test invalid input (negative scores)
+    with pytest.raises(ValueError, match="Scores must be positive values."):
+        game.validate_player_scores(-10, 20)  # Player 1 score is negative
+    with pytest.raises(ValueError, match="Scores must be positive values."):
+        game.validate_player_scores(10, -20)  # Player 2 score is negative
+    with pytest.raises(ValueError, match="Scores must be positive values."):
+        game.validate_player_scores(-10, -20)  # Both scores are negative
+
+def test_validate_player_scores_exceed_maximum_break():
+    """Test validate_player_scores with scores exceeding the maximum break."""
+    game = SnookerScores()
+    
+    # Test invalid input (total score exceeds maximum break)
+    with pytest.raises(ValueError, match="Total score cannot exceed 147."):
+        game.validate_player_scores(100, 50)  # Total score is 150
+    with pytest.raises(ValueError, match="Total score cannot exceed 147."):
+        game.validate_player_scores(148, 0)   # Total score is 148
+    with pytest.raises(ValueError, match="Total score cannot exceed 147."):
+        game.validate_player_scores(0, 148)   # Total score is 148
+
+def test_validate_minimum_score_valid():
+    """Test validate_minimum_score with valid input."""
+    game = SnookerScores()
+    
+    # Test valid inputs
+    game.validate_minimum_score(5, 50, 60)  # Total score (110) exceeds minimum
+    game.validate_minimum_score(0, 147, 0)  # Edge case: maximum score with 0 red balls
+    game.validate_minimum_score(15, 0, 0)   # Edge case: minimum score with 15 red balls
+
+def test_validate_minimum_score_invalid():
+    """Test validate_minimum_score with invalid input (total score too low)."""
+    game = SnookerScores()
+    
+    # Test invalid input (total score too low)
+    with pytest.raises(ValueError, match="Total score is too low."):
+        game.validate_minimum_score(5, 10, 15)  # Total score (25) is below minimum (expected minimum: 28)
+    with pytest.raises(ValueError, match="Total score is too low."):
+        game.validate_minimum_score(10, 5, 7)  # Total score (12) is below minimum (expected minimum: 13)
+    with pytest.raises(ValueError, match="Total score is too low."):
+        game.validate_minimum_score(14, 0, 0)   # Total score (0) is below minimum (expected minimum: 0)
+
 # Penalty input validation
 def test_get_penalty_input_valid():
     with mock_input("Enter penalty value: ", "5"):

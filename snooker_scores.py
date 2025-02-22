@@ -204,8 +204,13 @@ class SnookerScores:
             raise ValueError("Total score cannot exceed 147.")
 
     def validate_minimum_score(self, red_balls, score_player_1, score_player_2):
-        """Validate the minimum possible score based on red balls."""
-        minimum_score = (15 - red_balls) + ((15 - red_balls - 1) * 2)
+        """Validate that the total score meets the minimum possible score based on red balls."""
+        if red_balls == 15 and score_player_1 == 0 and score_player_2 == 0:
+            return  # Allow resetting the game
+        
+        red_balls_played = 15 - red_balls
+        minimum_score = max(0, red_balls_played + (red_balls_played - 1) * 2)  # Ensure minimum_score is never negative
+        print(f"Red balls: {red_balls}, Red balls played: {red_balls_played}, Minimum score: {minimum_score}, Total score: {score_player_1 + score_player_2}")
         if score_player_1 + score_player_2 < minimum_score:
             raise ValueError("Total score is too low.")
 
