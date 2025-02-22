@@ -141,7 +141,10 @@ class SnookerScores:
     def set_starting_scores(self):
         red_balls = int(input("Enter the number of red balls left: "))
         if red_balls < 0 or red_balls > 15:
-            raise ValueError("Invalid number of red balls. It must be between 0 and 15.")
+            raise ValueError(
+                "Invalid number of red balls. "
+                "It must be between 0 and 15."
+            )
 
         score_player_1 = int(input("Enter score for Player 1: "))
         score_player_2 = int(input("Enter score for Player 2: "))
@@ -220,7 +223,10 @@ class SnookerScores:
                     raise ValueError("Penalty must be a non-negative integer.")
                 return penalty
             except ValueError as e:
-                print(f"Invalid input: {e}. Please enter a valid penalty value.")
+                print(
+                    f"Invalid input: {e}. "
+                    "Please enter a valid penalty value."
+                )
 
     def apply_penalty(self, penalty_value):
         """Apply penalty based on whose turn it is."""
