@@ -30,6 +30,14 @@ def test_switch_players():
 
 
 # Handling red ball shots
+def test_handle_ball_edge_cases():
+    game = SnookerScores()
+    game.red_balls = 1
+    game.handle_ball(1, is_red_ball=True)
+    assert game.red_balls == 0
+    game.handle_ball(1, is_red_ball=True)
+    assert game.red_balls == -1
+
 def test_handle_ball_red():
     """Test the handle_ball method when a red ball is potted."""
     game = SnookerScores()
@@ -164,6 +172,14 @@ def test_colored_balls_phase(capsys):
     assert game.yellow_ball == 3  # Next ball should be green
     assert game.available_player_1 == 0  # 2 - 2 (yellow)
     assert game.score_player_1 == 2  # Player 1 gains 2 points
+
+def test_colored_balls_phase_edge_cases():
+    game = SnookerScores()
+    game.available_player_1 = 2
+    game.yellow_ball = 2
+    with patch("builtins.input", side_effect=["2"]):
+        game.colored_balls_phase()
+    assert game.available_player_1 == 0
 
 
 # Game conclusion

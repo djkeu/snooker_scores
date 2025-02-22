@@ -68,7 +68,6 @@ def test_validate_and_return_shot_valid():
     assert game.validate_and_return_shot("7") == 7
     assert game.validate_and_return_shot("0") == 0
 
-
 def test_validate_and_return_shot_invalid():
     """Test validate_and_return_shot with invalid input."""
     game = SnookerScores()
@@ -78,6 +77,13 @@ def test_validate_and_return_shot_invalid():
     assert game.validate_and_return_shot("-1") is None  # Out of range
     assert game.validate_and_return_shot("abc") is None  # Non-integer
     assert game.validate_and_return_shot("") is None  # Empty input
+
+def test_validate_shot_edge_cases():
+    game = SnookerScores()
+    assert game.validate_shot("-1") is None
+    assert game.validate_shot("8") is None
+    assert game.validate_shot("abc") is None
+    assert game.validate_shot("") is None
 
 
 # Handle special inputs
@@ -170,6 +176,18 @@ def test_set_starting_scores_invalid_total_score():
         game = SnookerScores()
         with pytest.raises(ValueError):
             game.set_starting_scores()
+
+def test_set_starting_scores_edge_cases():
+    game = SnookerScores()
+
+    with patch("builtins.input", side_effect=["-1", "16", "15", "0", "0"]):
+        game.set_starting_scores()
+        assert game.red_balls == 15
+
+    with patch("builtins.input", side_effect=["15", "-1", "148", "0", "0"]):
+        game.set_starting_scores()
+        assert game.score_player_1 == 0
+        assert game.score_player_2 == 0
 
 def test_get_valid_input_valid():
     """Test get_valid_input with valid input."""
@@ -290,3 +308,9 @@ def test_get_penalty_input_invalid():
             game = SnookerScores()
             penalty = game.get_penalty_input()
             assert penalty == 3
+
+def test_add_penalty_edge_cases():
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["-1", "5", "n"]):
+        game.add_penalty()
+    assert game.score_player_1 == 5
