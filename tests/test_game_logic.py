@@ -200,7 +200,8 @@ def test_handle_last_colored_ball_edge_cases(capsys):
         game.handle_last_colored_ball()
     captured = capsys.readouterr()
     assert "No more red balls left!" in captured.out
-    assert "Player 1 must pot a colored ball next" in captured.out
+    assert "Player 1: score 2, potential score 22" in captured.out
+    assert "Player 2: score 0, potential score 27" in captured.out
 
 
 def test_colored_balls_phase(capsys):
