@@ -26,6 +26,33 @@ def test_switch_players():
     assert game.player_1_turn is True
 
 # Handling red ball shots
+def test_handle_ball_red():
+    """Test the handle_ball method when a red ball is potted."""
+    game = SnookerScores()
+    
+    # Initial state
+    assert game.red_balls == 15
+    assert game.score_player_1 == 0
+    assert game.score_player_2 == 0
+    assert game.red_needed_next == True
+
+    # Player 1 pots a red ball
+    game.handle_ball(1, is_red_ball=True)
+    
+    # Verify state after potting a red ball
+    assert game.red_balls == 14  # One red ball removed
+    assert game.score_player_1 == 1  # Player 1 gains 1 point
+    assert game.red_needed_next == False  # Next shot must be a colored ball
+
+    # Player 2 pots a red ball
+    game.switch_players()
+    game.handle_ball(1, is_red_ball=True)
+    
+    # Verify state after Player 2 pots a red ball
+    assert game.red_balls == 13  # Another red ball removed
+    assert game.score_player_2 == 1  # Player 2 gains 1 point
+    assert game.red_needed_next == False  # Next shot must be a colored ball
+
 def test_handle_red_ball_player_1():
     game = SnookerScores()
 
@@ -46,6 +73,27 @@ def test_handle_red_ball_player_2():
     assert game.score_player_2 == 1
 
 # Handling colored ball shots
+def test_handle_ball_color():
+    """Test the handle_ball method when a colored ball is potted."""
+    game = SnookerScores()
+    
+    # Initial state
+    assert game.red_balls == 15
+    assert game.score_player_1 == 0
+    assert game.score_player_2 == 0
+    assert game.red_needed_next == True
+
+    # Player 1 pots a red ball first (required before potting a color)
+    game.handle_ball(1, is_red_ball=True)
+    
+    # Player 1 pots a colored ball (e.g., black ball, value 7)
+    game.handle_ball(7, is_red_ball=False)
+    
+    # Verify state after potting a colored ball
+    assert game.red_balls == 14  # Red ball count remains the same
+    assert game.score_player_1 == 8  # Player 1 gains 1 (red) + 7 (black)
+    assert game.red_needed_next == True  # Next shot must be a red ball
+
 def test_handle_color_ball_player_1():
     game = SnookerScores()
 
