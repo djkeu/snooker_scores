@@ -261,6 +261,15 @@ def test_validate_red_balls_invalid_high():
     with pytest.raises(ValueError, match="Invalid number of red balls. It must be between 0 and 15."):
         game.validate_red_balls(16)
 
+def test_validate_red_balls_edge_cases():
+    game = SnookerScores()
+    with pytest.raises(ValueError):
+        game.validate_red_balls(-1)
+    with pytest.raises(ValueError):
+        game.validate_red_balls(16)
+    game.validate_red_balls(0)
+    game.validate_red_balls(15)
+
 def test_validate_player_scores_valid():
     """Test validate_player_scores with valid input."""
     game = SnookerScores()
