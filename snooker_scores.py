@@ -15,8 +15,8 @@ class SnookerScores:
         self.maximum_score = MAXIMUM_BREAK
         self.available_player_1 = self.maximum_score
         self.available_player_2 = self.maximum_score
-        self.possible_score_player_1 = self.maximum_score
-        self.possible_score_player_2 = self.maximum_score
+        self.potential_score_player_1 = self.maximum_score
+        self.potential_score_player_2 = self.maximum_score
         self.end_break = END_BREAK
         self.red_needed_next = True
         self.player_1_turn = True
@@ -177,21 +177,21 @@ class SnookerScores:
         else:
             self.score_player_2 += shot
 
-    def calculate_possible_scores(self):
+    def calculate_potential_scores(self):
         """Current score plus remaining available points."""
-        self.possible_score_player_1 = \
+        self.potential_score_player_1 = \
             self.score_player_1 + self.available_player_1
-        self.possible_score_player_2 = \
+        self.potential_score_player_2 = \
             self.score_player_2 + self.available_player_2
 
     def display_game_state(self):
         """Display the current state of the game in the desired format."""
-        self.calculate_possible_scores()
+        self.calculate_potential_scores()
 
         print(f"\nPlayer 1: score {self.score_player_1}, "
-              f"possible score {self.possible_score_player_1}")
+              f"potential score {self.potential_score_player_1}")
         print(f"Player 2: score {self.score_player_2}, "
-              f"possible score {self.possible_score_player_2}")
+              f"potential score {self.potential_score_player_2}")
 
         if self.available_player_1 > END_BREAK:
             print(f"{self.red_balls} red balls left")

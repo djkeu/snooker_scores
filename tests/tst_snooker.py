@@ -12,8 +12,8 @@ def test_initial_state():
     assert game.player_1_turn is True
     assert game.score_player_1 == 0
     assert game.score_player_2 == 0
-    assert game.possible_score_player_1 == 147
-    assert game.possible_score_player_2 == 147
+    assert game.potential_score_player_1 == 147
+    assert game.potential_score_player_2 == 147
     assert game.yellow_ball == 2
     assert game.colored_balls == {
         2: "yellow",
@@ -138,9 +138,9 @@ def test_calculate_possible_scores():
     game.score_player_1 = 10
     game.score_player_2 = 20
     game.available_player_1 = 117
-    game.calculate_possible_scores()
-    assert game.possible_score_player_1 == 127
-    assert game.possible_score_player_2 == 137
+    game.calculate_potential_scores()
+    assert game.potential_score_player_1 == 127
+    assert game.potential_score_player_2 == 137
 
 def test_set_starting_scores_valid_input():
     """Test valid input for set_starting_scores."""
