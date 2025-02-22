@@ -59,6 +59,26 @@ def test_validate_shot_s():
                     with mock_input("Enter shot value: ", "1"):
                         snooker_game.get_shot_value()
 
+def test_validate_and_return_shot_valid():
+    """Test validate_and_return_shot with valid input."""
+    game = SnookerScores()
+    
+    # Test valid inputs
+    assert game.validate_and_return_shot("1") == 1
+    assert game.validate_and_return_shot("7") == 7
+    assert game.validate_and_return_shot("0") == 0
+
+
+def test_validate_and_return_shot_invalid():
+    """Test validate_and_return_shot with invalid input."""
+    game = SnookerScores()
+    
+    # Test invalid inputs
+    assert game.validate_and_return_shot("8") is None  # Out of range
+    assert game.validate_and_return_shot("-1") is None  # Out of range
+    assert game.validate_and_return_shot("abc") is None  # Non-integer
+    assert game.validate_and_return_shot("") is None  # Empty input
+
 
 # Handle special inputs
 def test_handle_special_input_q():
