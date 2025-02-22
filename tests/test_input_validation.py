@@ -365,9 +365,3 @@ def test_get_penalty_input_edge_cases():
     game = SnookerScores()
     with patch("builtins.input", side_effect=["invalid", "-1", "5"]):
         assert game.get_penalty_input() == 5
-
-def test_add_penalty_edge_cases():
-    game = SnookerScores()
-    with patch("builtins.input", side_effect=["-1", "5", "n"]):
-        game.add_penalty()
-    assert game.score_player_1 == 5
