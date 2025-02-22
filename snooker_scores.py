@@ -240,7 +240,7 @@ class SnookerScores:
         print(f"Player 2: score {self.score_player_2}, "
               f"potential score {self.potential_score_player_2}")
 
-        if self.available_player_1 > END_BREAK:
+        if self.available_player_1 > self.end_break:
             print(f"{self.red_balls} red balls left")
             self.display_next_ball()
 
@@ -364,8 +364,8 @@ class SnookerScores:
                 self.display_game_state()
                 break
 
-        self.available_player_1 = END_BREAK
-        self.available_player_2 = END_BREAK
+        self.available_player_1 = self.end_break
+        self.available_player_2 = self.end_break
 
     def colored_balls_phase(self):
         """Simulate colored balls phase."""
