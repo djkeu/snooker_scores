@@ -1,12 +1,15 @@
 import pytest
 from unittest.mock import patch
 from snooker_scores import SnookerScores
+from io import StringIO
+import sys
 
 
 def mock_input(prompt, value):
     return patch('builtins.input', return_value=value)
 
-# Game initialization and player switching
+
+# Initial game setup
 def test_initial_game_setup():
     game = SnookerScores()
 
@@ -25,33 +28,29 @@ def test_switch_players():
     game.switch_players()
     assert game.player_1_turn is True
 
+
 # Handling red ball shots
 def test_handle_ball_red():
     """Test the handle_ball method when a red ball is potted."""
     game = SnookerScores()
     
-    # Initial state
     assert game.red_balls == 15
     assert game.score_player_1 == 0
     assert game.score_player_2 == 0
     assert game.red_needed_next == True
 
-    # Player 1 pots a red ball
     game.handle_ball(1, is_red_ball=True)
     
-    # Verify state after potting a red ball
-    assert game.red_balls == 14  # One red ball removed
-    assert game.score_player_1 == 1  # Player 1 gains 1 point
-    assert game.red_needed_next == False  # Next shot must be a colored ball
+    assert game.red_balls == 14
+    assert game.score_player_1 == 1
+    assert game.red_needed_next == False
 
-    # Player 2 pots a red ball
     game.switch_players()
     game.handle_ball(1, is_red_ball=True)
     
-    # Verify state after Player 2 pots a red ball
-    assert game.red_balls == 13  # Another red ball removed
-    assert game.score_player_2 == 1  # Player 2 gains 1 point
-    assert game.red_needed_next == False  # Next shot must be a colored ball
+    assert game.red_balls == 13
+    assert game.score_player_2 == 1
+    assert game.red_needed_next == False
 
 def test_handle_red_ball_player_1():
     game = SnookerScores()
@@ -72,27 +71,34 @@ def test_handle_red_ball_player_2():
     assert game.available_player_1 == 139
     assert game.score_player_2 == 1
 
+def test_display_next_ball_red_player_1(capsys):
+    """Test display_next_ball when Player 1 needs to pot a red ball."""
+    game = SnookerScores()
+    game.player_1_turn = True
+    game.red_needed_next = True
+
+    game.display_next_ball()
+
+    captured = capsys.readouterr()
+    assert "Player 1 must pot a red ball next" in captured.out
+
+
 # Handling colored ball shots
 def test_handle_ball_color():
     """Test the handle_ball method when a colored ball is potted."""
     game = SnookerScores()
     
-    # Initial state
     assert game.red_balls == 15
     assert game.score_player_1 == 0
     assert game.score_player_2 == 0
     assert game.red_needed_next == True
 
-    # Player 1 pots a red ball first (required before potting a color)
     game.handle_ball(1, is_red_ball=True)
-    
-    # Player 1 pots a colored ball (e.g., black ball, value 7)
     game.handle_ball(7, is_red_ball=False)
     
-    # Verify state after potting a colored ball
-    assert game.red_balls == 14  # Red ball count remains the same
-    assert game.score_player_1 == 8  # Player 1 gains 1 (red) + 7 (black)
-    assert game.red_needed_next == True  # Next shot must be a red ball
+    assert game.red_balls == 14
+    assert game.score_player_1 == 8
+    assert game.red_needed_next == True
 
 def test_handle_color_ball_player_1():
     game = SnookerScores()
@@ -110,6 +116,7 @@ def test_handle_color_ball_player_2():
     game.handle_color_ball(4)
     assert game.score_player_2 == 5
     assert game.available_player_2 == 139
+
 
 # Handling other game events
 def test_handle_miss():
@@ -135,6 +142,29 @@ def test_handle_last_colored_ball():
 
     assert game.available_player_1 == 27
     assert game.available_player_2 == 27
+    assert game.red_needed_next == True
+
+def test_colored_balls_phase(capsys):
+    """Test the colored_balls_phase method."""
+    game = SnookerScores()
+    game.player_1_turn = True
+    game.available_player_1 = 2
+    game.yellow_ball = 2
+
+    def mock_get_shot_value():
+        return 2
+
+    game.get_shot_value = mock_get_shot_value
+    game.colored_balls_phase()
+    captured = capsys.readouterr()
+
+    assert "Next ball to pot: yellow" in captured.out
+    assert "Player 1: score 2" in captured.out
+
+    assert game.yellow_ball == 3  # Next ball should be green
+    assert game.available_player_1 == 0  # 2 - 2 (yellow)
+    assert game.score_player_1 == 2  # Player 1 gains 2 points
+
 
 # Game conclusion
 def test_display_winner():
