@@ -9,6 +9,7 @@ def mock_input(prompt, *values):
     else:
         return patch('builtins.input', side_effect=values)
 
+
 # Shot validation tests
 def test_validate_shot_valid():
     snooker_game = SnookerScores()
@@ -150,6 +151,39 @@ def test_set_starting_scores_invalid_total_score():
         with pytest.raises(ValueError):
             game.set_starting_scores()
 
+def test_get_valid_input_valid():
+    """Test get_valid_input with valid input."""
+    with mock_input("Enter a number: ", "10"):
+        game = SnookerScores()
+        result = game.get_valid_input(
+            "Enter a number: ",
+            lambda x: None,  # No validation
+            "Invalid input."
+        )
+        assert result == 10
+
+def test_get_valid_input_invalid_then_valid():
+    """Test get_valid_input with invalid input followed by valid input."""
+    with mock_input("Enter a number: ", "invalid", "20"):
+        game = SnookerScores()
+        result = game.get_valid_input(
+            "Enter a number: ",
+            lambda x: None,  # No validation
+            "Invalid input."
+        )
+        assert result == 20
+
+def test_get_valid_input_exhaust_retries():
+    """Test get_valid_input exhausting retries with invalid input."""
+    with mock_input("Enter a number: ", "invalid", "invalid", "invalid"):
+        game = SnookerScores()
+        with pytest.raises(ValueError, match="Invalid input."):
+            game.get_valid_input(
+                "Enter a number: ",
+                lambda x: None,  # No validation
+                "Invalid input.",
+                max_retries=3
+            )
 
 # Penalty input validation
 def test_get_penalty_input_valid():
