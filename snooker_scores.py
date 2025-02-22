@@ -346,10 +346,14 @@ class SnookerScores:
     # Game flow
     def display_winner(self):
         """Display the winner of the game."""
+        winner = ""
+
         if self.score_player_1 > self.score_player_2:
-            print("\nPlayer 1 wins!")
+            winner = "Player 1"
         elif self.score_player_1 < self.score_player_2:
-            print("\nPlayer 2 wins!")
+            winner = "Player 2"
+
+        print(f"\n{winner} wins with a score of {max(self.score_player_1, self.score_player_2)}!")
 
     def start_game(self):
         """Start the program."""
