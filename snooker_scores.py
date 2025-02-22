@@ -217,7 +217,6 @@ class SnookerScores:
         if score_player_1 + score_player_2 < minimum_score:
             raise ValueError("Total score is too low.")
 
-
     def update_score(self, shot):
         """Update the current player's score."""
         if self.player_1_turn:
@@ -393,6 +392,13 @@ class SnookerScores:
             self.display_game_state()
 
     # Game flow
+    def start_game(self):
+        """Start the program."""
+        self.display_startup_message()
+        self.red_balls_phase()
+        self.colored_balls_phase()
+        self.display_winner()
+
     def display_winner(self):
         """Display the winner of the game."""
         winner = ""
@@ -403,13 +409,6 @@ class SnookerScores:
             winner = "Player 2"
 
         print(f"\n{winner} wins with a score of {max(self.score_player_1, self.score_player_2)}!")
-
-    def start_game(self):
-        """Start the program."""
-        self.display_startup_message()
-        self.red_balls_phase()
-        self.colored_balls_phase()
-        self.display_winner()
 
 
 def main():
