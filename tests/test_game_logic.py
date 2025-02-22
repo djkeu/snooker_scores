@@ -37,6 +37,35 @@ def test_switch_players_edge_cases():
     game.switch_players()
     assert game.player_1_turn is True
 
+def test_display_game_state_edge_cases(capsys):
+    game = SnookerScores()
+    game.score_player_1 = 10
+    game.score_player_2 = 20
+    game.available_player_1 = 30
+    game.available_player_2 = 40
+    game.red_balls = 5
+    game.player_1_turn = True
+    game.red_needed_next = True
+    game.display_game_state()
+    captured = capsys.readouterr()
+    assert "Player 1: score 10, potential score 40" in captured.out
+    assert "Player 2: score 20, potential score 60" in captured.out
+    assert "5 red balls left" in captured.out
+    assert "Player 1 must pot a red ball next" in captured.out
+
+def test_display_next_ball_edge_cases(capsys):
+    game = SnookerScores()
+    game.player_1_turn = True
+    game.red_needed_next = True
+    game.display_next_ball()
+    captured = capsys.readouterr()
+    assert "Player 1 must pot a red ball next" in captured.out
+    game.player_1_turn = False
+    game.red_needed_next = False
+    game.display_next_ball()
+    captured = capsys.readouterr()
+    assert "Player 2 must pot a colored ball next" in captured.out
+
 
 # Handling red ball shots
 def test_handle_ball_edge_cases():
@@ -160,6 +189,19 @@ def test_handle_last_colored_ball():
     assert game.available_player_1 == 27
     assert game.available_player_2 == 27
     assert game.red_needed_next == True
+
+def test_handle_last_colored_ball_edge_cases(capsys):
+    game = SnookerScores()
+    game.red_balls = 0
+    game.available_player_1 = 27
+    game.available_player_2 = 27
+    game.player_1_turn = True
+    with patch("builtins.input", side_effect=["2"]):
+        game.handle_last_colored_ball()
+    captured = capsys.readouterr()
+    assert "No more red balls left!" in captured.out
+    assert "Player 1 must pot a colored ball next" in captured.out
+
 
 def test_colored_balls_phase(capsys):
     """Test the colored_balls_phase method."""
