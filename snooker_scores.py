@@ -32,6 +32,7 @@ class SnookerScores:
         self.first_input = True
         self.shot_prompt = "What's the value of the shot: "
 
+
     # Ball handling
     def get_shot_value(self):
         """Get the shot value from the user and ensure it's valid."""
@@ -137,6 +138,7 @@ class SnookerScores:
         self.player_1_turn = not self.player_1_turn
 
         self.display_game_state()
+
 
     # Score handling
     def set_starting_scores(self, max_retries=3):
@@ -302,6 +304,7 @@ class SnookerScores:
             self.switch_players()
         elif self.red_balls > 0:
             self.red_needed_next = True
+
 
     # Game phases
     def display_startup_message(self):
