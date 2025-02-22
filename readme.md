@@ -14,7 +14,6 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: elaborate on welcome message
 - ToDo: refactor red_balls_phase, handle_last_colored_ball, colored_balls_phase
-- ToDo: refactor display_winner
 
 - ToDo: real life test with video of snooker game
 
