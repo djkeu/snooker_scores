@@ -10,14 +10,14 @@ class SnookerScores:
     def __init__(self):
         """Initialize the game scores state."""
         self.red_balls = 15
-        self.maximum_score = MAXIMUM_BREAK
-        self.end_break = END_BREAK
         self.score_player_1 = 0
         self.score_player_2 = 0
+        self.maximum_score = MAXIMUM_BREAK
         self.available_player_1 = self.maximum_score
         self.available_player_2 = self.maximum_score
         self.possible_score_player_1 = self.maximum_score
         self.possible_score_player_2 = self.maximum_score
+        self.end_break = END_BREAK
         self.red_needed_next = True
         self.player_1_turn = True
         self.yellow_ball = 2
@@ -146,7 +146,7 @@ class SnookerScores:
         score_player_1 = int(input("Enter score for Player 1: "))
         score_player_2 = int(input("Enter score for Player 2: "))
 
-        if score_player_1 + score_player_2 > 147:
+        if score_player_1 + score_player_2 > MAXIMUM_BREAK:
             raise ValueError("Total score cannot exceed 147.")
         
         if score_player_1 < 0 or score_player_2 < 0:
@@ -160,8 +160,8 @@ class SnookerScores:
         self.red_needed_next = True
         self.score_player_1 = score_player_1
         self.score_player_2 = score_player_2
-        self.available_player_1 = 147 - score_player_1 - score_player_2
-        self.available_player_2 = 147 - score_player_2 - score_player_1
+        self.available_player_1 = MAXIMUM_BREAK - score_player_1 - score_player_2
+        self.available_player_2 = MAXIMUM_BREAK - score_player_2 - score_player_1
 
         self.display_game_state()
 
@@ -188,7 +188,7 @@ class SnookerScores:
         print(f"Player 2: score {self.score_player_2}, "
               f"possible score {self.possible_score_player_2}")
 
-        if self.available_player_1 > 27:
+        if self.available_player_1 > END_BREAK:
             print(f"{self.red_balls} red balls left")
             self.display_next_ball()
 
@@ -308,8 +308,8 @@ class SnookerScores:
                 self.display_game_state()
                 break
 
-        self.available_player_1 = 27
-        self.available_player_2 = 27
+        self.available_player_1 = END_BREAK
+        self.available_player_2 = END_BREAK
 
     def colored_balls_phase(self):
         """Simulate colored balls phase."""
