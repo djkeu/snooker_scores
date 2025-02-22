@@ -1,14 +1,13 @@
 import pytest
 from unittest.mock import patch
 from snooker_scores import SnookerScores
-
+import itertools
 
 def mock_input(prompt, *values):
     if len(values) == 1:
         return patch('builtins.input', return_value=values[0])
     else:
         return patch('builtins.input', side_effect=values)
-
 
 # Shot validation tests
 def test_validate_shot_valid():
@@ -121,28 +120,35 @@ def test_set_starting_scores_valid_input():
                 game.set_starting_scores()
 
 def test_set_starting_scores_invalid_score():
-    with mock_input("Enter red balls: ", "5"):
-        with mock_input("Enter player 1 score: ", "5"):
-            with mock_input("Enter player 2 score: ", "5"):
-                game = SnookerScores()
-                with pytest.raises(ValueError):
-                    game.set_starting_scores()
+    # Provide invalid inputs followed by valid inputs to allow the method to retry
+    with mock_input(
+        "Enter the number of red balls left: ", "5", "5", "5",  # Invalid inputs
+        "Enter score for Player 1: ", "5", "5", "5",            # Invalid inputs
+        "Enter score for Player 2: ", "5", "5", "5"             # Invalid inputs
+    ):
+        game = SnookerScores()
+        with pytest.raises(ValueError):
+            game.set_starting_scores()
 
 def test_set_starting_scores_invalid_red_balls():
-    with mock_input("Enter red balls: ", "20"):
-        with mock_input("Enter player 1 score: ", "10"):
-            with mock_input("Enter player 2 score: ", "10"):
-                game = SnookerScores()
-                with pytest.raises(ValueError):
-                    game.set_starting_scores()
+    # Provide only invalid inputs for red balls
+    with mock_input(
+        "Enter the number of red balls left: ", "20", "20", "20"  # Invalid inputs for red balls
+    ):
+        game = SnookerScores()
+        with pytest.raises(ValueError):
+            game.set_starting_scores()
 
 def test_set_starting_scores_invalid_total_score():
-    with mock_input("Enter red balls: ", "5"):
-        with mock_input("Enter player 1 score: ", "150"):
-            with mock_input("Enter player 2 score: ", "150"):
-                game = SnookerScores()
-                with pytest.raises(ValueError):
-                    game.set_starting_scores()
+    # Provide invalid inputs for total score, followed by valid inputs for red balls and scores
+    with mock_input(
+        "Enter the number of red balls left: ", "5", "5", "5",      # Valid inputs for red balls
+        "Enter score for Player 1: ", "150", "150", "150",         # Invalid inputs for Player 1
+        "Enter score for Player 2: ", "150", "150", "150"          # Invalid inputs for Player 2
+    ):
+        game = SnookerScores()
+        with pytest.raises(ValueError):
+            game.set_starting_scores()
 
 
 # Penalty input validation

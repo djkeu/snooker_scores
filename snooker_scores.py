@@ -138,35 +138,46 @@ class SnookerScores:
         self.display_game_state()
 
     # Score handling
-    def set_starting_scores(self):
-        red_balls = int(input("Enter the number of red balls left: "))
-        if red_balls < 0 or red_balls > 15:
-            raise ValueError(
-                "Invalid number of red balls. "
-                "It must be between 0 and 15."
-            )
+    def set_starting_scores(self, max_retries=3):
+        retries = 0
+        while retries < max_retries:
+            try:
+                red_balls = int(input("Enter the number of red balls left: "))
+                if red_balls < 0 or red_balls > 15:
+                    raise ValueError(
+                        "Invalid number of red balls. "
+                        "It must be between 0 and 15."
+                    )
 
-        score_player_1 = int(input("Enter score for Player 1: "))
-        score_player_2 = int(input("Enter score for Player 2: "))
+                score_player_1 = int(input("Enter score for Player 1: "))
+                score_player_2 = int(input("Enter score for Player 2: "))
 
-        if score_player_1 + score_player_2 > MAXIMUM_BREAK:
-            raise ValueError("Total score cannot exceed 147.")
+                if score_player_1 + score_player_2 > MAXIMUM_BREAK:
+                    raise ValueError("Total score cannot exceed 147.")
 
-        minimum_score = (15 - red_balls) + ((15 - red_balls - 1) * 2)
-        if score_player_1 < 0 or score_player_2 < minimum_score:
-            raise ValueError("Scores must be positive values.")
+                if score_player_1 < 0 or score_player_2 < 0:
+                    raise ValueError("Scores must be positive values.")
 
-        if score_player_1 + score_player_2 < 30:
-            raise ValueError("Total score is too low.")
+                minimum_score = (15 - red_balls) + ((15 - red_balls - 1) * 2)
+                if score_player_1 + score_player_2 < minimum_score:
+                    raise ValueError("Total score is too low.")
 
+                # If all inputs are valid, break out of the loop
+                break
+
+            except ValueError as e:
+                retries += 1
+                if retries >= max_retries:
+                    raise ValueError("Too many invalid inputs. Exiting.")
+                print(f"Invalid input: {e}. Please try again.")
+
+        # Set the validated values
         self.red_balls = red_balls
         self.red_needed_next = True
         self.score_player_1 = score_player_1
         self.score_player_2 = score_player_2
-        self.available_player_1 = \
-            MAXIMUM_BREAK - score_player_1 - score_player_2
-        self.available_player_2 = \
-            MAXIMUM_BREAK - score_player_2 - score_player_1
+        self.available_player_1 = MAXIMUM_BREAK - score_player_1 - score_player_2
+        self.available_player_2 = MAXIMUM_BREAK - score_player_2 - score_player_1
 
         self.display_game_state()
 
