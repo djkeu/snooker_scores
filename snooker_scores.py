@@ -152,10 +152,11 @@ class SnookerScores:
         if score_player_1 + score_player_2 > MAXIMUM_BREAK:
             raise ValueError("Total score cannot exceed 147.")
 
-        if score_player_1 < 0 or score_player_2 < 0:
+        minimum_score = (15 - red_balls) + ((15 - red_balls - 1) * 2)
+        if score_player_1 < 0 or score_player_2 < minimum_score:
             raise ValueError("Scores must be positive values.")
 
-        if score_player_1 + score_player_2 < red_balls * 2:
+        if score_player_1 + score_player_2 < 30:
             raise ValueError("Total score is too low.")
 
         self.red_balls = red_balls
