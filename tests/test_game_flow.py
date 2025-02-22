@@ -34,6 +34,41 @@ def test_start_game(capsys):
     assert "Next ball to pot: black" in output
     assert "wins with a score of" in output
 
+def test_start_game_early_exit(capsys):
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["q"]):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "q: quit, s: set starting scores, x: switch player, p: penalty" in captured.out
+
+def test_start_game_penalty(capsys):
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["p", "5", "n", "q"]):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Penalty of 5 points applied to Player 1." in captured.out
+
+def test_start_game_switch_players(capsys):
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["x", "q"]):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Switching players..." in captured.out
+
+def test_start_game_set_scores(capsys):
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["s", "15", "0", "0", "q"]):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Player 1: score 0, potential score 147" in captured.out
+    assert "Player 2: score 0, potential score 147" in captured.out
+    assert "15 red balls left" in captured.out
+
+
 def test_game_flow():
     game = SnookerScores()
     
