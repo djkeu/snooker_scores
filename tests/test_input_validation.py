@@ -137,6 +137,22 @@ def test_get_respot_input_invalid():
             result = game.get_respot_input()
             assert result == 'y', f"Expected 'y', but got {result}"
 
+def test_get_respot_input_edge_cases():
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["invalid", "y"]):
+        assert game.get_respot_input() == "y"
+    with patch("builtins.input", side_effect=["invalid", "n"]):
+        assert game.get_respot_input() == "n"
+
+def test_respot_balls_edge_cases():
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["y"]):
+        game.respot_balls()
+        assert game.red_needed_next is True
+    with patch("builtins.input", side_effect=["n"]):
+        game.respot_balls()
+        assert game.red_needed_next is True
+
 
 # Starting scores validation
 def test_set_starting_scores_valid_input():
@@ -275,6 +291,20 @@ def test_validate_player_scores_exceed_maximum_break():
     with pytest.raises(ValueError, match="Total score cannot exceed 147."):
         game.validate_player_scores(0, 148)
 
+def test_validate_player_scores_edge_cases():
+    game = SnookerScores()
+    with pytest.raises(ValueError):
+        game.validate_player_scores(-1, 0)
+    with pytest.raises(ValueError):
+        game.validate_player_scores(0, -1)
+    with pytest.raises(ValueError):
+        game.validate_player_scores(148, 0)
+    with pytest.raises(ValueError):
+        game.validate_player_scores(0, 148)
+    game.validate_player_scores(0, 0)
+    game.validate_player_scores(147, 0)
+    game.validate_player_scores(0, 147)
+
 def test_validate_minimum_score_valid():
     """Test validate_minimum_score with valid input."""
     game = SnookerScores()
@@ -293,6 +323,13 @@ def test_validate_minimum_score_invalid():
         game.validate_minimum_score(10, 5, 7)
     with pytest.raises(ValueError, match="Total score is too low."):
         game.validate_minimum_score(14, 0, 0)
+
+def test_validate_minimum_score_edge_cases():
+    game = SnookerScores()
+    game.validate_minimum_score(15, 0, 0)
+    game.validate_minimum_score(14, 1, 0)
+    game.validate_minimum_score(14, 1, 1)
+    game.validate_minimum_score(14, 3, 0)
 
 
 # Penalty input validation

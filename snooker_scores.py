@@ -217,6 +217,7 @@ class SnookerScores:
         if score_player_1 + score_player_2 < minimum_score:
             raise ValueError("Total score is too low.")
 
+
     def update_score(self, shot):
         """Update the current player's score."""
         if self.player_1_turn:
