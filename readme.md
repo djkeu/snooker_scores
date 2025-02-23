@@ -12,10 +12,8 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: refactor red_balls_phase, handle_last_colored_ball, colored_balls_phase
 - ToDo: real life test with video of snooker game
-- FixMe: get_valid_input should accept 'q' to get back to the program from set_starting_scores
-- FixMe: get_penalty_input should accept 'q' to get back to the program
+- ToDo: refactor red_balls_phase, handle_last_colored_ball, colored_balls_phase
 
 - ToDo:
 4. Combine Score Calculation Logic
@@ -32,7 +30,6 @@ You may find it more efficient to combine the logic for displaying the game stat
 
 Currently, the respot_balls method calls get_respot_input and handles its result. Since the input is already validated in get_respot_input, respot_balls could be streamlined.
 
-- ToDo: elaborate on welcome message
 
 - ToDo: GUI
 
