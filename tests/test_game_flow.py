@@ -127,15 +127,114 @@ def test_start_game_penalty_no_respot(capsys):
     captured = capsys.readouterr()
     assert "Penalty of 5 points applied to Player 1." in captured.out
 
-# Edge cases
-def test_start_game_negative_starting_scores(capsys):
+# Edge cases start_game
+def test_start_game_early_exit_set_starting_scores(capsys):
+    """Test early exit during the set_starting_scores phase."""
     game = SnookerScores()
-    inputs = generate_inputs([SET_SCORES_INPUT, "15", "-10", "-5", "0", "0", QUIT_INPUT])
+    inputs = generate_inputs([SET_SCORES_INPUT, "q"])
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "q: quit, s: set starting scores, x: switch player, p: penalty" in captured.out
+
+def test_start_game_invalid_red_balls_then_early_exit(capsys):
+    game = SnookerScores()
+    inputs = generate_inputs([SET_SCORES_INPUT, "invalid", "q"])
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Invalid input: invalid literal for int() with base 10: 'invalid'. Please try again." in captured.out
+
+def test_start_game_invalid_player_scores_then_early_exit(capsys):
+    game = SnookerScores()
+    inputs = generate_inputs([SET_SCORES_INPUT, "15", "invalid", "q"])
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Invalid input: invalid literal for int() with base 10: 'invalid'. Please try again." in captured.out
+
+def test_start_game_negative_player_scores_then_early_exit(capsys):
+    """Test negative player score input followed by early exit."""
+    game = SnookerScores()
+    inputs = generate_inputs([SET_SCORES_INPUT, "15", "-10", "q"])
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
     assert "Scores must be positive values." in captured.out
+
+def test_start_game_exceed_max_red_balls_then_early_exit(capsys):
+    game = SnookerScores()
+    inputs = generate_inputs([SET_SCORES_INPUT, "16", "q"])
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Invalid input: Invalid number of red balls. It must be between 0 and 15.. Please try again." in captured.out
+
+def test_start_game_early_exit_red_ball_phase(capsys):
+    """Test early exit during the red ball phase."""
+    game = SnookerScores()
+    inputs = generate_inputs([SET_SCORES_INPUT, "15", "0", "0", QUIT_INPUT])
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "q: quit, s: set starting scores, x: switch player, p: penalty" in captured.out
+
+def test_start_game_penalty_respot(capsys):
+    """Test applying a penalty with respot."""
+    game = SnookerScores()
+    inputs = generate_inputs([PENALTY_INPUT, "5", "y", QUIT_INPUT])
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Penalty of 5 points applied to Player 1." in captured.out
+    assert "Switching players..." in captured.out
+
+def test_start_game_penalty_no_respot(capsys):
+    """Test applying a penalty without respot."""
+    game = SnookerScores()
+    inputs = generate_inputs([PENALTY_INPUT, "5", "n", QUIT_INPUT])
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Penalty of 5 points applied to Player 1." in captured.out
+
+def test_start_game_switch_players(capsys):
+    """Test switching players."""
+    game = SnookerScores()
+    inputs = generate_inputs([SWITCH_PLAYER_INPUT, QUIT_INPUT])
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Switching players..." in captured.out
+
+def test_start_game_invalid_inputs(capsys):
+    """Test multiple invalid inputs."""
+    game = SnookerScores()
+    inputs = generate_inputs(["invalid", "invalid", QUIT_INPUT])
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Only numbers between 0 and 7 are valid!" in captured.out
+
+def test_start_game_multiple_invalid_inputs(capsys):
+    """Test multiple invalid inputs followed by early exit."""
+    game = SnookerScores()
+    inputs = generate_inputs(["invalid", "invalid", QUIT_INPUT])
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Only numbers between 0 and 7 are valid!" in captured.out
 
 
 def test_game_flow():
