@@ -8,7 +8,6 @@ END_BREAK = 27
 
 class SnookerScores:
     def __init__(self):
-        """Initialize the game scores state."""
         self.red_balls = 15
         self.score_player_1 = 0
         self.score_player_2 = 0
@@ -35,9 +34,8 @@ class SnookerScores:
 
     # Ball handling
     def get_shot_value(self):
-        """Get the shot value from the user and ensure it's valid."""
         while True:
-            shot = input(self.shot_prompt)
+            shot = input(self.shot_prompt).strip().lower()
 
             result = self.handle_special_input(shot)
             if result is not None:
@@ -48,7 +46,6 @@ class SnookerScores:
                 return valid_shot
 
     def handle_special_input(self, shot):
-        """Handle special inputs (e.g., 'q', 'p', 'x')."""
         if shot == "q":
             sys.exit()
         elif shot == "p":
@@ -64,14 +61,12 @@ class SnookerScores:
             return None
 
     def validate_and_return_shot(self, shot):
-        """Validate the shot input and return it as an integer."""
         validated_shot = self.validate_shot(shot)
         if validated_shot is not None:
             return int(validated_shot)
         return None
 
     def validate_shot(self, shot):
-        """Validate the shot value and return it if valid."""
         try:
             shot = int(shot)
             if shot >= 0 and shot <= 7:
@@ -84,11 +79,9 @@ class SnookerScores:
         return None
 
     def handle_invalid_input(self):
-        """Handle invalid shot input."""
         print("Only numbers between 0 and 7 are valid!")
 
     def handle_ball(self, shot, is_red_ball):
-        """Handle logic for both red and colored balls."""
         if is_red_ball:
             self.red_balls -= 1
             if self.player_1_turn:
@@ -108,7 +101,6 @@ class SnookerScores:
         self.update_score(shot)
 
     def handle_red_ball(self, shot):
-        """Handle logic for when a red ball is hit."""
         if self.red_needed_next:
             self.handle_ball(shot, is_red_ball=True)
         else:
@@ -117,7 +109,6 @@ class SnookerScores:
             self.red_needed_next = True
 
     def handle_color_ball(self, shot):
-        """Handle logic for when a color ball is hit."""
         if self.red_needed_next:
             print("\nYou need to hit a red ball first!")
             self.switch_players()
@@ -126,14 +117,12 @@ class SnookerScores:
             self.handle_ball(shot, is_red_ball=False)
 
     def handle_miss(self):
-        """Handle logic for when a shot is missed."""
         if not self.red_needed_next:
             self.available_player_1 -= 7
         self.red_needed_next = True
         self.switch_players()
 
     def switch_players(self):
-        """Switch the active player."""
         print("Switching players...")
         self.player_1_turn = not self.player_1_turn
 
@@ -142,7 +131,6 @@ class SnookerScores:
 
     # Score handling
     def set_starting_scores(self, max_retries=3):
-        """Set the starting scores for the game."""
         try:
             red_balls = self.get_input_starting_scores(
                 "Enter the number of red balls left: ",
@@ -150,7 +138,7 @@ class SnookerScores:
                 "Too many invalid inputs for red balls. Exiting.",
                 max_retries
             )
-            if red_balls is None:  # 'q' was pressed
+            if red_balls is None:
                 return
 
             score_player_1 = self.get_input_starting_scores(
@@ -159,7 +147,7 @@ class SnookerScores:
                 "Too many invalid inputs for Player 1 score. Exiting.",
                 max_retries
             )
-            if score_player_1 is None:  # 'q' was pressed
+            if score_player_1 is None:
                 return
 
             score_player_2 = self.get_input_starting_scores(
@@ -168,7 +156,7 @@ class SnookerScores:
                 "Too many invalid inputs for Player 2 score. Exiting.",
                 max_retries
             )
-            if score_player_2 is None:  # 'q' was pressed
+            if score_player_2 is None:
                 return
 
             self.validate_player_scores(score_player_1, score_player_2)
@@ -188,13 +176,12 @@ class SnookerScores:
         self.display_game_state()
 
     def get_input_starting_scores(self, prompt, validation_func, error_message, max_retries=3):
-        """Helper method to get and validate user input."""
         retries = 0
         while retries < max_retries:
             try:
-                value = input(prompt)
-                if value == "q":
-                    return None  # Return None to indicate 'q' was pressed
+                value = input(prompt).strip()
+                if value.lower() == "q":
+                    return None
                 value = int(value)
                 validation_func(value)
                 return value
@@ -205,19 +192,16 @@ class SnookerScores:
                 print(f"Invalid input: {e}. Please try again.")
 
     def validate_red_balls(self, red_balls):
-        """Validate the number of red balls."""
         if red_balls < 0 or red_balls > 15:
             raise ValueError("Invalid number of red balls. It must be between 0 and 15.")
 
     def validate_player_scores(self, score_player_1, score_player_2):
-        """Validate player scores."""
         if score_player_1 < 0 or score_player_2 < 0:
             raise ValueError("Scores must be positive values.")
         if score_player_1 + score_player_2 > MAXIMUM_BREAK:
             raise ValueError("Total score cannot exceed 147.")
 
     def validate_minimum_score(self, red_balls, score_player_1, score_player_2):
-        """Validate that the total score meets the minimum possible score based on red balls."""
         if red_balls == 15 and score_player_1 == 0 and score_player_2 == 0:
             return
         
@@ -228,21 +212,18 @@ class SnookerScores:
             raise ValueError("Total score is too low.")
 
     def update_score(self, shot):
-        """Update the current player's score."""
         if self.player_1_turn:
             self.score_player_1 += shot
         else:
             self.score_player_2 += shot
 
     def calculate_potential_scores(self):
-        """Current score plus remaining available points."""
         self.potential_score_player_1 = \
             self.score_player_1 + self.available_player_1
         self.potential_score_player_2 = \
             self.score_player_2 + self.available_player_2
 
     def display_game_state(self):
-        """Display the current state of the game in the desired format."""
         self.calculate_potential_scores()
 
         print(f"\nPlayer 1: score {self.score_player_1}, "
@@ -255,7 +236,6 @@ class SnookerScores:
             self.display_next_ball()
 
     def display_next_ball(self):
-        """Display which ball the current player must pot next."""
         if self.player_1_turn:
             player = "Player 1"
         else:
@@ -269,19 +249,17 @@ class SnookerScores:
         print(f"{player} must pot a {ball} next")
 
     def add_penalty(self):
-        """Add a penalty to the current player's score."""
         penalty = self.get_penalty_input()
-        if penalty is None:  # 'q' was pressed
+        if penalty is None:
             return
         self.apply_penalty(penalty)
         self.respot_balls()
 
     def get_penalty_input(self):
-        """Get and validate the penalty input from the player."""
         while True:
             try:
-                penalty = input("Enter the penalty value: ")
-                if penalty == "q":
+                penalty = input("Enter the penalty value: ").strip()
+                if penalty.lower() == "q":
                     return None
                 penalty = int(penalty)
                 if penalty < 0:
@@ -291,7 +269,6 @@ class SnookerScores:
                 print(f"Invalid input: {e}. Please enter a valid penalty value.")
 
     def apply_penalty(self, penalty_value):
-        """Apply penalty based on whose turn it is."""
         if self.player_1_turn:
             print(f"Penalty of {penalty_value} points applied to Player 1.")
             self.score_player_1 += penalty_value
@@ -300,16 +277,14 @@ class SnookerScores:
             self.score_player_2 += penalty_value
 
     def get_respot_input(self):
-        """Get and validate the player's choice for respotting balls."""
         while True:
-            respot = input("Do you want a respot? (y/n) ").lower()
+            respot = input("Do you want a respot? (y/n) ").strip().lower()
             if respot in ['y', 'n']:
                 return respot
             else:
                 print("Invalid input. Please enter 'y' or 'n'.")
 
     def respot_balls(self):
-        """Respot the balls after a foul."""
         respot = self.get_respot_input()
 
         if respot == 'y':
@@ -320,7 +295,6 @@ class SnookerScores:
 
     # Game phases
     def display_startup_message(self):
-        """Display a startup message + hotkeys."""
         with open("txt/welcome_messages.txt") as f:
             for count, line in enumerate(f):
                 if count == randint(0, count):
@@ -331,7 +305,6 @@ class SnookerScores:
             print(f.read())
 
     def red_balls_phase(self):
-        """Take turns playing reds and colors."""
         while self.red_balls > 0:
             shot = self.get_shot_value()
 
@@ -353,7 +326,6 @@ class SnookerScores:
             self.colored_balls_phase()
 
     def handle_last_colored_ball(self):
-        """Handle last ball before colored balls phase."""
         print("\nNo more red balls left! ")
 
         while self.available_player_1 > 0 or self.available_player_2 > 0:
@@ -380,7 +352,6 @@ class SnookerScores:
         self.available_player_2 = self.end_break
 
     def colored_balls_phase(self):
-        """Simulate colored balls phase."""
         while self.available_player_1 > 0:
             print(
                 f"Next ball to pot: "
@@ -403,16 +374,13 @@ class SnookerScores:
 
             self.display_game_state()
 
-    # Game flow
     def start_game(self):
-        """Start the program."""
         self.display_startup_message()
         self.red_balls_phase()
         self.colored_balls_phase()
         self.display_winner()
 
     def display_winner(self):
-        """Display the winner of the game."""
         winner = ""
 
         if self.score_player_1 > self.score_player_2:
@@ -424,7 +392,6 @@ class SnookerScores:
 
 
 def main():
-    """Show the snooker scores."""
     scores = SnookerScores()
     scores.start_game()
 
