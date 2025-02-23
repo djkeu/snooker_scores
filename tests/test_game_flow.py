@@ -25,12 +25,12 @@ def test_start_game_full_flow(capsys):
     game = SnookerScores()
 
     inputs = generate_inputs(
-        ["15", "0", "0"],
-        ["1", "7"] * 13,
-        ["0"],
-        ["1", "7"] * 2,
-        ["0"],
-        ["2", "3", "4", "5", "6", "7", "0"]
+        ["15", "0", "0"],  # Starting scores
+        [VALID_INPUTS[0], VALID_INPUTS[6]] * 13,  # Red and colored ball phase (13 reds)
+        ["0"],  # End of red ball phase
+        [VALID_INPUTS[0], VALID_INPUTS[6]] * 2,  # Final colored balls (2 reds left)
+        ["0"],  # End of game
+        VALID_INPUTS[1:] + ["0"]  # Colored ball phase
     )
 
     with patch.object(game, "display_startup_message", return_value=None):
@@ -54,7 +54,8 @@ def test_start_game_full_flow(capsys):
 
 def test_start_game_early_exit(capsys):
     game = SnookerScores()
-    with patch("builtins.input", side_effect=["q"]):
+    inputs = generate_inputs([QUIT_INPUT])
+    with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
@@ -62,7 +63,8 @@ def test_start_game_early_exit(capsys):
 
 def test_start_game_penalty(capsys):
     game = SnookerScores()
-    with patch("builtins.input", side_effect=["p", "5", "n", "q"]):
+    inputs = generate_inputs([PENALTY_INPUT, PENALTY_VALUES[1], "n", QUIT_INPUT])
+    with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
@@ -70,7 +72,8 @@ def test_start_game_penalty(capsys):
 
 def test_start_game_switch_players(capsys):
     game = SnookerScores()
-    with patch("builtins.input", side_effect=["x", "q"]):
+    inputs = generate_inputs([SWITCH_PLAYER_INPUT, QUIT_INPUT])
+    with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
@@ -78,7 +81,7 @@ def test_start_game_switch_players(capsys):
 
 def test_start_game_set_scores(capsys):
     game = SnookerScores()
-    inputs = generate_inputs(["s", "15", "0", "0", "q"])
+    inputs = generate_inputs([SET_SCORES_INPUT, "15", "0", "0", QUIT_INPUT])
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -89,7 +92,7 @@ def test_start_game_set_scores(capsys):
 
 def test_start_game_invalid_inputs(capsys):
     game = SnookerScores()
-    inputs = generate_inputs(["invalid", "q"])
+    inputs = generate_inputs([INVALID_INPUTS[0], QUIT_INPUT])
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -98,7 +101,7 @@ def test_start_game_invalid_inputs(capsys):
 
 def test_start_game_multiple_invalid_inputs(capsys):
     game = SnookerScores()
-    inputs = generate_inputs(["invalid", "invalid", "q"])
+    inputs = generate_inputs([INVALID_INPUTS[0], INVALID_INPUTS[1], QUIT_INPUT])
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -107,7 +110,7 @@ def test_start_game_multiple_invalid_inputs(capsys):
 
 def test_start_game_penalty_respot(capsys):
     game = SnookerScores()
-    inputs = generate_inputs(["p", "5", "y", "q"])
+    inputs = generate_inputs([PENALTY_INPUT, PENALTY_VALUES[1], "y", QUIT_INPUT])
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -117,7 +120,7 @@ def test_start_game_penalty_respot(capsys):
 
 def test_start_game_penalty_no_respot(capsys):
     game = SnookerScores()
-    inputs = generate_inputs(["p", "5", "n", "q"])
+    inputs = generate_inputs([PENALTY_INPUT, PENALTY_VALUES[1], "n", QUIT_INPUT])
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -127,7 +130,7 @@ def test_start_game_penalty_no_respot(capsys):
 
 def test_game_flow():
     game = SnookerScores()
-    inputs = generate_inputs([1, 5, 2, 4, 1, 3, 'q'])
+    inputs = generate_inputs([VALID_INPUTS[0], VALID_INPUTS[4], VALID_INPUTS[1], VALID_INPUTS[3], VALID_INPUTS[0], VALID_INPUTS[2], QUIT_INPUT])
     with patch('builtins.input', side_effect=inputs):
         with pytest.raises(SystemExit):
             game.red_balls_phase()
