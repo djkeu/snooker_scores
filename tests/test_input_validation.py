@@ -207,44 +207,44 @@ def test_set_starting_scores_edge_cases():
         assert game.score_player_2 == 0
 
 
-def test_get_valid_input_valid():
-    """Test get_valid_input with valid input."""
+def test_get_input_starting_scores_valid():
+    """Test get_input_starting_scores with valid input."""
     with mock_input("Enter a number: ", "10"):
         game = SnookerScores()
-        result = game.get_valid_input(
+        result = game.get_input_starting_scores(
             "Enter a number: ",
             lambda x: None,  # No validation
             "Invalid input."
         )
         assert result == 10
 
-def test_get_valid_input_invalid_then_valid():
-    """Test get_valid_input with invalid input followed by valid input."""
+def test_get_input_starting_scores_invalid_then_valid():
+    """Test get_input_starting_scores with invalid input followed by valid input."""
     with mock_input("Enter a number: ", "invalid", "20"):
         game = SnookerScores()
-        result = game.get_valid_input(
+        result = game.get_input_starting_scores(
             "Enter a number: ",
             lambda x: None,  # No validation
             "Invalid input."
         )
         assert result == 20
 
-def test_get_valid_input_exhaust_retries():
-    """Test get_valid_input exhausting retries with invalid input."""
+def test_get_input_starting_scores_exhaust_retries():
+    """Test get_input_starting_scores exhausting retries with invalid input."""
     with mock_input("Enter a number: ", "invalid", "invalid", "invalid"):
         game = SnookerScores()
         with pytest.raises(ValueError, match="Invalid input."):
-            game.get_valid_input(
+            game.get_input_starting_scores(
                 "Enter a number: ",
                 lambda x: None,  # No validation
                 "Invalid input.",
                 max_retries=3
             )
 
-def test_get_valid_input_edge_cases():
+def test_get_input_starting_scores_edge_cases():
     game = SnookerScores()
     with patch("builtins.input", side_effect=["invalid", "invalid", "5"]):
-        result = game.get_valid_input("Enter a number: ", lambda x: int(x), "Too many invalid inputs", max_retries=3)
+        result = game.get_input_starting_scores("Enter a number: ", lambda x: int(x), "Too many invalid inputs", max_retries=3)
     assert result == 5
 
 

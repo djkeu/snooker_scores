@@ -144,7 +144,7 @@ class SnookerScores:
     def set_starting_scores(self, max_retries=3):
         """Set the starting scores for the game."""
         try:
-            red_balls = self.get_valid_input(
+            red_balls = self.get_input_starting_scores(
                 "Enter the number of red balls left: ",
                 self.validate_red_balls,
                 "Too many invalid inputs for red balls. Exiting.",
@@ -153,7 +153,7 @@ class SnookerScores:
             if red_balls is None:  # 'q' was pressed
                 return
 
-            score_player_1 = self.get_valid_input(
+            score_player_1 = self.get_input_starting_scores(
                 "Enter score for Player 1: ",
                 lambda x: self.validate_player_scores(x, 0),
                 "Too many invalid inputs for Player 1 score. Exiting.",
@@ -162,7 +162,7 @@ class SnookerScores:
             if score_player_1 is None:  # 'q' was pressed
                 return
 
-            score_player_2 = self.get_valid_input(
+            score_player_2 = self.get_input_starting_scores(
                 "Enter score for Player 2: ",
                 lambda x: self.validate_player_scores(score_player_1, x),
                 "Too many invalid inputs for Player 2 score. Exiting.",
@@ -187,7 +187,7 @@ class SnookerScores:
 
         self.display_game_state()
 
-    def get_valid_input(self, prompt, validation_func, error_message, max_retries=3):
+    def get_input_starting_scores(self, prompt, validation_func, error_message, max_retries=3):
         """Helper method to get and validate user input."""
         retries = 0
         while retries < max_retries:
