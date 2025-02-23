@@ -25,12 +25,12 @@ def test_start_game_full_flow(capsys):
     game = SnookerScores()
 
     inputs = generate_inputs(
-        ["15", "0", "0"],  # Starting scores
-        [VALID_INPUTS[0], VALID_INPUTS[6]] * 13,  # Red and colored ball phase (13 reds)
-        ["0"],  # End of red ball phase
-        [VALID_INPUTS[0], VALID_INPUTS[6]] * 2,  # Final colored balls (2 reds left)
-        ["0"],  # End of game
-        VALID_INPUTS[1:] + ["0"]  # Colored ball phase
+        ["15", "0", "0"],
+        [VALID_INPUTS[0], VALID_INPUTS[6]] * 13,
+        ["0"],
+        [VALID_INPUTS[0], VALID_INPUTS[6]] * 2,
+        ["0"],
+        VALID_INPUTS[1:] + ["0"]
     )
 
     with patch.object(game, "display_startup_message", return_value=None):
@@ -126,6 +126,16 @@ def test_start_game_penalty_no_respot(capsys):
             game.start_game()
     captured = capsys.readouterr()
     assert "Penalty of 5 points applied to Player 1." in captured.out
+
+# Edge cases
+def test_start_game_negative_starting_scores(capsys):
+    game = SnookerScores()
+    inputs = generate_inputs([SET_SCORES_INPUT, "15", "-10", "-5", "0", "0", QUIT_INPUT])
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Scores must be positive values." in captured.out
 
 
 def test_game_flow():
