@@ -185,7 +185,10 @@ class SnookerScores:
         retries = 0
         while retries < max_retries:
             try:
-                value = int(input(prompt))
+                value = input(prompt)
+                if value == "q":
+                    sys.exit()
+                value = int(value)
                 validation_func(value)
                 return value
             except ValueError as e:
