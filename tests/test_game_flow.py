@@ -251,6 +251,19 @@ def test_multiple_penalties(capsys):
     assert "Penalty of 5 points applied to Player 1." in captured.out
     assert "Switching players..." in captured.out
 
+def test_switch_players_red_ball_phase(capsys):
+    game = SnookerScores()
+    inputs = generate_inputs(
+        [SET_SCORES_INPUT, "15", "0", "0",
+         "x",
+         QUIT_INPUT]
+    )
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Switching players..." in captured.out
+    assert "Player 2 must pot a red ball next" in captured.out
 
 
 def test_game_flow():
