@@ -5,19 +5,33 @@ from io import StringIO
 import sys
 
 
+VALID_INPUTS = ["1", "2", "3", "4", "5", "6", "7"]
+INVALID_INPUTS = ["invalid", "-1", "8"]
+PENALTY_VALUES = ["4", "5", "6", "7"]
+QUIT_INPUT = "q"
+SET_SCORES_INPUT = "s"
+SWITCH_PLAYER_INPUT = "x"
+PENALTY_INPUT = "p"
+
+
 def mock_input(prompt, value):
     return patch('builtins.input', return_value=value)
 
+def generate_inputs(*sequences):
+    return [str(item) for sequence in sequences for item in sequence]
 
-def test_start_game(capsys):
+
+def test_start_game_full_flow(capsys):
     game = SnookerScores()
 
-    inputs = [
-        "15", "0", "0",
-        *(["1", "7"] * 13), "0",
-        *(["1", "7"] * 2), "0",
-        "2", "3", "4", "5", "6", "7", "0",
-    ]
+    inputs = generate_inputs(
+        ["15", "0", "0"],
+        ["1", "7"] * 13,
+        ["0"],
+        ["1", "7"] * 2,
+        ["0"],
+        ["2", "3", "4", "5", "6", "7", "0"]
+    )
 
     with patch.object(game, "display_startup_message", return_value=None):
         with patch("builtins.input", side_effect=inputs):
@@ -33,6 +47,10 @@ def test_start_game(capsys):
     assert "Next ball to pot: yellow" in output
     assert "Next ball to pot: black" in output
     assert "wins with a score of" in output
+    assert "15 red balls left" in output
+    assert "0 red balls left" in output
+    assert "Player 1: score" in output
+    assert "Player 2: score" in output
 
 def test_start_game_early_exit(capsys):
     game = SnookerScores()
@@ -60,7 +78,8 @@ def test_start_game_switch_players(capsys):
 
 def test_start_game_set_scores(capsys):
     game = SnookerScores()
-    with patch("builtins.input", side_effect=["s", "15", "0", "0", "q"]):
+    inputs = generate_inputs(["s", "15", "0", "0", "q"])
+    with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
@@ -70,7 +89,8 @@ def test_start_game_set_scores(capsys):
 
 def test_start_game_invalid_inputs(capsys):
     game = SnookerScores()
-    with patch("builtins.input", side_effect=["invalid", "q"]):
+    inputs = generate_inputs(["invalid", "q"])
+    with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
@@ -78,7 +98,8 @@ def test_start_game_invalid_inputs(capsys):
 
 def test_start_game_multiple_invalid_inputs(capsys):
     game = SnookerScores()
-    with patch("builtins.input", side_effect=["invalid", "invalid", "q"]):
+    inputs = generate_inputs(["invalid", "invalid", "q"])
+    with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
@@ -86,7 +107,8 @@ def test_start_game_multiple_invalid_inputs(capsys):
 
 def test_start_game_penalty_respot(capsys):
     game = SnookerScores()
-    with patch("builtins.input", side_effect=["p", "5", "y", "q"]):
+    inputs = generate_inputs(["p", "5", "y", "q"])
+    with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
@@ -95,7 +117,8 @@ def test_start_game_penalty_respot(capsys):
 
 def test_start_game_penalty_no_respot(capsys):
     game = SnookerScores()
-    with patch("builtins.input", side_effect=["p", "5", "n", "q"]):
+    inputs = generate_inputs(["p", "5", "n", "q"])
+    with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
@@ -104,8 +127,8 @@ def test_start_game_penalty_no_respot(capsys):
 
 def test_game_flow():
     game = SnookerScores()
-    
-    with patch('builtins.input', side_effect=[1, 5, 2, 4, 1, 3, 'q']):
+    inputs = generate_inputs([1, 5, 2, 4, 1, 3, 'q'])
+    with patch('builtins.input', side_effect=inputs):
         with pytest.raises(SystemExit):
             game.red_balls_phase()
-            game.colored_balls_phase()  # Note: this phase is not reached
+            game.colored_balls_phase()
