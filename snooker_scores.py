@@ -150,6 +150,8 @@ class SnookerScores:
                 "Too many invalid inputs for red balls. Exiting.",
                 max_retries
             )
+            if red_balls is None:  # 'q' was pressed
+                return
 
             score_player_1 = self.get_valid_input(
                 "Enter score for Player 1: ",
@@ -157,12 +159,17 @@ class SnookerScores:
                 "Too many invalid inputs for Player 1 score. Exiting.",
                 max_retries
             )
+            if score_player_1 is None:  # 'q' was pressed
+                return
+
             score_player_2 = self.get_valid_input(
                 "Enter score for Player 2: ",
                 lambda x: self.validate_player_scores(score_player_1, x),
                 "Too many invalid inputs for Player 2 score. Exiting.",
                 max_retries
             )
+            if score_player_2 is None:  # 'q' was pressed
+                return
 
             self.validate_player_scores(score_player_1, score_player_2)
             self.validate_minimum_score(red_balls, score_player_1, score_player_2)
@@ -187,7 +194,7 @@ class SnookerScores:
             try:
                 value = input(prompt)
                 if value == "q":
-                    sys.exit()
+                    return None  # Return None to indicate 'q' was pressed
                 value = int(value)
                 validation_func(value)
                 return value
