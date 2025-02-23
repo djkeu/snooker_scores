@@ -66,7 +66,7 @@ class SnookerScores:
     def validate_and_return_shot(self, shot):
         """Validate the shot input and return it as an integer."""
         validated_shot = self.validate_shot(shot)
-        if validated_shot is not None:  # Check if the result is not None
+        if validated_shot is not None:
             return int(validated_shot)
         return None
 
@@ -74,7 +74,7 @@ class SnookerScores:
         """Validate the shot value and return it if valid."""
         try:
             shot = int(shot)
-            if shot >= 0 and shot <= 7:  # Allow 0 to 7
+            if shot >= 0 and shot <= 7:
                 self.first_input = False
                 return shot
         except ValueError:
@@ -282,7 +282,7 @@ class SnookerScores:
             try:
                 penalty = input("Enter the penalty value: ")
                 if penalty == "q":
-                    return None  # Return None to indicate 'q' was pressed
+                    return None
                 penalty = int(penalty)
                 if penalty < 0:
                     raise ValueError("Penalty must be a non-negative integer.")
