@@ -274,6 +274,7 @@ class SnookerScores:
         if penalty is None:  # 'q' was pressed
             return
         self.apply_penalty(penalty)
+        self.respot_balls()
 
     def get_penalty_input(self):
         """Get and validate the penalty input from the player."""
