@@ -21,6 +21,7 @@ def generate_inputs(*sequences):
     return [str(item) for sequence in sequences for item in sequence]
 
 
+# start_game tests
 def test_start_game_full_flow(capsys):
     game = SnookerScores()
 
@@ -128,6 +129,7 @@ def test_start_game_penalty_no_respot(capsys):
     captured = capsys.readouterr()
     assert "Penalty of 5 points applied to Player 1." in captured.out
 
+
 # Edge cases start_game
 def test_start_game_early_exit_set_starting_scores(capsys):
     game = SnookerScores()
@@ -233,6 +235,22 @@ def test_start_game_multiple_invalid_inputs(capsys):
             game.start_game()
     captured = capsys.readouterr()
     assert "Only numbers between 0 and 7 are valid!" in captured.out
+
+def test_multiple_penalties(capsys):
+    game = SnookerScores()
+    inputs = generate_inputs(
+        [PENALTY_INPUT, "4", "n",
+         PENALTY_INPUT, "5", "y",
+         QUIT_INPUT]
+    )
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+    captured = capsys.readouterr()
+    assert "Penalty of 4 points applied to Player 1." in captured.out
+    assert "Penalty of 5 points applied to Player 1." in captured.out
+    assert "Switching players..." in captured.out
+
 
 
 def test_game_flow():
