@@ -129,9 +129,8 @@ def test_start_game_penalty_no_respot(capsys):
 
 # Edge cases start_game
 def test_start_game_early_exit_set_starting_scores(capsys):
-    """Test early exit during the set_starting_scores phase."""
     game = SnookerScores()
-    inputs = generate_inputs([SET_SCORES_INPUT, "q"])
+    inputs = generate_inputs([SET_SCORES_INPUT, "q", QUIT_INPUT])
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -140,7 +139,7 @@ def test_start_game_early_exit_set_starting_scores(capsys):
 
 def test_start_game_invalid_red_balls_then_early_exit(capsys):
     game = SnookerScores()
-    inputs = generate_inputs([SET_SCORES_INPUT, "invalid", "q"])
+    inputs = generate_inputs([SET_SCORES_INPUT, "invalid", "q", QUIT_INPUT])
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -149,7 +148,7 @@ def test_start_game_invalid_red_balls_then_early_exit(capsys):
 
 def test_start_game_invalid_player_scores_then_early_exit(capsys):
     game = SnookerScores()
-    inputs = generate_inputs([SET_SCORES_INPUT, "15", "invalid", "q"])
+    inputs = generate_inputs([SET_SCORES_INPUT, "15", "invalid", "q", QUIT_INPUT])
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -157,9 +156,8 @@ def test_start_game_invalid_player_scores_then_early_exit(capsys):
     assert "Invalid input: invalid literal for int() with base 10: 'invalid'. Please try again." in captured.out
 
 def test_start_game_negative_player_scores_then_early_exit(capsys):
-    """Test negative player score input followed by early exit."""
     game = SnookerScores()
-    inputs = generate_inputs([SET_SCORES_INPUT, "15", "-10", "q"])
+    inputs = generate_inputs([SET_SCORES_INPUT, "15", "-10", "q", QUIT_INPUT])
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -168,7 +166,7 @@ def test_start_game_negative_player_scores_then_early_exit(capsys):
 
 def test_start_game_exceed_max_red_balls_then_early_exit(capsys):
     game = SnookerScores()
-    inputs = generate_inputs([SET_SCORES_INPUT, "16", "q"])
+    inputs = generate_inputs([SET_SCORES_INPUT, "16", "q", QUIT_INPUT])
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -244,3 +242,8 @@ def test_game_flow():
         with pytest.raises(SystemExit):
             game.red_balls_phase()
             game.colored_balls_phase()
+
+
+
+
+
