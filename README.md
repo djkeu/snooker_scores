@@ -21,6 +21,12 @@ ToDo: Real life tests with videos of snooker games (1 / 100)
 - Trump vs Long | 2025 World Open Match 1 | 
 
 
+### Conclusions Games analysed
+
+- ToDo: prompt for restart at end of program
+- ToDo: early victorie: 'w' could be the key to trigger display_winner
+
+
 ToDo: GUI
 
 
