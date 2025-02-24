@@ -19,13 +19,14 @@ ToDo: Real life tests with videos of snooker games (1 / 100)
 
 - Shaun Murphy vs Zhou Jinhao | 2025 World Open | 147 - 0
 - Trump vs Long | 2025 World Open Match 1 | 
+- Trump vs Long | 2025 World Open Match 2 | 
 
 
 ### Conclusions Games analysed
 
 - ToDo: prompt for restart at end of program
-- ToDo: early victorie: 'w' could be the key to trigger display_winner
-
+- ToDo: early victory: 'w' could be the key to trigger display_winner
+- ToDo: store or show the results in case of early victory
 
 ToDo: GUI
 
@@ -207,14 +208,18 @@ Nadat er een fout werd gemaakt mag de tegenspeler:
 
 ## Requirements
 
+### Extensions
+- Recommended: ToDo Highlights
+
 ### Imports main file
 - sys
 - from random import randint
 
 ### Imports test files
+- import sys
 - pytest
-- from unittest.mock import patch
-- from snooker_scores import SnookerScores
 - import itertools
 - from io import StringIO
-- import sys
+- from unittest.mock import patch
+
+- from snooker_scores import SnookerScores
