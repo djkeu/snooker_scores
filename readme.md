@@ -12,25 +12,8 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
+- Note: red_balls_phase, handle_last_colored_ball and colored_balls_phase contain some repetitive code
 - ToDo: real life test with video of snooker game
-- ToDo: refactor red_balls_phase, handle_last_colored_ball, colored_balls_phase
-
-- ToDo:
-4. Combine Score Calculation Logic
-
-update_score and calculate_possible_scores could potentially be combined since they both deal with adjusting scores. If they are meant to do different things, you could rename them to clarify their roles.
-
-- ToDo:
-5. display_game_state and display_next_ball
-
-You may find it more efficient to combine the logic for displaying the game state and the next ball in one method, as they both deal with showing the game progress.
-
-- ToDo:
-6. Improve respot_balls to Avoid Duplication
-
-Currently, the respot_balls method calls get_respot_input and handles its result. Since the input is already validated in get_respot_input, respot_balls could be streamlined.
-
-
 - ToDo: GUI
 
 
