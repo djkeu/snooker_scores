@@ -18,7 +18,7 @@ Note: red_balls_phase, handle_last_colored_ball and colored_balls_phase contain 
 ToDo: Real life tests with videos of snooker games (1 / 100)
 
 - Shaun Murphy vs Zhou Jinhao | 2025 World Open | 147 - 0
-- 
+- Trump vs Long | 2025 World Open Match 1 | 
 
 
 ToDo: GUI

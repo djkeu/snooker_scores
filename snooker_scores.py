@@ -253,6 +253,7 @@ class SnookerScores:
         if penalty is None:
             return
         self.apply_penalty(penalty)
+        self.switch_players()
         self.respot_balls()
 
     def get_penalty_input(self):
@@ -271,10 +272,10 @@ class SnookerScores:
     def apply_penalty(self, penalty_value):
         if self.player_1_turn:
             print(f"Penalty of {penalty_value} points applied to Player 1.")
-            self.score_player_1 += penalty_value
-        else:
-            print(f"Penalty of {penalty_value} points applied to Player 2.")
             self.score_player_2 += penalty_value
+        else:
+            print(f"Penalty of {penalty_value} points applied to Player 1.")
+            self.score_player_1 += penalty_value
 
     def get_respot_input(self):
         while True:
