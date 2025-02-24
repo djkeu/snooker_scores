@@ -1,6 +1,11 @@
 # Snooker Scores
 
 
+## Do It Yourself Scoreboards
+Do you hate how scoreboards on tv suddenly disappear during because some idiot director wants to switch to the face of the player cause that makes good television? 
+
+
+
 ## Description:
 Program to display scores of a snooker game.
 
@@ -24,6 +29,7 @@ ToDo: Real life tests with videos of snooker games (1 / 100)
 
 ### Conclusions Games analysed
 
+- Note: Miss of Balls vs Miss of Shot : var/method names?
 - ToDo: prompt for restart at end of program
 - ToDo: early victory: 'w' could be the key to trigger display_winner
 - ToDo: store or show the results in case of early victory
