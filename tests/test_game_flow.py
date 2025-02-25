@@ -21,6 +21,15 @@ def generate_inputs(*sequences):
     return [str(item) for sequence in sequences for item in sequence]
 
 
+def test_game_flow():
+    game = SnookerScores()
+    inputs = generate_inputs([VALID_INPUTS[0], VALID_INPUTS[4], VALID_INPUTS[1], VALID_INPUTS[3], VALID_INPUTS[0], VALID_INPUTS[2], QUIT_INPUT])
+    with patch('builtins.input', side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.red_balls_phase()
+            game.colored_balls_phase()
+
+
 # start_game tests
 def test_start_game_full_flow(capsys):
     game = SnookerScores()
@@ -264,17 +273,3 @@ def test_switch_players_red_ball_phase(capsys):
     captured = capsys.readouterr()
     assert "Switching players..." in captured.out
     assert "Player 2 must pot a red ball next" in captured.out
-
-
-def test_game_flow():
-    game = SnookerScores()
-    inputs = generate_inputs([VALID_INPUTS[0], VALID_INPUTS[4], VALID_INPUTS[1], VALID_INPUTS[3], VALID_INPUTS[0], VALID_INPUTS[2], QUIT_INPUT])
-    with patch('builtins.input', side_effect=inputs):
-        with pytest.raises(SystemExit):
-            game.red_balls_phase()
-            game.colored_balls_phase()
-
-
-
-
-
