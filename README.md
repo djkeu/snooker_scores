@@ -15,12 +15,11 @@ This program is to display how many points are still available for each player t
 Note: red_balls_phase, handle_last_colored_ball and colored_balls_phase contain some repetitive code
 
 ### Games analysed
-ToDo: Real life tests with videos of snooker games (1 / 100)
-
+ToDo: Real life tests with videos of snooker games (3 / 100)
 - Shaun Murphy vs Zhou Jinhao | 2025 World Open | 147 - 0
 - Trump vs Long | 2025 World Open Match 1 | 
 - Trump vs Long | 2025 World Open Match 2 | 
-
+- 
 
 ### Conclusions Games analysed
 - ToDo: store or show the results in case of early victory
