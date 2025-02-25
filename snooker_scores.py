@@ -401,6 +401,7 @@ class SnookerScores:
         self.restart_game()
 
     def restart_game(self):
+        """Ask user if they want to play again."""
         restart = input("Do you want to play again? (y/n) ").strip().lower()
         if restart == 'y':
             self.__init__()
