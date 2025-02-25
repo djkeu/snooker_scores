@@ -28,6 +28,7 @@ ToDo: Real life tests with videos of snooker games (1 / 100)
 - ToDo: early victory: 'w' could be the key to trigger display_winner
 - ToDo: quitting (q): display scores
 - ToDo: store or show the results in case of early victory
+- FixMe: set_starting_scores after red_balls_phase
 
 ToDo: GUI
 
