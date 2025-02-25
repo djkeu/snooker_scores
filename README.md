@@ -1,11 +1,6 @@
 # Snooker Scores
 
 
-## Do It Yourself Scoreboards
-Do you hate how scoreboards on tv suddenly disappear during because some idiot director wants to switch to the face of the player cause that makes good television? 
-
-
-
 ## Description:
 Program to display scores of a snooker game.
 
@@ -113,79 +108,20 @@ snooker_scores/
 
 ## Pytest
 
-- test_game_logic.py – For testing the main game logic, including handling shots, phases, and score calculations.
-- test_input_validation.py – For testing input validation, such as handling invalid values and ensuring correct user prompts.
-- test_score_calculation.py – For testing how scores are updated based on different scenarios.
+- test_game_logic.py - For testing the main game logic, including handling shots, phases, and score calculations.
+- test_input_validation.py - For testing input validation, such as handling invalid values and ensuring correct user prompts.
+- test_score_calculation.py - For testing how scores are updated based on different scenarios.
 
 
 ### game_flow
-
-test_game_flow.py – For testing the overall game flow from start to finish.
+test_game_flow.py - For testing the overall game flow from start to finish.
 
 ```
 $ pytest tests/test_game_flow.py --setup-plan
 collected 20 items
 
-tests\test_game_flow.py
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_full_flow (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_early_exit (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_penalty (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_switch_players (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_set_scores (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_invalid_inputs (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_multiple_invalid_inputs (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_penalty_respot (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_penalty_no_respot (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_early_exit_set_starting_scores (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_invalid_red_balls_then_early_exit (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_invalid_player_scores_then_early_exit (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_negative_player_scores_then_early_exit (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_exceed_max_red_balls_then_early_exit (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_early_exit_red_ball_phase (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_penalty_respot_edge_case (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_start_game_penalty_no_respot_edge_case (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_multiple_penalties (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        SETUP    F capsys
-        tests/test_game_flow.py::test_switch_players_red_ball_phase (fixtures used: capsys, request)
-        TEARDOWN F capsys
-        tests/test_game_flow.py::test_game_flow
 ```
+
 
 ## Snooker rules
 Points are also scored if the opponent makes the following mistakes:
@@ -229,3 +165,10 @@ Nadat er een fout werd gemaakt mag de tegenspeler:
 - from unittest.mock import patch
 
 - from snooker_scores import SnookerScores
+
+
+## End notes
+
+
+## Going further: Do It Yourself Scoreboards
+Do you hate how scoreboards on tv suddenly disappear during because some director wants to switch to the face of the player claiming that makes good television? 
