@@ -40,7 +40,8 @@ def test_start_game_full_flow(capsys):
         ["0"],
         [VALID_INPUTS[0], VALID_INPUTS[6]] * 2,
         ["0"],
-        VALID_INPUTS[1:] + ["0"]
+        VALID_INPUTS[1:] + ["0"],
+        ["n"]  # Simulate the player choosing not to restart
     )
 
     with patch.object(game, "display_startup_message", return_value=None):
@@ -56,11 +57,12 @@ def test_start_game_full_flow(capsys):
     assert "Player 2 must pot a colored ball next" in output
     assert "Next ball to pot: yellow" in output
     assert "Next ball to pot: black" in output
-    assert "wins with a score of" in output
+    assert "Player 1 wins! (with a score of 131 vs 16)" in output
     assert "15 red balls left" in output
     assert "0 red balls left" in output
     assert "Player 1: score" in output
     assert "Player 2: score" in output
+    assert "Thanks for playing! Goodbye!" in output
 
 def test_start_game_early_exit(capsys):
     game = SnookerScores()
