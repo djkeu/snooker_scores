@@ -25,7 +25,9 @@ ToDo: Real life tests with videos of snooker games (1 / 100)
 ### Conclusions Games analysed
 - Note: Miss of Balls vs Miss of Shot : var/method names?
 - ToDo: prompt for restart at end of program
+- ToDo: display_winner: display score of loser as well
 - ToDo: early victory: 'w' could be the key to trigger display_winner
+- ToDo: quitting (q): display scores
 - ToDo: store or show the results in case of early victory
 
 ToDo: GUI
