@@ -1,1 +1,1 @@
-q: quit, s: set starting scores, x: switch player, p: penalty
+q: quit, s: set starting scores, x: switch player, p: penalty, w: early victory
