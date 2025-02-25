@@ -400,7 +400,6 @@ class SnookerScores:
         self.display_winner()
         self.restart_game()
 
-
     def restart_game(self):
         restart = input("Do you want to play again? (y/n) ").strip().lower()
         if restart == 'y':
