@@ -24,6 +24,7 @@ ToDo: Real life tests with videos of snooker games (3 / 100)
 ### Conclusions Games analysed
 - ToDo: store or show the results in case of early victory
 - FixMe: set_starting_scores after red_balls_phase
+- FixMe: ValueErrors in set_starting_scores crash the program
 
 ToDo: GUI
 
