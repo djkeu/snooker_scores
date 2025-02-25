@@ -398,7 +398,8 @@ class SnookerScores:
             self.__init__()
             self.start_game()
         else:
-            sys.exit()
+            print("Thanks for playing! Goodbye!")
+            return False  # Indicate that the game should not restart
 
 def main():
     scores = SnookerScores()
