@@ -392,6 +392,10 @@ class SnookerScores:
 
         print(f"\n{winner} wins! (with a score of {max(self.score_player_1, self.score_player_2)} vs {min(self.score_player_1, self.score_player_2)})")
 
+    def early_victory(self):
+        """Show winner of an early victory."""
+
+
     def restart_game(self):
         restart = input("Do you want to play again? (y/n) ").strip().lower()
         if restart == 'y':
@@ -400,7 +404,7 @@ class SnookerScores:
         else:
             print("Thanks for playing! Goodbye!")
             return False  # Indicate that the game should not restart
-
+    
 def main():
     scores = SnookerScores()
     scores.start_game()
