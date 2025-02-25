@@ -274,5 +274,5 @@ def test_display_winner():
     with patch('builtins.print') as mock_print:
         game.display_winner()
         mock_print.assert_called_with(
-            "\nPlayer 1 wins with a score of 50!"
+            "\nPlayer 1 wins! (with a score of 50 vs 40)"
         )
