@@ -386,6 +386,7 @@ class SnookerScores:
         self.restart_game()
 
     def display_winner(self):
+        """Display winner of the game."""
         winner = ""
 
         if self.score_player_1 > self.score_player_2:
