@@ -23,7 +23,7 @@ ToDo: Real life tests with videos of snooker games (1 / 100)
 
 
 ### Conclusions Games analysed
-
+- FixMe: failing tests for penalties
 - Note: Miss of Balls vs Miss of Shot : var/method names?
 - ToDo: prompt for restart at end of program
 - ToDo: early victory: 'w' could be the key to trigger display_winner
