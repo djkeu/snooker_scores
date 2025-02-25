@@ -281,6 +281,7 @@ class SnookerScores:
             self.score_player_1 += penalty_value
 
     def get_respot_input(self):
+        """Get input for respotting balls."""
         while True:
             respot = input("Do you want a respot? (y/n) ").strip().lower()
             if respot in ['y', 'n']:
@@ -289,6 +290,7 @@ class SnookerScores:
                 print("Invalid input. Please enter 'y' or 'n'.")
 
     def respot_balls(self):
+        """Respot balls if needed."""
         respot = self.get_respot_input()
 
         if respot == 'y':
@@ -299,6 +301,7 @@ class SnookerScores:
 
     # Game phases
     def display_startup_message(self):
+        """Display welcome message and hotkeys."""
         with open("txt/welcome_messages.txt") as f:
             for count, line in enumerate(f):
                 if count == randint(0, count):
@@ -309,6 +312,7 @@ class SnookerScores:
             print(f.read())
 
     def red_balls_phase(self):
+        """Play the red balls phase of the game."""
         while self.red_balls > 0:
             shot = self.get_shot_value()
 
@@ -330,6 +334,7 @@ class SnookerScores:
             self.colored_balls_phase()
 
     def handle_last_colored_ball(self):
+        """Handle the last colored ball."""
         print("\nNo more red balls left! ")
 
         while self.available_player_1 > 0 or self.available_player_2 > 0:
@@ -356,6 +361,7 @@ class SnookerScores:
         self.available_player_2 = self.end_break
 
     def colored_balls_phase(self):
+        """Play the colored balls phase of the game."""
         while self.available_player_1 > 0:
             print(
                 f"Next ball to pot: "
@@ -379,6 +385,7 @@ class SnookerScores:
             self.display_game_state()
 
     def start_game(self):
+        """Start the game."""
         self.display_startup_message()
         self.red_balls_phase()
         self.colored_balls_phase()
