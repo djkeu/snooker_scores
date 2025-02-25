@@ -12,20 +12,26 @@ def test_apply_penalty():
     game.score_player_1 = 50
     game.score_player_2 = 40
 
+    game.apply_penalty(5)
+    assert game.score_player_1 == 50
+    assert game.score_player_2 == 45
+
     game.switch_players()  # After a missed or wrong ball
     game.apply_penalty(5)
-    
-    assert game.score_player_1 == 50
+   
+    assert game.score_player_1 == 55
     assert game.score_player_2 == 45
 
 def test_apply_penalty_edge_cases():
     game = SnookerScores()
     game.player_1_turn = True
     game.apply_penalty(5)
-    assert game.score_player_1 == 5
+    assert game.score_player_1 == 0
+    assert game.score_player_2 == 5
     game.player_1_turn = False
     game.apply_penalty(3)
-    assert game.score_player_2 == 3
+    assert game.score_player_1 == 3
+    assert game.score_player_2 == 5
 
 
 def test_add_penalty_valid():
@@ -34,10 +40,10 @@ def test_add_penalty_valid():
         game.score_player_1 = 50
         game.score_player_2 = 40
 
-        game.switch_players()  # After a missed or wrong ball
         game.add_penalty()
     
     assert game.score_player_1 == 50
+    assert game.score_player_2 == 45
 
 def test_add_penalty_invalid():
     with patch('builtins.input', side_effect=['-1', '5', 'y']):
@@ -45,16 +51,17 @@ def test_add_penalty_invalid():
         game.score_player_1 = 50
         game.score_player_2 = 40
 
-        game.switch_players()  # After a missed or wrong ball
         game.add_penalty()
 
+    assert game.score_player_1 == 50
     assert game.score_player_2 == 45
 
-def test_add_penalty_edge_cases():
+def test_add_penalty_edge_cases_2():
     game = SnookerScores()
     with patch("builtins.input", side_effect=["-1", "5", "n"]):
         game.add_penalty()
-    assert game.score_player_1 == 5
+    assert game.score_player_1 == 0
+    assert game.score_player_2 == 5
 
 
 def test_update_score_edge_cases():
