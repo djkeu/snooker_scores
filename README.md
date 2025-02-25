@@ -19,6 +19,7 @@ ToDo: Real life tests with videos of snooker games (3 / 100)
 - Shaun Murphy vs Zhou Jinhao | 2025 World Open | 147 - 0
 - Trump vs Long | 2025 World Open Match 1 | 
 - Trump vs Long | 2025 World Open Match 2 | 
+- Trump vs O'Connor | 2025 World Open Match 1| 73 - 0
 - 
 
 ### Conclusions Games analysed
