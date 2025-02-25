@@ -57,6 +57,9 @@ class SnookerScores:
         elif shot == "s":
             self.set_starting_scores()
             return "scores_set"
+        elif shot == "w":
+            self.early_victory()
+            return "winner"
         else:
             return None
 
@@ -394,6 +397,8 @@ class SnookerScores:
 
     def early_victory(self):
         """Show winner of an early victory."""
+        self.display_winner()
+        self.restart_game()
 
 
     def restart_game(self):
