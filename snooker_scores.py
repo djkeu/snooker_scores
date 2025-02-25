@@ -380,6 +380,7 @@ class SnookerScores:
         self.red_balls_phase()
         self.colored_balls_phase()
         self.display_winner()
+        self.restart_game()
 
     def display_winner(self):
         winner = ""
@@ -391,6 +392,13 @@ class SnookerScores:
 
         print(f"\n{winner} wins! (with a score of {max(self.score_player_1, self.score_player_2)} vs {min(self.score_player_1, self.score_player_2)})")
 
+    def restart_game(self):
+        restart = input("Do you want to play again? (y/n) ").strip().lower()
+        if restart == 'y':
+            self.__init__()
+            self.start_game()
+        else:
+            sys.exit()
 
 def main():
     scores = SnookerScores()
