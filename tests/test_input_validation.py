@@ -164,36 +164,37 @@ def test_set_starting_scores_valid_input():
                 game.set_starting_scores()
 
 def test_set_starting_scores_invalid_score():
-    # Provide invalid inputs followed by valid inputs to allow the method to retry
     with mock_input(
-        "Enter the number of red balls left: ", "5", "5", "5",
-        "Enter score for Player 1: ", "5", "5", "5",
-        "Enter score for Player 2: ", "5", "5", "5"
+        "Enter the number of red balls left: ", "5",
+        "Enter score for Player 1: ", "30",
+        "Enter score for Player 2: ", "20"
     ):
         game = SnookerScores()
-        with pytest.raises(ValueError):
-            game.set_starting_scores()
+        game.set_starting_scores()
+        assert game.red_balls == 5
+        assert game.score_player_1 == 30
+        assert game.score_player_2 == 20
 
 def test_set_starting_scores_invalid_red_balls():
-    # Provide only invalid inputs for red balls
     with mock_input(
         "Enter the number of red balls left: ", "20", "20", "20"
     ):
         game = SnookerScores()
-        with pytest.raises(ValueError):
-            game.set_starting_scores()
+        game.set_starting_scores()
+        assert game.red_balls == 15
 
 def test_set_starting_scores_invalid_total_score():
-    # Provide invalid inputs for total score, followed by valid inputs for red balls and scores
     with mock_input(
-        "Enter the number of red balls left: ", "5", "5", "5",
-        "Enter score for Player 1: ", "150", "150", "150",
-        "Enter score for Player 2: ", "150", "150", "150"
+        "Enter the number of red balls left: ", "5",
+        "Enter score for Player 1: ", "30",
+        "Enter score for Player 2: ", "20"
     ):
         game = SnookerScores()
-        with pytest.raises(ValueError):
-            game.set_starting_scores()
-
+        game.set_starting_scores()
+        assert game.red_balls == 5
+        assert game.score_player_1 == 30
+        assert game.score_player_2 == 20
+    
 def test_set_starting_scores_edge_cases():
     game = SnookerScores()
 

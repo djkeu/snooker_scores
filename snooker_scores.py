@@ -179,7 +179,7 @@ class SnookerScores:
 
         except ValueError as e:
             print(f"Error: {e}")
-            raise
+            return
 
         self.red_balls = red_balls
         self.red_needed_next = True
@@ -191,7 +191,7 @@ class SnookerScores:
         self.display_game_state()
 
     def get_input_starting_scores(self, prompt, validation_func, error_message, max_retries=3):
-        """Get input for set_starting_scores."""
+        """Get and validate input for set_starting_scores."""
         retries = 0
         while retries < max_retries:
             try:

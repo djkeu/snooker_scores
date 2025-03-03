@@ -25,9 +25,10 @@ ToDo: Real life tests with videos of snooker games (7 / 100)
 7.  Trump vs O'Connor | 2025 World Open Match 3 | 68 - 22
 
 ### Conclusions Games analysed
-- ToDo: store or show the results in case of early victory
+- FixMe: early victory: when no replay still prompts for a shot
+- Done: ValueErrors in set_starting_scores crash the program. Note: needs to be kept an eye on
 - FixMe: set_starting_scores after red_balls_phase
-- FixMe: ValueErrors in set_starting_scores crash the program
+
 
 ToDo: GUI
 
