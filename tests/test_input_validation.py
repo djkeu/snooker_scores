@@ -177,12 +177,11 @@ def test_set_starting_scores_invalid_score():
 
 def test_set_starting_scores_invalid_red_balls():
     with mock_input(
-        "Enter the number of red balls left: ", "20", "20", "20"
+        "Enter the number of red balls left: ", "20", "-15", "q"
     ):
         game = SnookerScores()
-        with pytest.raises(ValueError, match="Too many invalid inputs for red balls. Exiting."):
-            game.set_starting_scores()
-        assert game.red_balls == 15
+        game.set_starting_scores()
+        assert game.red_balls is 15
 
 def test_set_starting_scores_invalid_total_score():
     with mock_input(
@@ -210,43 +209,21 @@ def test_set_starting_scores_edge_cases():
 
 
 def test_get_input_starting_scores_valid():
-    """Test get_input_starting_scores with valid input."""
     with mock_input("Enter a number: ", "10"):
         game = SnookerScores()
-        result = game.get_input_starting_scores(
-            "Enter a number: ",
-            lambda x: None,  # No validation
-            "Invalid input."
-        )
+        result = game.get_input_starting_scores("Enter a number: ", lambda x: None)
         assert result == 10
 
 def test_get_input_starting_scores_invalid_then_valid():
-    """Test get_input_starting_scores with invalid input followed by valid input."""
     with mock_input("Enter a number: ", "invalid", "20"):
         game = SnookerScores()
-        result = game.get_input_starting_scores(
-            "Enter a number: ",
-            lambda x: None,  # No validation
-            "Invalid input."
-        )
+        result = game.get_input_starting_scores("Enter a number: ", lambda x: None)
         assert result == 20
-
-def test_get_input_starting_scores_exhaust_retries():
-    """Test get_input_starting_scores exhausting retries with invalid input."""
-    with mock_input("Enter a number: ", "invalid", "invalid", "invalid"):
-        game = SnookerScores()
-        with pytest.raises(ValueError, match="Invalid input."):
-            game.get_input_starting_scores(
-                "Enter a number: ",
-                lambda x: None,  # No validation
-                "Invalid input.",
-                max_retries=3
-            )
 
 def test_get_input_starting_scores_edge_cases():
     game = SnookerScores()
     with patch("builtins.input", side_effect=["invalid", "invalid", "5"]):
-        result = game.get_input_starting_scores("Enter a number: ", lambda x: int(x), "Too many invalid inputs", max_retries=3)
+        result = game.get_input_starting_scores("Enter a number: ", lambda x: int(x))
     assert result == 5
 
 
