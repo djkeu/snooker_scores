@@ -144,31 +144,25 @@ class SnookerScores:
 
 
     # Score handling
-    def set_starting_scores(self, max_retries=3):
+    def set_starting_scores(self):
         """Set the starting scores for the game."""
         red_balls = self.get_input_starting_scores(
             "Enter the number of red balls left: ",
-            self.validate_red_balls,
-            "Too many invalid inputs for red balls. Exiting.",
-            max_retries
+            self.validate_red_balls
         )
         if red_balls is None:
             return
 
         score_player_1 = self.get_input_starting_scores(
             "Enter score for Player 1: ",
-            lambda x: self.validate_player_scores(x, 0),
-            "Too many invalid inputs for Player 1 score. Exiting.",
-            max_retries
+            lambda x: self.validate_player_scores(x, 0)
         )
         if score_player_1 is None:
             return
 
         score_player_2 = self.get_input_starting_scores(
             "Enter score for Player 2: ",
-            lambda x: self.validate_player_scores(score_player_1, x),
-            "Too many invalid inputs for Player 2 score. Exiting.",
-            max_retries
+            lambda x: self.validate_player_scores(score_player_1, x)
         )
         if score_player_2 is None:
             return
@@ -185,10 +179,9 @@ class SnookerScores:
 
         self.display_game_state()
 
-    def get_input_starting_scores(self, prompt, validation_func, error_message, max_retries=3):
+    def get_input_starting_scores(self, prompt, validation_func):
         """Get and validate input for set_starting_scores."""
-        retries = 0
-        while retries < max_retries:
+        while True:
             try:
                 value = input(prompt).strip()
                 if value.lower() == "q":
@@ -197,9 +190,6 @@ class SnookerScores:
                 validation_func(value)
                 return value
             except ValueError as e:
-                retries += 1
-                if retries >= max_retries:
-                    raise ValueError(error_message)
                 print(f"Invalid input: {e}. Please try again.")
 
     def validate_red_balls(self, red_balls):
