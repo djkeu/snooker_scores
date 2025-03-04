@@ -180,7 +180,8 @@ def test_set_starting_scores_invalid_red_balls():
         "Enter the number of red balls left: ", "20", "20", "20"
     ):
         game = SnookerScores()
-        game.set_starting_scores()
+        with pytest.raises(ValueError, match="Too many invalid inputs for red balls. Exiting."):
+            game.set_starting_scores()
         assert game.red_balls == 15
 
 def test_set_starting_scores_invalid_total_score():

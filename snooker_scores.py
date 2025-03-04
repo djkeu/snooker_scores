@@ -146,40 +146,35 @@ class SnookerScores:
     # Score handling
     def set_starting_scores(self, max_retries=3):
         """Set the starting scores for the game."""
-        try:
-            red_balls = self.get_input_starting_scores(
-                "Enter the number of red balls left: ",
-                self.validate_red_balls,
-                "Too many invalid inputs for red balls. Exiting.",
-                max_retries
-            )
-            if red_balls is None:
-                return
-
-            score_player_1 = self.get_input_starting_scores(
-                "Enter score for Player 1: ",
-                lambda x: self.validate_player_scores(x, 0),
-                "Too many invalid inputs for Player 1 score. Exiting.",
-                max_retries
-            )
-            if score_player_1 is None:
-                return
-
-            score_player_2 = self.get_input_starting_scores(
-                "Enter score for Player 2: ",
-                lambda x: self.validate_player_scores(score_player_1, x),
-                "Too many invalid inputs for Player 2 score. Exiting.",
-                max_retries
-            )
-            if score_player_2 is None:
-                return
-
-            self.validate_player_scores(score_player_1, score_player_2)
-            self.validate_minimum_score(red_balls, score_player_1, score_player_2)
-
-        except ValueError as e:
-            print(f"Error: {e}")
+        red_balls = self.get_input_starting_scores(
+            "Enter the number of red balls left: ",
+            self.validate_red_balls,
+            "Too many invalid inputs for red balls. Exiting.",
+            max_retries
+        )
+        if red_balls is None:
             return
+
+        score_player_1 = self.get_input_starting_scores(
+            "Enter score for Player 1: ",
+            lambda x: self.validate_player_scores(x, 0),
+            "Too many invalid inputs for Player 1 score. Exiting.",
+            max_retries
+        )
+        if score_player_1 is None:
+            return
+
+        score_player_2 = self.get_input_starting_scores(
+            "Enter score for Player 2: ",
+            lambda x: self.validate_player_scores(score_player_1, x),
+            "Too many invalid inputs for Player 2 score. Exiting.",
+            max_retries
+        )
+        if score_player_2 is None:
+            return
+
+        self.validate_player_scores(score_player_1, score_player_2)
+        self.validate_minimum_score(red_balls, score_player_1, score_player_2)
 
         self.red_balls = red_balls
         self.red_needed_next = True
