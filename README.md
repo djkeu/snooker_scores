@@ -29,6 +29,7 @@ ToDo: Real life tests with videos of snooker games (7 / 100)
 - FixMe: early victory: when no replay still prompts for a shot
 - FixMe: set_starting_scores after red_balls_phase
 - FixMe: when set_starting_scores a second time during colored_balls_phase, yellow is not reset
+- FixMe: set_starting_scores: when entered score > maximum_score, both players should be prompted
 
 
 ToDo: GUI
