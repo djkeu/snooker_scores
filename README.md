@@ -22,6 +22,7 @@ Note: red_balls_phase, handle_last_colored_ball and colored_balls_phase contain 
     - available is not set to 27 (- value of colored balls played)
 - FixMe: set_starting_scores: when entered score > maximum_score, both players should be prompted
 - Done: ValueErrors in set_starting_scores crash the program. Note: needs try..except block
+- ToDo: prompt for players names to print
 
 ToDo: GUI
 
