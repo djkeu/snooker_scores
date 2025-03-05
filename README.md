@@ -30,13 +30,18 @@ ToDo: GUI
 
 ### Games analysed
 ToDo: Real life tests with videos of snooker games (7 / 100)
-1.  Shaun Murphy vs Zhou Jinhao | 2025 World Open | 147 - 0
-2.  Trump vs Long | 2025 World Open Match 1 | 
-3.  Trump vs Long | 2025 World Open Match 2 | 
-4.  Trump vs O'Connor | 2025 World Open Match 1 | 0 - 73
-5.  Trump vs O'Connor | 2025 World Open Match 2 | 0 - 89
-6.  Trump vs O'Connor | 2025 World Open Match 3 | 126 - 4
-7.  Trump vs O'Connor | 2025 World Open Match 3 | 68 - 22
+01. Shaun Murphy vs Zhou Jinhao | 2025 World Open | 147 - 0
+02. Trump vs Long | 2025 World Open Match 1 | 
+03. Trump vs Long | 2025 World Open Match 2 | 
+04. Trump vs O'Connor | 2025 World Open Match 1 | 0 - 73
+05. Trump vs O'Connor | 2025 World Open Match 2 | 0 - 89
+06. Trump vs O'Connor | 2025 World Open Match 3 | 126 - 4
+07. Trump vs O'Connor | 2025 World Open Match 3 | 68 - 22
+08. Ding vs Xu 1
+09. Ding vs Xu 2
+10. Ding vs Xu 3
+
+11. Some other time
 
 ### Conclusions Games analysed
 
