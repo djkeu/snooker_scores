@@ -14,6 +14,17 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 Note: red_balls_phase, handle_last_colored_ball and colored_balls_phase contain some repetitive code
 
+- FixMe: early victory: when no replay still prompts for a shot
+- FixMe: set_starting_scores after red_balls_phase
+- FixMe: when set_starting_scores during colored_balls_phase:
+    - yellow is not reset
+    - last_colored_ball is skipped
+    - available is not set to 27 (- value of colored balls played)
+- FixMe: set_starting_scores: when entered score > maximum_score, both players should be prompted
+- Done: ValueErrors in set_starting_scores crash the program. Note: needs try..except block
+
+ToDo: GUI
+
 ### Games analysed
 ToDo: Real life tests with videos of snooker games (7 / 100)
 1.  Shaun Murphy vs Zhou Jinhao | 2025 World Open | 147 - 0
@@ -25,14 +36,6 @@ ToDo: Real life tests with videos of snooker games (7 / 100)
 7.  Trump vs O'Connor | 2025 World Open Match 3 | 68 - 22
 
 ### Conclusions Games analysed
-- Done: ValueErrors in set_starting_scores crash the program. Note: needs to be kept an eye on
-- FixMe: early victory: when no replay still prompts for a shot
-- FixMe: set_starting_scores after red_balls_phase
-- FixMe: when set_starting_scores a second time during colored_balls_phase, yellow is not reset
-- FixMe: set_starting_scores: when entered score > maximum_score, both players should be prompted
-
-
-ToDo: GUI
 
 
 ## File structure
