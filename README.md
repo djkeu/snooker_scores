@@ -23,6 +23,8 @@ Note: red_balls_phase, handle_last_colored_ball and colored_balls_phase contain 
 - FixMe: set_starting_scores: when entered score > maximum_score, both players should be prompted
 - Done: ValueErrors in set_starting_scores crash the program. Note: needs try..except block
 - ToDo: prompt for players names to print
+- ToDo: set number of games in match, keep match scores
+
 
 ToDo: GUI
 
