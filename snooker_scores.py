@@ -146,43 +146,38 @@ class SnookerScores:
     # Score handling
     def set_starting_scores(self):
         """Set the starting scores for the game."""
-        while True:
-            try:
-                red_balls = self.get_input_starting_scores(
-                    "Enter the number of red balls left: ",
-                    self.validate_red_balls
-                )
-                if red_balls is None:
-                    return
+        red_balls = self.get_input_starting_scores(
+            "Enter the number of red balls left: ",
+            self.validate_red_balls
+        )
+        if red_balls is None:
+            return
 
-                score_player_1 = self.get_input_starting_scores(
-                    "Enter score for Player 1: ",
-                    lambda x: self.validate_player_scores(x, 0)
-                )
-                if score_player_1 is None:
-                    return
+        score_player_1 = self.get_input_starting_scores(
+            "Enter score for Player 1: ",
+            lambda x: self.validate_player_scores(x, 0)
+        )
+        if score_player_1 is None:
+            return
 
-                score_player_2 = self.get_input_starting_scores(
-                    "Enter score for Player 2: ",
-                    lambda x: self.validate_player_scores(score_player_1, x)
-                )
-                if score_player_2 is None:
-                    return
+        score_player_2 = self.get_input_starting_scores(
+            "Enter score for Player 2: ",
+            lambda x: self.validate_player_scores(score_player_1, x)
+        )
+        if score_player_2 is None:
+            return
 
-                self.validate_player_scores(score_player_1, score_player_2)
-                self.validate_minimum_score(red_balls, score_player_1, score_player_2)
+        self.validate_player_scores(score_player_1, score_player_2)
+        self.validate_minimum_score(red_balls, score_player_1, score_player_2)
 
-                self.red_balls = red_balls
-                self.red_needed_next = True
-                self.score_player_1 = score_player_1
-                self.score_player_2 = score_player_2
-                self.available_player_1 = MAXIMUM_BREAK - score_player_1 - score_player_2
-                self.available_player_2 = MAXIMUM_BREAK - score_player_2 - score_player_1
+        self.red_balls = red_balls
+        self.red_needed_next = True
+        self.score_player_1 = score_player_1
+        self.score_player_2 = score_player_2
+        self.available_player_1 = MAXIMUM_BREAK - score_player_1 - score_player_2
+        self.available_player_2 = MAXIMUM_BREAK - score_player_2 - score_player_1
 
-                self.display_game_state()
-                break
-            except ValueError as e:
-                print(f"Error: {e}. Please try again.")
+        self.display_game_state()
 
     def get_input_starting_scores(self, prompt, validation_func):
         """Get and validate input for set_starting_scores."""
