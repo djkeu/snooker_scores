@@ -14,13 +14,30 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 Note: red_balls_phase, handle_last_colored_ball and colored_balls_phase contain some repetitive code
 
-- FixMe: set_starting_scores after red_balls_phase
 - FixMe: when set_starting_scores during colored_balls_phase:
     - yellow is not reset
     - last_colored_ball is skipped
     - available is not set to 27 (- value of colored balls played)
-- FixMe: set_starting_scores: when entered score > maximum_score, both players should be prompted
-- Done: ValueErrors in set_starting_scores crash the program. Note: needs try..except block
+- FixMe: set_starting_scores: when entered score > maximum_score
+    - both players should be prompted
+    - or set_starting_scores should be restarted (easier fix)
+- FixMe: set_starting_scores:
+    - red_balls == 15, scores == 0
+    - red_balls == 14: scores <= 8
+    - red_balls == 13: scores <= 16
+    - red_balls == 12: scores <= 24
+    - red_balls == 11: scores <= 32
+    - red_balls == 10: scores <= 40
+    - red_balls == 9: scores <= 48
+    - red_balls == 8: scores <= 56
+    - red_balls == 7: scores <= 64
+    - red_balls == 6: scores <= 72
+    - red_balls == 5: scores <= 80
+    - red_balls == 4: scores <= 88
+    - red_balls == 3: scores <= 96
+    - red_balls == 2: scores <= 104
+    - red_balls == 1: scores <= 112
+    - red_balls == 0: scores <= 120
 - ToDo: prompt for players names to print
 - ToDo: set number of games in match, keep match scores
 
