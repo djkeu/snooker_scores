@@ -12,7 +12,7 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-Note: red_balls_phase, handle_last_colored_ball and colored_balls_phase contain some repetitive code
+- Note: red_balls_phase, handle_last_colored_ball and colored_balls_phase contain some repetitive code
 
 - FixMe: when set_starting_scores during colored_balls_phase:
     - yellow is not reset
