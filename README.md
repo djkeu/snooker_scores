@@ -12,9 +12,8 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- Note: red_balls_phase, handle_last_colored_ball and colored_balls_phase contain some repetitive code
-
 - FixMe: when set_starting_scores during colored_balls_phase:
+    - Note: is it really worth the trouble?
     - yellow is not reset
     - last_colored_ball is skipped
     - available is not set to 27 (- value of colored balls played)
@@ -22,6 +21,7 @@ This program is to display how many points are still available for each player t
     - both players should be prompted
     - or set_starting_scores should be restarted (easier fix)
 - FixMe: set_starting_scores:
+    - with x balls left, scores cannot exceed y
     - red_balls == 15, scores == 0
     - red_balls == 14: scores <= 8
     - red_balls == 13: scores <= 16
@@ -42,6 +42,7 @@ This program is to display how many points are still available for each player t
 - ToDo: if score_player_x >= potential_score_player_y:
      - display: player_y needs snookers
      - display only once
+- ToDo: repetitive code in red_balls_phase, handle_last_colored_ball, colored_balls_phase
 - ToDo: set number of games in match, keep match scores
 
 
