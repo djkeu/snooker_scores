@@ -39,6 +39,9 @@ Note: red_balls_phase, handle_last_colored_ball and colored_balls_phase contain 
     - red_balls == 1: scores <= 112
     - red_balls == 0: scores <= 120
 - ToDo: prompt for players names to print
+- ToDo: if score_player_x >= potential_score_player_y:
+     - display: player_y needs snookers
+     - display only once
 - ToDo: set number of games in match, keep match scores
 
 
