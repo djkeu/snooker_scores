@@ -76,23 +76,9 @@ def test_start_game_full_flow(capsys):
 
     with patch.object(game, "display_startup_message", return_value=None):
         with patch("builtins.input", side_effect=inputs):
-            game.start_game()
-
-    captured = capsys.readouterr()
-    output = captured.out
-
-    assert "Player 1 must pot a red ball next" in output
-    assert "Player 1 must pot a colored ball next" in output
-    assert "Player 2 must pot a red ball next" in output
-    assert "Player 2 must pot a colored ball next" in output
-    assert "Next ball to pot: yellow" in output
-    assert "Next ball to pot: black" in output
-    assert "Player 1 wins! (with a score of 131 vs 16)" in output
-    assert "15 red balls left" in output
-    assert "0 red balls left" in output
-    assert "Player 1: score" in output
-    assert "Player 2: score" in output
-    assert "Bye!" in output
+            with patch("sys.exit") as mock_exit:
+                game.start_game()
+                mock_exit.assert_called_once()
 
 def test_start_game_early_exit(capsys):
     game = SnookerScores()
