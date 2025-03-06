@@ -61,7 +61,7 @@ ToDo: Real life tests with videos of snooker games (11 / 100)
 09. Ding vs Xu 2
 10. Ding vs Xu 3
 
-11. Higgins vs Wilson
+11. Higgins vs Wilson | 0 - 131
 12. Next
 
 ### Conclusions Games analysed
