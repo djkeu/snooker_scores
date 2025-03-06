@@ -430,7 +430,7 @@ class SnookerScores:
             self.start_game()
         else:
             print("Bye!")
-            return False
+            sys.exit()
     
 def main():
     scores = SnookerScores()
