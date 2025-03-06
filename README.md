@@ -14,7 +14,6 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 Note: red_balls_phase, handle_last_colored_ball and colored_balls_phase contain some repetitive code
 
-- FixMe: early victory: when no replay still prompts for a shot
 - FixMe: set_starting_scores after red_balls_phase
 - FixMe: when set_starting_scores during colored_balls_phase:
     - yellow is not reset
