@@ -364,7 +364,7 @@ Nadat er een fout werd gemaakt mag de tegenspeler:
 - from random import randint
 
 ### Imports test files
-- import sys
+- sys
 - pytest
 - import itertools
 - from io import StringIO
