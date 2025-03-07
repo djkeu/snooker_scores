@@ -12,12 +12,14 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: prompt for players names to print
 - ToDo: if score_player_x >= potential_score_player_y:
-     - display: player_y needs snookers
-     - display only once
+     - display once: player_y needs snookers
+- ToDo: prompt for players names to print
 - ToDo: repetitive code in red_balls_phase, handle_last_colored_ball, colored_balls_phase
-- ToDo: set number of games in match, keep match scores
+
+- ToDo: GUI
+
+- Abandoned: set number of games in match, keep match scores
 - Abandoned: when set_starting_scores during colored_balls_phase:
     - yellow is not reset
     - last_colored_ball is skipped
@@ -26,7 +28,6 @@ This program is to display how many points are still available for each player t
     - Done: when entered score > maximum_score - (27 + red_balls * 8)
     - Abandoned: both players should be prompted
     - Abandoned: or set_starting_scores should be restarted (easier fix)
-- ToDo: GUI
 
 ### Games analysed
 ToDo: Real life tests with videos of snooker games (11 / 100)
