@@ -12,11 +12,11 @@ class SnookerScores:
         self.red_balls = 15
         self.score_player_1 = 0
         self.score_player_2 = 0
-        self.maximum_score = MAXIMUM_BREAK
-        self.available_player_1 = self.maximum_score
-        self.available_player_2 = self.maximum_score
-        self.potential_score_player_1 = self.maximum_score
-        self.potential_score_player_2 = self.maximum_score
+        self.max_score = MAXIMUM_BREAK
+        self.available_player_1 = self.max_score
+        self.available_player_2 = self.max_score
+        self.potential_score_player_1 = self.max_score
+        self.potential_score_player_2 = self.max_score
         self.end_break = END_BREAK
         self.red_needed_next = True
         self.player_1_turn = True
@@ -206,7 +206,8 @@ class SnookerScores:
         """Validate that the scores are within the allowed range."""
         if score_player_1 < 0 or score_player_2 < 0:
             raise ValueError("Scores must be positive values.")
-        possible_score = self.maximum_score - self.end_break - self.red_balls * 8
+    
+        possible_score = self.max_score - self.end_break - self.red_balls * 8
         if score_player_1 + score_player_2 > possible_score:
             raise ValueError(f"Total score cannot exceed {possible_score}.")
 
