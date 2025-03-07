@@ -33,6 +33,7 @@ This program is to display how many points are still available for each player t
     - red_balls == 2: scores <= 104
     - red_balls == 1: scores <= 112
     - red_balls == 0: scores <= 120
+- FixMe: test set_starting_scores passed with wrong calculation
 - ToDo: prompt for players names to print
 - ToDo: if score_player_x >= potential_score_player_y:
      - display: player_y needs snookers
