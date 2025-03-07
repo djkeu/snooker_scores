@@ -4,6 +4,7 @@ from snooker_scores import SnookerScores
 import itertools
 
 def mock_input(prompt, *values):
+    """Helper function to mock the input function."""
     if len(values) == 1:
         return patch('builtins.input', return_value=values[0])
     else:
@@ -28,7 +29,7 @@ def test_validate_shot_invalid():
 def test_validate_shot_quit():
     snooker_game = SnookerScores()
     with patch("sys.exit", side_effect=SystemExit) as mock_exit:
-        with mock_input("Enter shot value: ", "q"):
+        with mock_input(snooker_game.shot_prompt, "q"):
             with pytest.raises(SystemExit):
                 snooker_game.get_shot_value()
         mock_exit.assert_called_once()
@@ -36,7 +37,7 @@ def test_validate_shot_quit():
 def test_validate_shot_p():
     snooker_game = SnookerScores()
     with patch.object(snooker_game, "add_penalty") as mock_penalty:
-        with mock_input("Enter shot value: ", "p", "1"):
+        with mock_input(snooker_game.shot_prompt, "p", "1"):
             assert snooker_game.get_shot_value() == 1
         mock_penalty.assert_called_once()
 
@@ -44,7 +45,7 @@ def test_validate_shot_x():
     snooker_game = SnookerScores()
     initial_turn = snooker_game.player_1_turn
     with patch.object(snooker_game, "switch_players", side_effect=snooker_game.switch_players) as mock_switch:
-        with mock_input("Enter shot value: ", "x", "1"):
+        with mock_input(snooker_game.shot_prompt, "x", "1"):
             assert snooker_game.get_shot_value() == 1
         mock_switch.assert_called_once()
     assert snooker_game.player_1_turn != initial_turn
@@ -52,12 +53,12 @@ def test_validate_shot_x():
 def test_validate_shot_s():
     snooker_game = SnookerScores()
     snooker_game.first_input = True
-    with mock_input("Enter shot value: ", "s"):
-        with mock_input("Enter red balls: ", "5"):
-            with mock_input("Enter player 1 score: ", "40"):
-                with mock_input("Enter player 2 score: ", "40"):
-                    with mock_input("Enter shot value: ", "1"):
-                        snooker_game.get_shot_value()
+    
+    # Mock all inputs in sequence
+    inputs = ["s", "5", "40", "40", "1"]
+    with patch("builtins.input", side_effect=inputs):
+        result = snooker_game.get_shot_value()
+        assert result == 1
 
 
 def test_validate_and_return_shot_valid():
@@ -121,12 +122,12 @@ def test_handle_invalid_input(capfd):
 
 # Re-spot input validation
 def test_get_respot_input_valid():
-    with mock_input("Re-spot black? (y/n): ", "y"):
+    with mock_input("Do you want a respot? (y/n) ", "y"):
         game = SnookerScores()
         result = game.get_respot_input()
         assert result == 'y', f"Expected 'y', but got {result}"
 
-    with mock_input("Re-spot black? (y/n): ", "n"):
+    with mock_input("Do you want a respot? (y/n) ", "n"):
         game = SnookerScores()
         result = game.get_respot_input()
         assert result == 'n', f"Expected 'n', but got {result}"
@@ -157,11 +158,13 @@ def test_respot_balls_edge_cases():
 
 # Starting scores validation
 def test_set_starting_scores_valid_input():
-    with mock_input("Enter red balls: ", "5"):
-        with mock_input("Enter player 1 score: ", "15"):
-            with mock_input("Enter player 2 score: ", "15"):
-                game = SnookerScores()
-                game.set_starting_scores()
+    inputs = ["5", "15", "15"]
+    with patch("builtins.input", side_effect=inputs):
+        game = SnookerScores()
+        game.set_starting_scores()
+        assert game.red_balls == 5
+        assert game.score_player_1 == 15
+        assert game.score_player_2 == 15
 
 def test_set_starting_scores_invalid_score():
     with mock_input(
@@ -175,13 +178,17 @@ def test_set_starting_scores_invalid_score():
         assert game.score_player_1 == 30
         assert game.score_player_2 == 20
 
+
 def test_set_starting_scores_invalid_red_balls():
+    """Test set_starting_scores with invalid red ball inputs."""
     with mock_input(
-        "Enter the number of red balls left: ", "20", "-15", "q"
+        "Enter the number of red balls left: ", "20", "-15", "15",
+        "Enter score for Player 1: ", "0",
+        "Enter score for Player 2: ", "0"
     ):
         game = SnookerScores()
         game.set_starting_scores()
-        assert game.red_balls is 15
+        assert game.red_balls == 15
 
 def test_set_starting_scores_invalid_total_score():
     with mock_input(
@@ -262,7 +269,8 @@ def test_validate_red_balls_edge_cases():
 def test_validate_player_scores_valid():
     """Test validate_player_scores with valid input."""
     game = SnookerScores()
-
+    game.red_balls = 0
+    game.end_break = 0
     game.validate_player_scores(50, 60)
     game.validate_player_scores(0, 0)
     game.validate_player_scores(147, 0)
@@ -281,6 +289,8 @@ def test_validate_player_scores_negative():
 def test_validate_player_scores_exceed_maximum_break():
     """Test validate_player_scores with scores exceeding the maximum break."""
     game = SnookerScores()
+    game.red_balls = 0
+    game.end_break = 0
     
     with pytest.raises(ValueError, match="Total score cannot exceed 147."):
         game.validate_player_scores(100, 50)
@@ -291,6 +301,9 @@ def test_validate_player_scores_exceed_maximum_break():
 
 def test_validate_player_scores_edge_cases():
     game = SnookerScores()
+    game.red_balls = 0
+    game.end_break = 0
+    
     with pytest.raises(ValueError):
         game.validate_player_scores(-1, 0)
     with pytest.raises(ValueError):
@@ -333,7 +346,7 @@ def test_validate_minimum_score_edge_cases():
 
 # Penalty input validation
 def test_get_penalty_input_valid():
-    with mock_input("Enter penalty value: ", "5"):
+    with mock_input("Enter the penalty value: ", "5"):
         game = SnookerScores()
         penalty = game.get_penalty_input()
         assert penalty == 5
