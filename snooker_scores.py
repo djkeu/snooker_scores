@@ -176,8 +176,8 @@ class SnookerScores:
                 self.red_needed_next = True
                 self.score_player_1 = score_player_1
                 self.score_player_2 = score_player_2
-                self.available_player_1 = MAXIMUM_BREAK - score_player_1 - score_player_2
-                self.available_player_2 = MAXIMUM_BREAK - score_player_2 - score_player_1
+                self.available_player_1 = self.maximum_score - score_player_1 - score_player_2
+                self.available_player_2 = self.maximum_score - score_player_2 - score_player_1
 
                 self.display_game_state()
                 break
@@ -207,7 +207,7 @@ class SnookerScores:
         """Validate that the scores are within the allowed range."""
         if score_player_1 < 0 or score_player_2 < 0:
             raise ValueError("Scores must be positive values.")
-        if score_player_1 + score_player_2 > MAXIMUM_BREAK:
+        if score_player_1 + score_player_2 > self.maximum_score:
             raise ValueError("Total score cannot exceed 147.")
 
     def validate_minimum_score(self, red_balls, score_player_1, score_player_2):
