@@ -12,11 +12,6 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- FixMe: when set_starting_scores during colored_balls_phase:
-    - Note: is it really worth the trouble?
-    - yellow is not reset
-    - last_colored_ball is skipped
-    - available is not set to 27 (- value of colored balls played)
 - FixMe: set_starting_scores: when entered score > maximum_score
     - both players should be prompted
     - or set_starting_scores should be restarted (easier fix)
@@ -44,9 +39,11 @@ This program is to display how many points are still available for each player t
      - display only once
 - ToDo: repetitive code in red_balls_phase, handle_last_colored_ball, colored_balls_phase
 - ToDo: set number of games in match, keep match scores
-
-
-ToDo: GUI
+- Abandoned: when set_starting_scores during colored_balls_phase:
+    - yellow is not reset
+    - last_colored_ball is skipped
+    - available is not set to 27 (- value of colored balls played)
+- ToDo: GUI
 
 ### Games analysed
 ToDo: Real life tests with videos of snooker games (11 / 100)
