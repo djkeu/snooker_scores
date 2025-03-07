@@ -148,11 +148,11 @@ class SnookerScores:
         """Set the starting scores for the game."""
         while True:
             try:
-                red_balls = self.get_input_starting_scores(
+                self.red_balls = self.get_input_starting_scores(
                     "Enter the number of red balls left: ",
                     self.validate_red_balls
                 )
-                if red_balls is None:
+                if self.red_balls is None:
                     return
 
                 score_player_1 = self.get_input_starting_scores(
@@ -170,9 +170,8 @@ class SnookerScores:
                     return
 
                 self.validate_player_scores(score_player_1, score_player_2)
-                self.validate_minimum_score(red_balls, score_player_1, score_player_2)
+                self.validate_minimum_score(self.red_balls, score_player_1, score_player_2)
 
-                self.red_balls = red_balls
                 self.red_needed_next = True
                 self.score_player_1 = score_player_1
                 self.score_player_2 = score_player_2
@@ -207,8 +206,9 @@ class SnookerScores:
         """Validate that the scores are within the allowed range."""
         if score_player_1 < 0 or score_player_2 < 0:
             raise ValueError("Scores must be positive values.")
-        if score_player_1 + score_player_2 > self.maximum_score:
-            raise ValueError("Total score cannot exceed 147.")
+        possible_score = self.maximum_score - self.end_break - self.red_balls * 8
+        if score_player_1 + score_player_2 > possible_score:
+            raise ValueError(f"Total score cannot exceed {possible_score}.")
 
     def validate_minimum_score(self, red_balls, score_player_1, score_player_2):
         """Validate that the total score is not too low. """
