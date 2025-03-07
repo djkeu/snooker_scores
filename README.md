@@ -14,6 +14,7 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: if score_player_x >= potential_score_player_y:
      - display once: player_y needs snookers
+- ToDo: get rid of validate_min_scores: useless
 - ToDo: prompt for players names to print
 - ToDo: repetitive code in red_balls_phase, handle_last_colored_ball, colored_balls_phase
 
