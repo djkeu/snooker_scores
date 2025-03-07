@@ -14,7 +14,7 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: if score_player_x >= potential_score_player_y:
      - display once: player_y needs snookers
-- ToDo: get rid of validate_min_scores: useless
+- FixMe: get rid of validate_min_scores: useless
 - ToDo: prompt for players names to print
 - ToDo: repetitive code in red_balls_phase, handle_last_colored_ball, colored_balls_phase
 
@@ -32,19 +32,20 @@ This program is to display how many points are still available for each player t
 
 ### Games analysed
 ToDo: Real life tests with videos of snooker games (11 / 100)
-01. Shaun Murphy vs Zhou Jinhao | 2025 World Open | 147 - 0
-02. Trump vs Long | 2025 World Open Match 1 | 
-03. Trump vs Long | 2025 World Open Match 2 | 
-04. Trump vs O'Connor | 2025 World Open Match 1 | 0 - 73
-05. Trump vs O'Connor | 2025 World Open Match 2 | 0 - 89
-06. Trump vs O'Connor | 2025 World Open Match 3 | 126 - 4
-07. Trump vs O'Connor | 2025 World Open Match 3 | 68 - 22
-08. Ding vs Xu 1
-09. Ding vs Xu 2
-10. Ding vs Xu 3
 
-11. Higgins vs Wilson | 0 - 131
-12. Next
+        01. Shaun Murphy vs Zhou Jinhao | 2025 World Open | 147 - 0
+        02. Trump vs Long | 2025 World Open Match 1 | 
+        03. Trump vs Long | 2025 World Open Match 2 | 
+        04. Trump vs O'Connor | 2025 World Open Match 1 | 0 - 73
+        05. Trump vs O'Connor | 2025 World Open Match 2 | 0 - 89
+        06. Trump vs O'Connor | 2025 World Open Match 3 | 126 - 4
+        07. Trump vs O'Connor | 2025 World Open Match 3 | 68 - 22
+        08. Ding vs Xu 1
+        09. Ding vs Xu 2
+        10. Ding vs Xu 3
+
+        11. Higgins vs Wilson | 0 - 131
+        12. Next
 
 ### Conclusions Games analysed
 
