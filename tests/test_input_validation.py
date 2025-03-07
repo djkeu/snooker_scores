@@ -317,31 +317,31 @@ def test_validate_player_scores_edge_cases():
     game.validate_player_scores(0, 147)
 
 
-def test_validate_minimum_score_valid():
-    """Test validate_minimum_score with valid input."""
+def test_validate_min_score_valid():
+    """Test validate_min_score with valid input."""
     game = SnookerScores()
     
-    game.validate_minimum_score(5, 50, 60)
-    game.validate_minimum_score(0, 147, 0)
-    game.validate_minimum_score(15, 0, 0)
+    game.validate_min_score(5, 50, 60)
+    game.validate_min_score(0, 147, 0)
+    game.validate_min_score(15, 0, 0)
 
-def test_validate_minimum_score_invalid():
-    """Test validate_minimum_score with invalid input (total score too low)."""
+def test_validate_min_score_invalid():
+    """Test validate_min_score with invalid input (total score too low)."""
     game = SnookerScores()
     
     with pytest.raises(ValueError, match="Total score is too low."):
-        game.validate_minimum_score(5, 10, 15)
+        game.validate_min_score(5, 10, 15)
     with pytest.raises(ValueError, match="Total score is too low."):
-        game.validate_minimum_score(10, 5, 7)
+        game.validate_min_score(10, 5, 7)
     with pytest.raises(ValueError, match="Total score is too low."):
-        game.validate_minimum_score(14, 0, 0)
+        game.validate_min_score(14, 0, 0)
 
-def test_validate_minimum_score_edge_cases():
+def test_validate_min_score_edge_cases():
     game = SnookerScores()
-    game.validate_minimum_score(15, 0, 0)
-    game.validate_minimum_score(14, 1, 0)
-    game.validate_minimum_score(14, 1, 1)
-    game.validate_minimum_score(14, 3, 0)
+    game.validate_min_score(15, 0, 0)
+    game.validate_min_score(14, 1, 0)
+    game.validate_min_score(14, 1, 1)
+    game.validate_min_score(14, 3, 0)
 
 
 # Penalty input validation

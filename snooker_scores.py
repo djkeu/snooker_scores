@@ -170,7 +170,7 @@ class SnookerScores:
                     return
 
                 self.validate_player_scores(score_player_1, score_player_2)
-                self.validate_minimum_score(self.red_balls, score_player_1, score_player_2)
+                self.validate_min_score(self.red_balls, score_player_1, score_player_2)
 
                 self.red_needed_next = True
                 self.score_player_1 = score_player_1
@@ -211,15 +211,15 @@ class SnookerScores:
         if score_player_1 + score_player_2 > possible_score:
             raise ValueError(f"Total score cannot exceed {possible_score}.")
 
-    def validate_minimum_score(self, red_balls, score_player_1, score_player_2):
+    def validate_min_score(self, red_balls, score_player_1, score_player_2):
         """Validate that the total score is not too low. """
         if red_balls == 15 and score_player_1 == 0 and score_player_2 == 0:
             return
         
         red_balls_played = 15 - red_balls
-        minimum_score = max(0, red_balls_played + (red_balls_played - 1) * 2)
+        min_score = max(0, red_balls_played + (red_balls_played - 1) * 2)
     
-        if score_player_1 + score_player_2 < minimum_score:
+        if score_player_1 + score_player_2 < min_score:
             raise ValueError("Total score is too low.")
 
     def update_score(self, shot):
