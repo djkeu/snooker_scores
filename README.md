@@ -12,9 +12,10 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- FixMe: set_starting_scores: when entered score > maximum_score - (27 + red_balls * 8)
-    - both players should be prompted
-    - or set_starting_scores should be restarted (easier fix)
+- FixMe: set_starting_scores:
+    - Done: when entered score > maximum_score - (27 + red_balls * 8)
+    - FixMe: both players should be prompted
+    - FixMe: or set_starting_scores should be restarted (easier fix)
 - FixMe: set_starting_scores:
     - with x balls left, scores cannot exceed y
     - red_balls == 15, scores == 0
