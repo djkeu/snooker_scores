@@ -12,10 +12,6 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- FixMe: set_starting_scores:
-    - Done: when entered score > maximum_score - (27 + red_balls * 8)
-    - FixMe: both players should be prompted
-    - FixMe: or set_starting_scores should be restarted (easier fix)
 - ToDo: prompt for players names to print
 - ToDo: if score_player_x >= potential_score_player_y:
      - display: player_y needs snookers
@@ -26,6 +22,10 @@ This program is to display how many points are still available for each player t
     - yellow is not reset
     - last_colored_ball is skipped
     - available is not set to 27 (- value of colored balls played)
+- Abandoned: set_starting_scores:
+    - Done: when entered score > maximum_score - (27 + red_balls * 8)
+    - Abandoned: both players should be prompted
+    - Abandoned: or set_starting_scores should be restarted (easier fix)
 - ToDo: GUI
 
 ### Games analysed
