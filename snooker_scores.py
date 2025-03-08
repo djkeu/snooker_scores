@@ -418,6 +418,7 @@ class SnookerScores:
     def start_game(self):
         """Start the game."""
         self.display_startup_message()
+        self.store_players_names()
         self.red_balls_phase()
         self.colored_balls_phase()
         self.display_winner()
