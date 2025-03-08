@@ -22,6 +22,7 @@ class SnookerScores:
         self.end_break = END_BREAK
         self.red_needed_next = True
         self.player_1_turn = True
+        self.snookers_needed = False
         self.yellow_ball = 2
         self.colored_balls = {
             2: "yellow",
@@ -251,6 +252,7 @@ class SnookerScores:
             print(f"{self.red_balls} red balls left")
             self.display_next_ball()
 
+
     def display_next_ball(self):
         """Display the next ball to pot."""
         if self.player_1_turn:
@@ -416,6 +418,7 @@ class SnookerScores:
                 self.yellow_ball += 1
 
             self.display_game_state()
+
 
     def start_game(self):
         """Start the game."""
