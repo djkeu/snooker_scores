@@ -242,9 +242,9 @@ class SnookerScores:
         """Display the current game state."""
         self.calculate_potential_scores()
 
-        print(f"\nPlayer 1: score {self.score_player_1}, "
+        print(f"\n{self.player_1}: score {self.score_player_1}, "
               f"potential score {self.potential_score_player_1}")
-        print(f"Player 2: score {self.score_player_2}, "
+        print(f"{self.player_2}: score {self.score_player_2}, "
               f"potential score {self.potential_score_player_2}")
 
         if self.available_player_1 > self.end_break:
@@ -330,16 +330,18 @@ class SnookerScores:
 
     def store_players_names(self):
         """Store players names in vars."""
-        self.player_1 = self.get_player_name()
-        self.player_2 = self.get_player_name()
-
+        prompt = input("Do you want to enter player names? (y/n) ").strip().lower()
+    
+        if prompt == 'y':
+            self.player_1 = self.get_player_name()
+            self.player_2 = self.get_player_name()
+        return
 
     def get_player_name(self):
         """Get the name of the player."""
-        player_name = input("Enter your name: ").strip()
+        player_name = input("Enter your name: ").strip().capitalize()
         if player_name:
             return player_name
-        return
 
 
     def red_balls_phase(self):
