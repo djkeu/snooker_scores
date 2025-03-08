@@ -14,7 +14,6 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: if score_player_x >= potential_score_player_y:
      - display once: player_y needs snookers
-- FixMe: get rid of validate_min_scores: useless
 - ToDo: prompt for players names to print
 - ToDo: repetitive code in red_balls_phase, handle_last_colored_ball, colored_balls_phase
 
@@ -29,7 +28,9 @@ This program is to display how many points are still available for each player t
     - Done: when entered score > maximum_score - (27 + red_balls * 8)
     - Abandoned: both players should be prompted
     - Abandoned: or set_starting_scores should be restarted (easier fix)
-
+- Abandoned: get rid of validate_min_scores:
+    - although not very accurate because it builds on the unlikely scenario that only yellow (and red) balls are potted, it does prevent mistakingly entering too low input
+    
 ### Games analysed
 ToDo: Real life tests with videos of snooker games (11 / 100)
 
