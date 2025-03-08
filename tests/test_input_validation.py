@@ -383,14 +383,6 @@ def test_get_penalty_input_negative_then_early_exit():
 
 
 # Players names input validation
-def test_store_players_names_yes():
-    game = SnookerScores()
-    inputs = ["y", "Alice", "Bob"]
-    with mock_input("Do you want to enter player names? (y/n) ", *inputs):
-        game.store_players_names()
-    assert game.player_1 == "Alice"
-    assert game.player_2 == "Bob"
-
 def test_store_players_names_no():
     game = SnookerScores()
     inputs = ["n"]
@@ -399,17 +391,25 @@ def test_store_players_names_no():
     assert game.player_1 == "Player 1"
     assert game.player_2 == "Player 2"
 
-def test_get_player_name_valid():
+def test_store_players_names_yes():
     game = SnookerScores()
-    with mock_input("Enter your name: ", "Alice"):
-        name = game.get_player_name()
-    assert name == "Alice"
+    inputs = ["y", "Alice", "Bob"]
+    with mock_input("Do you want to enter player names? (y/n) ", *inputs):
+        game.store_players_names()
+    assert game.player_1 == "Alice"
+    assert game.player_2 == "Bob"
 
 def test_get_player_name_empty():
     game = SnookerScores()
     with mock_input("Enter your name: ", ""):
         name = game.get_player_name()
     assert name is None
+
+def test_get_player_name_valid():
+    game = SnookerScores()
+    with mock_input("Enter your name: ", "Alice"):
+        name = game.get_player_name()
+    assert name == "Alice"
 
 def test_get_player_name_capitalized():
     game = SnookerScores()
@@ -432,5 +432,23 @@ def test_get_player_name_special_characters():
 def test_get_player_name_multiple_words():
     game = SnookerScores()
     with mock_input("Enter your name: ", "Alice Smith"):
+        name = game.get_player_name()
+    assert name == "Alice Smith"
+
+def test_get_player_name_all_lowercase():
+    game = SnookerScores()
+    with mock_input("Enter your name: ", "alice smith"):
+        name = game.get_player_name()
+    assert name == "Alice Smith"
+
+def test_get_player_name_all_uppercase():
+    game = SnookerScores()
+    with mock_input("Enter your name: ", "ALICE SMITH"):
+        name = game.get_player_name()
+    assert name == "Alice Smith"
+
+def test_get_player_name_mixed_case():
+    game = SnookerScores()
+    with mock_input("Enter your name: ", "aLiCe sMiTh"):
         name = game.get_player_name()
     assert name == "Alice Smith"
