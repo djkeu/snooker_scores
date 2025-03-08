@@ -355,7 +355,7 @@ class SnookerScores:
 
     def get_player_name(self):
         """Get the name of the player."""
-        player_name = input("Enter your name: ").strip().capitalize()
+        player_name = input("Enter your name: ").strip().title()
         if player_name:
             return player_name
 
