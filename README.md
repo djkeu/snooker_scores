@@ -47,7 +47,7 @@ ToDo: Real life tests with videos of snooker games (11 / 100)
         10. Ding vs Xu 3
 
         11. Higgins vs Wilson | 0 - 131
-        12. Next
+        12. Trump vs Bingham | 58 - 72
 
 ### Conclusions Games analysed
 
