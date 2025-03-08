@@ -20,17 +20,18 @@ This program is to display how many points are still available for each player t
 - ToDo: GUI
 
 - Abandoned: set number of games in match, keep match scores
-- Abandoned: when set_starting_scores during colored_balls_phase:
-    - yellow is not reset
-    - last_colored_ball is skipped
-    - available is not set to 27 (- value of colored balls played)
+- FixMe: when set_starting_scores during colored_balls_phase:
+    - ToDo: warning when trying to set starting scores during colored balls phase
+    - Abandoned: yellow is not reset
+    - Abandoned: last_colored_ball is skipped
+    - Abandoned: available is not set to 27 (- value of colored balls played)
 - Abandoned: set_starting_scores:
     - Done: when entered score > maximum_score - (27 + red_balls * 8)
     - Abandoned: both players should be prompted
     - Abandoned: or set_starting_scores should be restarted (easier fix)
 - Abandoned: get rid of validate_min_scores:
     - although not very accurate because it builds on the unlikely scenario that only yellow (and red) balls are potted, it does prevent mistakingly entering too low input
-    
+
 ### Games analysed
 ToDo: Real life tests with videos of snooker games (11 / 100)
 
