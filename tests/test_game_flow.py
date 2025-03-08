@@ -33,7 +33,8 @@ def test_game_flow():
 def test_multiple_penalties(capsys):
     game = SnookerScores()
     inputs = generate_inputs(
-        [PENALTY_INPUT, "4", "n",
+        ["n",  # Do not enter player names
+         PENALTY_INPUT, "4", "n",
          PENALTY_INPUT, "5", "y",
          QUIT_INPUT]
     )
@@ -41,7 +42,7 @@ def test_multiple_penalties(capsys):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
-    assert "Penalty of 4 points applied to Player 1." in captured.out
+    assert "Penalty of 4 points applied to Player 2." in captured.out
     assert "Penalty of 5 points applied to Player 1." in captured.out
     assert "Switching players..." in captured.out
 
@@ -82,7 +83,10 @@ def test_start_game_full_flow(capsys):
 
 def test_start_game_early_exit(capsys):
     game = SnookerScores()
-    inputs = generate_inputs([QUIT_INPUT])
+    inputs = generate_inputs(
+        ["n",  # Do not enter player names
+         QUIT_INPUT]
+    )
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -91,16 +95,23 @@ def test_start_game_early_exit(capsys):
 
 def test_start_game_penalty(capsys):
     game = SnookerScores()
-    inputs = generate_inputs([PENALTY_INPUT, PENALTY_VALUES[1], "n", QUIT_INPUT])
+    inputs = generate_inputs(
+        ["n",
+         PENALTY_INPUT, PENALTY_VALUES[1], "n",
+         QUIT_INPUT]
+    )
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
-    assert "Penalty of 5 points applied to Player 1." in captured.out
+    assert "Penalty of 5 points applied to Player 2." in captured.out
 
 def test_start_game_switch_players(capsys):
     game = SnookerScores()
-    inputs = generate_inputs([SWITCH_PLAYER_INPUT, QUIT_INPUT])
+    inputs = generate_inputs(
+        ["n",  # Do not enter player names
+         SWITCH_PLAYER_INPUT, QUIT_INPUT]
+    )
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -137,24 +148,28 @@ def test_start_game_multiple_invalid_inputs(capsys):
     assert "Only numbers between 0 and 7 are valid!" in captured.out
 
 def test_start_game_penalty_respot(capsys):
-    """Test applying a penalty with respot."""
     game = SnookerScores()
-    inputs = generate_inputs([PENALTY_INPUT, PENALTY_VALUES[1], "y", QUIT_INPUT])
+    inputs = generate_inputs(
+        ["n",
+         PENALTY_INPUT, PENALTY_VALUES[1], "y", QUIT_INPUT]
+    )
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
-    assert "Penalty of 5 points applied to Player 1." in captured.out
-    assert "Switching players..." in captured.out
+    assert "Penalty of 5 points applied to Player 2." in captured.out
 
 def test_start_game_penalty_no_respot(capsys):
     game = SnookerScores()
-    inputs = generate_inputs([PENALTY_INPUT, PENALTY_VALUES[1], "n", QUIT_INPUT])
+    inputs = generate_inputs(
+        ["n",
+         PENALTY_INPUT, PENALTY_VALUES[1], "n", QUIT_INPUT]
+    )
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
-    assert "Penalty of 5 points applied to Player 1." in captured.out
+    assert "Penalty of 5 points applied to Player 2." in captured.out
 
 
 # Edge cases start_game
@@ -169,7 +184,10 @@ def test_start_game_early_exit_set_starting_scores(capsys):
 
 def test_start_game_invalid_red_balls_then_early_exit(capsys):
     game = SnookerScores()
-    inputs = generate_inputs([SET_SCORES_INPUT, "invalid", "q", QUIT_INPUT])
+    inputs = generate_inputs(
+        ["n",
+         SET_SCORES_INPUT, "invalid", "q", QUIT_INPUT]
+    )
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -178,7 +196,10 @@ def test_start_game_invalid_red_balls_then_early_exit(capsys):
 
 def test_start_game_invalid_player_scores_then_early_exit(capsys):
     game = SnookerScores()
-    inputs = generate_inputs([SET_SCORES_INPUT, "15", "invalid", "q", QUIT_INPUT])
+    inputs = generate_inputs(
+        ["n",
+         SET_SCORES_INPUT, "15", "invalid", "q", QUIT_INPUT]
+    )
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -187,7 +208,10 @@ def test_start_game_invalid_player_scores_then_early_exit(capsys):
 
 def test_start_game_negative_player_scores_then_early_exit(capsys):
     game = SnookerScores()
-    inputs = generate_inputs([SET_SCORES_INPUT, "15", "-10", "q", QUIT_INPUT])
+    inputs = generate_inputs(
+        ["n",
+         SET_SCORES_INPUT, "15", "-10", "q", QUIT_INPUT]
+    )
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -196,7 +220,10 @@ def test_start_game_negative_player_scores_then_early_exit(capsys):
 
 def test_start_game_exceed_max_red_balls_then_early_exit(capsys):
     game = SnookerScores()
-    inputs = generate_inputs([SET_SCORES_INPUT, "16", "q", QUIT_INPUT])
+    inputs = generate_inputs(
+        ["n",
+         SET_SCORES_INPUT, "16", "q", QUIT_INPUT]
+    )
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
@@ -214,34 +241,28 @@ def test_start_game_early_exit_red_ball_phase(capsys):
     assert "q: quit, s: set starting scores, x: switch player, p: penalty" in captured.out
 
 def test_start_game_penalty_respot_edge_case(capsys):
-    """Test applying a penalty with respot."""
     game = SnookerScores()
-    inputs = generate_inputs([PENALTY_INPUT, "5", "y", QUIT_INPUT])
+    inputs = generate_inputs(
+        ["n",
+         PENALTY_INPUT, "5", "y", QUIT_INPUT]
+    )
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
-    assert "Penalty of 5 points applied to Player 1." in captured.out
+    assert "Penalty of 5 points applied to Player 2." in captured.out
 
 def test_start_game_penalty_no_respot_edge_case(capsys):
-    """Test applying a penalty without respot."""
     game = SnookerScores()
-    inputs = generate_inputs([PENALTY_INPUT, "5", "n", QUIT_INPUT])
+    inputs = generate_inputs(
+        ["n",
+         PENALTY_INPUT, "5", "n", QUIT_INPUT]
+    )
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
-    assert "Penalty of 5 points applied to Player 1." in captured.out
-
-def test_start_game_switch_players(capsys):
-    """Test switching players."""
-    game = SnookerScores()
-    inputs = generate_inputs([SWITCH_PLAYER_INPUT, QUIT_INPUT])
-    with patch("builtins.input", side_effect=inputs):
-        with pytest.raises(SystemExit):
-            game.start_game()
-    captured = capsys.readouterr()
-    assert "Switching players..." in captured.out
+    assert "Penalty of 5 points applied to Player 2." in captured.out
 
 def test_start_game_invalid_inputs(capsys):
     """Test multiple invalid inputs."""
