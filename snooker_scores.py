@@ -254,9 +254,9 @@ class SnookerScores:
     def display_next_ball(self):
         """Display the next ball to pot."""
         if self.player_1_turn:
-            player = "Player 1"
+            player = self.player_1
         else:
-            player = "Player 2"
+            player = self.player_2
 
         if self.red_needed_next:
             ball = "red ball"
