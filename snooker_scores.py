@@ -158,14 +158,14 @@ class SnookerScores:
                     return
 
                 score_player_1 = self.get_input_starting_scores(
-                    "Enter score for Player 1: ",
+                    f"Enter score for {self.player_1}: ",
                     lambda x: self.validate_player_scores(x, 0)
                 )
                 if score_player_1 is None:
                     return
 
                 score_player_2 = self.get_input_starting_scores(
-                    "Enter score for Player 2: ",
+                    f"Enter score for {self.player_2}: ",
                     lambda x: self.validate_player_scores(score_player_1, x)
                 )
                 if score_player_2 is None:
