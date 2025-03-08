@@ -247,11 +247,24 @@ class SnookerScores:
               f"potential score {self.potential_score_player_1}")
         print(f"{self.player_2}: score {self.score_player_2}, "
               f"potential score {self.potential_score_player_2}")
+        
+        self.red_balls_left()
+        self.display_snookers_needed()
 
+    def red_balls_left(self):
+        """Display the number of red balls left."""
         if self.available_player_1 > self.end_break:
             print(f"{self.red_balls} red balls left")
             self.display_next_ball()
 
+    def display_snookers_needed(self):
+        """Display the number of snookers needed."""
+        if self.snookers_needed is False and self.score_player_1 > self.score_player_2 + self.available_player_2:
+            print(f"Snookers needed!")
+            self.snookers_needed = True
+        elif self.snookers_needed is False and self.score_player_2 > self.score_player_1 + self.available_player_1:
+            print(f"Snookers needed!")
+            self.snookers_needed = True
 
     def display_next_ball(self):
         """Display the next ball to pot."""
