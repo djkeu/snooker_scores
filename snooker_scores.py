@@ -431,9 +431,9 @@ class SnookerScores:
         winner = ""
 
         if self.score_player_1 > self.score_player_2:
-            winner = "Player 1"
+            winner = self.player_1
         elif self.score_player_1 < self.score_player_2:
-            winner = "Player 2"
+            winner = self.player_2
 
         print(f"\n{winner} wins! (with a score of {max(self.score_player_1, self.score_player_2)} vs {min(self.score_player_1, self.score_player_2)})")
 
