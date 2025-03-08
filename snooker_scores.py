@@ -10,6 +10,8 @@ class SnookerScores:
     def __init__(self):
         """Initialize SnookerScores."""
         self.red_balls = 15
+        self.player_1 = "Player 1"
+        self.player_2 = "Player 2"
         self.score_player_1 = 0
         self.score_player_2 = 0
         self.max_score = MAXIMUM_BREAK
