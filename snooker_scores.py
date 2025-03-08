@@ -330,9 +330,9 @@ class SnookerScores:
 
     def store_players_names(self):
         """Store players names in vars."""
-        prompt = input("Do you want to enter player names? (y/n) ").strip().lower()
+        player_names = input("Do you want to enter player names? (y/n) ").strip().lower()
     
-        if prompt == 'y':
+        if player_names == 'y':
             self.player_1 = self.get_player_name()
             self.player_2 = self.get_player_name()
         return
