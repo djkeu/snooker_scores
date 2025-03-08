@@ -280,6 +280,7 @@ class SnookerScores:
 
         print(f"{player} must pot a {ball} next")
 
+
     def add_penalty(self):
         """Add penalty to the player."""
         penalty = self.get_penalty_input()
