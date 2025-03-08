@@ -35,17 +35,6 @@ This program is to display how many points are still available for each player t
 ### Games analysed
 ToDo: Real life tests with videos of snooker games (11 / 100)
 
-        01. Shaun Murphy vs Zhou Jinhao | 2025 World Open | 147 - 0
-        02. Trump vs Long | 2025 World Open Match 1 | 
-        03. Trump vs Long | 2025 World Open Match 2 | 
-        04. Trump vs O'Connor | 2025 World Open Match 1 | 0 - 73
-        05. Trump vs O'Connor | 2025 World Open Match 2 | 0 - 89
-        06. Trump vs O'Connor | 2025 World Open Match 3 | 126 - 4
-        07. Trump vs O'Connor | 2025 World Open Match 3 | 68 - 22
-        08. Ding vs Xu 1
-        09. Ding vs Xu 2
-        10. Ding vs Xu 3
-
         11. Higgins vs Wilson | 0 - 131
         12. Trump vs Bingham | 58 - 72
 
