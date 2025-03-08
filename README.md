@@ -32,13 +32,17 @@ This program is to display how many points are still available for each player t
 - Abandoned: get rid of validate_min_scores:
     - although not very accurate because it builds on the unlikely scenario that only yellow (and red) balls are potted, it does prevent mistakingly entering too low input
 
-### Games analysed
+### Games analyzed
 ToDo: Real life tests with videos of snooker games (11 / 100)
 
         11. Higgins vs Wilson | 0 - 131
-        12. Trump vs Bingham | 58 - 72
+        12. Trump vs Bingham 1 | 58 - 72
+        13. Trump vs Bingham 2 |
 
-### Conclusions Games analysed
+### Conclusions Games analyzed
+- ToDo: players names need to be displayed during endgame: who needs to play which shot
+- ToDo: re-analyze Trump vs Bingham 1
+- ToDo: re-analyze T vs B 2 | FixMe: next ball to pot: yellow/ no moe red balls left
 
 
 ## File structure
