@@ -339,7 +339,7 @@ class SnookerScores:
         player_name = input("Enter your name: ").strip()
         if player_name:
             return player_name
-        return "Player"
+        return
 
 
     def red_balls_phase(self):
