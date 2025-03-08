@@ -328,6 +328,20 @@ class SnookerScores:
         with open("txt/hotkeys.txt") as f:
             print(f.read())
 
+    def store_players_names(self):
+        """Store players names in vars."""
+        self.player_1 = self.get_player_name()
+        self.player_2 = self.get_player_name()
+
+
+    def get_player_name(self):
+        """Get the name of the player."""
+        player_name = input("Enter your name: ").strip()
+        if player_name:
+            return player_name
+        return "Player"
+
+
     def red_balls_phase(self):
         """Play the red balls phase of the game."""
         while self.red_balls > 0:
