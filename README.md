@@ -12,8 +12,9 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: if score_player_x >= potential_score_player_y:
-     - display once: player_y needs snookers
+- ToDo: if score_player_x >= potential_score_player_y and vice versa:
+     - Done: display once: player_y needs snookers
+     - ToDo: check accuracy display_snookers_needed
 - ToDo: prompt for players names to print
     - Done: prompt for names
     - ToDo: test store_players_names
