@@ -142,6 +142,8 @@ class SnookerScores:
         """Switch players."""
         print("Switching players...")
         self.player_1_turn = not self.player_1_turn
+        if self.red_balls > 0:
+            self.red_needed_next = True
 
         self.display_next_ball()
 
