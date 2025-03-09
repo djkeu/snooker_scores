@@ -143,7 +143,7 @@ class SnookerScores:
         print("Switching players...")
         self.player_1_turn = not self.player_1_turn
 
-        self.display_game_state()
+        # self.display_game_state()
 
 
     # Score handling
