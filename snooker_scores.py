@@ -128,6 +128,7 @@ class SnookerScores:
         if self.red_needed_next:
             print("\nYou need to hit a red ball first!")
             self.switch_players()
+            # ToDo: check if this is needed
             self.red_needed_next = True
         else:
             self.handle_ball(shot, is_red_ball=False)
