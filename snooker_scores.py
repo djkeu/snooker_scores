@@ -2,6 +2,7 @@ import sys
 from random import randint
 
 
+RED_BALLS = 15
 MAXIMUM_BREAK = 147
 END_BREAK = 27
 
@@ -9,7 +10,7 @@ END_BREAK = 27
 class SnookerScores:
     def __init__(self):
         """Initialize SnookerScores."""
-        self.red_balls = 15
+        self.red_balls = RED_BALLS
         self.player_1 = "Player 1"
         self.player_2 = "Player 2"
         self.score_player_1 = 0
