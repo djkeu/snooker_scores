@@ -37,7 +37,7 @@ ToDo: Real life tests with videos of snooker games (11 / 100)
 
         11. Higgins vs Wilson | 0 - 131
         12. Trump vs Bingham 1 | 58 - 72
-        13. Trump vs Bingham 2 |
+        13. Trump vs Bingham 2 | 0 - 108
 
 ### Conclusions Games analyzed
 - ToDo: players names need to be displayed during endgame: who needs to play which shot
