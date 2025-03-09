@@ -16,6 +16,11 @@ This program is to display how many points are still available for each player t
      - Done: display once: player_y needs snookers
      - ToDo: check accuracy display_snookers_needed
 - ToDo: repetitive code in red_balls_phase, handle_last_colored_ball, colored_balls_phase
+- ToDo: test_game_logic.py:
+    - FixMe: test_red_balls_phase_edge_cases
+    - FixMe: test_handle_last_colored_ball_edge_cases
+    - FixMe: test_colored_balls_phase
+    - FixMe: test_colored_balls_phase_edge_cases
 
 - ToDo: GUI
 
