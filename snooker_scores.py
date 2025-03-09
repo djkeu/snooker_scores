@@ -384,8 +384,6 @@ class SnookerScores:
 
     def handle_last_colored_ball(self):
         """Handle the last colored ball."""
-        print("\nNo more red balls left! ")
-
         while self.available_player_1 > 0 or self.available_player_2 > 0:
             shot = self.get_shot_value()
 
