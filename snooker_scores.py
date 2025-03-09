@@ -393,8 +393,10 @@ class SnookerScores:
                 self.display_game_state()
                 continue
 
-            if shot < 2 or shot > 7:
-                print("\nYou must pot a colored ball!")
+            if shot < 2 or shot > 7 and self.player_1_turn:
+                print(f"\n{self.player_1} must pot a colored ball!")
+            elif shot < 2 or shot > 7 and not self.player_1_turn:
+                print(f"\n{self.player_2} must pot a colored ball!")
             else:
                 if self.player_1_turn:
                     self.available_player_1 -= 7
