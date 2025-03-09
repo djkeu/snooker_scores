@@ -14,16 +14,23 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - FixMe: set_starting_scores
     - Note: should work outside of red_balls_phase
+    - ToDo: refactor
+		- set_starting_scores_red_balls_phase
+		- set_starting_scores_colored_balls_phase
     - FixMe: yellow is not reset
     - FixMe: last_colored_ball is skipped
     - FixMe: available is not set to 27 (- value of colored balls played)
-- Done: if score_player_x >= potential_score_player_y and vice versa:
+
+- ToDo: if score_player_x >= potential_score_player_y and vice versa:
      - Done: display once: player_y needs snookers
      - ToDo: check accuracy display_snookers_needed
+
 - ToDo: repetitive code in red_balls_phase, handle_last_colored_ball, colored_balls_phase
+
 - Abandoned: set number of games in match, keep match scores
+
 - Abandoned: get rid of validate_min_scores:
-    - although not very accurate because it builds on the unlikely scenario that only yellow (and red) balls are potted, it does sometimes prevent mistakingly entering too low input
+    - although not very accurate because it builds on the unlikely scenario that only yellow (and red) balls are potted, it does sometimes prevent mistakingly entering a too small input
 
 - ToDo: GUI
 
