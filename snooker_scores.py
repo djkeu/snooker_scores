@@ -120,16 +120,12 @@ class SnookerScores:
         else:
             print("\nYou need to hit a color!")
             self.switch_players()
-            # ToDo: check if this is needed
-            self.red_needed_next = True
 
     def handle_color_ball(self, shot):
         """Handle a color ball."""
         if self.red_needed_next:
             print("\nYou need to hit a red ball first!")
             self.switch_players()
-            # ToDo: check if this is needed
-            self.red_needed_next = True
         else:
             self.handle_ball(shot, is_red_ball=False)
 
@@ -137,9 +133,6 @@ class SnookerScores:
         """Handle a miss."""
         if not self.red_needed_next:
             self.available_player_1 -= 7
-        
-        # ToDo: check if this is needed, in other methods as well
-        self.red_needed_next = True
         self.switch_players()
 
     def switch_players(self):
@@ -149,8 +142,6 @@ class SnookerScores:
 
         if self.red_balls > 0:
             self.red_needed_next = True
-
-        self.display_next_ball()
 
 
     # Score handling
@@ -288,6 +279,7 @@ class SnookerScores:
         print(f"{player} must pot a {ball} next")
 
 
+    # Handle penalties
     def add_penalty(self):
         """Add penalty to the player."""
         penalty = self.get_penalty_input()
