@@ -135,6 +135,8 @@ class SnookerScores:
         """Handle a miss."""
         if not self.red_needed_next:
             self.available_player_1 -= 7
+        
+        # ToDo: check if this is needed, in other methods as well
         self.red_needed_next = True
         self.switch_players()
 
@@ -142,6 +144,7 @@ class SnookerScores:
         """Switch players."""
         print("Switching players...")
         self.player_1_turn = not self.player_1_turn
+
         if self.red_balls > 0:
             self.red_needed_next = True
 
