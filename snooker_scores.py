@@ -120,6 +120,7 @@ class SnookerScores:
         else:
             print("\nYou need to hit a color!")
             self.switch_players()
+            # ToDo: check if this is needed
             self.red_needed_next = True
 
     def handle_color_ball(self, shot):
