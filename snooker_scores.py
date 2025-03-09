@@ -412,10 +412,14 @@ class SnookerScores:
     def colored_balls_phase(self):
         """Play the colored balls phase of the game."""
         while self.available_player_1 > 0:
-            print(
-                f"Next ball to pot: "
-                f"{self.colored_balls[self.yellow_ball]} "
-            )
+            if self.player_1_turn:
+                print(
+                    f"{self.player_1} must pot a {self.colored_balls[self.yellow_ball]} ball"
+                )
+            else:
+                print(
+                    f"{self.player_2} must pot a {self.colored_balls[self.yellow_ball]} ball"
+                )
             shot = self.get_shot_value()
 
             if shot in ["switch", "scores_set", "penalty"]:
