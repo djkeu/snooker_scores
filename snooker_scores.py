@@ -148,43 +148,78 @@ class SnookerScores:
     # Score handling
     def set_starting_scores(self):
         """Set the starting scores for the game."""
+        self.red_balls = self.get_input_starting_scores(
+            "Enter the number of red balls left: ",
+            self.validate_red_balls
+        )
+        if self.red_balls is None:
+            return
+            
+        if self.red_balls == 0:
+            colored_ball = self.get_colored_ball_input()
+            if colored_ball is None:
+                return
+            self.yellow_ball = colored_ball
+
+        score_player_1 = self.get_input_starting_scores(
+            f"Enter score for {self.player_1}: ",
+            self.validate_score
+        )
+        if score_player_1 is None:
+            return
+
+        score_player_2 = self.get_input_starting_scores(
+            f"Enter score for {self.player_2}: ",
+            self.validate_score
+        )
+        if score_player_2 is None:
+            return
+
+        try:
+            self.validate_cross_scores(score_player_1, score_player_2)
+            self.validate_min_score(self.red_balls, score_player_1, score_player_2)
+        except ValueError as e:
+            print(f"Error: {e}. Please try again.")
+            return
+
+        self.red_needed_next = True if self.red_balls > 0 else False
+        self.score_player_1 = score_player_1
+        self.score_player_2 = score_player_2
+        self.available_player_1 = self.red_balls * 8 + self.end_break
+        self.available_player_2 = self.red_balls * 8 + self.end_break
+    
+        # self.display_game_state()
+
+    def get_colored_ball_input(self):
+        """Get input for which colored ball is to be played next."""
+        print("Available colored balls:")
+        for value, name in sorted(self.colored_balls.items()):
+            print(f"{value}: {name}")
+            
         while True:
             try:
-                self.red_balls = self.get_input_starting_scores(
-                    "Enter the number of red balls left: ",
-                    self.validate_red_balls
-                )
-                if self.red_balls is None:
-                    return
+                value = input("Enter the value of the next colored ball to play: ").strip()
+                if value.lower() == "q" or value == "":
+                    return None
+                value = int(value)
+                if value in self.colored_balls:
+                    return value
+                else:
+                    print(f"Invalid input: Value must be one of {', '.join(str(k) for k in self.colored_balls.keys())}.")
+            except ValueError:
+                print("Invalid input: Please enter a valid number.")
 
-                score_player_1 = self.get_input_starting_scores(
-                    f"Enter score for {self.player_1}: ",
-                    lambda x: self.validate_player_scores(x, 0)
-                )
-                if score_player_1 is None:
-                    return
 
-                score_player_2 = self.get_input_starting_scores(
-                    f"Enter score for {self.player_2}: ",
-                    lambda x: self.validate_player_scores(score_player_1, x)
-                )
-                if score_player_2 is None:
-                    return
+    def validate_score(self, score):
+        """Validate that a score is within the allowed range."""
+        if score < 0:
+            raise ValueError("Scores must be positive values.")
 
-                self.validate_player_scores(score_player_1, score_player_2)
-                self.validate_min_score(self.red_balls, score_player_1, score_player_2)
-
-                self.red_needed_next = True
-                self.score_player_1 = score_player_1
-                self.score_player_2 = score_player_2
-                self.available_player_1 = self.red_balls * 8 + self.end_break
-                self.available_player_2 = self.red_balls * 8 + self.end_break
- 
-                self.display_game_state()
-                break
-
-            except ValueError as e:
-                print(f"Error: {e}. Please try again.")
+    def validate_cross_scores(self, score_player_1, score_player_2):
+        """Validate that the combined scores are within the allowed range."""
+        possible_score = self.max_score - self.end_break - self.red_balls * 8
+        if score_player_1 + score_player_2 > possible_score:
+            raise ValueError(f"Total score cannot exceed {possible_score}.")
 
     def get_input_starting_scores(self, prompt, validation_func):
         """Get and validate input for set_starting_scores."""
@@ -365,7 +400,7 @@ class SnookerScores:
         while self.red_balls > 0:
             shot = self.get_shot_value()
 
-            if shot in ["switch", "scores_set", "penalty"]:
+            if shot in ["switch", "scores_set", "penalty", "winner"]:
                 self.display_game_state()
                 continue
 
@@ -379,7 +414,8 @@ class SnookerScores:
             self.display_game_state()
 
         if self.red_balls == 0:
-            self.handle_last_colored_ball()
+            self.available_player_1 = self.end_break
+            self.available_player_2 = self.end_break
             self.colored_balls_phase()
 
     def handle_last_colored_ball(self):
@@ -411,41 +447,60 @@ class SnookerScores:
 
     def colored_balls_phase(self):
         """Play the colored balls phase of the game."""
-        while self.available_player_1 > 0:
+        current_ball = self.yellow_ball
+        
+        # FixMe: should not run after set_starting score
+        # FixMe: Loop should end when set_starting_scores
+
+        while current_ball <= 7:
             if self.player_1_turn:
                 print(
-                    f"{self.player_1} must pot a {self.colored_balls[self.yellow_ball]} ball"
+                    f"{self.player_1} must pot a {self.colored_balls[current_ball]} ball"
                 )
             else:
                 print(
-                    f"{self.player_2} must pot a {self.colored_balls[self.yellow_ball]} ball"
+                    f"{self.player_2} must pot a {self.colored_balls[current_ball]} ball"
                 )
             shot = self.get_shot_value()
 
-            if shot in ["switch", "scores_set", "penalty"]:
+            if shot in ["switch", "scores_set", "penalty", "winner"]:
                 self.display_game_state()
                 continue
 
-            if shot != self.yellow_ball:
+            if shot != current_ball:
                 print("Wrong ball!")
                 self.switch_players()
             else:
-                self.available_player_1 -= self.yellow_ball
-                self.available_player_2 -= self.yellow_ball
                 self.update_score(shot)
-                self.yellow_ball += 1
+                self.available_player_1 -= current_ball
+                self.available_player_2 -= current_ball
+                current_ball += 1
+                self.yellow_ball = current_ball
 
             self.display_game_state()
+            
+            if current_ball > 7:
+                self.available_player_1 = 0
+                self.available_player_2 = 0
+                break
 
 
     def start_game(self):
         """Start the game."""
         self.display_startup_message()
         self.store_players_names()
-        self.red_balls_phase()
-        self.colored_balls_phase()
+        
+        if self.first_input:
+            self.red_balls_phase()
+        else:
+            if self.red_balls > 0:
+                self.red_balls_phase()
+            else:
+                self.colored_balls_phase()
+        
         self.display_winner()
         self.restart_game()
+
 
     def display_winner(self):
         """Display winner of the game."""
