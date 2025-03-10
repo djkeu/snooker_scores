@@ -191,7 +191,7 @@ class SnookerScores:
         while True:
             try:
                 value = input(prompt).strip()
-                if value.lower() == "q":
+                if value.lower() == "q" or value == "":
                     return None
                 value = int(value)
                 validation_func(value)
