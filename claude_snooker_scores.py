@@ -35,7 +35,6 @@ class SnookerScores:
         }
         self.first_input = True
         self.shot_prompt = "What's the value of the shot: "
-        self.scores_set = False  # Track if starting scores have beenset
 
 
     # Ball handling
@@ -149,7 +148,6 @@ class SnookerScores:
     # Score handling
     def set_starting_scores(self):
         """Set the starting scores for the game."""
-        # Get red balls
         self.red_balls = self.get_input_starting_scores(
             "Enter the number of red balls left: ",
             self.validate_red_balls
@@ -157,14 +155,12 @@ class SnookerScores:
         if self.red_balls is None:
             return
             
-        # If no red balls left, ask which colored ball is next
         if self.red_balls == 0:
             colored_ball = self.get_colored_ball_input()
             if colored_ball is None:
                 return
             self.yellow_ball = colored_ball
 
-        # Get player scores
         score_player_1 = self.get_input_starting_scores(
             f"Enter score for {self.player_1}: ",
             self.validate_score
@@ -179,7 +175,6 @@ class SnookerScores:
         if score_player_2 is None:
             return
 
-        # Cross-validate scores
         try:
             self.validate_cross_scores(score_player_1, score_player_2)
             self.validate_min_score(self.red_balls, score_player_1, score_player_2)
@@ -187,14 +182,13 @@ class SnookerScores:
             print(f"Error: {e}. Please try again.")
             return
 
-        # Update game state
         self.red_needed_next = True if self.red_balls > 0 else False
         self.score_player_1 = score_player_1
         self.score_player_2 = score_player_2
         self.available_player_1 = self.red_balls * 8 + self.end_break
         self.available_player_2 = self.red_balls * 8 + self.end_break
     
-        #self.display_game_state()
+        # self.display_game_state()
 
     def get_colored_ball_input(self):
         """Get input for which colored ball is to be played next."""
@@ -419,7 +413,6 @@ class SnookerScores:
 
             self.display_game_state()
 
-        # Prepare for colored balls phase
         if self.red_balls == 0:
             self.available_player_1 = self.end_break
             self.available_player_2 = self.end_break
@@ -486,9 +479,7 @@ class SnookerScores:
 
             self.display_game_state()
             
-            # Check if we've completed all balls
             if current_ball > 7:
-                # Set available points to 0 since all balls have been potted
                 self.available_player_1 = 0
                 self.available_player_2 = 0
                 break
@@ -499,11 +490,9 @@ class SnookerScores:
         self.display_startup_message()
         self.store_players_names()
         
-        # Check if this is a fresh game or a game with custom starting scores
         if self.first_input:
             self.red_balls_phase()
         else:
-            # If we've set custom scores/balls already, just continue from current state
             if self.red_balls > 0:
                 self.red_balls_phase()
             else:
