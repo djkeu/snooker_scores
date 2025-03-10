@@ -14,12 +14,12 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - FixMe: set_starting_scores
     - Note: should work outside of red_balls_phase
-    - ToDo: refactor
-		- set_starting_scores_red_balls_phase
-		- set_starting_scores_colored_balls_phase
+    - Note: use claude_snooker_scores for testing
+		- Note: set_starting_scores_red_balls_phase
+		- Note: set_starting_scores_colored_balls_phase
     - FixMe: yellow is not reset
     - FixMe: last_colored_ball is skipped
-    - FixMe: available is not set to 27 (- value of colored balls played)
+    - FixMe: available: set to (27 - value of colored balls played)
 
 ```
 Desired output:
