@@ -14,7 +14,6 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - FixMe: set_starting_scores
     - FixMe: available: set to (27 - value of colored balls played)
-    - ToDo: check potenial scores
 
 ```
 Desired output:
