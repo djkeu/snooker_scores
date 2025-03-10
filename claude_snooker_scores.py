@@ -35,6 +35,7 @@ class SnookerScores:
         }
         self.first_input = True
         self.shot_prompt = "What's the value of the shot: "
+        self.scores_set = False  # Track if starting scores have beenset
 
 
     # Ball handling
@@ -193,7 +194,7 @@ class SnookerScores:
         self.available_player_1 = self.red_balls * 8 + self.end_break
         self.available_player_2 = self.red_balls * 8 + self.end_break
     
-        self.display_game_state()
+        #self.display_game_state()
 
     def get_colored_ball_input(self):
         """Get input for which colored ball is to be played next."""
@@ -455,6 +456,9 @@ class SnookerScores:
         """Play the colored balls phase of the game."""
         current_ball = self.yellow_ball
         
+        # FixMe: should not run after set_starting score
+        # FixMe: Loop should end when set_starting_scores
+
         while current_ball <= 7:
             if self.player_1_turn:
                 print(
