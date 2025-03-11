@@ -175,12 +175,13 @@ class SnookerScores:
                 self.validate_min_score(self.red_balls, score_player_1, score_player_2)
 
                 self.red_needed_next = True
+                self.score_player_1 = score_player_1
+                self.score_player_2 = score_player_2
+                self.available_player_1 = self.red_balls * 8 + self.end_break
+                self.available_player_2 = self.red_balls * 8 + self.end_break
+
                 if self.red_balls == 0:
                     self.red_needed_next = False
-                    self.score_player_1 = score_player_1
-                    self.score_player_2 = score_player_2
-                    self.available_player_1 = self.red_balls * 8 + self.end_break
-                    self.available_player_2 = self.red_balls * 8 + self.end_break
                     colored_ball = input(f"Which colored ball becomes yellow: ")
                     self.yellow_ball = int(colored_ball)
                     balls_played = sum(range(0, self.yellow_ball)) - 1
@@ -188,11 +189,6 @@ class SnookerScores:
                     self.available_player_2 -= balls_played
                     self.colored_balls_phase()
 
-                self.score_player_1 = score_player_1
-                self.score_player_2 = score_player_2
-                self.available_player_1 = self.red_balls * 8 + self.end_break
-                self.available_player_2 = self.red_balls * 8 + self.end_break
- 
                 self.display_game_state()
                 break
 
