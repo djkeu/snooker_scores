@@ -160,6 +160,8 @@ class SnookerScores:
             if colored_ball is None:
                 return
             self.yellow_ball = colored_ball
+            # Set red_needed_next to False when starting with no red balls
+            self.red_needed_next = False
 
         score_player_1 = self.get_input_starting_scores(
             f"Enter score for {self.player_1}: ",
@@ -182,12 +184,15 @@ class SnookerScores:
             print(f"Error: {e}. Please try again.")
             return
 
-        self.red_needed_next = True
+        # Only set red_needed_next to True when there are red balls left
+        if self.red_balls > 0:
+            self.red_needed_next = True
+            
         self.score_player_1 = score_player_1
         self.score_player_2 = score_player_2
         self.available_player_1 = self.red_balls * 8 + self.end_break
         self.available_player_2 = self.red_balls * 8 + self.end_break
-    
+        
         self.display_game_state()
 
     def get_colored_ball_input(self):
