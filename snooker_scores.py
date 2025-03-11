@@ -175,6 +175,14 @@ class SnookerScores:
                 self.validate_min_score(self.red_balls, score_player_1, score_player_2)
 
                 self.red_needed_next = True
+                if self.red_balls == 0:
+                    self.red_needed_next = False
+                    self.score_player_1 = score_player_1
+                    self.score_player_2 = score_player_2
+                    self.available_player_1 = self.red_balls * 8 + self.end_break
+                    self.available_player_2 = self.red_balls * 8 + self.end_break
+                    self.colored_balls_phase()
+
                 self.score_player_1 = score_player_1
                 self.score_player_2 = score_player_2
                 self.available_player_1 = self.red_balls * 8 + self.end_break
@@ -436,6 +444,9 @@ class SnookerScores:
                 self.yellow_ball += 1
 
             self.display_game_state()
+            if self.yellow_ball > 7:
+                self.display_winner()
+                self.restart_game()
 
 
     def start_game(self):
