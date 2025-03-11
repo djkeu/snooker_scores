@@ -190,6 +190,26 @@ class SnookerScores:
     
         self.display_game_state()
 
+    def get_colored_ball_input(self):
+        """Get input for which colored ball is to be played next."""
+        print("Available colored balls:")
+        for value, name in sorted(self.colored_balls.items()):
+            print(f"{value}: {name}")
+            
+        while True:
+            try:
+                value = input("Enter the value of the next colored ball to play: ").strip()
+                if value.lower() == "q" or value == "":
+                    return None
+                value = int(value)
+                if value in self.colored_balls:
+                    return value
+                else:
+                    print(f"Invalid input: Value must be one of {', '.join(str(k) for k in self.colored_balls.keys())}.")
+            except ValueError:
+                print("Invalid input: Please enter a valid number.")
+
+
     def validate_score(self, score):
         """Validate that a score is within the allowed range."""
         if score < 0:
