@@ -74,10 +74,6 @@ Do you want to play again? (y/n)
 
 ```
 
-- ToDo: if score_player_x >= potential_score_player_y and vice versa:
-     - Done: display once: player_y needs snookers
-     - ToDo: check accuracy display_snookers_needed
-
 - ToDo: repetitive code in red_balls_phase, handle_last_colored_ball, colored_balls_phase
 
 - Abandoned: set number of games in match, keep match scores
