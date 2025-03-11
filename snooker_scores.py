@@ -37,7 +37,7 @@ class SnookerScores:
         self.shot_prompt = "What's the value of the shot: "
 
 
-    # Ball handling
+    # Shot handling
     def get_shot_value(self):
         """Get the value of the shot."""
         while True:
@@ -95,6 +95,7 @@ class SnookerScores:
         return None
 
 
+    # Ball handling
     def handle_ball(self, shot, is_red_ball):
         """Handle a ball."""
         if is_red_ball:
@@ -131,7 +132,6 @@ class SnookerScores:
         else:
             self.handle_ball(shot, is_red_ball=False)
 
-
     def handle_miss(self):
         """Handle a miss."""
         if not self.red_needed_next:
@@ -147,7 +147,7 @@ class SnookerScores:
             self.red_needed_next = True
 
 
-    # Score handling
+    # Set starting scores
     def set_starting_scores(self):
         """Set the starting scores for the game."""
         while True:
@@ -223,7 +223,7 @@ class SnookerScores:
         """Validate that the scores are within the allowed range."""
         if score_player_1 < 0 or score_player_2 < 0:
             raise ValueError("Scores must be positive values.")
-    
+
         possible_score = self.max_score - self.end_break - self.red_balls * 8
         if score_player_1 + score_player_2 > possible_score:
             raise ValueError(f"Total score cannot exceed {possible_score}.")
@@ -232,14 +232,15 @@ class SnookerScores:
         """Validate that the total score is not too low. """
         if red_balls == 15 and score_player_1 == 0 and score_player_2 == 0:
             return
-        
+
         red_balls_played = 15 - red_balls
         min_score = max(0, red_balls_played + (red_balls_played - 1) * 2)
-    
+
         if score_player_1 + score_player_2 < min_score:
             raise ValueError("Total score is too low.")
 
 
+    # Score handling
     def update_score(self, shot):
         """Update the score of the player."""
         if self.player_1_turn:
@@ -262,7 +263,7 @@ class SnookerScores:
               f"potential score {self.potential_score_player_1}")
         print(f"{self.player_2}: score {self.score_player_2}, "
               f"potential score {self.potential_score_player_2}")
-        
+
         self.red_balls_left()
         self.display_snookers_needed()
 
@@ -348,7 +349,7 @@ class SnookerScores:
             self.red_needed_next = True
 
 
-    # Game phases
+    # Game phases 1: prelude to the game
     def display_startup_message(self):
         """Display welcome message and hotkeys."""
         with open("txt/welcome_messages.txt") as f:
@@ -363,7 +364,7 @@ class SnookerScores:
     def store_players_names(self):
         """Store players names in vars."""
         player_names = input("Do you want to enter player names? (y/n) ").strip().lower()
-    
+
         if player_names == 'y':
             self.player_1 = self.get_player_name()
             self.player_2 = self.get_player_name()
@@ -376,6 +377,7 @@ class SnookerScores:
             return player_name
 
 
+    # Game phases 2: run of the balls
     def red_balls_phase(self):
         """Play the red balls phase of the game."""
         while self.red_balls > 0:
@@ -459,6 +461,7 @@ class SnookerScores:
                 return
 
 
+    # Game phases 3: start and end
     def start_game(self):
         """Start the game."""
         self.display_startup_message()
