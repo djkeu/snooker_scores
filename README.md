@@ -76,11 +76,6 @@ Do you want to play again? (y/n)
 
 - ToDo: repetitive code in red_balls_phase, handle_last_colored_ball, colored_balls_phase
 
-- Abandoned: set number of games in match, keep match scores
-
-- Abandoned: get rid of validate_min_scores:
-    - although not very accurate because it builds on the unlikely scenario that only yellow (and red) balls are potted, it does sometimes prevent mistakingly entering a too small input
-
 - ToDo: GUI
 
 
