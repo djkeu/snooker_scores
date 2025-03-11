@@ -447,7 +447,7 @@ class SnookerScores:
 
     def colored_balls_phase(self):
         """Play the colored balls phase of the game."""
-        while self.available_player_1 > 0:
+        while self.available_player_1 > 0 and self.yellow_ball <= 7:
             if self.player_1_turn:
                 print(
                     f"{self.player_1} must pot a {self.colored_balls[self.yellow_ball]} ball"
@@ -472,7 +472,10 @@ class SnookerScores:
                 self.yellow_ball += 1
 
             self.display_game_state()
-
+        
+        # End the game when all balls are potted
+        if self.yellow_ball > 7:
+            return
 
     def start_game(self):
         """Start the game."""
