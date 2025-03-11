@@ -13,9 +13,9 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: set_starting_scores
-    - Note: backup file: backup_snooker_scores.py
-    - ToDo: prompt for colored ball to play when red ball == 0
-    - ToDo: available: set to (27 - value of colored balls played)
+    - Done: prompt for colored ball to play when red ball == 0
+    - Done: available: set to (27 - value of colored balls played)
+    - ToDo: refactor
 
 - ToDo: repetitive code
     - set_starting_scores
