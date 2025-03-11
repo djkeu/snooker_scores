@@ -94,6 +94,7 @@ class SnookerScores:
         """Handle invalid input."""
         print("Only numbers between 0 and 7 are valid!")
 
+
     def handle_ball(self, shot, is_red_ball):
         """Handle a ball."""
         if is_red_ball:
@@ -129,6 +130,7 @@ class SnookerScores:
             self.switch_players()
         else:
             self.handle_ball(shot, is_red_ball=False)
+
 
     def handle_miss(self):
         """Handle a miss."""
@@ -450,7 +452,8 @@ class SnookerScores:
                 self.display_winner()
                 self.restart_game()  # Call restart_game after the black ball is potted
                 return
-    
+
+
     def start_game(self):
         """Start the game."""
         self.display_startup_message()
@@ -485,6 +488,7 @@ class SnookerScores:
         else:
             print("Bye!")
             sys.exit()
+
 
 def main():
     scores = SnookerScores()
