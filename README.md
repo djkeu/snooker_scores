@@ -13,7 +13,7 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - FixMe: set_starting_scores
-    - Note: use claude_snooker_scores for testing
+    - Note: backup file: backup_snooker_scores.py
     - Note: set_starting_scores_red_balls_phase
     - Note: set_starting_scores_colored_balls_phase
     - FixMe: yellow is not reset
