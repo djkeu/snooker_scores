@@ -17,8 +17,16 @@ This program is to display how many points are still available for each player t
     - ToDo: prompt for colored ball to play
     - ToDo: available: set to (27 - value of colored balls played)
 
+- ToDo: repetitive code
+    - set_starting_scores
+    - red_balls_phase
+    - handle_last_colored_ball
+    - colored_balls_phase
+
+- ToDo: GUI
+
 ```
-Desired output:
+### Desired output:
 
 $ python claude_snooker_scores.py
 
@@ -73,14 +81,6 @@ Player 1 wins! (with a score of 80 vs 55)
 Do you want to play again? (y/n)
 
 ```
-
-- ToDo: repetitive code
-    - set_starting_scores
-    - red_balls_phase
-    - handle_last_colored_ball
-    - colored_balls_phase
-
-- ToDo: GUI
 
 
 ### Games analyzed
