@@ -455,7 +455,7 @@ class SnookerScores:
             self.display_game_state()
             if self.yellow_ball > 7:
                 self.display_winner()
-                self.restart_game()  # Call restart_game after the black ball is potted
+                self.restart_game()
                 return
 
 
