@@ -183,6 +183,10 @@ class SnookerScores:
                 self.available_player_2 = self.red_balls * 8 + self.end_break
 
                 if self.red_balls == 0:
+                    self.score_player_1 = score_player_1
+                    self.score_player_2 = score_player_2
+                    self.available_player_1 = self.red_balls * 8 + self.end_break
+                    self.available_player_2 = self.red_balls * 8 + self.end_break
                     self.red_needed_next = False
                     colored_ball = input(f"Which colored ball becomes yellow: ")
                     self.yellow_ball = int(colored_ball)
