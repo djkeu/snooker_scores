@@ -162,6 +162,11 @@ class SnookerScores:
             self.yellow_ball = colored_ball
             # Set red_needed_next to False when starting with no red balls
             self.red_needed_next = False
+            
+            # Calculate already potted colored balls
+            potted_color_sum = sum(range(2, self.yellow_ball))
+            # Adjust the available points by removing already potted colored balls
+            self.end_break = sum(range(self.yellow_ball, 8))
 
         score_player_1 = self.get_input_starting_scores(
             f"Enter score for {self.player_1}: ",
@@ -403,6 +408,11 @@ class SnookerScores:
 
     def red_balls_phase(self):
         """Play the red balls phase of the game."""
+        # Skip this phase entirely if we started with 0 red balls
+        if self.red_balls == 0:
+            self.colored_balls_phase()
+            return
+            
         while self.red_balls > 0:
             shot = self.get_shot_value()
 
