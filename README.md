@@ -74,7 +74,11 @@ Do you want to play again? (y/n)
 
 ```
 
-- ToDo: repetitive code in red_balls_phase, handle_last_colored_ball, colored_balls_phase
+- ToDo: repetitive code
+    - set_starting_scores
+    - red_balls_phase
+    - handle_last_colored_ball
+    - colored_balls_phase
 
 - ToDo: GUI
 
