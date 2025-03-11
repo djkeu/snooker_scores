@@ -155,6 +155,12 @@ class SnookerScores:
         if self.red_balls is None:
             return
 
+        if self.red_balls == 0:
+            colored_ball = self.get_colored_ball_input()
+            if colored_ball is None:
+                return
+            self.yellow_ball = colored_ball
+
         score_player_1 = self.get_input_starting_scores(
             f"Enter score for {self.player_1}: ",
             self.validate_score
