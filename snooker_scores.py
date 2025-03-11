@@ -187,10 +187,13 @@ class SnookerScores:
                     self.score_player_2 = score_player_2
                     self.available_player_1 = self.red_balls * 8 + self.end_break
                     self.available_player_2 = self.red_balls * 8 + self.end_break
+
                     self.red_needed_next = False
-                    colored_ball = input(f"Which colored ball becomes yellow: ")
+                    
+                    colored_ball = input(f"Which colored ball is the first to play: ")
                     self.yellow_ball = int(colored_ball)
                     balls_played = sum(range(0, self.yellow_ball)) - 1
+                    # Note: balls_played is sum(range(2, self.yellow_ball))
                     self.available_player_1 -= balls_played
                     self.available_player_2 -= balls_played
                     self.colored_balls_phase()
