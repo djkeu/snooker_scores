@@ -399,10 +399,11 @@ class SnookerScores:
                 self.display_game_state()
                 continue
 
-            if shot < 2 or shot > 7 and self.player_1_turn:
-                print(f"\n{self.player_1} must pot a colored ball!")
-            elif shot < 2 or shot > 7 and not self.player_1_turn:
-                print(f"\n{self.player_2} must pot a colored ball!")
+            if shot < 2 or shot > 7:
+                if self.player_1_turn:
+                    print(f"\n{self.player_1} must pot a colored ball!")
+                else:
+                    print(f"\n{self.player_2} must pot a colored ball!")
             else:
                 if self.player_1_turn:
                     self.available_player_1 -= 7
@@ -446,9 +447,9 @@ class SnookerScores:
             self.display_game_state()
             if self.yellow_ball > 7:
                 self.display_winner()
-                self.restart_game()
-
-
+                self.restart_game()  # Call restart_game after the black ball is potted
+                return
+    
     def start_game(self):
         """Start the game."""
         self.display_startup_message()
@@ -483,7 +484,7 @@ class SnookerScores:
         else:
             print("Bye!")
             sys.exit()
-    
+
 def main():
     scores = SnookerScores()
     scores.start_game()
