@@ -197,7 +197,7 @@ def test_handle_last_colored_ball():
 
     game.switch_players()
     with mock_input("What's the value of the shot: ", "2"):
-        game.handle_last_colored_ball()
+        game.last_colored_ball_phase()
 
     assert game.available_player_1 == 27
     assert game.available_player_2 == 27
@@ -210,7 +210,7 @@ def test_handle_last_colored_ball_edge_cases(capsys):
     game.available_player_2 = 27
     game.player_1_turn = True
     with patch("builtins.input", side_effect=["2"]):
-        game.handle_last_colored_ball()
+        game.last_colored_ball_phase()
     captured = capsys.readouterr()
     assert "Player 1: score 2, potential score 22" in captured.out
     assert "Player 2: score 0, potential score 27" in captured.out

@@ -390,10 +390,10 @@ class SnookerScores:
             self.display_game_state()
 
         if self.red_balls == 0:
-            self.handle_last_colored_ball()
+            self.last_colored_ball_phase()
             self.colored_balls_phase()
 
-    def handle_last_colored_ball(self):
+    def last_colored_ball_phase(self):
         """Handle the last colored ball."""
         while self.available_player_1 > 0 or self.available_player_2 > 0:
             shot = self.get_shot_value()
