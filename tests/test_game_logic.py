@@ -176,16 +176,17 @@ def test_handle_miss():
     assert game.available_player_2 == 139
 
 def test_red_balls_phase_edge_cases(capsys):
+    """Test edge cases in the red balls phase."""
     game = SnookerScores()
     game.red_balls = 1
     game.player_1_turn = True
     with patch("builtins.input", side_effect=["1", "7", "0", "2", "3", "4", "5", "6", "7", "0"]):
-        game.red_balls_phase()
+        with pytest.raises(SystemExit):
+            game.red_balls_phase()
     captured = capsys.readouterr()
     assert "Player 1: score 1, potential score 147" in captured.out
     assert "Player 2: score 0, potential score 139" in captured.out
     assert "0 red balls left" in captured.out
-
 
 def test_handle_last_colored_ball():
     game = SnookerScores()
@@ -239,15 +240,19 @@ def test_colored_balls_phase_basic():
     assert game.available_player_1 == 0
 
 def test_colored_balls_phase_edge_cases(capsys):
+    """Test edge cases in the colored balls phase."""
     game = SnookerScores()
     game.available_player_1 = 27
     game.yellow_ball = 2
     game.player_1_turn = True
     with patch("builtins.input", side_effect=["2", "3", "4", "5", "6", "7", "0"]):
-        game.colored_balls_phase()
+        with pytest.raises(SystemExit):
+            game.colored_balls_phase()
     captured = capsys.readouterr()
     assert "Player 1 must pot a yellow ball" in captured.out
-
+    assert "Player 1: score 2, potential score 27" in captured.out
+    assert "Player 1: score 27, potential score 27" in captured.out
+    assert "Player 1 wins!" in captured.out
 
 # Game conclusion
 def test_display_winner():
