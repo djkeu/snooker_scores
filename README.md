@@ -17,6 +17,8 @@ This program is to display how many points are still available for each player t
     - Done: available: set to (27 - value of colored balls played)
     - ToDo: refactor
 
+- ToDo: get rid of rotating welcome messages, one is enough
+
 - ToDo: repetitive code
     - set_starting_scores
     - red_balls_phase
