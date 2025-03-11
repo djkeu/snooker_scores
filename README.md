@@ -12,12 +12,10 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- FixMe: set_starting_scores
+- ToDo: set_starting_scores
     - Note: backup file: backup_snooker_scores.py
-    - Note: set_starting_scores_red_balls_phase
-    - Note: set_starting_scores_colored_balls_phase
-    - FixMe: yellow is not reset
-    - FixMe: available: set to (27 - value of colored balls played)
+    - ToDo: prompt for colored ball to play
+    - ToDo: available: set to (27 - value of colored balls played)
 
 ```
 Desired output:
