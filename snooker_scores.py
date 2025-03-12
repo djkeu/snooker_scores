@@ -176,14 +176,6 @@ class SnookerScores:
         else:
             return None
 
-    # ToDo: check if needed
-    def validate_and_return_shot(self, shot):
-        """Validate the shot and return it."""
-        validated_shot = self.validate_shot(shot)
-        if validated_shot is not None:
-            return int(validated_shot)
-        return None
-
     def validate_shot(self, shot):
         """Validate the shot."""
         try:
