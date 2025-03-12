@@ -37,6 +37,110 @@ class SnookerScores:
         self.shot_prompt = "What's the value of the shot: "
 
 
+    # Set starting scores
+    def set_starting_scores(self):
+        """Set the starting scores for the game."""
+        while True:
+            try:
+                self.red_balls = self.get_input_starting_scores(
+                    "Enter the number of red balls left: ",
+                    self.validate_red_balls
+                )
+                if self.red_balls is None:
+                    return
+
+                score_player_1 = self.get_input_starting_scores(
+                    f"Enter score for {self.player_1}: ",
+                    lambda x: self.validate_player_scores(x, 0)
+                )
+                if score_player_1 is None:
+                    return
+
+                score_player_2 = self.get_input_starting_scores(
+                    f"Enter score for {self.player_2}: ",
+                    lambda x: self.validate_player_scores(score_player_1, x)
+                )
+                if score_player_2 is None:
+                    return
+
+                self.validate_player_scores(score_player_1, score_player_2)
+                self.validate_min_score(
+                    self.red_balls,
+                    score_player_1,
+                    score_player_2
+                )
+
+                self.red_needed_next = True
+                self.score_player_1 = score_player_1
+                self.score_player_2 = score_player_2
+                self.available_player_1 = self.red_balls * 8 + self.end_break
+                self.available_player_2 = self.red_balls * 8 + self.end_break
+
+                if self.red_balls == 0:
+                    self.score_player_1 = score_player_1
+                    self.score_player_2 = score_player_2
+                    self.available_player_1 = self.red_balls * 8 + self.end_break
+                    self.available_player_2 = self.red_balls * 8 + self.end_break
+
+                    self.red_needed_next = False
+
+                    colored_ball = input(
+                        f"Which colored ball is the first to play: "
+                    )
+                    self.yellow_ball = int(colored_ball)
+                    balls_played = sum(range(0, self.yellow_ball)) - 1
+                    # Note: balls_played is sum(range(2, self.yellow_ball))
+                    self.available_player_1 -= balls_played
+                    self.available_player_2 -= balls_played
+                    self.colored_balls_phase()
+
+                self.display_game_state()
+                break
+
+            except ValueError as e:
+                print(f"Error: {e}. Please try again.")
+
+    def get_input_starting_scores(self, prompt, validation_func):
+        """Get and validate input for set_starting_scores."""
+        while True:
+            try:
+                value = input(prompt).strip()
+                if value.lower() == "q" or value == "":
+                    return None
+                value = int(value)
+                validation_func(value)
+                return value
+            except ValueError as e:
+                print(f"Invalid input: {e}. Please try again.")
+
+    def validate_red_balls(self, red_balls):
+        """Validate number of red balls is within allowed range."""
+        if red_balls < 0 or red_balls > 15:
+            raise ValueError(
+                "Invalid number of red balls. It must be between 0 and 15."
+            )
+
+    def validate_player_scores(self, score_player_1, score_player_2):
+        """Validate that the scores are within the allowed range."""
+        if score_player_1 < 0 or score_player_2 < 0:
+            raise ValueError("Scores must be positive values.")
+
+        possible_score = self.max_score - self.end_break - self.red_balls * 8
+        if score_player_1 + score_player_2 > possible_score:
+            raise ValueError(f"Total score cannot exceed {possible_score}.")
+
+    def validate_min_score(self, red_balls, score_player_1, score_player_2):
+        """Validate that the total score is not too low."""
+        if red_balls == 15 and score_player_1 == 0 and score_player_2 == 0:
+            return
+
+        red_balls_played = 15 - red_balls
+        min_score = max(0, red_balls_played + (red_balls_played - 1) * 2)
+
+        if score_player_1 + score_player_2 < min_score:
+            raise ValueError("Total score is too low.")
+
+
     # Shot handling
     def get_shot_value(self):
         """Get the value of the shot."""
@@ -151,110 +255,6 @@ class SnookerScores:
 
         if self.red_balls > 0:
             self.red_needed_next = True
-
-
-    # Set starting scores
-    def set_starting_scores(self):
-        """Set the starting scores for the game."""
-        while True:
-            try:
-                self.red_balls = self.get_input_starting_scores(
-                    "Enter the number of red balls left: ",
-                    self.validate_red_balls
-                )
-                if self.red_balls is None:
-                    return
-
-                score_player_1 = self.get_input_starting_scores(
-                    f"Enter score for {self.player_1}: ",
-                    lambda x: self.validate_player_scores(x, 0)
-                )
-                if score_player_1 is None:
-                    return
-
-                score_player_2 = self.get_input_starting_scores(
-                    f"Enter score for {self.player_2}: ",
-                    lambda x: self.validate_player_scores(score_player_1, x)
-                )
-                if score_player_2 is None:
-                    return
-
-                self.validate_player_scores(score_player_1, score_player_2)
-                self.validate_min_score(
-                    self.red_balls,
-                    score_player_1,
-                    score_player_2
-                )
-
-                self.red_needed_next = True
-                self.score_player_1 = score_player_1
-                self.score_player_2 = score_player_2
-                self.available_player_1 = self.red_balls * 8 + self.end_break
-                self.available_player_2 = self.red_balls * 8 + self.end_break
-
-                if self.red_balls == 0:
-                    self.score_player_1 = score_player_1
-                    self.score_player_2 = score_player_2
-                    self.available_player_1 = self.red_balls * 8 + self.end_break
-                    self.available_player_2 = self.red_balls * 8 + self.end_break
-
-                    self.red_needed_next = False
-
-                    colored_ball = input(
-                        f"Which colored ball is the first to play: "
-                    )
-                    self.yellow_ball = int(colored_ball)
-                    balls_played = sum(range(0, self.yellow_ball)) - 1
-                    # Note: balls_played is sum(range(2, self.yellow_ball))
-                    self.available_player_1 -= balls_played
-                    self.available_player_2 -= balls_played
-                    self.colored_balls_phase()
-
-                self.display_game_state()
-                break
-
-            except ValueError as e:
-                print(f"Error: {e}. Please try again.")
-
-    def get_input_starting_scores(self, prompt, validation_func):
-        """Get and validate input for set_starting_scores."""
-        while True:
-            try:
-                value = input(prompt).strip()
-                if value.lower() == "q" or value == "":
-                    return None
-                value = int(value)
-                validation_func(value)
-                return value
-            except ValueError as e:
-                print(f"Invalid input: {e}. Please try again.")
-
-    def validate_red_balls(self, red_balls):
-        """Validate number of red balls is within allowed range."""
-        if red_balls < 0 or red_balls > 15:
-            raise ValueError(
-                "Invalid number of red balls. It must be between 0 and 15."
-            )
-
-    def validate_player_scores(self, score_player_1, score_player_2):
-        """Validate that the scores are within the allowed range."""
-        if score_player_1 < 0 or score_player_2 < 0:
-            raise ValueError("Scores must be positive values.")
-
-        possible_score = self.max_score - self.end_break - self.red_balls * 8
-        if score_player_1 + score_player_2 > possible_score:
-            raise ValueError(f"Total score cannot exceed {possible_score}.")
-
-    def validate_min_score(self, red_balls, score_player_1, score_player_2):
-        """Validate that the total score is not too low."""
-        if red_balls == 15 and score_player_1 == 0 and score_player_2 == 0:
-            return
-
-        red_balls_played = 15 - red_balls
-        min_score = max(0, red_balls_played + (red_balls_played - 1) * 2)
-
-        if score_player_1 + score_player_2 < min_score:
-            raise ValueError("Total score is too low.")
 
 
     # Score handling
