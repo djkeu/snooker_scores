@@ -180,7 +180,11 @@ class SnookerScores:
                     return
 
                 self.validate_player_scores(score_player_1, score_player_2)
-                self.validate_min_score(self.red_balls, score_player_1, score_player_2)
+                self.validate_min_score(
+                    self.red_balls,
+                    score_player_1,
+                    score_player_2
+                )
 
                 self.red_needed_next = True
                 self.score_player_1 = score_player_1
@@ -195,7 +199,7 @@ class SnookerScores:
                     self.available_player_2 = self.red_balls * 8 + self.end_break
 
                     self.red_needed_next = False
-                    
+
                     colored_ball = input(f"Which colored ball is the first to play: ")
                     self.yellow_ball = int(colored_ball)
                     balls_played = sum(range(0, self.yellow_ball)) - 1
