@@ -220,6 +220,20 @@ class SnookerScores:
 
         self.update_score(shot)
 
+    def display_next_ball(self):
+        """Display the next ball to pot."""
+        if self.player_1_turn:
+            player = self.player_1
+        else:
+            player = self.player_2
+
+        if self.red_needed_next:
+            ball = "red ball"
+        else:
+            ball = "colored ball"
+
+        print(f"{player} must pot a {ball} next")
+
 
     # Score handling
     def update_score(self, shot):
@@ -272,20 +286,6 @@ class SnookerScores:
         ):
             print(f"{self.player_1} needs snookers!")
             self.snookers_needed = True
-
-    def display_next_ball(self):
-        """Display the next ball to pot."""
-        if self.player_1_turn:
-            player = self.player_1
-        else:
-            player = self.player_2
-
-        if self.red_needed_next:
-            ball = "red ball"
-        else:
-            ball = "colored ball"
-
-        print(f"{player} must pot a {ball} next")
 
 
     # Handle missed balls
