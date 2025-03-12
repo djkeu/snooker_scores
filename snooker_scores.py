@@ -1,5 +1,4 @@
 import sys
-from random import randint
 
 
 RED_BALLS = 15
