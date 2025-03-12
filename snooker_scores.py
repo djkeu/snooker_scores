@@ -360,24 +360,20 @@ class SnookerScores:
             )
             self.score_player_1 += penalty_value
 
-    def get_respot_input(self):
-        """Get input for respotting balls."""
+    def respot_balls(self):
+        """Respot balls if needed."""
         while True:
             respot = input("Do you want a respot? (y/n) ").strip().lower()
             if respot in ['y', 'n']:
-                return respot
+                break
             else:
                 print("Invalid input. Please enter 'y' or 'n'.")
-
-    def respot_balls(self):
-        """Respot balls if needed."""
-        respot = self.get_respot_input()
 
         if respot == 'y':
             self.switch_players()
         elif self.red_balls > 0:
             self.red_needed_next = True
-
+            
 
     # Game phases 1: start the game
     def start_game(self):
