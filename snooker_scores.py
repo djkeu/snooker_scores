@@ -358,11 +358,7 @@ class SnookerScores:
     # Game phases 1: prelude to the game
     def display_startup_message(self):
         """Display welcome message and hotkeys."""
-        with open("txt/welcome_messages.txt") as f:
-            for count, line in enumerate(f):
-                if count == randint(0, count):
-                    welcome_message = line
-        print(f"\n\t\t{welcome_message}")
+        print(f"\t\tSnooker at its best!")
 
         with open("txt/hotkeys.txt") as f:
             print(f.read())
