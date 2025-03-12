@@ -268,10 +268,14 @@ class SnookerScores:
         """Display the current game state."""
         self.calculate_potential_scores()
 
-        print(f"\n{self.player_1}: score {self.score_player_1}, "
-              f"potential score {self.potential_score_player_1}")
-        print(f"{self.player_2}: score {self.score_player_2}, "
-              f"potential score {self.potential_score_player_2}")
+        print(
+            f"\n{self.player_1}: score {self.score_player_1}, "
+            f"potential score {self.potential_score_player_1}"
+        )
+        print(
+            f"{self.player_2}: score {self.score_player_2}, "
+            f"potential score {self.potential_score_player_2}"
+        )
 
         self.red_balls_left()
         self.display_snookers_needed()
