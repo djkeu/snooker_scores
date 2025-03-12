@@ -231,26 +231,6 @@ class SnookerScores:
 
         self.update_score(shot)
 
-    def handle_miss(self):
-        """Handle a miss."""
-        if not self.red_needed_next:
-            self.available_player_1 -= 7
-        self.switch_players()
-
-    def switch_players(self):
-        """Switch players."""
-        print("Switching players...")
-        self.player_1_turn = not self.player_1_turn
-
-        if self.player_1_turn:
-            active_player = self.player_1
-        else:
-            active_player = self.player_2
-        print(f"Active player now is {active_player}")
-
-        if self.red_balls > 0:
-            self.red_needed_next = True
-
 
     # Score handling
     def update_score(self, shot):
@@ -317,6 +297,28 @@ class SnookerScores:
             ball = "colored ball"
 
         print(f"{player} must pot a {ball} next")
+
+
+    # Handle missed balls
+    def handle_miss(self):
+        """Handle a miss."""
+        if not self.red_needed_next:
+            self.available_player_1 -= 7
+        self.switch_players()
+
+    def switch_players(self):
+        """Switch players."""
+        print("Switching players...")
+        self.player_1_turn = not self.player_1_turn
+
+        if self.player_1_turn:
+            active_player = self.player_1
+        else:
+            active_player = self.player_2
+        print(f"Active player now is {active_player}")
+
+        if self.red_balls > 0:
+            self.red_needed_next = True
 
 
     # Handle penalties
