@@ -341,15 +341,15 @@ class SnookerScores:
         if self.player_1_turn:
             print(
                 f"Penalty of {penalty_value} "
-                f"points applied to {self.player_2}."
-            )
-            self.score_player_2 += penalty_value
-        else:
-            print(
-                f"Penalty of {penalty_value} "
                 f"points applied to {self.player_1}."
             )
             self.score_player_1 += penalty_value
+        else:
+            print(
+                f"Penalty of {penalty_value} "
+                f"points applied to {self.player_2}."
+            )
+            self.score_player_2 += penalty_value
 
     def respot_balls(self):
         """Respot balls if needed."""
