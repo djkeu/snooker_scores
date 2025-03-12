@@ -200,7 +200,9 @@ class SnookerScores:
 
                     self.red_needed_next = False
 
-                    colored_ball = input(f"Which colored ball is the first to play: ")
+                    colored_ball = input(
+                        f"Which colored ball is the first to play: "
+                    )
                     self.yellow_ball = int(colored_ball)
                     balls_played = sum(range(0, self.yellow_ball)) - 1
                     # Note: balls_played is sum(range(2, self.yellow_ball))
@@ -228,7 +230,7 @@ class SnookerScores:
                 print(f"Invalid input: {e}. Please try again.")
 
     def validate_red_balls(self, red_balls):
-        """Validate that the number of red balls is within the allowed range."""
+        """Validate number of red balls is within allowed range."""
         if red_balls < 0 or red_balls > 15:
             raise ValueError(
                 "Invalid number of red balls. It must be between 0 and 15."
@@ -301,7 +303,7 @@ class SnookerScores:
             print(f"{self.player_2} needs snookers!")
             self.snookers_needed = True
         elif (
-            self.snookers_needed is False and 
+            self.snookers_needed is False and
             self.score_player_2 > self.score_player_1 + self.available_player_1
         ):
             print(f"{self.player_1} needs snookers!")
@@ -344,15 +346,23 @@ class SnookerScores:
                     raise ValueError("Penalty must be a non-negative integer.")
                 return penalty
             except ValueError as e:
-                print(f"Invalid input: {e}. Please enter a valid penalty value.")
+                print(
+                    f"Invalid input: {e}. Please enter a valid penalty value."
+                )
 
     def apply_penalty(self, penalty_value):
         """Apply penalty to the player."""
         if self.player_1_turn:
-            print(f"Penalty of {penalty_value} points applied to {self.player_2}.")
+            print(
+                f"Penalty of {penalty_value} "
+                f"points applied to {self.player_2}."
+            )
             self.score_player_2 += penalty_value
         else:
-            print(f"Penalty of {penalty_value} points applied to {self.player_1}.")
+            print(
+                f"Penalty of {penalty_value} "
+                f"points applied to {self.player_1}."
+            )
             self.score_player_1 += penalty_value
 
     def get_respot_input(self):
@@ -393,7 +403,9 @@ class SnookerScores:
 
     def store_players_names(self):
         """Store players names in vars."""
-        player_names = input("Do you want to enter player names? (y/n) ").strip().lower()
+        player_names = input(
+            "Do you want to enter player names? (y/n) "
+        ).strip().lower()
 
         if player_names == 'y':
             self.player_1 = self.get_player_name()
