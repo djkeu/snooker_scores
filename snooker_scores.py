@@ -194,7 +194,6 @@ class SnookerScores:
         print("Only numbers between 0 and 7 are valid!")
 
 
-
     # Ball handling
     def handle_red_ball(self, shot):
         """Handle a red ball."""
