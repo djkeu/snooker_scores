@@ -43,7 +43,7 @@ class SnookerScores:
         while True:
             shot = input(self.shot_prompt).strip().lower()
 
-            result = self.handle_special_input(shot)
+            result = self.handle_hotkeys(shot)
             if result is not None:
                 continue
 
@@ -51,8 +51,8 @@ class SnookerScores:
             if valid_shot is not None:
                 return valid_shot
 
-    def handle_special_input(self, shot):
-        """Handle special input."""
+    def handle_hotkeys(self, shot):
+        """Handle hotkeys."""
         if shot == "q":
             sys.exit()
         elif shot == "p":

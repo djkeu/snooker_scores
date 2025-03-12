@@ -92,25 +92,25 @@ def test_validate_shot_edge_cases():
 def test_handle_special_input_q():
     snooker_game = SnookerScores()
     with patch("sys.exit") as mock_exit:
-        snooker_game.handle_special_input("q")
+        snooker_game.handle_hotkeys("q")
         mock_exit.assert_called_once()
 
 def test_handle_special_input_p():
     snooker_game = SnookerScores()
     with patch.object(snooker_game, 'add_penalty') as mock_add_penalty:
-        snooker_game.handle_special_input("p")
+        snooker_game.handle_hotkeys("p")
         mock_add_penalty.assert_called_once()
 
 def test_handle_special_input_x():
     snooker_game = SnookerScores()
     with patch.object(snooker_game, 'switch_players') as mock_switch_players:
-        snooker_game.handle_special_input("x")
+        snooker_game.handle_hotkeys("x")
         mock_switch_players.assert_called_once()
 
 def test_handle_special_input_s():
     snooker_game = SnookerScores()
     with patch.object(snooker_game, 'set_starting_scores') as mock_set_starting_scores:
-        snooker_game.handle_special_input("s")
+        snooker_game.handle_hotkeys("s")
         mock_set_starting_scores.assert_called_once()
 
 def test_handle_invalid_input(capfd):
