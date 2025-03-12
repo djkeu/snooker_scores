@@ -24,6 +24,9 @@ This program is to display how many points are still available for each player t
     - handle_last_colored_ball
     - colored_balls_phase
 
+- ToDo: black ball game
+    - als het spel in gelijkstand eindigt, wordt de zwarte op zijn spot geplaatst en wint degene die deze bal pot
+
 - ToDo: GUI
 
 ```
