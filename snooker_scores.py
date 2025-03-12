@@ -46,6 +46,7 @@ class SnookerScores:
                     self.validate_red_balls
                 )
                 if self.red_balls is None:
+                    print("Ok, back to the game then. ")
                     return
 
                 score_player_1 = self.get_input_starting_scores(
@@ -53,6 +54,7 @@ class SnookerScores:
                     lambda x: self.validate_player_scores(x, 0)
                 )
                 if score_player_1 is None:
+                    print("Ok, back to the game then. ")
                     return
 
                 score_player_2 = self.get_input_starting_scores(
@@ -60,6 +62,7 @@ class SnookerScores:
                     lambda x: self.validate_player_scores(score_player_1, x)
                 )
                 if score_player_2 is None:
+                    print("Ok, back to the game then. ")
                     return
 
                 self.validate_player_scores(score_player_1, score_player_2)
