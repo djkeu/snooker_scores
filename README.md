@@ -18,8 +18,9 @@ This program is to display how many points are still available for each player t
 
 - ToDo: get rid of rotating welcome messages, one is enough
 
-- ToDo: switch players
+- ToDo: switch_players
     - ToDo: display active player
+    - Note: helper method
 
 - ToDo: repetitive code
     - set_starting_scores
