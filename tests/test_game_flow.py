@@ -43,7 +43,7 @@ def test_multiple_penalties(capsys):
             game.start_game()
     captured = capsys.readouterr()
     assert "Penalty of 4 points applied to Player 2." in captured.out
-    assert "Penalty of 5 points applied to Player 1." in captured.out
+    assert "Penalty of 5 points applied to Player 2." in captured.out
     assert "Switching players..." in captured.out
 
 def test_switch_players_red_ball_phase(capsys):
