@@ -294,10 +294,16 @@ class SnookerScores:
 
     def display_snookers_needed(self):
         """Display the number of snookers needed."""
-        if self.snookers_needed is False and self.score_player_1 > self.score_player_2 + self.available_player_2:
+        if (
+            self.snookers_needed is False and
+            self.score_player_1 > self.score_player_2 + self.available_player_2
+        ):
             print(f"{self.player_2} needs snookers!")
             self.snookers_needed = True
-        elif self.snookers_needed is False and self.score_player_2 > self.score_player_1 + self.available_player_1:
+        elif (
+            self.snookers_needed is False and 
+            self.score_player_2 > self.score_player_1 + self.available_player_1
+        ):
             print(f"{self.player_1} needs snookers!")
             self.snookers_needed = True
 
