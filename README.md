@@ -12,6 +12,10 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
+- ToDo: store_players_names
+    - ToDo: copy from backup_11_*.py
+    - ToDo: adjust 7 failing tests
+
 - ToDo: set_starting_scores
     - ToDo: refactor set_starting_scores
     - ToDo: refactor get_input_starting_scores
