@@ -1,8 +1,6 @@
 import pytest
 from unittest.mock import patch
 from snooker_scores import SnookerScores
-from io import StringIO
-import sys
 
 
 def mock_input(prompt, value):

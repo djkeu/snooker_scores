@@ -1,7 +1,6 @@
 import pytest
 from unittest.mock import patch
 from snooker_scores import SnookerScores
-import itertools
 
 def mock_input(prompt, *values):
     """Helper function to mock the input function."""
