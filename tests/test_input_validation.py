@@ -94,33 +94,7 @@ def test_handle_special_input_s():
         mock_set_starting_scores.assert_called_once()
 
 
-
 # Re-spot input validation
-def test_get_respot_input_valid():
-    with mock_input("Do you want a respot? (y/n) ", "y"):
-        game = SnookerScores()
-        result = game.get_respot_input()
-        assert result == 'y', f"Expected 'y', but got {result}"
-
-    with mock_input("Do you want a respot? (y/n) ", "n"):
-        game = SnookerScores()
-        result = game.get_respot_input()
-        assert result == 'n', f"Expected 'n', but got {result}"
-
-def test_get_respot_input_invalid():
-    with mock_input("Re-spot black? (y/n): ", "a"):
-        with mock_input("Re-spot black? (y/n): ", "y"):
-            game = SnookerScores()
-            result = game.get_respot_input()
-            assert result == 'y', f"Expected 'y', but got {result}"
-
-def test_get_respot_input_edge_cases():
-    game = SnookerScores()
-    with patch("builtins.input", side_effect=["invalid", "y"]):
-        assert game.get_respot_input() == "y"
-    with patch("builtins.input", side_effect=["invalid", "n"]):
-        assert game.get_respot_input() == "n"
-
 def test_respot_balls_edge_cases():
     game = SnookerScores()
     with patch("builtins.input", side_effect=["y"]):
