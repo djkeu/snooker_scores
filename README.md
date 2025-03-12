@@ -16,8 +16,6 @@ This program is to display how many points are still available for each player t
     - ToDo: refactor
     - ToDo: set_starting_scores called during colored_balls phase will get wrong results
 
-- ToDo: get rid of rotating welcome messages, one is enough
-
 - ToDo: switch_players
     - ToDo: display active player
     - Note: helper method
