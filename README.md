@@ -13,7 +13,10 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: set_starting_scores
-    - ToDo: refactor
+    - ToDo: refactor set_starting_scores
+    - ToDo: refactor get_input_starting_scores
+        1. get_input_starting_scores
+        2. validate_input_starting_scores
     - ToDo: set_starting_scores called during colored_balls phase will get wrong results
 
 - ToDo: repetitive code
