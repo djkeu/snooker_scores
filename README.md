@@ -18,8 +18,7 @@ This program is to display how many points are still available for each player t
 
 - ToDo: get rid of rotating welcome messages, one is enough
 
-- ToDo: penalties
-    - Done: display who gets what
+- ToDo: switch players
     - ToDo: display active player
 
 - ToDo: repetitive code
