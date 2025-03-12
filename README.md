@@ -13,10 +13,8 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: set_starting_scores
-    - Done: prompt for colored ball to play when red ball == 0
-    - Done: available: set to (27 - value of colored balls played)
     - ToDo: refactor
-    - Note: set_starting_scores called during colored_balls phase will get wrong results
+    - ToDo: set_starting_scores called during colored_balls phase will get wrong results
 
 - ToDo: get rid of rotating welcome messages, one is enough
 
