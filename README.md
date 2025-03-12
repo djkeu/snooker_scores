@@ -17,7 +17,6 @@ This program is to display how many points are still available for each player t
     - ToDo: set_starting_scores called during colored_balls phase will get wrong results
 
 - ToDo: repetitive code
-    - set_starting_scores
     - red_balls_phase
     - handle_last_colored_ball
     - colored_balls_phase
