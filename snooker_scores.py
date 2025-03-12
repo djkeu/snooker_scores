@@ -144,6 +144,7 @@ class SnookerScores:
         self.player_1_turn = not self.player_1_turn
 
         # ToDo: display active player name
+        # Note: Preferably through helper method
 
         if self.red_balls > 0:
             self.red_needed_next = True
