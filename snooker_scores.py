@@ -244,7 +244,7 @@ class SnookerScores:
             raise ValueError(f"Total score cannot exceed {possible_score}.")
 
     def validate_min_score(self, red_balls, score_player_1, score_player_2):
-        """Validate that the total score is not too low. """
+        """Validate that the total score is not too low."""
         if red_balls == 15 and score_player_1 == 0 and score_player_2 == 0:
             return
 
