@@ -143,6 +143,8 @@ class SnookerScores:
         print("Switching players...")
         self.player_1_turn = not self.player_1_turn
 
+        # ToDo: display active player name
+
         if self.red_balls > 0:
             self.red_needed_next = True
 
