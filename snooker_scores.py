@@ -475,11 +475,13 @@ class SnookerScores:
         while self.available_player_1 > 0:
             if self.player_1_turn:
                 print(
-                    f"{self.player_1} must pot a {self.colored_balls[self.yellow_ball]} ball"
+                    f"{self.player_1} must pot a "
+                    f"{self.colored_balls[self.yellow_ball]} ball"
                 )
             else:
                 print(
-                    f"{self.player_2} must pot a {self.colored_balls[self.yellow_ball]} ball"
+                    f"{self.player_2} must pot a "
+                    f"{self.colored_balls[self.yellow_ball]} ball"
                 )
             shot = self.get_shot_value()
 
@@ -518,7 +520,10 @@ class SnookerScores:
         elif self.score_player_1 < self.score_player_2:
             winner = self.player_2
 
-        print(f"\n{winner} wins! (with a score of {max(self.score_player_1, self.score_player_2)} vs {min(self.score_player_1, self.score_player_2)})")
+        print(
+            f"\n{winner} wins! "
+            f"(with a score of {max(self.score_player_1, self.score_player_2)}"
+            f" vs {min(self.score_player_1, self.score_player_2)})")
 
     def restart_game(self):
         """Ask user if they want to play again."""
