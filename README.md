@@ -12,6 +12,8 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
+- ToDo: validate_and_return_shot: abundant?
+
 - ToDo: set_starting_scores
     - ToDo: refactor
     - ToDo: set_starting_scores called during colored_balls phase will get wrong results

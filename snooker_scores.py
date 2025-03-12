@@ -176,10 +176,7 @@ class SnookerScores:
         else:
             return None
 
-    def handle_invalid_input(self):
-        """Handle invalid input."""
-        print("Only numbers between 0 and 7 are valid!")
-
+    # ToDo: check if needed
     def validate_and_return_shot(self, shot):
         """Validate the shot and return it."""
         validated_shot = self.validate_shot(shot)
@@ -199,6 +196,11 @@ class SnookerScores:
 
         self.handle_invalid_input()
         return None
+
+    def handle_invalid_input(self):
+        """Handle invalid input."""
+        print("Only numbers between 0 and 7 are valid!")
+
 
 
     # Ball handling
