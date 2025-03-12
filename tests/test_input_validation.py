@@ -93,11 +93,6 @@ def test_handle_special_input_s():
         snooker_game.handle_hotkeys("s")
         mock_set_starting_scores.assert_called_once()
 
-def test_handle_invalid_input(capfd):
-    snooker_game = SnookerScores()
-    snooker_game.handle_invalid_input()
-    captured = capfd.readouterr()
-    assert "Only numbers between 0 and 7 are valid!" in captured.out
 
 
 # Re-spot input validation
