@@ -358,7 +358,16 @@ class SnookerScores:
             self.red_needed_next = True
 
 
-    # Game phases 1: prelude to the game
+    # Game phases 1: start the game
+    def start_game(self):
+        """Start the game."""
+        self.display_startup_message()
+        self.store_players_names()
+        self.red_balls_phase()
+        self.colored_balls_phase()
+        self.display_winner()
+        self.restart_game()
+
     def display_startup_message(self):
         """Display welcome message and hotkeys."""
         print(f"\t\tSnooker at its best!")
@@ -466,13 +475,9 @@ class SnookerScores:
                 return
 
 
-    # Game phases 3: start and end
-    def start_game(self):
-        """Start the game."""
-        self.display_startup_message()
-        self.store_players_names()
-        self.red_balls_phase()
-        self.colored_balls_phase()
+    # Game phases 3: end the game
+    def early_victory(self):
+        """Show winner of an early victory."""
         self.display_winner()
         self.restart_game()
 
@@ -486,11 +491,6 @@ class SnookerScores:
             winner = self.player_2
 
         print(f"\n{winner} wins! (with a score of {max(self.score_player_1, self.score_player_2)} vs {min(self.score_player_1, self.score_player_2)})")
-
-    def early_victory(self):
-        """Show winner of an early victory."""
-        self.display_winner()
-        self.restart_game()
 
     def restart_game(self):
         """Ask user if they want to play again."""
