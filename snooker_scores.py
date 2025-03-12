@@ -230,7 +230,9 @@ class SnookerScores:
     def validate_red_balls(self, red_balls):
         """Validate that the number of red balls is within the allowed range."""
         if red_balls < 0 or red_balls > 15:
-            raise ValueError("Invalid number of red balls. It must be between 0 and 15.")
+            raise ValueError(
+                "Invalid number of red balls. It must be between 0 and 15."
+            )
 
     def validate_player_scores(self, score_player_1, score_player_2):
         """Validate that the scores are within the allowed range."""
