@@ -152,50 +152,19 @@ snooker_scores/
 
 ```
 
-### Old GUI
-
-```
-Note: obsolete
-
-snooker_scores/ 
-├── src/ 
-│   ├──  __init__.py
-│   ├──  main.py
-│   ├──  snooker_game.py
-│   ├──  snooker_gui.py
-├── tests/
-│   ├──  __init__.py
-│   ├──  test_conftest.py
-│   ├──  test_game_phases.py
-│   ├──  test_get_shot.py
-│   ├──  test_handle_balls.py
-│   ├──  test_initialization.py
-│   ├──  test_scores.py
-│   ├──  test_set_starting_scores.py
-├── .gitignore 
-├── pytest.ini 
-├── readme.md
-
-```
-
 
 ## Pytest
 
-test_game_flow.py: 
+- test_game_flow.py:
+    - Test the overall game flow from start to finish.
+- test_game_logic.py
+    - Test the main game logic, including handling shots, phases, and score calculations.
 
-- Test the overall game flow from start to finish.
+- test_input_validation.py
+    - Test input validation, such as handling invalid values and ensuring correct user prompts.
 
-test_game_logic.py
-
-- Test the main game logic, including handling shots, phases, and score calculations.
-
-test_input_validation.py
-
-- Test input validation, such as handling invalid values and ensuring correct user prompts.
-
-test_score_calculation.py
-
-- Test how scores are updated based on different scenarios.
+- test_score_calculation.py
+    - Test how scores are updated based on different scenarios.
 
 
 ## Snooker rules
@@ -230,7 +199,6 @@ Nadat er een fout werd gemaakt mag de tegenspeler:
 
 ### Imports main file
 - sys
-- from random import randint
 
 ### Imports test files
 - sys
