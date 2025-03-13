@@ -131,8 +131,6 @@ snooker_scores/
 ### New GUI
 
 ```
-Note: needs to be updated
-
 snooker_scores/
 ├── sn_env/
 ├── tests/
@@ -140,14 +138,12 @@ snooker_scores/
 │   ├──  test_game_logic.py
 │   ├──  test_input_validation.py
 │   ├──  test_score_calculation.py
-│   ├──  tst_snooker.py
 ├── txt/
 │   ├──  hotkeys.txt
-│   ├──  welcome_messages.txt
 ├── .gitignore 
 ├── main.py 
 ├── pytest.ini 
-├── readme.md 
+├── README.md 
 ├── snooker_scores.py 
 
 ```
@@ -212,6 +208,5 @@ Nadat er een fout werd gemaakt mag de tegenspeler:
 
 ## End notes
 
-
-## Going further: Do It Yourself Scoreboards
+### Do It Yourself Scoreboards
 Do you hate how scoreboards on tv suddenly disappear during because some director wants to switch to the face of the player claiming that makes good television? 
