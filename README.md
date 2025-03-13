@@ -12,37 +12,10 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- Done: pytest: 19 failing tests since refactoring of set_starting_scores
-
-    - $ pytest --lf --collect-only -q
-    01. Done: tests/test_game_flow.py::test_start_game_invalid_red_balls_then_early_exit
-    02. Done: tests/test_game_flow.py::test_start_game_invalid_player_scores_then_early_exit
-    03. Done: tests/test_game_flow.py::test_start_game_exceed_max_red_balls_then_early_exit
-
-    04. Done: tests/test_input_validation.py::test_set_starting_scores_invalid_score
-    05. Done: tests/test_input_validation.py::test_set_starting_scores_invalid_total_score
-    06. Done: tests/test_input_validation.py::test_get_input_starting_scores_valid
-    07. Done: tests/test_input_validation.py::test_get_input_starting_scores_invalid_then_valid
-    08. Done: tests/test_input_validation.py::test_get_input_starting_scores_edge_cases
-
-    09. Done: tests/test_input_validation.py::test_validate_red_balls_valid
-        - Note: divided test into:
-        - Done: tests/test_input_validation.py::test_validate_red_balls_no_reds
-        - Done: tests/test_input_validation.py::test_validate_red_balls_1 red
-        - Done: tests/test_input_validation.py::test_validate_red_balls_2_reds
-    10. Done: tests/test_input_validation.py::test_validate_red_balls_invalid_low
-    11. Done: tests/test_input_validation.py::test_validate_red_balls_invalid_high
-    12. Done: tests/test_input_validation.py::test_validate_red_balls_edge_cases
-
-    13. Done: tests/test_input_validation.py::test_validate_player_scores_valid
-    14. Done: tests/test_input_validation.py::test_validate_player_scores_negative
-    15. Done: tests/test_input_validation.py::test_validate_player_scores_exceed_maximum_break
-    16. Done: tests/test_input_validation.py::test_validate_player_scores_edge_cases
-    17. Done: tests/test_input_validation.py::test_validate_min_score_valid
-    18. Done: tests/test_input_validation.py::test_validate_min_score_invalid
-    19. Done: tests/test_input_validation.py::test_validate_min_score_edge_cases
-
 - ToDo: set_starting_scores called during colored_balls phase will get wrong results
+    - ToDo: Display warning or solve the problem
+    - Note: 'q' will reset the game
+    - Note: hotkey to restart_game and set_starting_scores?
 
 - ToDo: repetitive code
     - red_balls_phase
@@ -53,6 +26,8 @@ This program is to display how many points are still available for each player t
     - ToDo: black_ball_phase:
         - als het spel in gelijkstand eindigt, wordt de zwarte op zijn spot geplaatst en wint degene die deze bal pot
     - ToDo: display_winner: call black_ball_phase if scores are even
+
+- ToDo: check accuracy pytests
 
 - ToDo: GUI
 
