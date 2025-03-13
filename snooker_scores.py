@@ -492,12 +492,14 @@ class SnookerScores:
             elif int(shot) == 0:
                 self.switch_players()
             elif int(shot) == 7:
-                if self.player_1_turn:
-                    self.score_player_1 += 7
-                    break
-                else:
-                    self.score_player_2 += 7
-                    break
+                self.winner_black_ball_phase()
+                break
+
+    def winner_black_ball_phase(self):
+        if self.player_1_turn:
+            self.score_player_1 += 7
+        else:
+            self.score_player_2 += 7
 
     # Game phases 3: end the game
     def early_victory(self):
