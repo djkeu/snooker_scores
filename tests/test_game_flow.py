@@ -185,14 +185,13 @@ def test_start_game_early_exit_set_starting_scores(capsys):
 def test_start_game_invalid_red_balls_then_early_exit(capsys):
     game = SnookerScores()
     inputs = generate_inputs(
-        ["n",
-         SET_SCORES_INPUT, "invalid", "q", QUIT_INPUT]
+        ["n", SET_SCORES_INPUT, "invalid", "q", QUIT_INPUT]
     )
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
-    assert "Invalid input: invalid literal for int() with base 10: 'invalid'. Please try again." in captured.out
+    assert "Error: invalid literal for int() with base 10: 'invalid'. Please try again." in captured.out
 
 def test_start_game_invalid_player_scores_then_early_exit(capsys):
     game = SnookerScores()
