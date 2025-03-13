@@ -34,12 +34,12 @@ This program is to display how many points are still available for each player t
     11. Done: tests/test_input_validation.py::test_validate_red_balls_invalid_high
     12. Done: tests/test_input_validation.py::test_validate_red_balls_edge_cases
 
-    13. ToDo: tests/test_input_validation.py::test_validate_player_scores_valid
-    14. ToDo: tests/test_input_validation.py::test_validate_player_scores_negative
-    15. ToDo: tests/test_input_validation.py::test_validate_player_scores_exceed_maximum_break
-    16. ToDo: tests/test_input_validation.py::test_validate_player_scores_edge_cases
+    13. Done: tests/test_input_validation.py::test_validate_player_scores_valid
+    14. Done: tests/test_input_validation.py::test_validate_player_scores_negative
+    15. Done: tests/test_input_validation.py::test_validate_player_scores_exceed_maximum_break
+    16. Done: tests/test_input_validation.py::test_validate_player_scores_edge_cases
     17. ToDo: tests/test_input_validation.py::test_validate_min_score_valid
-    18. ToDo: tests/test_input_validation.py::test_validate_min_score_invalid
+    18. Done: tests/test_input_validation.py::test_validate_min_score_invalid
     19. ToDo: tests/test_input_validation.py::test_validate_min_score_edge_cases
 
 - ToDo: set_starting_scores called during colored_balls phase will get wrong results

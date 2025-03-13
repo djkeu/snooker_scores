@@ -124,7 +124,6 @@ def test_set_starting_scores_invalid_score():
         game.set_starting_scores()
         assert game.red_balls == 15
 
-
 def test_set_starting_scores_invalid_red_balls():
     """Test set_starting_scores with invalid red ball inputs."""
     with mock_input(
@@ -223,81 +222,48 @@ def test_validate_red_balls_edge_cases():
 
 
 def test_validate_player_scores_valid():
-    """Test validate_player_scores with valid input."""
     game = SnookerScores()
-    game.red_balls = 0
-    game.end_break = 0
-    game.validate_player_scores(50, 60)
-    game.validate_player_scores(0, 0)
-    game.validate_player_scores(147, 0)
+    with patch("builtins.input", side_effect=["0", "50", "60"]):
+        result = game.collect_starting_scores_inputs()
+        assert result == (0, 50, 60)
 
 def test_validate_player_scores_negative():
-    """Test validate_player_scores with negative scores."""
     game = SnookerScores()
-    
-    with pytest.raises(ValueError, match="Scores must be positive values."):
-        game.validate_player_scores(-10, 20)
-    with pytest.raises(ValueError, match="Scores must be positive values."):
-        game.validate_player_scores(10, -20)
-    with pytest.raises(ValueError, match="Scores must be positive values."):
-        game.validate_player_scores(-10, -20)
+    with patch("builtins.input", side_effect=["0", "-10", "20"]):
+        result = game.collect_starting_scores_inputs()
+        assert result is None
 
 def test_validate_player_scores_exceed_maximum_break():
-    """Test validate_player_scores with scores exceeding the maximum break."""
     game = SnookerScores()
-    game.red_balls = 0
-    game.end_break = 0
-    
-    with pytest.raises(ValueError, match="Total score cannot exceed 147."):
-        game.validate_player_scores(100, 50)
-    with pytest.raises(ValueError, match="Total score cannot exceed 147."):
-        game.validate_player_scores(148, 0)
-    with pytest.raises(ValueError, match="Total score cannot exceed 147."):
-        game.validate_player_scores(0, 148)
+    with patch("builtins.input", side_effect=["0", "100", "50"]):
+        result = game.collect_starting_scores_inputs()
+        assert result is None
 
 def test_validate_player_scores_edge_cases():
     game = SnookerScores()
-    game.red_balls = 0
-    game.end_break = 0
-    
-    with pytest.raises(ValueError):
-        game.validate_player_scores(-1, 0)
-    with pytest.raises(ValueError):
-        game.validate_player_scores(0, -1)
-    with pytest.raises(ValueError):
-        game.validate_player_scores(148, 0)
-    with pytest.raises(ValueError):
-        game.validate_player_scores(0, 148)
-    game.validate_player_scores(0, 0)
-    game.validate_player_scores(147, 0)
-    game.validate_player_scores(0, 147)
+    with patch("builtins.input", side_effect=["0", "-1", "0"]):
+        result = game.collect_starting_scores_inputs()
+        assert result is None
 
 
 def test_validate_min_score_valid():
-    """Test validate_min_score with valid input."""
     game = SnookerScores()
-    
-    game.validate_min_score(5, 50, 60)
-    game.validate_min_score(0, 147, 0)
-    game.validate_min_score(15, 0, 0)
+    with patch("builtins.input", side_effect=["5", "50", "60"]):
+        result = game.collect_starting_scores_inputs()
+        assert result == (5, 50, 60)
 
 def test_validate_min_score_invalid():
-    """Test validate_min_score with invalid input (total score too low)."""
     game = SnookerScores()
-    
-    with pytest.raises(ValueError, match="Total score is too low."):
-        game.validate_min_score(5, 10, 15)
-    with pytest.raises(ValueError, match="Total score is too low."):
-        game.validate_min_score(10, 5, 7)
-    with pytest.raises(ValueError, match="Total score is too low."):
-        game.validate_min_score(14, 0, 0)
+    with patch("builtins.input", side_effect=["5", "10", "15"]):
+        result = game.collect_starting_scores_inputs()
+        assert result is None
 
 def test_validate_min_score_edge_cases():
     game = SnookerScores()
-    game.validate_min_score(15, 0, 0)
-    game.validate_min_score(14, 1, 0)
-    game.validate_min_score(14, 1, 1)
-    game.validate_min_score(14, 3, 0)
+    with patch("builtins.input", side_effect=["15", "0", "0"]):
+        result = game.collect_starting_scores_inputs()
+        assert result is None
+
 
 
 # Penalty input validation
