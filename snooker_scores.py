@@ -39,6 +39,8 @@ class SnookerScores:
     # Set starting scores
     def set_starting_scores(self):
         """Set the starting scores for the game."""
+        back_to_game = "Ok, back to the game then. "
+
         while True:
             try:
                 self.red_balls = self.get_input_starting_scores(
@@ -46,7 +48,7 @@ class SnookerScores:
                     self.validate_red_balls
                 )
                 if self.red_balls is None:
-                    print("Ok, back to the game then. ")
+                    print(back_to_game)
                     return
 
                 score_player_1 = self.get_input_starting_scores(
@@ -54,7 +56,7 @@ class SnookerScores:
                     lambda x: self.validate_player_scores(x, 0)
                 )
                 if score_player_1 is None:
-                    print("Ok, back to the game then. ")
+                    print(back_to_game)
                     return
 
                 score_player_2 = self.get_input_starting_scores(
@@ -62,7 +64,7 @@ class SnookerScores:
                     lambda x: self.validate_player_scores(score_player_1, x)
                 )
                 if score_player_2 is None:
-                    print("Ok, back to the game then. ")
+                    print(back_to_game)
                     return
 
                 self.validate_player_scores(score_player_1, score_player_2)
