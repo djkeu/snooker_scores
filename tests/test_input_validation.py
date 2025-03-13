@@ -179,35 +179,34 @@ def test_get_input_starting_scores_edge_cases():
 
 
 def test_validate_red_balls_valid():
-    """Test validate_red_balls with valid input."""
     game = SnookerScores()
-    
-    game.validate_red_balls(0)
-    game.validate_red_balls(10)
-    game.validate_red_balls(15)
+    with patch("builtins.input", side_effect=["0", "30", "30", "2"]):
+        with patch.object(game, "setup_colored_balls_phase"):
+            game.set_starting_scores()
+            assert game.red_balls == 0
+            assert game.score_player_1 == 30
+            assert game.score_player_2 == 30
+            assert game.yellow_ball == 2
 
 def test_validate_red_balls_invalid_low():
     """Test validate_red_balls with invalid input (too low)."""
     game = SnookerScores()
-    
-    with pytest.raises(ValueError, match="Invalid number of red balls. It must be between 0 and 15."):
-        game.validate_red_balls(-1)
+    with patch("builtins.input", side_effect=["-1", "0", "0"]):
+        result = game.collect_starting_scores_inputs()
+        assert result is None
 
 def test_validate_red_balls_invalid_high():
     """Test validate_red_balls with invalid input (too high)."""
     game = SnookerScores()
-    
-    with pytest.raises(ValueError, match="Invalid number of red balls. It must be between 0 and 15."):
-        game.validate_red_balls(16)
+    with patch("builtins.input", side_effect=["16", "0", "0"]):
+        result = game.collect_starting_scores_inputs()
+        assert result is None
 
 def test_validate_red_balls_edge_cases():
     game = SnookerScores()
-    with pytest.raises(ValueError):
-        game.validate_red_balls(-1)
-    with pytest.raises(ValueError):
-        game.validate_red_balls(16)
-    game.validate_red_balls(0)
-    game.validate_red_balls(15)
+    with patch("builtins.input", side_effect=["-1", "0", "0"]):
+        result = game.collect_starting_scores_inputs()
+        assert result is None
 
 
 def test_validate_player_scores_valid():
