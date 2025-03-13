@@ -377,7 +377,6 @@ class SnookerScores:
         with open("txt/hotkeys.txt") as f:
             print(f.read())
 
-    # Note: completer version in backup_11_*.py
     def store_players_names(self):
         """Store players names in vars."""
         player_names = input(
