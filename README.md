@@ -12,17 +12,12 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- Abandoned: store_players_names
+- Abandoned: activate 'n' in store_players_names
     - Note: the GUI won't need the suggested change
     - ToDo: copy from backup_11_*.py
     - ToDo: adjust 7 failing tests
 
-- ToDo: set_starting_scores
-    - Done: refactor set_starting_scores
-    - ToDo: refactor get_input_starting_scores
-        1. get_input_starting_scores
-        2. validate_input_starting_scores
-    - ToDo: set_starting_scores called during colored_balls phase will get wrong results
+- ToDo: set_starting_scores called during colored_balls phase will get wrong results
 
 - ToDo: repetitive code
     - red_balls_phase
