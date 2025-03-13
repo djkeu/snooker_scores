@@ -21,7 +21,7 @@ This program is to display how many points are still available for each player t
 
     04. Done: tests/test_input_validation.py::test_set_starting_scores_invalid_score
     05. Done: tests/test_input_validation.py::test_set_starting_scores_invalid_total_score
-    06. ToDo: tests/test_input_validation.py::test_get_input_starting_scores_valid
+    06. Done: tests/test_input_validation.py::test_get_input_starting_scores_valid
     07. ToDo: tests/test_input_validation.py::test_get_input_starting_scores_invalid_then_valid
     08. ToDo: tests/test_input_validation.py::test_get_input_starting_scores_edge_cases
     09. ToDo: tests/test_input_validation.py::test_validate_red_balls_valid

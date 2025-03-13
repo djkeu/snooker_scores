@@ -160,10 +160,10 @@ def test_set_starting_scores_edge_cases():
 
 
 def test_get_input_starting_scores_valid():
-    with mock_input("Enter a number: ", "10"):
+    with patch("builtins.input", side_effect=["10", "10", "10"]):
         game = SnookerScores()
-        result = game.get_input_starting_scores("Enter a number: ", lambda x: None)
-        assert result == 10
+        result = game.collect_starting_scores_inputs()
+        assert result == (10, 10, 10)
 
 def test_get_input_starting_scores_invalid_then_valid():
     with mock_input("Enter a number: ", "invalid", "20"):
