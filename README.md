@@ -14,6 +14,27 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: pytest: 19 failing tests since refactoring of set_starting_scores
 
+    - $ pytest --lf --collect-only -q
+    01. ToDo: tests/test_game_flow.py::test_start_game_invalid_red_balls_then_early_exit
+    02. ToDo: tests/test_game_flow.py::test_start_game_invalid_player_scores_then_early_exit
+    03. ToDo: tests/test_game_flow.py::test_start_game_exceed_max_red_balls_then_early_exit
+    04. ToDo: tests/test_input_validation.py::test_set_starting_scores_invalid_score
+    05. ToDo: tests/test_input_validation.py::test_set_starting_scores_invalid_total_score
+    06. ToDo: tests/test_input_validation.py::test_get_input_starting_scores_valid
+    07. ToDo: tests/test_input_validation.py::test_get_input_starting_scores_invalid_then_valid
+    08. ToDo: tests/test_input_validation.py::test_get_input_starting_scores_edge_cases
+    09. ToDo: tests/test_input_validation.py::test_validate_red_balls_valid
+    10. ToDo: tests/test_input_validation.py::test_validate_red_balls_invalid_low
+    11. ToDo: tests/test_input_validation.py::test_validate_red_balls_invalid_high
+    12. ToDo: tests/test_input_validation.py::test_validate_red_balls_edge_cases
+    13. ToDo: tests/test_input_validation.py::test_validate_player_scores_valid
+    14. ToDo: tests/test_input_validation.py::test_validate_player_scores_negative
+    15. ToDo: tests/test_input_validation.py::test_validate_player_scores_exceed_maximum_break
+    16. ToDo: tests/test_input_validation.py::test_validate_player_scores_edge_cases
+    17. ToDo: tests/test_input_validation.py::test_validate_min_score_valid
+    18. ToDo: tests/test_input_validation.py::test_validate_min_score_invalid
+    19. ToDo: tests/test_input_validation.py::test_validate_min_score_edge_cases
+
 - ToDo: set_starting_scores called during colored_balls phase will get wrong results
 
 - ToDo: repetitive code
