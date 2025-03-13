@@ -12,15 +12,15 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: set_starting_scores called during colored_balls phase will get wrong results
-    - ToDo: Display warning or solve the problem
-    - Note: 'q' will reset the game
-    - Note: hotkey to restart_game and set_starting_scores?
-
 - ToDo: repetitive code
     - red_balls_phase
     - handle_last_colored_ball
     - colored_balls_phase
+
+- FixMe: set_starting_scores called during colored_balls phase will get wrong results
+    - ToDo: Display warning or solve the problem
+    - Note: 'q' will reset the game
+    - Note: hotkey to restart_game and set_starting_scores?
 
 - ToDo: black ball game
     - ToDo: black_ball_phase:
