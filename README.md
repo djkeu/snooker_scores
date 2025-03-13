@@ -12,7 +12,7 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: pytest: 19 failing tests since refactoring of set_starting_scores
+- Done: pytest: 19 failing tests since refactoring of set_starting_scores
 
     - $ pytest --lf --collect-only -q
     01. Done: tests/test_game_flow.py::test_start_game_invalid_red_balls_then_early_exit
@@ -50,7 +50,9 @@ This program is to display how many points are still available for each player t
     - colored_balls_phase
 
 - ToDo: black ball game
-    - als het spel in gelijkstand eindigt, wordt de zwarte op zijn spot geplaatst en wint degene die deze bal pot
+    - ToDo: black_ball_phase:
+        - als het spel in gelijkstand eindigt, wordt de zwarte op zijn spot geplaatst en wint degene die deze bal pot
+    - ToDo: display_winner: call black_ball_phase if scores are even
 
 - ToDo: GUI
 
