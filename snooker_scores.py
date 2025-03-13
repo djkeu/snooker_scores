@@ -483,6 +483,8 @@ class SnookerScores:
 
     def black_ball_phase(self):
         pass
+        # ToDo: respot black ball
+        # ToDo: asign 7 points to who pots the black ball
 
     # Game phases 3: end the game
     def early_victory(self):
