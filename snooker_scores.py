@@ -500,6 +500,7 @@ class SnookerScores:
         else:
             self.score_player_2 += 7
 
+
     # Game phases 3: end the game
     def early_victory(self):
         """Show winner of an early victory."""
