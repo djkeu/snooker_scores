@@ -18,7 +18,7 @@ This program is to display how many points are still available for each player t
     - ToDo: adjust 7 failing tests
 
 - ToDo: set_starting_scores
-    - ToDo: refactor set_starting_scores
+    - Done: refactor set_starting_scores
     - ToDo: refactor get_input_starting_scores
         1. get_input_starting_scores
         2. validate_input_starting_scores
