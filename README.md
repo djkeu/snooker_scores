@@ -12,11 +12,6 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: black ball game
-    - ToDo: black_ball_phase:
-        - als het spel in gelijkstand eindigt, wordt de zwarte op zijn spot geplaatst en wint degene die deze bal pot
-    - ToDo: display_winner: call black_ball_phase if scores are even
-
 - ToDo: repetitive code
     - red_balls_phase
     - handle_last_colored_ball
