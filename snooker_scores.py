@@ -482,9 +482,22 @@ class SnookerScores:
                 return
 
     def black_ball_phase(self):
-        pass
-        # ToDo: respot black ball
-        # ToDo: asign 7 points to who pots the black ball
+        print("\n\tBlack ball phase!")
+        while True:
+            shot = input("Enter 0 for miss, 7 for black: ")
+            if shot == "q":
+                sys.exit()
+            elif shot not in ["0", "7"]:
+                print("0 or 7 please")
+            elif int(shot) == 0:
+                self.switch_players()
+            elif int(shot) == 7:
+                if self.player_1_turn:
+                    self.score_player_1 += 7
+                    break
+                else:
+                    self.score_player_2 += 7
+                    break
 
     # Game phases 3: end the game
     def early_victory(self):
