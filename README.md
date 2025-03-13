@@ -12,10 +12,7 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- Abandoned: activate 'n' in store_players_names
-    - Note: the GUI won't need the suggested change
-    - ToDo: copy from backup_11_*.py
-    - ToDo: adjust 7 failing tests
+- ToDo: pytest: 19 failing tests since refactoring of set_starting_scores
 
 - ToDo: set_starting_scores called during colored_balls phase will get wrong results
 
@@ -28,6 +25,12 @@ This program is to display how many points are still available for each player t
     - als het spel in gelijkstand eindigt, wordt de zwarte op zijn spot geplaatst en wint degene die deze bal pot
 
 - ToDo: GUI
+
+- Abandoned: activate 'n' in store_players_names
+    - Note: the GUI won't need the suggested change
+    - ToDo: copy from backup_11_*.py
+    - ToDo: adjust 7 failing tests
+
 
 ```
 ### Desired output:
