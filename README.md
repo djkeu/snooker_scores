@@ -32,7 +32,7 @@ This program is to display how many points are still available for each player t
         - Done: tests/test_input_validation.py::test_validate_red_balls_2_reds
     10. Done: tests/test_input_validation.py::test_validate_red_balls_invalid_low
     11. Done: tests/test_input_validation.py::test_validate_red_balls_invalid_high
-    12. DoneToDo: tests/test_input_validation.py::test_validate_red_balls_edge_cases
+    12. Done: tests/test_input_validation.py::test_validate_red_balls_edge_cases
 
     13. ToDo: tests/test_input_validation.py::test_validate_player_scores_valid
     14. ToDo: tests/test_input_validation.py::test_validate_player_scores_negative
