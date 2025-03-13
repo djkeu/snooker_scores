@@ -178,7 +178,7 @@ def test_get_input_starting_scores_edge_cases():
         assert result is None
 
 
-def test_validate_red_balls_valid():
+def test_validate_red_balls_no_reds():
     game = SnookerScores()
     with patch("builtins.input", side_effect=["0", "30", "30", "2"]):
         with patch.object(game, "setup_colored_balls_phase"):
@@ -187,6 +187,19 @@ def test_validate_red_balls_valid():
             assert game.score_player_1 == 30
             assert game.score_player_2 == 30
             assert game.yellow_ball == 2
+
+def test_validate_red_balls_valid_1_red():
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["1", "33", "44"]):
+        result = game.collect_starting_scores_inputs()
+        assert result == (1, 33, 44)
+
+def test_validate_red_balls_valid_2_reds():
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["2", "44", "44"]):
+        result = game.collect_starting_scores_inputs()
+        assert result == (2, 44, 44)
+
 
 def test_validate_red_balls_invalid_low():
     """Test validate_red_balls with invalid input (too low)."""
