@@ -481,6 +481,8 @@ class SnookerScores:
                 self.restart_game()
                 return
 
+    def black_ball_phase(self):
+        pass
 
     # Game phases 3: end the game
     def early_victory(self):
