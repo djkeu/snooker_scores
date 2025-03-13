@@ -20,7 +20,7 @@ This program is to display how many points are still available for each player t
     03. Done: tests/test_game_flow.py::test_start_game_exceed_max_red_balls_then_early_exit
 
     04. Done: tests/test_input_validation.py::test_set_starting_scores_invalid_score
-    05. ToDo: tests/test_input_validation.py::test_set_starting_scores_invalid_total_score
+    05. Done: tests/test_input_validation.py::test_set_starting_scores_invalid_total_score
     06. ToDo: tests/test_input_validation.py::test_get_input_starting_scores_valid
     07. ToDo: tests/test_input_validation.py::test_get_input_starting_scores_invalid_then_valid
     08. ToDo: tests/test_input_validation.py::test_get_input_starting_scores_edge_cases
