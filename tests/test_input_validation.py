@@ -173,9 +173,9 @@ def test_get_input_starting_scores_invalid_then_valid():
 
 def test_get_input_starting_scores_edge_cases():
     game = SnookerScores()
-    with patch("builtins.input", side_effect=["invalid", "invalid", "5"]):
-        result = game.get_input_starting_scores("Enter a number: ", lambda x: int(x))
-    assert result == 5
+    with patch("builtins.input", side_effect=["invalid", "invalid", "5", "5", "5"]):
+        result = game.collect_starting_scores_inputs()
+        assert result is None
 
 
 def test_validate_red_balls_valid():
