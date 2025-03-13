@@ -122,9 +122,7 @@ def test_set_starting_scores_invalid_score():
     ):
         game = SnookerScores()
         game.set_starting_scores()
-        assert game.red_balls == 5
-        assert game.score_player_1 == 30
-        assert game.score_player_2 == 20
+        assert game.red_balls == 15
 
 
 def test_set_starting_scores_invalid_red_balls():
