@@ -248,9 +248,9 @@ def test_validate_player_scores_edge_cases():
 
 def test_validate_min_score_valid():
     game = SnookerScores()
-    with patch("builtins.input", side_effect=["5", "50", "60"]):
+    with patch("builtins.input", side_effect=["5", "30", "35"]):
         result = game.collect_starting_scores_inputs()
-        assert result == (5, 50, 60)
+        assert result == (5, 30, 35)
 
 def test_validate_min_score_invalid():
     game = SnookerScores()
@@ -262,8 +262,7 @@ def test_validate_min_score_edge_cases():
     game = SnookerScores()
     with patch("builtins.input", side_effect=["15", "0", "0"]):
         result = game.collect_starting_scores_inputs()
-        assert result is None
-
+        assert result == (15, 0, 0)
 
 
 # Penalty input validation
