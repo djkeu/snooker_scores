@@ -15,9 +15,10 @@ This program is to display how many points are still available for each player t
 - ToDo: pytest: 19 failing tests since refactoring of set_starting_scores
 
     - $ pytest --lf --collect-only -q
-    01. ToDo: tests/test_game_flow.py::test_start_game_invalid_red_balls_then_early_exit
-    02. ToDo: tests/test_game_flow.py::test_start_game_invalid_player_scores_then_early_exit
-    03. ToDo: tests/test_game_flow.py::test_start_game_exceed_max_red_balls_then_early_exit
+    01. Done: tests/test_game_flow.py::test_start_game_invalid_red_balls_then_early_exit
+    02. Done: tests/test_game_flow.py::test_start_game_invalid_player_scores_then_early_exit
+    03. Done: tests/test_game_flow.py::test_start_game_exceed_max_red_balls_then_early_exit
+
     04. ToDo: tests/test_input_validation.py::test_set_starting_scores_invalid_score
     05. ToDo: tests/test_input_validation.py::test_set_starting_scores_invalid_total_score
     06. ToDo: tests/test_input_validation.py::test_get_input_starting_scores_valid
