@@ -494,6 +494,9 @@ class SnookerScores:
         """Display winner of the game."""
         winner = ""
 
+        if self.score_player_1 == self.score_player_2:
+            self.black_ball_phase()
+
         if self.score_player_1 > self.score_player_2:
             winner = self.player_1
         elif self.score_player_1 < self.score_player_2:
