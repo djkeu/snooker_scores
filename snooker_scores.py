@@ -297,7 +297,7 @@ class SnookerScores:
         self.available_player_2 = red_balls * 8 + self.end_break
 
     def setup_colored_balls_phase(self):
-        """Setup for the colored balls phase when no red balls remain."""
+        """Setup for the colored balls phase."""
         self.red_needed_next = False
         colored_ball_input = input("Which colored ball is the first to play: ")
         self.yellow_ball = int(colored_ball_input)

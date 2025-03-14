@@ -12,6 +12,13 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
+- ToDo: Link 'n' to action in (y/n) prompts
+    - Note: need in GUI: yes/no buttons
+    - Note: check backup files / github
+    - ToDo: store_players_names
+    - ToDo: restart_game
+    - Done: respot_balls
+
 - FixMe: set_starting_scores called during colored_balls phase will get wrong results
     - ToDo: choice:
         - Display warning
