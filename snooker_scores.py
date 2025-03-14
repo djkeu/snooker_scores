@@ -55,13 +55,18 @@ class SnookerScores:
     def collect_starting_scores_inputs(self):
         """Collect and validate all inputs for game setup."""
         try:
-            red_balls_input = input("Enter the number of red balls left: ").strip()
+            red_balls_input = input(
+                "Enter the number of red balls left: "
+            ).strip()
             if red_balls_input.lower() == "q" or red_balls_input == "":
                 return None
 
             red_balls = int(red_balls_input)
             if red_balls < 0 or red_balls > 15:
-                print("Invalid number of red balls. It must be between 0 and 15.")
+                print(
+                    "Invalid number of red balls. "
+                    "It must be between 0 and 15."
+                )
                 return None
 
             score_player_1 = self.get_player_score(self.player_1)
@@ -72,7 +77,9 @@ class SnookerScores:
             if score_player_2 is None:
                 return None
 
-            if not self.validate_scores(red_balls, score_player_1, score_player_2):
+            if not self.validate_scores(
+                red_balls, score_player_1, score_player_2
+            ):
                 return None
 
             return red_balls, score_player_1, score_player_2
@@ -100,14 +107,14 @@ class SnookerScores:
         if score_player_1 + score_player_2 > possible_score:
             print(f"Total score cannot exceed {possible_score}.")
             return False
-        
+
         if red_balls != 15 or score_player_1 != 0 or score_player_2 != 0:
             red_balls_played = 15 - red_balls
             min_score = max(0, red_balls_played + (red_balls_played - 1) * 2)
             if score_player_1 + score_player_2 < min_score:
                 print("Total score is too low.")
                 return False
-        
+
         return True
 
     def update_game_state(self, red_balls, score_player_1, score_player_2):
@@ -172,7 +179,7 @@ class SnookerScores:
                 return shot
         except ValueError:
             pass
-            
+
         print("Only numbers between 0 and 7 are valid!")
         return None
 
@@ -358,7 +365,7 @@ class SnookerScores:
             self.switch_players()
         elif self.red_balls > 0:
             self.red_needed_next = True
-            
+
 
     # Game phases 1: start the game
     def start_game(self):
