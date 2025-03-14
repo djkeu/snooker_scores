@@ -31,6 +31,181 @@ class SnookerScores:
         self.shot_prompt = "What's the value of the shot: "
 
 
+    # Game phases 1: start the game
+    def start_game(self):
+        """Start the game."""
+        self.display_startup_message()
+        self.store_players_names()
+        self.red_balls_phase()
+        self.colored_balls_phase()
+        self.display_winner()
+        self.restart_game()
+
+    def display_startup_message(self):
+        """Display welcome message and hotkeys."""
+        print(f"\t\tSnooker at its best!")
+
+        with open("txt/hotkeys.txt") as f:
+            print(f.read())
+
+    def store_players_names(self):
+        """Store players names in vars."""
+        player_names = input(
+            "Do you want to enter player names? (y/n) "
+        ).strip().lower()
+
+        if player_names == 'y':
+            self.player_1 = self.get_player_name()
+            self.player_2 = self.get_player_name()
+        return
+
+    def get_player_name(self):
+        """Get the name of the player."""
+        player_name = input("Enter your name: ").strip().title()
+        if player_name:
+            return player_name
+
+
+    # Game phases 2: run of the balls
+    def red_balls_phase(self):
+        """Play the red balls phase of the game."""
+        while self.red_balls > 0:
+            shot = self.get_shot_value()
+
+            if shot in ["switch", "scores_set", "penalty"]:
+                self.display_game_state()
+                continue
+
+            if shot == 0:
+                self.handle_miss()
+            elif shot == 1:
+                self.handle_red_ball(shot)
+            else:
+                self.handle_color_ball(shot)
+
+            self.display_game_state()
+
+        if self.red_balls == 0:
+            self.last_colored_ball_phase()
+            self.colored_balls_phase()
+
+    def last_colored_ball_phase(self):
+        """Handle the last colored ball."""
+        while self.available_player_1 > 0 or self.available_player_2 > 0:
+            shot = self.get_shot_value()
+
+            if shot in ["switch", "scores_set", "penalty"]:
+                self.display_game_state()
+                continue
+
+            if shot < 2 or shot > 7:
+                if self.player_1_turn:
+                    print(f"\n{self.player_1} must pot a colored ball!")
+                else:
+                    print(f"\n{self.player_2} must pot a colored ball!")
+            else:
+                if self.player_1_turn:
+                    self.available_player_1 -= 7
+                    self.update_score(shot)
+                else:
+                    self.available_player_2 -= 7
+                    self.update_score(shot)
+
+                self.display_game_state()
+                break
+
+        self.available_player_1 = self.end_break
+        self.available_player_2 = self.end_break
+
+    def colored_balls_phase(self):
+        """Play the colored balls phase of the game."""
+        while self.available_player_1 > 0:
+            if self.player_1_turn:
+                print(
+                    f"{self.player_1} must pot a "
+                    f"{self.colored_balls[self.yellow_ball]} ball"
+                )
+            else:
+                print(
+                    f"{self.player_2} must pot a "
+                    f"{self.colored_balls[self.yellow_ball]} ball"
+                )
+            shot = self.get_shot_value()
+
+            if shot in ["switch", "scores_set", "penalty"]:
+                self.display_game_state()
+                continue
+
+            if shot != self.yellow_ball:
+                print("Wrong ball!")
+                self.switch_players()
+            else:
+                self.available_player_1 -= self.yellow_ball
+                self.available_player_2 -= self.yellow_ball
+                self.update_score(shot)
+                self.yellow_ball += 1
+
+            self.display_game_state()
+            if self.yellow_ball > 7:
+                self.display_winner()
+                self.restart_game()
+                return
+
+    def black_ball_phase(self):
+        print("\n\tBlack ball phase!")
+        while True:
+            shot = input("Enter 0 for miss, 7 for black: ")
+            if shot == "q":
+                sys.exit()
+            elif shot not in ["0", "7"]:
+                print("0 or 7 please")
+            elif int(shot) == 0:
+                self.switch_players()
+            elif int(shot) == 7:
+                self.winner_black_ball_phase()
+                break
+
+    def winner_black_ball_phase(self):
+        if self.player_1_turn:
+            self.score_player_1 += 7
+        else:
+            self.score_player_2 += 7
+
+
+    # Game phases 3: end the game
+    def early_victory(self):
+        """Show winner of an early victory."""
+        self.display_winner()
+        self.restart_game()
+
+    def display_winner(self):
+        """Display winner of the game."""
+        winner = ""
+
+        if self.score_player_1 == self.score_player_2:
+            self.black_ball_phase()
+
+        if self.score_player_1 > self.score_player_2:
+            winner = self.player_1
+        elif self.score_player_1 < self.score_player_2:
+            winner = self.player_2
+
+        print(
+            f"\n{winner} wins! "
+            f"(with a score of {max(self.score_player_1, self.score_player_2)}"
+            f" vs {min(self.score_player_1, self.score_player_2)})")
+
+    def restart_game(self):
+        """Ask user if they want to play again."""
+        restart = input("Do you want to play again? (y/n) ").strip().lower()
+        if restart == 'y':
+            self.__init__()
+            self.start_game()
+        else:
+            print("Bye!")
+            sys.exit()
+
+
     # Set starting scores
     def set_starting_scores(self):
         """Set the starting scores for the game."""
@@ -360,181 +535,6 @@ class SnookerScores:
             self.switch_players()
         elif self.red_balls > 0:
             self.red_needed_next = True
-
-
-    # Game phases 1: start the game
-    def start_game(self):
-        """Start the game."""
-        self.display_startup_message()
-        self.store_players_names()
-        self.red_balls_phase()
-        self.colored_balls_phase()
-        self.display_winner()
-        self.restart_game()
-
-    def display_startup_message(self):
-        """Display welcome message and hotkeys."""
-        print(f"\t\tSnooker at its best!")
-
-        with open("txt/hotkeys.txt") as f:
-            print(f.read())
-
-    def store_players_names(self):
-        """Store players names in vars."""
-        player_names = input(
-            "Do you want to enter player names? (y/n) "
-        ).strip().lower()
-
-        if player_names == 'y':
-            self.player_1 = self.get_player_name()
-            self.player_2 = self.get_player_name()
-        return
-
-    def get_player_name(self):
-        """Get the name of the player."""
-        player_name = input("Enter your name: ").strip().title()
-        if player_name:
-            return player_name
-
-
-    # Game phases 2: run of the balls
-    def red_balls_phase(self):
-        """Play the red balls phase of the game."""
-        while self.red_balls > 0:
-            shot = self.get_shot_value()
-
-            if shot in ["switch", "scores_set", "penalty"]:
-                self.display_game_state()
-                continue
-
-            if shot == 0:
-                self.handle_miss()
-            elif shot == 1:
-                self.handle_red_ball(shot)
-            else:
-                self.handle_color_ball(shot)
-
-            self.display_game_state()
-
-        if self.red_balls == 0:
-            self.last_colored_ball_phase()
-            self.colored_balls_phase()
-
-    def last_colored_ball_phase(self):
-        """Handle the last colored ball."""
-        while self.available_player_1 > 0 or self.available_player_2 > 0:
-            shot = self.get_shot_value()
-
-            if shot in ["switch", "scores_set", "penalty"]:
-                self.display_game_state()
-                continue
-
-            if shot < 2 or shot > 7:
-                if self.player_1_turn:
-                    print(f"\n{self.player_1} must pot a colored ball!")
-                else:
-                    print(f"\n{self.player_2} must pot a colored ball!")
-            else:
-                if self.player_1_turn:
-                    self.available_player_1 -= 7
-                    self.update_score(shot)
-                else:
-                    self.available_player_2 -= 7
-                    self.update_score(shot)
-
-                self.display_game_state()
-                break
-
-        self.available_player_1 = self.end_break
-        self.available_player_2 = self.end_break
-
-    def colored_balls_phase(self):
-        """Play the colored balls phase of the game."""
-        while self.available_player_1 > 0:
-            if self.player_1_turn:
-                print(
-                    f"{self.player_1} must pot a "
-                    f"{self.colored_balls[self.yellow_ball]} ball"
-                )
-            else:
-                print(
-                    f"{self.player_2} must pot a "
-                    f"{self.colored_balls[self.yellow_ball]} ball"
-                )
-            shot = self.get_shot_value()
-
-            if shot in ["switch", "scores_set", "penalty"]:
-                self.display_game_state()
-                continue
-
-            if shot != self.yellow_ball:
-                print("Wrong ball!")
-                self.switch_players()
-            else:
-                self.available_player_1 -= self.yellow_ball
-                self.available_player_2 -= self.yellow_ball
-                self.update_score(shot)
-                self.yellow_ball += 1
-
-            self.display_game_state()
-            if self.yellow_ball > 7:
-                self.display_winner()
-                self.restart_game()
-                return
-
-    def black_ball_phase(self):
-        print("\n\tBlack ball phase!")
-        while True:
-            shot = input("Enter 0 for miss, 7 for black: ")
-            if shot == "q":
-                sys.exit()
-            elif shot not in ["0", "7"]:
-                print("0 or 7 please")
-            elif int(shot) == 0:
-                self.switch_players()
-            elif int(shot) == 7:
-                self.winner_black_ball_phase()
-                break
-
-    def winner_black_ball_phase(self):
-        if self.player_1_turn:
-            self.score_player_1 += 7
-        else:
-            self.score_player_2 += 7
-
-
-    # Game phases 3: end the game
-    def early_victory(self):
-        """Show winner of an early victory."""
-        self.display_winner()
-        self.restart_game()
-
-    def display_winner(self):
-        """Display winner of the game."""
-        winner = ""
-
-        if self.score_player_1 == self.score_player_2:
-            self.black_ball_phase()
-
-        if self.score_player_1 > self.score_player_2:
-            winner = self.player_1
-        elif self.score_player_1 < self.score_player_2:
-            winner = self.player_2
-
-        print(
-            f"\n{winner} wins! "
-            f"(with a score of {max(self.score_player_1, self.score_player_2)}"
-            f" vs {min(self.score_player_1, self.score_player_2)})")
-
-    def restart_game(self):
-        """Ask user if they want to play again."""
-        restart = input("Do you want to play again? (y/n) ").strip().lower()
-        if restart == 'y':
-            self.__init__()
-            self.start_game()
-        else:
-            print("Bye!")
-            sys.exit()
 
 
 def main():
