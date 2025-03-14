@@ -1,25 +1,20 @@
 import sys
 
 
-RED_BALLS = 15
-MAXIMUM_BREAK = 147
-END_BREAK = 27
-
-
 class SnookerScores:
     def __init__(self):
         """Initialize SnookerScores."""
-        self.red_balls = RED_BALLS
+        self.red_balls = 15
         self.player_1 = "Player 1"
         self.player_2 = "Player 2"
         self.score_player_1 = 0
         self.score_player_2 = 0
-        self.max_score = MAXIMUM_BREAK
+        self.max_score = 147
         self.available_player_1 = self.max_score
         self.available_player_2 = self.max_score
         self.potential_score_player_1 = self.max_score
         self.potential_score_player_2 = self.max_score
-        self.end_break = END_BREAK
+        self.end_break = 27
         self.red_needed_next = True
         self.player_1_turn = True
         self.snookers_needed = False
