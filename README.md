@@ -17,10 +17,26 @@ This program is to display how many points are still available for each player t
     - ToDo: real life tests
 
 - ToDo: Link 'n' to action in (y/n) prompts
-    - ToDo: pytests
     - Done: store_players_names
     - Done: restart_game
     - Done: respot_balls
+
+    - ToDo: $ pytest --lf --collect-only -q
+    - ToDo:  tests/test_game_flow.py::test_switch_players_red_ball_phase
+    - ToDo:  tests/test_game_flow.py::test_start_game_full_flow
+    - ToDo:  tests/test_game_flow.py::test_start_game_set_scores
+    - ToDo:  tests/test_game_flow.py::test_start_game_invalid_inputs
+    - ToDo:  tests/test_game_flow.py::test_start_game_multiple_invalid_inputs
+    - ToDo:  tests/test_game_flow.py::test_start_game_early_exit_set_starting_scores
+    - ToDo:  tests/test_game_flow.py::test_start_game_early_exit_red_ball_phase
+
+    - ToDo:  tests/test_game_logic.py::test_red_balls_phase_edge_cases
+    - ToDo:  tests/test_game_logic.py::test_colored_balls_phase_edge_cases
+
+    - ToDo:  tests/test_input_validation.py::test_validate_shot_s
+    - ToDo:  tests/test_input_validation.py::test_set_starting_scores_valid_input
+
+11 tests collected in 0.04s
 
 - ToDo: check accuracy pytests
 
