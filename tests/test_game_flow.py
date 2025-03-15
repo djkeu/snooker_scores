@@ -63,25 +63,33 @@ def test_switch_players_red_ball_phase(capsys):
 
 # start_game tests
 def test_start_game_full_flow(capsys):
-    """Test the full game flow from start to finish."""
     game = SnookerScores()
 
-    inputs = generate_inputs(
-        ["15", "0", "0"],
-        [VALID_INPUTS[0], VALID_INPUTS[6]] * 13,
-        ["0"],
-        [VALID_INPUTS[0], VALID_INPUTS[6]] * 2,
-        ["0"],
-        VALID_INPUTS[1:] + ["0"],
-        ["n"]
-    )
+    inputs = [
+        "n",
+        "s",
+        "15", "0", "0",
+        *[VALID_INPUTS[0], VALID_INPUTS[6]] * 13,
+        "0",
+        *[VALID_INPUTS[0], VALID_INPUTS[6]] * 2,
+        "0",
+        *VALID_INPUTS[1:],
+        "n"
+    ]
 
     with patch.object(game, "display_startup_message", return_value=None):
         with patch("builtins.input", side_effect=inputs):
             with patch("sys.exit") as mock_exit:
-                game.start_game()
-                # Allow for multiple calls to sys.exit()
-                assert mock_exit.call_count >= 1  # Ensure sys.exit() is called at least once
+                mock_exit.side_effect = SystemExit()
+                
+                # Use pytest.raises to catch the SystemExit that would be raised
+                with pytest.raises(SystemExit):
+                    game.start_game()
+ 
+    captured = capsys.readouterr()
+    assert "Player 1 wins! (with a score of 131 vs 16)" in captured.out
+    assert "Bye!" in captured.out
+    mock_exit.assert_called_once()
 
 def test_start_game_early_exit(capsys):
     game = SnookerScores()

@@ -23,7 +23,7 @@ This program is to display how many points are still available for each player t
     - ToDo: $ pytest --lf --collect-only -q
 
     - Done:  tests/test_game_flow.py::test_switch_players_red_ball_phase
-    - ToDo:  tests/test_game_flow.py::test_start_game_full_flow
+    - Done:  tests/test_game_flow.py::test_start_game_full_flow
     - ToDo:  tests/test_game_flow.py::test_start_game_set_scores
     - ToDo:  tests/test_game_flow.py::test_start_game_invalid_inputs
     - ToDo:  tests/test_game_flow.py::test_start_game_multiple_invalid_inputs
