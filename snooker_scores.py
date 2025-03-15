@@ -318,8 +318,18 @@ class SnookerScores:
     def setup_colored_balls_phase(self):
         """Setup for the colored balls phase."""
         self.red_needed_next = False
-        colored_ball_input = input("Which colored ball is the first to play: ")
-        self.yellow_ball = int(colored_ball_input)
+
+        while True:
+            try:
+                colored_ball_input = int(input("Which colored ball is the first) to play: "))
+                if 2 <= colored_ball_input <= 7:
+                    break
+                else:
+                    print("A number between 2 and 7 please")
+            except ValueError:
+                print("A number between 2 and 7 please")
+
+        self.yellow_ball = colored_ball_input
         balls_played = sum(range(2, self.yellow_ball))
         self.available_player_1 -= balls_played
         self.available_player_2 -= balls_played
