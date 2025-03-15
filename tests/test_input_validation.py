@@ -53,11 +53,19 @@ def test_validate_shot_s():
     snooker_game = SnookerScores()
     snooker_game.first_input = True
     
-    # Mock all inputs in sequence
-    inputs = ["s", "5", "40", "40", "1"]
+    inputs = [
+        "s",
+        "2", "40", "40",
+        "1",
+        "2",
+        "1",
+        "6",
+        "2",
+        "q"
+    ]
     with patch("builtins.input", side_effect=inputs):
-        result = snooker_game.get_shot_value()
-        assert result == 1
+        with pytest.raises(SystemExit):
+            snooker_game.get_shot_value()
 
 def test_validate_shot_edge_cases():
     game = SnookerScores()

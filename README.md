@@ -22,7 +22,7 @@ This program is to display how many points are still available for each player t
     - Done: respot_balls
     - ToDo: $ pytest --lf --collect-only -q
 
-    - ToDo:  tests/test_input_validation.py::test_validate_shot_s
+    - Done:  tests/test_input_validation.py::test_validate_shot_s
     - ToDo:  tests/test_input_validation.py::test_set_starting_scores_valid_input
 
 11 tests collected in 0.04s
