@@ -321,7 +321,7 @@ class SnookerScores:
 
         while True:
             try:
-                colored_ball_input = int(input("Which colored ball is the first) to play: "))
+                colored_ball_input = int(input("Which colored ball is the first to play: "))
                 if 2 <= colored_ball_input <= 7:
                     break
                 else:
