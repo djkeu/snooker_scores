@@ -74,6 +74,8 @@ def test_start_game_full_flow(capsys):
         *[VALID_INPUTS[0], VALID_INPUTS[6]] * 2,
         "0",
         *VALID_INPUTS[1:],
+        "0",
+        "a",
         "n"
     ]
 
