@@ -12,6 +12,9 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
+- ToDo: setup_colored_balls_phase
+    - ToDo: validate input
+
 - ToDo: set_starting_scores called during colored_balls phase will get wrong results
     - ToDo: potential score sometimes wrong when misses are involved
 
