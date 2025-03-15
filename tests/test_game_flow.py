@@ -118,7 +118,7 @@ def test_start_game_early_exit_red_ball_phase(capsys):
 
 def test_start_game_early_exit_set_starting_scores(capsys):
     game = SnookerScores()
-    inputs = generate_inputs([SET_SCORES_INPUT, "q", QUIT_INPUT])
+    inputs = generate_inputs("n", [SET_SCORES_INPUT, "q", QUIT_INPUT])
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()

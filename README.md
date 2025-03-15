@@ -26,9 +26,9 @@ This program is to display how many points are still available for each player t
 
     - Done:  tests/test_game_flow.py::test_start_game_full_flow
     - Done:  tests/test_game_flow.py::test_start_game_early_exit_red_ball_phase
-    - ToDo:  tests/test_game_flow.py::test_start_game_early_exit_set_starting_scores
-    - ToDo:  tests/test_game_flow.py::test_start_game_invalid_inputs
-    - ToDo:  tests/test_game_flow.py::test_start_game_multiple_invalid_inputs
+    - Done:  tests/test_game_flow.py::test_start_game_early_exit_set_starting_scores
+    - Done:  tests/test_game_flow.py::test_start_game_invalid_inputs
+    - Done:  tests/test_game_flow.py::test_start_game_multiple_invalid_inputs
     - Done:  tests/test_game_flow.py::test_start_game_set_scores
 
     - ToDo:  tests/test_game_logic.py::test_red_balls_phase_edge_cases
