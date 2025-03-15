@@ -305,6 +305,8 @@ class SnookerScores:
         self.score_player_2 = score_player_2
         self.available_player_1 = red_balls * 8 + self.end_break
         self.available_player_2 = red_balls * 8 + self.end_break
+        if self.red_balls > 0:
+            self.red_balls_phase()
 
     def setup_colored_balls_phase(self):
         """Setup for the colored balls phase."""
