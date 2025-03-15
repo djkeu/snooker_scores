@@ -12,11 +12,8 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- Todo: set_starting_scores called during colored_balls phase will get wrong results
-    - Done: choice:
-        - Abandoned: Display warning
-        - Done: Solve the problem
-    - ToDo: test some more
+- ToDo: set_starting_scores called during colored_balls phase will get wrong results
+    - ToDo: potential score sometimes wrong
 
 - ToDo: Link 'n' to action in (y/n) prompts
     - ToDo: pytests
