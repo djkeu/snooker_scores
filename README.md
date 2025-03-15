@@ -17,7 +17,8 @@ This program is to display how many points are still available for each player t
     13. Trump vs Bingham 2 | 0 - 108
     14. Higgins vs Robertson 1 | 95 - 1
     15. Higgins vs Robertson 2 | 120 - 0
-    
+    16. HIggins vs Robertson 3 | 0 - 82
+    17. Higgins vs Robertson 4 | 21 - 90
 
 - ToDo: GUI
 
