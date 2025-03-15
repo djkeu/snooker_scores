@@ -12,7 +12,7 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- FixMe: set_starting_scores called during colored_balls phase will get wrong results
+- Todo: set_starting_scores called during colored_balls phase will get wrong results
     - Done: choice:
         - Abandoned: Display warning
         - Done: Solve the problem
