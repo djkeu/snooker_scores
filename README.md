@@ -13,8 +13,9 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: Real life tests with videos of snooker games (13 / 100)
-        12. Trump vs Bingham 1 | 58 - 72
-        13. Trump vs Bingham 2 | 0 - 108
+    12. Trump vs Bingham 1 | 58 - 72
+    13. Trump vs Bingham 2 | 0 - 108
+    14. Higgins vs Robertson 1 | 
 
 - ToDo: GUI
 
