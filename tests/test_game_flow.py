@@ -132,7 +132,12 @@ def test_start_game_switch_players(capsys):
 
 def test_start_game_set_scores(capsys):
     game = SnookerScores()
-    inputs = generate_inputs([SET_SCORES_INPUT, "15", "0", "0", QUIT_INPUT])
+    inputs = generate_inputs(
+        "n",
+        "s",
+        [SET_SCORES_INPUT, "15", "0", "0",
+        QUIT_INPUT]
+    )
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
