@@ -25,11 +25,6 @@ This program is to display how many points are still available for each player t
 
 - ToDo: GUI
 
-- Abandoned: activate 'n' in store_players_names
-    - Note: the GUI won't need the suggested change
-    - ToDo: copy from backup_11_*.py
-    - ToDo: adjust 7 failing tests
-
 
 ```
 ### Desired output:
