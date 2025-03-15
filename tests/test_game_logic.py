@@ -178,7 +178,7 @@ def test_red_balls_phase_edge_cases(capsys):
     game = SnookerScores()
     game.red_balls = 1
     game.player_1_turn = True
-    with patch("builtins.input", side_effect=["1", "7", "0", "2", "3", "4", "5", "6", "7", "0"]):
+    with patch("builtins.input", side_effect=["1", "7", "0", "2", "3", "4", "5", "6", "7", "0", "n"],):
         with pytest.raises(SystemExit):
             game.red_balls_phase()
     captured = capsys.readouterr()
@@ -243,7 +243,7 @@ def test_colored_balls_phase_edge_cases(capsys):
     game.available_player_1 = 27
     game.yellow_ball = 2
     game.player_1_turn = True
-    with patch("builtins.input", side_effect=["2", "3", "4", "5", "6", "7", "0"]):
+    with patch("builtins.input", side_effect=["2", "3", "4", "5", "6", "7", "0", "n"]):
         with pytest.raises(SystemExit):
             game.colored_balls_phase()
     captured = capsys.readouterr()
