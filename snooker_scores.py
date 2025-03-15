@@ -500,6 +500,7 @@ class SnookerScores:
         print("Switching players...")
         self.player_1_turn = not self.player_1_turn
 
+        # Note: abundant print
         if self.player_1_turn:
             active_player = self.player_1
         else:
@@ -508,7 +509,7 @@ class SnookerScores:
 
         if self.red_balls > 0:
             self.red_needed_next = True
-
+            self.display_next_ball()
 
     # Handle penalties
     def add_penalty(self):
