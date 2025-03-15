@@ -13,6 +13,7 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: Link 'n' to action in (y/n) prompts
+    - ToDo: pytests
     - Done: store_players_names
     - Done: restart_game
     - Done: respot_balls
