@@ -13,7 +13,8 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: set_starting_scores called during colored_balls phase
-    - ToDo: potential score sometimes wrong when misses are involved
+    - Done: potential score sometimes wrong when misses are involved
+    - ToDo: real life tests
 
 - ToDo: Link 'n' to action in (y/n) prompts
     - ToDo: pytests
