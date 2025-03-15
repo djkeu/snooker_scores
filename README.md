@@ -16,19 +16,6 @@ This program is to display how many points are still available for each player t
     - Done: potential score sometimes wrong when misses are involved
     - ToDo: real life tests
 
-- ToDo: Link 'n' to action in (y/n) prompts
-    - Done: store_players_names
-    - Done: restart_game
-    - Done: respot_balls
-    - ToDo: $ pytest --lf --collect-only -q
-
-    - Done:  tests/test_input_validation.py::test_validate_shot_s
-    - ToDo:  tests/test_input_validation.py::test_set_starting_scores_valid_input
-
-11 tests collected in 0.04s
-
-- ToDo: check accuracy pytests
-
 - ToDo: GUI
 
 
