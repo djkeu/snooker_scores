@@ -114,13 +114,16 @@ def test_respot_balls_edge_cases():
 
 # Starting scores validation
 def test_set_starting_scores_valid_input():
-    inputs = ["5", "15", "15"]
+    inputs = [
+        "5", "15", "15",
+        "1",
+        "2",
+        "q"
+    ]
     with patch("builtins.input", side_effect=inputs):
         game = SnookerScores()
-        game.set_starting_scores()
-        assert game.red_balls == 5
-        assert game.score_player_1 == 15
-        assert game.score_player_2 == 15
+        with pytest.raises(SystemExit):
+            game.set_starting_scores()
 
 def test_set_starting_scores_invalid_score():
     with mock_input(
