@@ -50,9 +50,12 @@ class SnookerScores:
 
     def store_players_names(self):
         """Store players names in vars."""
-        player_names = input(
-            "Do you want to enter player names? (y/n) "
-        ).strip().lower()
+        while True:
+            player_names = input("Do you want to enter player names? (y/n) ").strip().lower()
+            if player_names in ['y', 'n']:
+                break
+            else:
+                print("Invalid input. Please enter 'y' or 'n'.")
 
         if player_names == 'y':
             self.player_1 = self.get_player_name()
