@@ -16,72 +16,11 @@ This program is to display how many points are still available for each player t
     - Done: potential score sometimes wrong when misses are involved
     - ToDo: real life tests
 
-- ToDo: GUI
-
-
-```
-### Desired output:
-
-$ python claude_snooker_scores.py
-
-                Six times world champion!
-
-q: quit, s: set starting scores, x: switch player, p: penalty, w: early victory
-
-Do you want to enter player names? (y/n) n
-What's the value of the shot: s
-Enter the number of red balls left: 0
-Available colored balls:
-2: yellow
-3: green
-4: brown
-5: blue
-6: pink
-7: black
-Enter the value of the next colored ball to play: 3
-Enter score for Player 1: 55
-Enter score for Player 2: 55
-
-Player 1: score 55, potential score 80
-Player 2: score 55, potential score 80
-Player 1 must pot a green ball
-What's the value of the shot: 3
-
-Player 1: score 58, potential score 80
-Player 2: score 55, potential score 77
-Player 1 must pot a brown ball
-What's the value of the shot: 4
-
-Player 1: score 62, potential score 80
-Player 2: score 55, potential score 73
-Player 1 must pot a blue ball
-What's the value of the shot: 5
-
-Player 1: score 67, potential score 80
-Player 2: score 55, potential score 68
-Player 1 must pot a pink ball
-What's the value of the shot: 6
-
-Player 1: score 73, potential score 80
-Player 2: score 55, potential score 62
-Player 2 needs snookers!
-Player 1 must pot a black ball
-What's the value of the shot: 7
-
-Player 1: score 80, potential score 80
-Player 2: score 55, potential score 55
-
-Player 1 wins! (with a score of 80 vs 55)
-Do you want to play again? (y/n)
-
-```
-
-
-### Games analyzed
-ToDo: Real life tests with videos of snooker games (13 / 100)
-
+- ToDo: Real life tests with videos of snooker games (13 / 100)
         12. Trump vs Bingham 1 | 58 - 72
         13. Trump vs Bingham 2 | 0 - 108
+
+- ToDo: GUI
 
 
 ## File structure
