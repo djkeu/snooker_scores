@@ -222,6 +222,9 @@ class SnookerScores:
     # Set starting scores
     def set_starting_scores(self):
         """Set the starting scores for the game."""
+        if not self.player_1_turn:
+            self.switch_players()
+
         inputs = self.collect_starting_scores_inputs()
         if not inputs:
             print("Ok, back to the game then.")
