@@ -300,6 +300,7 @@ class SnookerScores:
         """Update the game state with new values."""
         self.red_balls = red_balls
         self.red_needed_next = True
+        self.yellow_ball = 2
         self.score_player_1 = score_player_1
         self.score_player_2 = score_player_2
         self.available_player_1 = red_balls * 8 + self.end_break
