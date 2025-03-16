@@ -14,6 +14,7 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: pytest
     - $ pytest -v --tb=no --no-header --no-summary | grep FAILED | awk '{print $1}'
+
     1. tests/test_game_flow.py::test_multiple_penalties
     2. tests/test_game_flow.py::test_switch_players_red_ball_phase
     3. tests/test_game_flow.py::test_start_game_penalty
@@ -91,6 +92,7 @@ snooker_scores/
 
 - test_game_flow.py:
     - Test the overall game flow from start to finish.
+
 - test_game_logic.py
     - Test the main game logic, including handling shots, phases, and score calculations.
 
@@ -200,7 +202,6 @@ tests/test_score_calculation.py::test_add_penalty_invalid
 tests/test_score_calculation.py::test_add_penalty_edge_cases_2
 tests/test_score_calculation.py::test_update_score_edge_cases
 tests/test_score_calculation.py::test_calculate_potential_scores_edge_cases
-
 ```
 
 ## Snooker rules
