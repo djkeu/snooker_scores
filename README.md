@@ -14,8 +14,9 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: display break
 
-- ToDo: last colored ball
+- FixMe: last colored ball
     - ToDo: display: last colored ball / player must play the last colored ball
+    - FixMe: display_next_ball doesn't always show
 
 - ToDo: red ball down
     - Done: red_ball_down: red_balls -= 1
@@ -27,7 +28,7 @@ This program is to display how many points are still available for each player t
 - ToDo: Live tests with videos of snooker games (20 / 100)
     20. Higgins vs Robertson 7 | 35 - 82
     21. Trump vs Robertson : 46 - 78
-    
+
 
 
 - ToDo: GUI
