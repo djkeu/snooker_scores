@@ -75,7 +75,12 @@ class SnookerScores:
         while self.red_balls > 0:
             shot = self.get_shot_value()
 
-            if shot in ["switch", "scores_set", "penalty"]:
+            if shot in [
+                "switch",
+                "scores_set",
+                "penalty",
+                "red_ball_down"
+            ]:
                 self.display_game_state()
                 continue
 
@@ -366,6 +371,9 @@ class SnookerScores:
         elif shot == "w":
             self.early_victory()
             return "winner"
+        elif shot == "r":
+            self.red_ball_down()
+            return "red_ball_down"
         else:
             return None
 
@@ -434,6 +442,17 @@ class SnookerScores:
 
         print(f"{player} must pot a {ball} next")
 
+    def red_ball_down(self):
+        self.red_balls -= 1
+        self.available_player_1 -= 8
+        self.available_player_2 -= 8
+        print("\tRed ball down!")
+
+        self.red_needed_next is True
+        print("Red ball next")
+
+        self.switch_players()
+        self.display_game_state()
 
     # Score handling
     def update_score(self, shot):
@@ -455,7 +474,7 @@ class SnookerScores:
         self.calculate_potential_scores()
 
         print(
-            f"\n{self.player_1}: score {self.score_player_1}, "
+            f"{self.player_1}: score {self.score_player_1}, "
             f"potential score {self.potential_score_player_1}"
         )
         print(
