@@ -17,7 +17,7 @@ This program is to display how many points are still available for each player t
     - Done: switch_players
     - Done: assign hotkey 'r'
     - Done: update hotkeys.txt
-    - ToDo: manual tests
+    - ToDo: manual tests (3/50)
 
 - ToDo: Live tests with videos of snooker games (17 / 100)
     12. Trump vs Bingham 1 | 58 - 72
@@ -28,7 +28,8 @@ This program is to display how many points are still available for each player t
     17. Higgins vs Robertson 4 | 21 - 90
 
 - ToDo: pytest
-    - ToDo: review/revise test suite structure
+    - Abandoned: review/revise test suite structure
+    - ToDo: check tests
 
 - ToDo: GUI
 
