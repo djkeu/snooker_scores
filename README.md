@@ -26,7 +26,8 @@ This program is to display how many points are still available for each player t
 
 - ToDo: Live tests with videos of snooker games (20 / 100)
     20. Higgins vs Robertson 7 | 35 - 82
-    21. Trump vs Robertson
+    21. Trump vs Robertson : 46 - 78
+    
 
 
 - ToDo: GUI
