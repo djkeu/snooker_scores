@@ -27,6 +27,9 @@ This program is to display how many points are still available for each player t
     16. Higgins vs Robertson 3 | 0 - 82
     17. Higgins vs Robertson 4 | 21 - 90
 
+- ToDo: pytest
+    - ToDo: review/revise test suite structure
+
 - ToDo: GUI
 
 
