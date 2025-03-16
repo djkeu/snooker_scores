@@ -14,6 +14,9 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: display break
 
+- ToDo: last colored ball
+    - ToDo: display: last colored ball / player must play the last colored ball
+
 - ToDo: red ball down
     - Done: red_ball_down: red_balls -= 1
     - Done: switch_players
