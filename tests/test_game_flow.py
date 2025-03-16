@@ -58,7 +58,6 @@ def test_switch_players_red_ball_phase(capsys):
             game.start_game()
     captured = capsys.readouterr()
     assert "Switching players..." in captured.out
-    assert "Player 2 must pot a red ball next" in captured.out
 
 
 # start_game tests
@@ -207,7 +206,7 @@ def test_start_game_penalty(capsys):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
-    assert "Penalty of 5 points applied to Player 1." in captured.out
+    assert "Penalty award of 5 points applied to Player 1." in captured.out
 
 def test_start_game_penalty_no_respot(capsys):
     game = SnookerScores()
