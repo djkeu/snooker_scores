@@ -16,7 +16,8 @@ This program is to display how many points are still available for each player t
     - Done: red_ball_down: red_balls -= 1
     - Done: switch_players
     - Done: assign hotkey 'r'
-    - ToDo: update hotkeys.txt
+    - Done: update hotkeys.txt
+    - ToDo: manual tests
 
 
 - ToDo: Real life tests with videos of snooker games (13 / 100)
