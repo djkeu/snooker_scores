@@ -218,7 +218,7 @@ def test_start_game_penalty_no_respot(capsys):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
-    assert "Penalty of 5 points applied to Player 1." in captured.out
+    assert "Penalty award of 5 points applied to Player 1." in captured.out
 
 def test_start_game_penalty_no_respot_edge_case(capsys):
     game = SnookerScores()
@@ -230,7 +230,7 @@ def test_start_game_penalty_no_respot_edge_case(capsys):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
-    assert "Penalty of 5 points applied to Player 1." in captured.out
+    assert "Penalty award of 5 points applied to Player 1." in captured.out
 
 def test_start_game_penalty_respot(capsys):
     game = SnookerScores()
@@ -242,7 +242,7 @@ def test_start_game_penalty_respot(capsys):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
-    assert "Penalty of 5 points applied to Player 1." in captured.out
+    assert "Penalty award of 5 points applied to Player 1." in captured.out
 
 def test_start_game_penalty_respot_edge_case(capsys):
     game = SnookerScores()
@@ -254,7 +254,7 @@ def test_start_game_penalty_respot_edge_case(capsys):
         with pytest.raises(SystemExit):
             game.start_game()
     captured = capsys.readouterr()
-    assert "Penalty of 5 points applied to Player 1." in captured.out
+    assert "Penalty award of 5 points applied to Player 1." in captured.out
 
 def test_start_game_set_scores(capsys):
     game = SnookerScores()
