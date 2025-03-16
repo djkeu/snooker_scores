@@ -12,6 +12,15 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
+- ToDo: pytest
+    - $ pytest -v --tb=no --no-header --no-summary | grep FAILED | awk '{print $1}'
+    1. tests/test_game_flow.py::test_multiple_penalties
+    2. tests/test_game_flow.py::test_switch_players_red_ball_phase
+    3. tests/test_game_flow.py::test_start_game_penalty
+    4. tests/test_game_flow.py::test_start_game_penalty_no_respot
+    5. tests/test_game_flow.py::test_start_game_penalty_no_respot_edge_case
+    6. tests/test_game_flow.py::test_start_game_penalty_respot
+    7. tests/test_game_flow.py::test_start_game_penalty_respot_edge_case
 
 - ToDo: display break
 
