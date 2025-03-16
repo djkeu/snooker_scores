@@ -165,6 +165,12 @@ class SnookerScores:
     def black_ball_phase(self):
         print("\n\tBlack ball phase!")
         while True:
+            if self.player_1_turn:
+                active_player = self.player_1
+            else:
+                active_player = self.player_2
+            print(f"{active_player}'s turn")
+
             shot = input("Enter 0 for miss, 7 for black: ")
             if shot == "q":
                 sys.exit()
