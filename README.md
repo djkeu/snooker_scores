@@ -19,13 +19,15 @@ This program is to display how many points are still available for each player t
     - Done: update hotkeys.txt
     - ToDo: manual tests
 
-- ToDo: Live tests with videos of snooker games (17 / 100)
+- ToDo: Live tests with videos of snooker games (18 / 100)
     12. Trump vs Bingham 1 | 58 - 72
     13. Trump vs Bingham 2 | 0 - 108
     14. Higgins vs Robertson 1 | 95 - 1
     15. Higgins vs Robertson 2 | 120 - 0
     16. Higgins vs Robertson 3 | 0 - 82
     17. Higgins vs Robertson 4 | 21 - 90
+    18. Higgins vs Robertson 5 | 0 - 118
+
 
 - ToDo: GUI
 
