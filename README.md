@@ -13,7 +13,9 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: red ball sunk
-if a red ball gets potted accidentally it will not return to the table. It effects the available points and the potential scores
+    - Note: if a red ball gets potted accidentally it will not return to the table
+    - ToDo: red_ball_sunk: red_balls -= 1
+    - ToDo: assign hotkey 'r'
 
 - ToDo: Real life tests with videos of snooker games (13 / 100)
     12. Trump vs Bingham 1 | 58 - 72
