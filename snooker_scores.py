@@ -442,6 +442,7 @@ class SnookerScores:
 
         print(f"{player} must pot a {ball} next")
 
+
     # Score handling
     def update_score(self, shot):
         """Update the score of the player."""
@@ -520,6 +521,7 @@ class SnookerScores:
 
         if self.red_balls > 0:
             self.red_needed_next = True
+
 
     # Handle penalties
     def add_penalty(self):
