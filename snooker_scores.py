@@ -449,8 +449,6 @@ class SnookerScores:
         print("\tRed ball down!")
 
         self.red_needed_next is True
-        print("Red ball next")
-
         self.switch_players()
         self.display_game_state()
 
