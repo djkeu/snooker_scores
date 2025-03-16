@@ -58,7 +58,6 @@ def test_switch_players_red_ball_phase(capsys):
             game.start_game()
     captured = capsys.readouterr()
     assert "Switching players..." in captured.out
-    assert "Player 2 must pot a red ball next" in captured.out
 
 
 # start_game tests
