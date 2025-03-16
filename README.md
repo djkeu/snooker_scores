@@ -14,9 +14,6 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: display break
 
-- ToDo: black_ball_phase
-    - ToDo: display active player
-
 - FixMe: last colored ball
     - ToDo: display: last colored ball / player must play the last colored ball
     - FixMe: display_next_ball doesn't always show
