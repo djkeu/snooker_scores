@@ -13,10 +13,11 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: red ball down
-    - Note: if a red ball gets potted accidentally it will not return to the table
-    - ToDo: red_ball_down: red_balls -= 1
-    - ToDo: switch_players ?
-    - ToDo: assign hotkey 'r'
+    - Done: red_ball_down: red_balls -= 1
+    - Done: switch_players
+    - Done: assign hotkey 'r'
+    - ToDo: update hotkeys.txt
+
 
 - ToDo: Real life tests with videos of snooker games (13 / 100)
     12. Trump vs Bingham 1 | 58 - 72

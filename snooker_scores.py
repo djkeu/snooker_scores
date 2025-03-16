@@ -442,16 +442,6 @@ class SnookerScores:
 
         print(f"{player} must pot a {ball} next")
 
-    def red_ball_down(self):
-        self.red_balls -= 1
-        self.available_player_1 -= 8
-        self.available_player_2 -= 8
-        print("\tRed ball down!")
-
-        self.red_needed_next is True
-        self.switch_players()
-        self.display_game_state()
-
     # Score handling
     def update_score(self, shot):
         """Update the score of the player."""
@@ -511,22 +501,25 @@ class SnookerScores:
         if not self.red_needed_next:
             self.available_player_1 -= 7
         self.switch_players()
+        self.display_next_ball()
+
+    def red_ball_down(self):
+        self.red_balls -= 1
+        self.available_player_1 -= 8
+        self.available_player_2 -= 8
+        print("\tRed ball down!")
+
+        self.red_needed_next is True
+        self.switch_players()
+        self.display_game_state()
 
     def switch_players(self):
         """Switch players."""
         print("Switching players...")
         self.player_1_turn = not self.player_1_turn
 
-        # Note: abundant print
-        if self.player_1_turn:
-            active_player = self.player_1
-        else:
-            active_player = self.player_2
-        print(f"Active player now is {active_player}")
-
         if self.red_balls > 0:
             self.red_needed_next = True
-            self.display_next_ball()
 
     # Handle penalties
     def add_penalty(self):
