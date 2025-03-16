@@ -463,12 +463,12 @@ class SnookerScores:
         self.calculate_potential_scores()
 
         print(
-            f"{self.player_1}: score {self.score_player_1}, "
+            f"\t{self.player_1}: score {self.score_player_1}, "
             f"potential score {self.potential_score_player_1}"
         )
         print(
             f"\t{self.player_2}: score {self.score_player_2}, "
-            f"\tpotential score {self.potential_score_player_2}"
+            f"potential score {self.potential_score_player_2}"
         )
 
         self.red_balls_left()
