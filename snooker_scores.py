@@ -165,6 +165,12 @@ class SnookerScores:
     def black_ball_phase(self):
         print("\n\tBlack ball phase!")
         while True:
+            if self.player_1_turn:
+                active_player = self.player_1
+            else:
+                active_player = self.player_2
+            print(f"{active_player}'s turn")
+
             shot = input("Enter 0 for miss, 7 for black: ")
             if shot == "q":
                 sys.exit()
@@ -463,11 +469,11 @@ class SnookerScores:
         self.calculate_potential_scores()
 
         print(
-            f"{self.player_1}: score {self.score_player_1}, "
+            f"\t{self.player_1}: score {self.score_player_1}, "
             f"potential score {self.potential_score_player_1}"
         )
         print(
-            f"{self.player_2}: score {self.score_player_2}, "
+            f"\t{self.player_2}: score {self.score_player_2}, "
             f"potential score {self.potential_score_player_2}"
         )
 
@@ -553,7 +559,7 @@ class SnookerScores:
         """Apply penalty to the player."""
         if self.player_1_turn:
             print(
-                f"Penalty of {penalty_value} "
+                f"Penalty award of {penalty_value} "
                 f"points applied to {self.player_1}."
             )
             self.score_player_1 += penalty_value
