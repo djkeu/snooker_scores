@@ -29,7 +29,6 @@ This program is to display how many points are still available for each player t
 
 - ToDo: pytest
     - $ pytest --lf --collect-only -q
-    - Abandoned: review/revise test suite structure
     - ToDo: check tests
 
 - ToDo: GUI
