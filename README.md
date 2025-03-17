@@ -30,7 +30,8 @@ This program is to display how many points are still available for each player t
 - ToDo: Live tests with videos of snooker games (22 / 100)
     22. Trump vs Robertson : 60 - 34
     23. Trump vs Robertson: 6 - 64
-    24. 
+    24. Trump vs Robertson: 45 - 86
+    25. 
 
 - ToDo: pytest
     - $ pytest --lf --collect-only -q
