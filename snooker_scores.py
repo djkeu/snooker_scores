@@ -165,6 +165,7 @@ class SnookerScores:
                 return
 
     def black_ball_phase(self):
+        """Respot black ball after a tie."""
         print("\n\tBlack ball phase!")
         self.display_active_player()
         
@@ -181,6 +182,7 @@ class SnookerScores:
                 break
 
     def winner_black_ball_phase(self):
+        """Apply points to the winner of the black ball phase."""
         if self.player_1_turn:
             self.score_player_1 += 7
         else:
@@ -508,6 +510,7 @@ class SnookerScores:
             self.snookers_needed = True
 
     def display_active_player(self):
+        """Display the name of the active player."""
         if self.player_1_turn:
             active_player = self.player_1
         else:
@@ -532,6 +535,7 @@ class SnookerScores:
         self.display_next_ball()
 
     def red_ball_down(self):
+        """Handle a red ball accidently potted."""
         self.red_balls -= 1
         self.break_size = 0
         if self.player_1_turn:
