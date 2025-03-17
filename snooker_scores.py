@@ -516,6 +516,8 @@ class SnookerScores:
         """Handle a miss."""
         if not self.red_needed_next:
             self.available_player_1 -= 7
+        
+        self.break_size = 0
         self.switch_players()
         self.display_next_ball()
 
