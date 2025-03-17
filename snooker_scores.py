@@ -501,6 +501,13 @@ class SnookerScores:
             print(f"{self.player_1} needs snookers!")
             self.snookers_needed = True
 
+    def display_active_player(self):
+        if self.player_1_turn:
+            active_player = self.player_1
+        else:
+            active_player = self.player_2
+
+        print(f"Active player: {active_player}")
 
     # Handle missed balls
     def handle_miss(self):
