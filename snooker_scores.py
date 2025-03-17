@@ -165,11 +165,7 @@ class SnookerScores:
     def black_ball_phase(self):
         print("\n\tBlack ball phase!")
         while True:
-            if self.player_1_turn:
-                active_player = self.player_1
-            else:
-                active_player = self.player_2
-            print(f"{active_player}'s turn")
+            self.display_active_player()
 
             shot = input("Enter 0 for miss, 7 for black: ")
             if shot == "q":
@@ -531,6 +527,7 @@ class SnookerScores:
         """Switch players."""
         print("Switching players...")
         self.player_1_turn = not self.player_1_turn
+        self.display_active_player()
 
         if self.red_balls > 0:
             self.red_needed_next = True
