@@ -533,13 +533,24 @@ class SnookerScores:
 
     def red_ball_down(self):
         self.red_balls -= 1
-        self.available_player_1 -= 8
-        self.available_player_2 -= 8
+        self.break_size = 0
+        if self.player_1_turn:
+            self.available_player_1 -= 15
+            self.available_player_2 -= 8
+        else:
+            self.available_player_1 -= 8
+            self.available_player_2 -= 15
+
         print("\tRed ball down!")
 
-        self.red_needed_next is True
+        if self.red_balls > 0:
+            self.red_needed_next is True
+
         self.switch_players()
         self.display_game_state()
+
+        if self.red_balls == 0:
+            self.colored_balls_phase()
 
     def switch_players(self):
         """Switch players."""
