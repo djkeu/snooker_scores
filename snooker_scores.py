@@ -514,7 +514,7 @@ class SnookerScores:
 
     def display_break_size(self):
         """Display the size of the current break ."""
-        if self.break_size > 0:
+        if self.break_size > 1:
             print(f"Break: {self.break_size}")
         
 
