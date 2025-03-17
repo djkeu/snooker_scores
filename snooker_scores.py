@@ -238,8 +238,10 @@ class SnookerScores:
             print("Ok, back to the game then.")
             return
 
+        self.break_size = 0
         red_balls, score_player_1, score_player_2 = inputs
         self.update_game_state(red_balls, score_player_1, score_player_2)
+
 
         if red_balls == 0:
             self.setup_colored_balls_phase()
