@@ -13,6 +13,10 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: display break
+    - Note: 'break' is reserved python keyword
+    - ToDo: initialize self.break_size
+    - ToDo: calculate break_size
+    - ToDo: display break_size
 
 - ToDo: last colored ball
     - Note: changed conditions in red_balls_left
