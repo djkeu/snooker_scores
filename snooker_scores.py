@@ -29,7 +29,7 @@ class SnookerScores:
             7: "black",
         }
         self.first_input = True
-        self.shot_prompt = "What's the value of the shot: "
+        self.shot_prompt = "\nWhat's the value of the shot: "
 
 
     # Game phases 1: start the game
