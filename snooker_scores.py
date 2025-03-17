@@ -478,7 +478,10 @@ class SnookerScores:
 
     def red_balls_left(self):
         """Display the number of red balls left."""
-        if self.available_player_1 >= self.end_break:
+        if self.player_1_turn and self.available_player_1 > self.end_break:
+            print(f"{self.red_balls} red balls left")
+            self.display_next_ball()
+        elif not self.player_1_turn and self.available_player_2 > self.end_break:
             print(f"{self.red_balls} red balls left")
             self.display_next_ball()
 

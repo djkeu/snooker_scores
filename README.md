@@ -15,8 +15,12 @@ This program is to display how many points are still available for each player t
 - ToDo: display break
 
 - FixMe: last colored ball
-    - ToDo: display: last colored ball / player must play the last colored ball
-    - FixMe: display_next_ball doesn't always show
+    - Note: changed conditions in red_balls_left
+    - ToDo: manual tests
+    - Done: display: last colored ball / player must play the last colored ball
+    - Done: display_next_ball doesn't always show
+    - Done: double message: x must pot a colored ball + x must pot a yellow ball
+    - Note: display_next_ball is called from red_balls_left
 
 - ToDo: red ball down
     - ToDo: manual tests (3/50)
