@@ -20,19 +20,9 @@ This program is to display how many points are still available for each player t
     - Done: display break_size
     - ToDo: manual tests
     - Done: reset break_size in set_starting_scores
-    - Todo: pytest
-
-- ToDo: last colored ball
-    - Done: changed conditions in red_balls_left
-    - ToDo: manual tests
-    - Done: display: last colored ball / player must play the last colored ball
-    - Done: display_next_ball doesn't always show
-    - Done: double message: x must pot a colored ball + x must pot a yellow ball
-    - ToDo: pytest
 
 - ToDo: red ball down
     - ToDo: manual tests (3/50)
-    - ToDo: pytest
 
 - ToDo: Live tests with videos of snooker games (24 / 100)
     25. Trump vs Robertson: 0 - 135
