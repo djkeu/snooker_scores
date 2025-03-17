@@ -94,7 +94,8 @@ Note: 42 = 52 - (7 - 2) - (7 - 2)
     25. Trump vs Robertson: 0 - 135
     26. Murphy vs Robertson: 67 - 66
     27. Murphy vs Robertson: 1 - 108
-    28. 
+    28. Trump vs Selby: 9 - 78
+    29. 
 
 - ToDo: pytest
     - $ pytest --lf --collect-only -q
