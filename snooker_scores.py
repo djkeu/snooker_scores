@@ -454,6 +454,8 @@ class SnookerScores:
         else:
             self.score_player_2 += shot
 
+        self.break_size += shot
+
     def calculate_potential_scores(self):
         """Calculate potential scores for each player."""
         self.potential_score_player_1 = \
