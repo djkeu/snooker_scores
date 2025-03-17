@@ -19,7 +19,8 @@ This program is to display how many points are still available for each player t
         - Done: handle_miss(): break_size = 0
     - Done: display break_size
     - ToDo: manual tests
-    - Todo: automated tests
+    - Done: reset break_size in set_starting_scores
+    - Todo: pytest
 
 - ToDo: last colored ball
     - Note: changed conditions in red_balls_left
@@ -31,6 +32,7 @@ This program is to display how many points are still available for each player t
 
 - ToDo: red ball down
     - ToDo: manual tests (3/50)
+    - ToDo: pytest
 
 - ToDo: Live tests with videos of snooker games (24 / 100)
     25. Trump vs Robertson : 0 - 135
