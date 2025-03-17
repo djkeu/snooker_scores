@@ -90,7 +90,7 @@ Note: 42 = 52 - (7 - 2) - (7 - 2)
     Break: 31
 ```
 
-- ToDo: Live tests with videos of snooker games (24 / 100)
+- ToDo: Live tests with videos of snooker games (28 / 100)
     25. Trump vs Robertson: 0 - 135
     26. Murphy vs Robertson: 67 - 66
     27. Murphy vs Robertson: 1 - 108
