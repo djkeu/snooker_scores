@@ -150,6 +150,7 @@ class SnookerScores:
 
             if shot != self.yellow_ball:
                 print("Wrong ball!")
+                self.break_size = 0
                 self.switch_players()
             else:
                 self.available_player_1 -= self.yellow_ball
