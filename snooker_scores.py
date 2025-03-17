@@ -476,6 +476,7 @@ class SnookerScores:
             f"potential score {self.potential_score_player_2}"
         )
 
+        self.display_break_size()
         self.red_balls_left()
         self.display_snookers_needed()
 
@@ -510,6 +511,11 @@ class SnookerScores:
             active_player = self.player_2
 
         print(f"Active player: {active_player}")
+
+    def display_break_size(self):
+        """Display the size of the current break ."""
+        print(f"Break: {self.break_size}")
+        
 
     # Handle missed balls
     def handle_miss(self):
