@@ -12,6 +12,8 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
+- ToDo: respot: display scores / active player
+
 - ToDo: display break
 
 - FixMe: last colored ball

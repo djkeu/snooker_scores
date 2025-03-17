@@ -586,6 +586,8 @@ class SnookerScores:
             else:
                 print("Invalid input. Please enter 'y' or 'n'.")
 
+        self.display_active_player()
+
         if respot == 'y':
             self.switch_players()
         elif self.red_balls > 0:
