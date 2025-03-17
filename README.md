@@ -21,10 +21,7 @@ This program is to display how many points are still available for each player t
 - ToDo: red ball down
     - ToDo: manual tests (3/50)
 
-- ToDo: Live tests with videos of snooker games (22 / 100)
-    22. Trump vs Robertson : 60 - 34
-    23. Trump vs Robertson: 6 - 64
-    24. Trump vs Robertson: 45 - 86
+- ToDo: Live tests with videos of snooker games (24 / 100)
     25. 
 
 - ToDo: pytest
