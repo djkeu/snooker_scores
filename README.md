@@ -12,9 +12,6 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: pytest
-    - $ pytest -v --tb=no --no-header --no-summary | grep FAILED | awk '{print $1}'
-
 - ToDo: display break
 
 - FixMe: last colored ball
@@ -30,9 +27,10 @@ This program is to display how many points are still available for each player t
 
 - ToDo: Live tests with videos of snooker games (22 / 100)
     22. Trump vs Robertson : 60 - 34
-
+    23. 
 
 - ToDo: pytest
+    - $ pytest --lf --collect-only -q
     - Abandoned: review/revise test suite structure
     - ToDo: check tests
 
@@ -86,6 +84,7 @@ snooker_scores/
 
 ## Pytest
 
+### Files
 - test_game_flow.py:
     - Test the overall game flow from start to finish.
 
@@ -98,6 +97,11 @@ snooker_scores/
 - test_score_calculation.py
     - Test how scores are updated based on different scenarios.
 
+### Commands to show only failed tests:
+    - $ pytest -v --tb=no --no-header --no-summary | grep FAILED | awk '{print $1}'
+    - $ pytest --lf --collect-only -q
+
+### All tests updated 17-3-2025
 ```
 $ pytest --collect-only --quiet
 tests/test_game_flow.py::test_game_flow
