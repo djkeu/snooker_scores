@@ -26,58 +26,16 @@ This program is to display how many points are still available for each player t
     29. 
 
 - ToDo: pytest
-    - $ pytest --lf --collect-only -q
     - ToDo: check tests
 
 - ToDo: GUI
 
 
-## File structure
-
-### No GUI
-
-```
-snooker_scores/
-├── sn_env/
-├── tests/
-│   ├──  test_game_flow.py
-│   ├──  test_game_logic.py
-│   ├──  test_input_validation.py
-│   ├──  test_score_calculation.py
-│   ├──  tst_snooker.py
-├── txt/
-│   ├──  hotkeys.txt
-│   ├──  welcome_messages.txt
-├── .gitignore 
-├── main.py 
-├── pytest.ini 
-├── readme.md 
-├── snooker_scores.py 
-
-```
-
-### New GUI
-
-```
-snooker_scores/
-├── sn_env/
-├── tests/
-│   ├──  test_game_flow.py
-│   ├──  test_game_logic.py
-│   ├──  test_input_validation.py
-│   ├──  test_score_calculation.py
-├── txt/
-│   ├──  hotkeys.txt
-├── .gitignore 
-├── main.py 
-├── pytest.ini 
-├── README.md 
-├── snooker_scores.py 
-
-```
-
-
 ## Pytest
+
+### Commands to show only failed tests:
+    - $ pytest -v --tb=no --no-header --no-summary | grep FAILED | awk '{print $1}'
+    - $ pytest --lf --collect-only -q
 
 ### Files
 - test_game_flow.py:
@@ -91,10 +49,6 @@ snooker_scores/
 
 - test_score_calculation.py
     - Test how scores are updated based on different scenarios.
-
-### Commands to show only failed tests:
-    - $ pytest -v --tb=no --no-header --no-summary | grep FAILED | awk '{print $1}'
-    - $ pytest --lf --collect-only -q
 
 ### All tests updated 17-3-2025
 ```
@@ -198,6 +152,52 @@ tests/test_score_calculation.py::test_add_penalty_edge_cases_2
 tests/test_score_calculation.py::test_update_score_edge_cases
 tests/test_score_calculation.py::test_calculate_potential_scores_edge_cases
 ```
+
+
+## File structure
+
+### No GUI
+
+```
+snooker_scores/
+├── sn_env/
+├── tests/
+│   ├──  test_game_flow.py
+│   ├──  test_game_logic.py
+│   ├──  test_input_validation.py
+│   ├──  test_score_calculation.py
+│   ├──  tst_snooker.py
+├── txt/
+│   ├──  hotkeys.txt
+│   ├──  welcome_messages.txt
+├── .gitignore 
+├── main.py 
+├── pytest.ini 
+├── readme.md 
+├── snooker_scores.py 
+
+```
+
+### New GUI
+
+```
+snooker_scores/
+├── sn_env/
+├── tests/
+│   ├──  test_game_flow.py
+│   ├──  test_game_logic.py
+│   ├──  test_input_validation.py
+│   ├──  test_score_calculation.py
+├── txt/
+│   ├──  hotkeys.txt
+├── .gitignore 
+├── main.py 
+├── pytest.ini 
+├── README.md 
+├── snooker_scores.py 
+
+```
+
 
 ## Snooker rules
 Points are also scored if the opponent makes the following mistakes:
