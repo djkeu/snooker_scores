@@ -12,15 +12,6 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: display break
-    - Done: initialize break_size = 0
-    - Done: calculate break_size
-        - Done: update_score(): break_size += shot
-        - Done: handle_miss(): break_size = 0
-    - Done: display break_size
-    - ToDo: manual tests
-    - Done: reset break_size in set_starting_scores
-
 - ToDo: red ball down
     - ToDo: manual tests (11/50)
     - Done: reset break_size
