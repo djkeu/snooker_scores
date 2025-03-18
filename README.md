@@ -23,7 +23,8 @@ This program is to display how many points are still available for each player t
     26. Murphy vs Robertson: 67 - 66
     27. Murphy vs Robertson: 1 - 108
     28. Trump vs Selby: 9 - 78
-    29. 
+    29. Ynuxu vs Robertson: 87 - 19
+    30. 
 
 - ToDo: pytest
     - ToDo: check tests
