@@ -548,6 +548,7 @@ class SnookerScores:
         print("\tRed ball down!")
 
         if self.red_needed_next and self.red_balls == 1:
+            # Note: technically impossible to accidentally pot a second red ball
             self.available_player_1 -= 8
             self.available_player_2 -= 8
             self.display_game_state()
@@ -563,7 +564,7 @@ class SnookerScores:
             self.available_player_2 -= 16
             self.switch_players()
             self.display_game_state()
-            return
+            return  #Note: return needed?
         elif self.red_needed_next and self.red_balls == 0:
             self.available_player_1 -= 16
             self.available_player_2 -= 16
