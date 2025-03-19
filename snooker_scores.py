@@ -538,6 +538,7 @@ class SnookerScores:
         self.switch_players()
         self.display_next_ball()
 
+# FixMe:
     def red_ball_down(self):
         """Handle a red ball accidently potted."""
         if self.red_balls == 0:
