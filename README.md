@@ -24,7 +24,8 @@ This program is to display how many points are still available for each player t
     28. Trump vs Selby: 9 - 78
     29. Yunxu vs Robertson: 87 - 19
     30. Trump vs Peifan: 22 - 68
-    31. Trump vs Peifan: 
+    31. Trump vs Peifan: 113 - 0
+    32. 
 
 - ToDo: pytest
     - ToDo: check tests
