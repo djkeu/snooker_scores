@@ -540,17 +540,19 @@ class SnookerScores:
 
     def red_ball_down(self):
         """Handle a red ball accidently potted."""
-        if self.red_balls == 0:
+        if self.red_balls < 2:
             print(
-                "No more red balls on the table! "
+                "Not enough red balls on the table! "
                 "Play a colored ball please"
             )
             self.display_colored_ball_to_play()
             return
 
-        # FixMe: red_ball_down if red_ball_next == True
         self.red_balls -= 1
         self.break_size = 0
+
+        # FixMe: red_ball_down if red_ball_next == True
+        # ToDo: reduction of available points
         if self.player_1_turn:
             self.available_player_1 -= 15
             self.available_player_2 -= 8
