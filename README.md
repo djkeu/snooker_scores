@@ -12,10 +12,6 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: colored_balls_phase / red_ball_down
-    - FixMe: same code in both functions
-    - ToDo: helper function to print which colored ball to play
-
 - ToDo: Live tests with videos of snooker games (28 / 100)
     25. Trump vs Robertson: 0 - 135
     26. Murphy vs Robertson: 67 - 66
