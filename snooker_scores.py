@@ -538,33 +538,44 @@ class SnookerScores:
         self.switch_players()
         self.display_next_ball()
 
-# FixMe:
+    # ToDo: manual tests
     def red_ball_down(self):
-        """Handle a red ball accidently potted."""
+        """Handle a red ball accidentally potted."""
         if self.red_balls == 0:
-            print(
-                "No more red balls on the table! "
-                "Play a colored ball please"
-            )
-            self.display_colored_ball_to_play()
+            print("No reds available to accidentally pot!")
             return
-        elif self.red_balls == 1:
-            # ToDo: test if elif condition is needed
-            ...
+        
+        print("\tRed ball down!")
+
+        if self.red_needed_next and self.red_balls == 1:
+            self.available_player_1 -= 8
+            self.available_player_2 -= 8
+            self.display_game_state()
+            self.switch_players()
+            self.colored_balls_phase()
 
         self.red_balls -= 1
         self.break_size = 0
 
-        # FixMe: red_ball_down if red_ball_next == True
-        # ToDo: reduction of available points
+        if self.red_needed_next and self.red_balls >= 1:
+            self.red_balls -= 1
+            self.available_player_1 -= 16
+            self.available_player_2 -= 16
+            self.switch_players()
+            self.display_game_state()
+            return
+        elif self.red_needed_next and self.red_balls == 0:
+            self.available_player_1 -= 16
+            self.available_player_2 -= 16
+            self.switch_players()
+            self.colored_balls_phase()
+
         if self.player_1_turn:
             self.available_player_1 -= 15
             self.available_player_2 -= 8
         else:
             self.available_player_1 -= 8
             self.available_player_2 -= 15
-
-        print("\tRed ball down!")
 
         if self.red_balls > 0:
             self.red_needed_next is True
