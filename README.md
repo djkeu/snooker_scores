@@ -12,13 +12,14 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: Live tests with videos of snooker games (28 / 100)
+- ToDo: Live tests with videos of snooker games (30 / 100)
     25. Trump vs Robertson: 0 - 135
     26. Murphy vs Robertson: 67 - 66
     27. Murphy vs Robertson: 1 - 108
     28. Trump vs Selby: 9 - 78
     29. Yunxu vs Robertson: 87 - 19
-    30. 
+    30. Trump vs Peifan: 22 - 68
+    31. Trump vs Peifan: 
 
 - ToDo: pytest
     - ToDo: check tests
