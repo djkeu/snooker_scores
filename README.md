@@ -14,7 +14,7 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: red_ball_down
     - ToDo: manual tests
-    - FixMe: reformat butt ugly code
+    - ToDo: reformat butt ugly code
 
 - ToDo: Live tests with videos of snooker games (33 / 100)
     33. Trumpo vs Peifan: 65 - 56
