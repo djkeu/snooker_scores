@@ -13,7 +13,6 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: red_ball_down
-    - ToDo: reduction of available points
     - ToDo: manual tests
     - FixMe: reformat butt ugly code
 
