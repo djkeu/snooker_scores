@@ -548,6 +548,7 @@ class SnookerScores:
             self.display_colored_ball_to_play()
             return
 
+        # FixMe: red_ball_down if red_ball_next == True
         self.red_balls -= 1
         self.break_size = 0
         if self.player_1_turn:
