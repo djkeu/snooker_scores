@@ -17,6 +17,7 @@ This program is to display how many points are still available for each player t
     - Done: reset break_size
     - Done: available - 8 / 15
     - Done: potential scores end_game
+    - FixMe: Error if red_ball_down is called while red_balls < 0
 
 - ToDo: Live tests with videos of snooker games (28 / 100)
     25. Trump vs Robertson: 0 - 135
