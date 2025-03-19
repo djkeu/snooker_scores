@@ -540,13 +540,16 @@ class SnookerScores:
 
     def red_ball_down(self):
         """Handle a red ball accidently potted."""
-        if self.red_balls < 2:
+        if self.red_balls == 0:
             print(
-                "Not enough red balls on the table! "
+                "No more red balls on the table! "
                 "Play a colored ball please"
             )
             self.display_colored_ball_to_play()
             return
+        elif self.red_balls == 1:
+            # ToDo: test if elif condition is needed
+            ...
 
         self.red_balls -= 1
         self.break_size = 0
