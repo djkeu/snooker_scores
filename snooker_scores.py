@@ -564,7 +564,7 @@ class SnookerScores:
             self.available_player_2 -= 16
             self.switch_players()
             self.display_game_state()
-            return  #Note: return needed?
+            return  #Note: return needed?  # Note: yes
         elif self.red_needed_next and self.red_balls == 0:
             self.available_player_1 -= 16
             self.available_player_2 -= 16
