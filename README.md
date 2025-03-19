@@ -12,12 +12,9 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: red ball down
-    - ToDo: manual tests (11/50)
-    - Done: reset break_size
-    - Done: available - 8 / 15
-    - Done: potential scores end_game
-    - FixMe: Error if red_ball_down is called while red_balls < 0
+- ToDo: colored_balls_phase / red_ball_down
+    - FixMe: same code in both functions
+    - ToDo: helper function to print which colored ball to play
 
 - ToDo: Live tests with videos of snooker games (28 / 100)
     25. Trump vs Robertson: 0 - 135
