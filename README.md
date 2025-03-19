@@ -12,6 +12,10 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
+- ToDo: red_ball_down
+    - FixMe: red_ball_down when red_ball_next is True
+    - ToDo: manual tests
+ 
 - ToDo: Live tests with videos of snooker games (30 / 100)
     25. Trump vs Robertson: 0 - 135
     26. Murphy vs Robertson: 67 - 66
