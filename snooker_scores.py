@@ -132,16 +132,7 @@ class SnookerScores:
     def colored_balls_phase(self):
         """Play the colored balls phase of the game."""
         while self.available_player_1 > 0:
-            if self.player_1_turn:
-                print(
-                    f"{self.player_1} must pot a "
-                    f"{self.colored_balls[self.yellow_ball]} ball"
-                )
-            else:
-                print(
-                    f"{self.player_2} must pot a "
-                    f"{self.colored_balls[self.yellow_ball]} ball"
-                )
+            self.display_colored_ball_to_play()
             shot = self.get_shot_value()
 
             if shot in ["switch", "scores_set", "penalty"]:
@@ -163,6 +154,19 @@ class SnookerScores:
                 self.display_winner()
                 self.restart_game()
                 return
+    
+    def display_colored_ball_to_play(self):
+        """Display which colored ball should be played next."""
+        if self.player_1_turn:
+            print(
+                f"{self.player_1} must pot a "
+                f"{self.colored_balls[self.yellow_ball]} ball"
+            )
+        else:
+            print(
+                f"{self.player_2} must pot a "
+                f"{self.colored_balls[self.yellow_ball]} ball"
+            )
 
     def black_ball_phase(self):
         """Respot black ball after a tie."""
@@ -537,16 +541,7 @@ class SnookerScores:
     def red_ball_down(self):
         """Handle a red ball accidently potted."""
         if self.red_balls == 0:
-            if self.player_1_turn:
-                print(
-                    f"{self.player_1} must pot a "
-                    f"{self.colored_balls[self.yellow_ball]} ball"
-                )
-            else:
-                print(
-                    f"{self.player_2} must pot a "
-                    f"{self.colored_balls[self.yellow_ball]} ball"
-                )
+            self.display_colored_ball_to_play()
             return
 
         self.red_balls -= 1
