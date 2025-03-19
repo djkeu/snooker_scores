@@ -536,6 +536,19 @@ class SnookerScores:
 
     def red_ball_down(self):
         """Handle a red ball accidently potted."""
+        if self.red_balls == 0:
+            if self.player_1_turn:
+                print(
+                    f"{self.player_1} must pot a "
+                    f"{self.colored_balls[self.yellow_ball]} ball"
+                )
+            else:
+                print(
+                    f"{self.player_2} must pot a "
+                    f"{self.colored_balls[self.yellow_ball]} ball"
+                )
+            return
+
         self.red_balls -= 1
         self.break_size = 0
         if self.player_1_turn:
