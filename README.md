@@ -15,37 +15,32 @@ This program is to display how many points are still available for each player t
 - ToDo: red_ball_down
     - ToDo: manual tests: analyse outputs
         - ToDo: 15 reds: Note: (2/6)
-            1. Done: red_needed_next
-            2. Done: colored ball
-            3. ToDo: red_needed_next
-            4. ToDo: colored ball
-            5. ToDo: red_needed_next
-            6. ToDo: colored ball
+            1. ToDo: 1 red, r
+                assert red balls: 13, score p1: 1
+            2. ToDo: 1 red, 1 color, r
+            3. ToDo: 1 red, 1 color, 1 red, r
+            4. ToDo: 1 red, 1 color, 1 red, 1 color, r
+            5. ToDo: r, r
+            6. ToDo: r, 1 red, r
+            7. ToDo: r, 1 red, r
+            8. ToDo: r, 1 red, 1 color, r
+            9. ToDo: random variations
         - ToDo: 3 reds: Note: (0/6)
-            1. Done: red_needed_next
-            2. Done: colored ball
-            3. ToDo: red_needed_next
-            4. ToDo: colored ball
-            5. ToDo: red_needed_next
-            6. ToDo: colored ball
-        - ToDo: 2 reds: Note: ((0/6))
-            1. ToDo: red_needed_next
-            2. ToDo: colored ball
-            3. ToDo: red_needed_next
-            4. ToDo: colored ball
-            5. ToDo: red_needed_next
-            6. ToDo: colored ball
-        - ToDo: 1 red: Note: (0/6)
-            1. ToDo: red_needed_next
-            2. ToDo: colored ball
-            3. ToDo: red_needed_next
-            4. ToDo: colored ball
-            5. ToDo: red_needed_next
-            6. ToDo: colored ball
-        - ToDo: 0 reds: Note: (0/6)
-            1. ToDo: colored ball
-            2. ToDo: colored ball
-            2. ToDo: colored ball
+            1. ToDo: r
+            2. ToDo: r, r
+            3. ToDo: r, 1 red, r
+            4. ToDo: r, 1 red, 1 color, r
+            5. ToDo: 1 red, r
+            6. ToDo: 1 red, 1 color, r
+            7. ToDo: 1 red, 1 color, 1 red, r
+            8. ToDo: 1 red, 1 color, 1 red, 1 color, r
+            9. ToDo: 1 color, r
+            10. ToDo: 1 color, 1 red, r
+            11. ToDo: 1 color, 1 red, 1 color, r
+
+        - Done: 2 reds:
+        - Done: 1 red:
+        - Done: 0 reds:
 
 
 - ToDo: Live tests with videos of snooker games (33 / 100)
