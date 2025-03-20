@@ -14,32 +14,58 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: red_ball_down
     - ToDo: manual tests: analyse outputs
+    - ToDo: add assertions
         - ToDo: 15 reds: Note: (2/6)
-            1. ToDo: 1 red, r
-                assert red balls: 13, score p1: 1
-            2. ToDo: 1 red, 1 color, r
+            1. Done: 1 red, r
+                assert reds: 15 - 1 - 1, p1: 1/132, p2: 0/131
+            2. Done: 1 red, 1 color, r
+                assert reds: 15 - 1 - 1, p1: 1 + col/131-(7-col)
+                Note: elif self.red_needed_next and self.red_balls > 2:
+                        self.red_balls -= 1 (not -= 2)
             3. ToDo: 1 red, 1 color, 1 red, r
+                assert
             4. ToDo: 1 red, 1 color, 1 red, 1 color, r
+                assert
             5. ToDo: r, r
+                assert
             6. ToDo: r, 1 red, r
+                assert
             7. ToDo: r, 1 red, r
+                assert
             8. ToDo: r, 1 red, 1 color, r
+                assert
             9. ToDo: random variations
+                assert
+
         - ToDo: 3 reds: Note: (0/6)
             1. ToDo: r
+                assert
             2. ToDo: r, r
+                assert
             3. ToDo: r, 1 red, r
+                assert
             4. ToDo: r, 1 red, 1 color, r
+                assert
             5. ToDo: 1 red, r
+                assert
             6. ToDo: 1 red, 1 color, r
+                assert
             7. ToDo: 1 red, 1 color, 1 red, r
+                assert
             8. ToDo: 1 red, 1 color, 1 red, 1 color, r
+                assert
             9. ToDo: 1 color, r
+                assert
             10. ToDo: 1 color, 1 red, r
+                assert
             11. ToDo: 1 color, 1 red, 1 color, r
+                assert
+
 
         - Done: 2 reds:
+
         - Done: 1 red:
+
         - Done: 0 reds:
 
 

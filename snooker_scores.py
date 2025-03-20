@@ -560,7 +560,7 @@ class SnookerScores:
             self.switch_players()
             self.colored_balls_phase()
         elif self.red_needed_next and self.red_balls > 2:
-            self.red_balls -= 2
+            self.red_balls -= 1
             self.available_player_1 -= 16
             self.available_player_2 -= 16
             self.switch_players()
