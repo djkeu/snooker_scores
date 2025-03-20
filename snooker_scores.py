@@ -540,11 +540,13 @@ class SnookerScores:
 
     def red_ball_down(self):
         """Handle a red ball accidentally potted."""
+        no_reds = "No reds available to accidentally pot!"
+
         if self.red_balls == 0:
-            print("No reds available to accidentally pot!")
+            print(no_reds)
             return
         elif self.red_needed_next and self.red_balls == 1:
-            print("No reds available to accidentally pot!")
+            print(no_reds)
             return
 
         print("\tRed ball down!")
