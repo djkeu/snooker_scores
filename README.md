@@ -17,23 +17,6 @@ This program is to display how many points are still available for each player t
 
     - ToDo: if not red_needed_next and red_balls = 0, 1
 
-    - Note: Analyse: correct?
-            Player 1: score 45, potential score 95
-            Player 2: score 44, potential score 87
-    2 red balls left
-    Player 1 must pot a colored ball next
-
-    What's the value of the shot: r
-            Red ball down!
-    Switching players...
-    Active player: Player 2
-            Player 1: score 45, potential score 80
-            Player 2: score 44, potential score 79
-    1 red balls left
-    Player 2 must pot a red ball next
-
-    What's the value of the shot: 
-
 
 - ToDo: Live tests with videos of snooker games (33 / 100)
     33. Trumpo vs Peifan: 65 - 56
