@@ -31,8 +31,8 @@ This program is to display how many points are still available for each player t
                 assert reds: 11, p1: 0 / 147 - 32
             6. ToDo: r, 1 red, r
                 assert reds: 10, p2: 1 / 147 - 32, p1: 146 - 32
-            7. ToDo: r, 1 red, r
-                assert
+            7. ToDo: r, 1 red, r, 1 red
+                assert reds: 9, p2: 1, p1: 1
             8. ToDo: r, 1 red, 1 color, r
                 assert reds: 10, p2: 6/147 - 32, p1: 147 - 8 - 32
             9. ToDo: random variations
