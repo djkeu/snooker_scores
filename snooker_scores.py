@@ -526,14 +526,14 @@ class SnookerScores:
         """Display the size of the current break ."""
         if self.break_size > 10:
             print(f"Break: {self.break_size}")
-        
+
 
     # Handle missed balls
     def handle_miss(self):
         """Handle a miss."""
         if not self.red_needed_next:
             self.available_player_1 -= 7
-        
+
         self.break_size = 0
         self.switch_players()
         self.display_next_ball()
