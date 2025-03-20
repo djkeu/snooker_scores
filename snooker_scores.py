@@ -547,15 +547,7 @@ class SnookerScores:
         print("\tRed ball down!")
         self.break_size = 0
 
-        if self.red_needed_next and self.red_balls == 1:
-            # Note: technically impossible to accidentally pot a second red ball
-            self.red_balls = 0
-            self.available_player_1 -= 8
-            self.available_player_2 -= 8
-            self.display_game_state()
-            self.switch_players()
-            self.colored_balls_phase()
-        elif self.red_needed_next and self.red_balls == 2:
+        if self.red_needed_next and self.red_balls == 2:
             self.red_balls = 0
             self.available_player_1 -= 16
             self.available_player_2 -= 16
