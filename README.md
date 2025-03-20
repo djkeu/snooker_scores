@@ -14,7 +14,22 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: red_ball_down
     - ToDo: manual tests
-    - ToDo: reformat butt ugly code
+    - FixMe: 
+
+        Player 1: score 44, potential score 87
+        Player 2: score 44, potential score 87
+    2 red balls left
+    Player 1 must pot a red ball next
+
+    What's the value of the shot: r
+            Red ball down!
+    Switching players...
+    Active player: Player 2
+            Player 1: score 44, potential score 71
+            Player 2: score 44, potential score 71
+
+    What's the value of the shot: # FixMe: should be yellow ball
+
 
 - ToDo: Live tests with videos of snooker games (33 / 100)
     33. Trumpo vs Peifan: 65 - 56
