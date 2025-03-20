@@ -475,6 +475,7 @@ class SnookerScores:
     def display_game_state(self):
         """Display the current game state."""
         self.calculate_potential_scores()
+        self.display_break_size()
 
         print(
             f"\t{self.player_1}: score {self.score_player_1}, "
@@ -485,7 +486,6 @@ class SnookerScores:
             f"potential score {self.potential_score_player_2}"
         )
 
-        self.display_break_size()
         self.red_balls_left()
         self.display_snookers_needed()
 
