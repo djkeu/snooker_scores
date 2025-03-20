@@ -23,9 +23,9 @@ This program is to display how many points are still available for each player t
                 assert reds: 15 - 1 - 1, p1: 1 + col/131-(7-col)
                 Note: elif self.red_needed_next and self.red_balls > 2:
                         self.red_balls -= 1 (not -= 2)
-            3. ToDo: 1 red, 1 color, 1 red, r
-                assert reds 12, p1: 7/147 - 2 - 8
-            4. ToDo: 1 red, 1 color, 1 red, 1 color, r
+            3. Done: 1 red, 1 color, 1 red, r
+                assert reds 12, p1: 7/147 - 2 - 7 - 1 - 7
+            4. Done: 1 red, 1 color, 1 red, 1 color, r
                 assert reds: 11, p1: 12 / 147 - 2 - 2 - 16
             5. ToDo: r, r
                 assert reds: 11, p1: 0 / 147 - 32
