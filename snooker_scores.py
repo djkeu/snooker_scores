@@ -538,7 +538,55 @@ class SnookerScores:
         self.switch_players()
         self.display_next_ball()
 
-    # ToDo: manual tests, reformat
+    # ToDo: remove when done
+    def red_ball_down_backup(self):
+        """Handle a red ball accidentally potted."""
+        if self.red_balls == 0:
+            print("No reds available to accidentally pot!")
+            return
+        
+        print("\tRed ball down!")
+
+        if self.red_needed_next and self.red_balls == 1:
+            # Note: technically impossible to accidentally pot a second red ball
+            self.available_player_1 -= 8
+            self.available_player_2 -= 8
+            self.display_game_state()
+            self.switch_players()
+            self.colored_balls_phase()
+
+        self.red_balls -= 1
+        self.break_size = 0
+
+        if self.red_needed_next and self.red_balls >= 1:
+            self.red_balls -= 1
+            self.available_player_1 -= 16
+            self.available_player_2 -= 16
+            self.switch_players()
+            self.display_game_state()
+            return  #Note: return needed?  # Note: yes
+        elif self.red_needed_next and self.red_balls == 0:
+            self.available_player_1 -= 16
+            self.available_player_2 -= 16
+            self.switch_players()
+            self.colored_balls_phase()
+
+        if self.player_1_turn:
+            self.available_player_1 -= 15
+            self.available_player_2 -= 8
+        else:
+            self.available_player_1 -= 8
+            self.available_player_2 -= 15
+
+        if self.red_balls > 0:
+            self.red_needed_next is True
+
+        self.switch_players()
+        self.display_game_state()
+
+        if self.red_balls == 0:
+            self.colored_balls_phase()
+
     def red_ball_down(self):
         """Handle a red ball accidentally potted."""
         if self.red_balls == 0:
