@@ -13,21 +13,39 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: red_ball_down
-    - ToDo: manual tests
-        - Done: 15 reds
-            - Done: red_needed_next
-            - Done: colored ball
-        - ToDo: 3 reds:
-            - ToDo: red_needed_next
-            - ToDo: colored ball
-        - ToDo: 2 reds:
-            - ToDo: red_needed_next
-            - ToDo: colored ball
-        - ToDo: 1 red:
-            - ToDo: red_needed_next
-            - ToDo: colored ball
-        - ToDo: 0 reds:
-            - ToDo: colored ball
+    - ToDo: manual tests: analyse outputs
+        - ToDo: 15 reds: Note: (2/6)
+            1. Done: red_needed_next
+            2. Done: colored ball
+            3. ToDo: red_needed_next
+            4. ToDo: colored ball
+            5. ToDo: red_needed_next
+            6. ToDo: colored ball
+        - ToDo: 3 reds: Note: (0/6)
+            1. ToDo: red_needed_next
+            2. ToDo: colored ball
+            3. ToDo: red_needed_next
+            4. ToDo: colored ball
+            5. ToDo: red_needed_next
+            6. ToDo: colored ball
+        - ToDo: 2 reds: Note: ((0/6))
+            1. ToDo: red_needed_next
+            2. ToDo: colored ball
+            3. ToDo: red_needed_next
+            4. ToDo: colored ball
+            5. ToDo: red_needed_next
+            6. ToDo: colored ball
+        - ToDo: 1 red: Note: (0/6)
+            1. ToDo: red_needed_next
+            2. ToDo: colored ball
+            3. ToDo: red_needed_next
+            4. ToDo: colored ball
+            5. ToDo: red_needed_next
+            6. ToDo: colored ball
+        - ToDo: 0 reds: Note: (0/6)
+            1. ToDo: colored ball
+            2. ToDo: colored ball
+            2. ToDo: colored ball
 
 
 - ToDo: Live tests with videos of snooker games (33 / 100)
