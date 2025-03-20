@@ -593,8 +593,10 @@ class SnookerScores:
             self.red_balls -= 2
         else:
             self.red_balls -= 1
-
         
+        self.display_game_state()
+
+
 
     def switch_players(self):
         """Switch players."""
