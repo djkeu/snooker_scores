@@ -22,8 +22,8 @@ This program is to display how many points are still available for each player t
             5. ToDo: red_needed_next
             6. ToDo: colored ball
         - ToDo: 3 reds: Note: (0/6)
-            1. ToDo: red_needed_next
-            2. ToDo: colored ball
+            1. Done: red_needed_next
+            2. Done: colored ball
             3. ToDo: red_needed_next
             4. ToDo: colored ball
             5. ToDo: red_needed_next
