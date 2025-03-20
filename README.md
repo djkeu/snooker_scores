@@ -14,6 +14,17 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: red_ball_down
     - ToDo: manual tests
+        - 3 reds:
+            - red_needed_next
+            - colored ball
+        - 2 reds:
+            - red_needed_next
+            - colored ball
+        - 1 red:
+            - red_needed_next
+            - colored ball
+        - 0 reds:
+            - colored ball
 
     - ToDo: if not red_needed_next and red_balls == 1
         - Done: W: No reds available to..
