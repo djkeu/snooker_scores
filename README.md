@@ -15,8 +15,8 @@ This program is to display how many points are still available for each player t
 - ToDo: red_ball_down
     - ToDo: manual tests
 
-    - ToDo: if not red_needed_next and red_balls = 0, 1
-
+    - ToDo: if not red_needed_next and red_balls == 1
+        - Done: W: No reds available to..
 
 - ToDo: Live tests with videos of snooker games (33 / 100)
     33. Trumpo vs Peifan: 65 - 56

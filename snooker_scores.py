@@ -540,7 +540,7 @@ class SnookerScores:
 
     def red_ball_down(self):
         """Handle a red ball accidentally potted."""
-        if self.red_balls == 0:
+        if self.red_balls <= 1:
             print("No reds available to accidentally pot!")
             return
 
@@ -568,7 +568,7 @@ class SnookerScores:
             self.available_player_2 -= 16
             self.switch_players()
             self.display_game_state()
-            return  #Note: return needed?  # Note: yes
+            return
 
         self.red_balls -= 1
 
