@@ -16,29 +16,26 @@ This program is to display how many points are still available for each player t
     - ToDo: manual tests: analyse outputs
     - ToDo: add assertions
         - Note: assume all colors are 5
-        - ToDo: 15 reds: Note: (2/6)
+        - Done: 15 reds:
             1. Done: 1 red, r
                 assert reds: 15 - 1 - 1, p1: 1/132, p2: 0/131
             2. Done: 1 red, 1 color, r
-                assert reds: 15 - 1 - 1, p1: 1 + col/131-(7-col)
-                Note: elif self.red_needed_next and self.red_balls > 2:
-                        self.red_balls -= 1 (not -= 2)
+                assert reds: 15 - 1 - 2, p1: 1 + col/131-(7-col)
             3. Done: 1 red, 1 color, 1 red, r
-                assert reds 12, p1: 7/147 - 2 - 7 - 1 - 7
+                assert reds 15 - 1 - 1 - 1, p1: 7/147 - 2 - 7 - 1 - 7
             4. Done: 1 red, 1 color, 1 red, 1 color, r
                 assert reds: 11, p1: 12 / 147 - 2 - 2 - 16
-            5. ToDo: r, r
-                assert reds: 11, p1: 0 / 147 - 32
-            6. ToDo: r, 1 red, r
-                assert reds: 10, p2: 1 / 147 - 32, p1: 146 - 32
-            7. ToDo: r, 1 red, r, 1 red
-                assert reds: 9, p2: 1, p1: 1
-            8. ToDo: r, 1 red, 1 color, r
-                assert reds: 10, p2: 6/147 - 32, p1: 147 - 8 - 32
-            9. ToDo: random variations
-                assert
+            5. Done: r, r
+                assert reds: 11, p1, p2: 0 / 147 - 32
+            6. Done: r, 1 red, r
+                assert reds: 15 - 2 - 1 - 1, p1: 0 / 147 - 16 - 8 - 8, p2: 1 / 147 - 16 - 15
+                Done: calculation assertion potential score p2
+            7. Done: r, 1 red, r, 1 red
+                assert reds: 15 - 2 - 1 - 1 - 1, p1: 1, p2: 1
+            8. Done: r, 1 red, 1 color, r
+                assert reds: 10, p1: 147 - 8 - 32, p2: 6/147 - 32
 
-        - ToDo: 3 reds: Note: (0/6)
+        - ToDo: 3 reds: Note: scores p1, p2: 44
             1. ToDo: r
                 assert
             2. ToDo: r, r
