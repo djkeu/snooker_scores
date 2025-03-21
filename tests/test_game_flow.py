@@ -153,21 +153,18 @@ def test_start_game_exceed_max_red_balls_then_early_exit(capsys):
     assert "Player 2: score 0, potential score 147" not in captured.out
 
 def test_start_game_invalid_inputs(capsys):
-    """Test multiple invalid inputs."""
     game = SnookerScores()
-    
     inputs = ["n", "invalid", "invalid", QUIT_INPUT]
-    
     with patch.object(game, "display_startup_message", return_value=None):
         with patch("builtins.input", side_effect=inputs):
             with patch("sys.exit") as mock_exit:
                 mock_exit.side_effect = SystemExit()
-                
                 with pytest.raises(SystemExit):
                     game.start_game()
-    
     captured = capsys.readouterr()
     assert "Only numbers between 0 and 7 are valid!" in captured.out
+    assert "Player 1: score 0, potential score 147" not in captured.out
+    assert "Player 2: score 0, potential score 147" not in captured.out
 
 def test_start_game_multiple_invalid_inputs(capsys):
     game = SnookerScores()
