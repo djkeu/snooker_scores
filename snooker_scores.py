@@ -236,6 +236,7 @@ class SnookerScores:
         print("Bye!")
         sys.exit()
 
+
     # Set starting scores
     def set_starting_scores(self):
         """Set the starting scores for the game."""
