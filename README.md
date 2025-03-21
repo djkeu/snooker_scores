@@ -36,27 +36,49 @@ This program is to display how many points are still available for each player t
                 assert reds: 10, p1: 147 - 8 - 32, p2: 6/147 - 32
 
         - ToDo: 3 reds: Note: scores p1, p2: 44
-            1. ToDo: r
-                assert
-            2. ToDo: r, r
-                assert
+            1. Done: r, 1
+                assert reds: 3 - 2 - 1
+                assert p1: 44 + 0           95 - 16 - 8
+                assert p2: 44 + 1           95 - 16
+            2. ToDo: r, r, 1
+                assert reds: 3 - 2 - 0 - 1
+                assert p1: 44 + 0           95 - 16 - 0 - 8
+                assert p2: 44 + W + 1       95 - 16 - 0 - 0
             3. ToDo: r, 1 red, r
-                assert
+                assert reds: 3 - 2 - 1 - 0
+                assert p1: 44               95 - 16 - 8 - 0
+                assert p2: 44 + 1 + W       95 - 16 - 0 - 0
             4. ToDo: r, 1 red, 1 color, r
-                assert
+                assert reds: 3 - 2 - 1 - 0
+                assert p1: 44               95 - 16 - 8 - 0 - 0
+                assert p2: 44 + 1 + 5 + W   95 - 16 - 0 - 2 - 0
             5. ToDo: 1 red, r
-                assert
+                assert reds: 3 - 1 - 2
+                assert p1: 44 + 1 + 0       95 - 0 - 7
+                assert p2: 44               95 - 8 - 8
             6. ToDo: 1 red, 1 color, r
-                assert
+                assert reds: 3 - 1 - 0 - 2
+                assert p1: 44 + 1 + 5 + 0   95 - 0 - 2 - 16
+                assert p2: 44 + 0 + 0 + 0   95 - 8 - 0 - 16
             7. ToDo: 1 red, 1 color, 1 red, r
+                assert
+                assert
                 assert
             8. ToDo: 1 red, 1 color, 1 red, 1 color, r
                 assert
+                assert
+                assert
             9. ToDo: 1 color, r
+                assert
+                assert
                 assert
             10. ToDo: 1 color, 1 red, r
                 assert
+                assert
+                assert
             11. ToDo: 1 color, 1 red, 1 color, r
+                assert
+                assert
                 assert
 
 
