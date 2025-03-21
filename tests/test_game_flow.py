@@ -214,6 +214,8 @@ def test_start_game_negative_player_scores_then_early_exit(capsys):
             game.start_game()
     captured = capsys.readouterr()
     assert "Scores must be positive values." in captured.out
+    assert "Player 1: score 0, potential score 147" not in captured.out
+    assert "Player 2: score 0, potential score 147" not in captured.out
 
 def test_start_game_penalty(capsys):
     game = SnookerScores()
