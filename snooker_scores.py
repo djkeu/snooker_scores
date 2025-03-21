@@ -486,8 +486,8 @@ class SnookerScores:
             f"potential score {self.potential_score_player_2}"
         )
 
-        self.red_balls_left()
         self.display_snookers_needed()
+        self.red_balls_left()
 
     def red_balls_left(self):
         """Display the number of red balls left."""
