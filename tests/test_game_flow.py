@@ -318,3 +318,4 @@ def test_start_game_switch_players(capsys):
             game.start_game()
     captured = capsys.readouterr()
     assert "Switching players..." in captured.out
+    assert "Active player: Player 2" in captured.out
