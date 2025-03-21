@@ -12,9 +12,11 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: check pytest tests
-    - ToDo: add tests for untested methods
-    - ToDo: adjust existing tests if necessary
+- ToDo: pytest
+    - Done: test_game_flow.py:
+    - ToDo: test_game_logic.py
+    - ToDo: test_input_validation.py
+    - ToDo: test_score_calculation.py
 
 - ToDo: Live tests with videos of snooker games (33 / 100)
     33. Trumpo vs Peifan: 65 - 56
