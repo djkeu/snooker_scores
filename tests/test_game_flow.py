@@ -305,6 +305,7 @@ def test_start_game_set_scores(capsys):
     assert "Player 1: score 0, potential score 147" in captured.out
     assert "Player 2: score 0, potential score 147" in captured.out
     assert "15 red balls left" in captured.out
+    assert "Player 1 must pot a red ball next" in captured.out
 
 def test_start_game_switch_players(capsys):
     game = SnookerScores()
