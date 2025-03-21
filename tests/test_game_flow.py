@@ -174,6 +174,8 @@ def test_start_game_multiple_invalid_inputs(capsys):
             game.start_game()
     captured = capsys.readouterr()
     assert "Only numbers between 0 and 7 are valid!" in captured.out
+    assert "Player 1: score 0, potential score 147" not in captured.out
+    assert "Player 2: score 0, potential score 147" not in captured.out
 
 def test_start_game_invalid_red_balls_then_early_exit(capsys):
     game = SnookerScores()
