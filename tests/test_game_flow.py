@@ -200,6 +200,8 @@ def test_start_game_invalid_player_scores_then_early_exit(capsys):
             game.start_game()
     captured = capsys.readouterr()
     assert "Error: invalid literal for int() with base 10: 'invalid'. Please try again." in captured.out
+    assert "Player 1: score 0, potential score 147" not in captured.out
+    assert "Player 2: score 0, potential score 147" not in captured.out
 
 def test_start_game_negative_player_scores_then_early_exit(capsys):
     game = SnookerScores()
