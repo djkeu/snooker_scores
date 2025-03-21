@@ -116,7 +116,6 @@ def test_start_game_early_exit(capsys):
     assert "Player 2: score 0, potential score 147" not in captured.out
 
 def test_start_game_early_exit_red_ball_phase(capsys):
-    """Test early exit during the red ball phase."""
     game = SnookerScores()
     inputs = generate_inputs(["n", SET_SCORES_INPUT, "15", "0", "0", QUIT_INPUT])
     with patch("builtins.input", side_effect=inputs):
@@ -124,6 +123,9 @@ def test_start_game_early_exit_red_ball_phase(capsys):
             game.start_game()
     captured = capsys.readouterr()
     assert "q: quit, s: set starting scores, x: switch player, p: penalty" in captured.out
+    assert "Player 1: score 0, potential score 147" in captured.out
+    assert "Player 2: score 0, potential score 147" in captured.out
+    assert "15 red balls left" in captured.out
 
 def test_start_game_early_exit_set_starting_scores(capsys):
     game = SnookerScores()
