@@ -602,7 +602,7 @@ class SnookerScores:
         if penalty is None:
             return
         self.apply_penalty(penalty)
-        # self.switch_players()
+        self.display_game_state()
         self.respot_balls()
 
     def get_penalty_input(self):
