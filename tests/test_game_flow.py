@@ -89,21 +89,22 @@ def test_start_game_full_flow(capsys):
         with patch("builtins.input", side_effect=inputs):
             with patch("sys.exit") as mock_exit:
                 mock_exit.side_effect = SystemExit()
-                
-                # Use pytest.raises to catch the SystemExit that would be raised
                 with pytest.raises(SystemExit):
                     game.start_game()
- 
+
     captured = capsys.readouterr()
     assert "Player 1 wins! (with a score of 131 vs 16)" in captured.out
     assert "Bye!" in captured.out
+    assert "15 red balls left" in captured.out
+    assert "Player 1 must pot a colored ball next" in captured.out
+    assert "Player 1 must pot a yellow ball" in captured.out
     mock_exit.assert_called_once()
 
 
 def test_start_game_early_exit(capsys):
     game = SnookerScores()
     inputs = generate_inputs(
-        ["n",  # Do not enter player names
+        ["n",
          QUIT_INPUT]
     )
     with patch("builtins.input", side_effect=inputs):
@@ -111,6 +112,8 @@ def test_start_game_early_exit(capsys):
             game.start_game()
     captured = capsys.readouterr()
     assert "q: quit, s: set starting scores, x: switch player, p: penalty" in captured.out
+    assert "Player 1: score 0, potential score 147" not in captured.out
+    assert "Player 2: score 0, potential score 147" not in captured.out
 
 def test_start_game_early_exit_red_ball_phase(capsys):
     """Test early exit during the red ball phase."""
