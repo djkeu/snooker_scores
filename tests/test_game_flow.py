@@ -149,6 +149,8 @@ def test_start_game_exceed_max_red_balls_then_early_exit(capsys):
             game.start_game()
     captured = capsys.readouterr()
     assert "Invalid number of red balls. It must be between 0 and 15." in captured.out
+    assert "Player 1: score 0, potential score 147" not in captured.out
+    assert "Player 2: score 0, potential score 147" not in captured.out
 
 def test_start_game_invalid_inputs(capsys):
     """Test multiple invalid inputs."""
