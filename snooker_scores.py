@@ -229,9 +229,12 @@ class SnookerScores:
             self.__init__()
             self.start_game()
         else:
-            print("Bye!")
-            sys.exit()
+            self.exit_game()
 
+    def exit_game(self):
+        """Exit the game."""
+        print("Bye!")
+        sys.exit()
 
     # Set starting scores
     def set_starting_scores(self):
