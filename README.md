@@ -40,43 +40,43 @@ This program is to display how many points are still available for each player t
                 assert reds: 3 - 2 - 1
                 assert p1: 44 + 0           95 - 16 - 8
                 assert p2: 44 + 1           95 - 16
-            2. ToDo: r, r, 1
+            2. Done: r, r, 1
                 assert reds: 3 - 2 - 0 - 1
                 assert p1: 44 + 0           95 - 16 - 0 - 8
                 assert p2: 44 + W + 1       95 - 16 - 0 - 0
-            3. ToDo: r, 1 red, r
+            3. Done: r, 1 red, r
                 assert reds: 3 - 2 - 1 - 0
                 assert p1: 44               95 - 16 - 8 - 0
                 assert p2: 44 + 1 + W       95 - 16 - 0 - 0
-            4. ToDo: r, 1 red, 1 color, r
+            4. Done: r, 1 red, 1 color, r
                 assert reds: 3 - 2 - 1 - 0
                 assert p1: 44               95 - 16 - 8 - 0 - 0
                 assert p2: 44 + 1 + 5 + W   95 - 16 - 0 - 2 - 0
-            5. ToDo: 1 red, r
+            5. Done: 1 red, r
                 assert reds: 3 - 1 - 2
                 assert p1: 44 + 1 + 0       95 - 0 - 7
                 assert p2: 44               95 - 8 - 8
-            6. ToDo: 1 red, 1 color, r
+            6. Done: 1 red, 1 color, r
                 assert reds: 3 - 1 - 0 - 2
                 assert p1: 44 + 1 + 5 + 0   95 - 0 - 2 - 16
                 assert p2: 44 + 0 + 0 + 0   95 - 8 - 0 - 16
-            7. ToDo: 1 red, 1 color, 1 red, r
+            7. Done: 1 red, 1 color, 1 red, r
+                assert reds: 3 - 1 - 0 - 1 - 0
+                assert p1: 44 + 1 + 5 + 1 + 0   95 - 0 - 2 - 0 - 15
+                assert p2: 44                   95 - 8 - 0 - 8 - 7
+            8. Done: 1 red, 1 color, 1 red, 1 color, r
+                assert reds: 3 - 1 - 0 - 1 - 0 - 0
+                assert p1: 44 + 1 + 5 + 1 + 5 + W   95 - 0 - 2 - 0 - 2 - 0
+                assert p2: 44                       95 - 8 - 0 - 8 - 0 - 0
+            9. Abandoned: 1 color, r
                 assert
                 assert
                 assert
-            8. ToDo: 1 red, 1 color, 1 red, 1 color, r
+            10. Abandoned: 1 color, 1 red, r
                 assert
                 assert
                 assert
-            9. ToDo: 1 color, r
-                assert
-                assert
-                assert
-            10. ToDo: 1 color, 1 red, r
-                assert
-                assert
-                assert
-            11. ToDo: 1 color, 1 red, 1 color, r
+            11. Abandoned: 1 color, 1 red, 1 color, r
                 assert
                 assert
                 assert
