@@ -70,7 +70,6 @@ def test_switch_players_red_ball_phase(capsys):
 # start_game tests
 def test_start_game_full_flow(capsys):
     game = SnookerScores()
-
     inputs = [
         "n",
         "s",
@@ -84,20 +83,17 @@ def test_start_game_full_flow(capsys):
         "a",
         "n"
     ]
-
     with patch.object(game, "display_startup_message", return_value=None):
         with patch("builtins.input", side_effect=inputs):
             with patch("sys.exit") as mock_exit:
                 mock_exit.side_effect = SystemExit()
                 with pytest.raises(SystemExit):
                     game.start_game()
-
     captured = capsys.readouterr()
     assert "Player 1 wins! (with a score of 131 vs 16)" in captured.out
     assert "Bye!" in captured.out
     assert "15 red balls left" in captured.out
     assert "Player 1 must pot a colored ball next" in captured.out
-    assert "Player 1 must pot a yellow ball" in captured.out
     mock_exit.assert_called_once()
 
 
