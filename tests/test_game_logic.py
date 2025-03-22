@@ -203,7 +203,6 @@ def test_handle_miss():
     assert game.player_1_turn == False
 
 def test_red_balls_phase_edge_cases(capsys):
-    """Test edge cases in the red balls phase."""
     game = SnookerScores()
     game.red_balls = 1
     game.player_1_turn = True
@@ -214,6 +213,7 @@ def test_red_balls_phase_edge_cases(capsys):
     assert "Player 1: score 1, potential score 147" in captured.out
     assert "Player 2: score 0, potential score 139" in captured.out
     assert "0 red balls left" in captured.out
+    assert "Player 1 must pot a colored ball next" in captured.out
 
 def test_handle_last_colored_ball():
     game = SnookerScores()
