@@ -97,10 +97,6 @@ class SnookerScores:
         while self.available_player_1 > 0 or self.available_player_2 > 0:
             shot = self.get_shot_value()
 
-            if shot in ["switch", "scores_set", "penalty"]:
-                self.display_game_state()
-                continue
-
             if shot == 0 and self.red_balls == 0:
                 self.handle_miss()
                 self.colored_balls_phase()
@@ -128,10 +124,6 @@ class SnookerScores:
         while self.available_player_1 > 0:
             self.display_colored_ball_to_play()
             shot = self.get_shot_value()
-
-            if shot in ["switch", "scores_set", "penalty"]:
-                self.display_game_state()
-                continue
 
             if shot != self.yellow_ball:
                 print("Wrong ball!")
