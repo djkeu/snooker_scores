@@ -12,6 +12,10 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
+- ToDo: refactor start_game
+    - ToDo: create main_game
+        - ToDo: start red_balls_phase and more
+
 - ToDo: pytest
     - Note: do live tests after a test phase is marked Done:
     - Done: test_game_flow.py:
