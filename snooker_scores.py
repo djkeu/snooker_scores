@@ -79,15 +79,6 @@ class SnookerScores:
         while self.red_balls > 0:
             shot = self.get_shot_value()
 
-            if shot in [
-                "switch",
-                "scores_set",
-                "penalty",
-                "red_ball_down"
-            ]:
-                self.display_game_state()
-                continue
-
             if shot == 0:
                 self.handle_miss()
             elif shot == 1:
