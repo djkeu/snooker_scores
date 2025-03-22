@@ -125,6 +125,7 @@ def test_handle_red_ball_player_1():
     assert game.available_player_1 == 146
     assert game.available_player_2 == 139
     assert game.score_player_1 == 1
+    assert game.red_needed_next == False
 
 def test_handle_red_ball_player_2():
     game = SnookerScores()
