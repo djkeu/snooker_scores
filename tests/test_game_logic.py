@@ -16,6 +16,10 @@ def test_initial_game_setup():
     assert game.available_player_1 == 147
     assert game.available_player_2 == 147
     assert game.red_balls == 15
+    assert game.player_1_turn is True
+    assert game.red_needed_next is True
+    assert game.yellow_ball == 2
+    assert game.break_size == 0
 
 
 def test_switch_players():
@@ -23,17 +27,21 @@ def test_switch_players():
 
     game.switch_players()
     assert game.player_1_turn is False
+    assert game.red_needed_next is True
 
     game.switch_players()
     assert game.player_1_turn is True
+    assert game.red_needed_next is True
 
 def test_switch_players_edge_cases():
     game = SnookerScores()
     game.player_1_turn = True
     game.switch_players()
     assert game.player_1_turn is False
+    assert game.red_needed_next is True
     game.switch_players()
     assert game.player_1_turn is True
+    assert game.red_needed_next is True
 
 def test_display_game_state_edge_cases(capsys):
     game = SnookerScores()
@@ -50,6 +58,7 @@ def test_display_game_state_edge_cases(capsys):
     assert "Player 2: score 20, potential score 60" in captured.out
     assert "5 red balls left" in captured.out
     assert "Player 1 must pot a red ball next" in captured.out
+    assert "Break: 0" not in captured.out
 
 def test_display_next_ball_edge_cases(capsys):
     game = SnookerScores()
