@@ -93,7 +93,6 @@ def test_handle_ball_edge_cases():
     assert game.red_needed_next is False
 
 def test_handle_ball_red():
-    """Test the handle_ball method when a red ball is potted."""
     game = SnookerScores()
     
     assert game.red_balls == 15
@@ -106,6 +105,8 @@ def test_handle_ball_red():
     assert game.red_balls == 14
     assert game.score_player_1 == 1
     assert game.red_needed_next == False
+    assert game.available_player_1 == 146
+    assert game.available_player_2 == 139
 
     game.switch_players()
     game.handle_ball(1, is_red_ball=True)
@@ -113,6 +114,8 @@ def test_handle_ball_red():
     assert game.red_balls == 13
     assert game.score_player_2 == 1
     assert game.red_needed_next == False
+    assert game.available_player_2 == 138
+    assert game.available_player_1 == 138
 
 def test_handle_red_ball_player_1():
     game = SnookerScores()
