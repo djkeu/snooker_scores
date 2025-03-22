@@ -251,3 +251,18 @@ def test_start_game_switch_players(capsys):
         with pytest.raises(SystemExit):
             game.start_game()
             game.main_game()
+
+
+# Main game tests
+def test_main_game_red_balls_phase(capsys):
+    game = SnookerScores()
+    inputs = generate_inputs(
+        ["n",
+         "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6",
+         QUIT_INPUT]
+    )
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+            game.main_game()
+
