@@ -12,9 +12,8 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: refactor start_game
-    - ToDo: create main_game
-        - ToDo: start red_balls_phase and more
+- ToDo: refactor last_colored_ball_phase
+    - ToDo: use active_player instead of if..else
 
 - ToDo: pytest
     - Note: do live tests after a test phase is marked Done:
@@ -24,7 +23,7 @@ This program is to display how many points are still available for each player t
     - ToDo: test_score_calculation.py
 
 - ToDo: Live tests with videos of snooker games (36 / 100)
-    33. Trumpo vs Peifan: 65 - 56
+    33. Trump vs Peifan: 65 - 56
     34. Williams vs Wilson: 5 - 75
     35. Wilson vs Robertson: 116 - 6
     36. Wilson vs Robertson: 106 - 13
