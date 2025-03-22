@@ -296,3 +296,12 @@ def test_display_winner():
         mock_print.assert_called_with(
             "\nPlayer 1 wins! (with a score of 50 vs 40)"
         )
+
+    game.score_player_1 = 40
+    game.score_player_2 = 50
+
+    with patch('builtins.print') as mock_print:
+        game.display_winner()
+        mock_print.assert_called_with(
+            "\nPlayer 2 wins! (with a score of 50 vs 40)"
+        )
