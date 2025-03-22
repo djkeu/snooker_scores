@@ -100,22 +100,22 @@ class SnookerScores:
             if shot == 0 and self.red_balls == 0:
                 self.handle_miss()
                 self.colored_balls_phase()
-            elif shot < 2 or shot > 7:
-                if self.player_1_turn:
-                    print(f"\n{self.player_1} must pot a colored ball!")
-                else:
-                    print(f"\n{self.player_2} must pot a colored ball!")
+                continue
+
+            if shot < 2 or shot > 7:
+                active_player = self.player_1 if self.player_1_turn else self.player_2
+                print(f"\n{active_player} must pot a colored ball!")
+                continue
+
+            if self.player_1_turn:
+                self.available_player_1 -= 7
             else:
-                if self.player_1_turn:
-                    self.available_player_1 -= 7
-                    self.update_score(shot)
-                else:
-                    self.available_player_2 -= 7
-                    self.update_score(shot)
-
-                self.display_game_state()
-                break
-
+                self.available_player_2 -= 7
+                
+            self.update_score(shot)
+            self.display_game_state()
+            break
+ 
         self.available_player_1 = self.end_break
         self.available_player_2 = self.end_break
 
