@@ -85,8 +85,12 @@ def test_handle_ball_edge_cases():
     game.red_balls = 1
     game.handle_ball(1, is_red_ball=True)
     assert game.red_balls == 0
+    assert game.score_player_1 == 1
+    assert game.red_needed_next is False
     game.handle_ball(1, is_red_ball=True)
     assert game.red_balls == -1
+    assert game.score_player_1 == 2
+    assert game.red_needed_next is False
 
 def test_handle_ball_red():
     """Test the handle_ball method when a red ball is potted."""
