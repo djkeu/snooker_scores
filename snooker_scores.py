@@ -536,7 +536,10 @@ class SnookerScores:
     def handle_miss(self):
         """Handle a miss."""
         if not self.red_needed_next:
-            self.available_player_1 -= 7
+            if self.player_1_turn:
+                self.available_player_1 -= 7
+            else:
+                self.available_player_2 -= 7
 
         self.break_size = 0
         self.switch_players()
