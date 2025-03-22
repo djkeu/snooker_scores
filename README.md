@@ -24,7 +24,192 @@ This program is to display how many points are still available for each player t
     34. Williams vs Wilson: 5 - 75
     35. Wilson vs Robertson: 116 - 6
     36. Wilson vs Robertson: 106 - 13
-    37. 
+    37. Wilson vs Robertson: 70 - 2
+        https://www.youtube.com/watch?v=hAw1cb7G4j8
+        31:00
+        FixMe: potential score Robertson incorrect
+        ```
+        $ python main.py 
+                Snooker at its best!
+        q: quit, s: set starting scores, x: switch player, p: penalty, w: early victory, r: red ball down
+
+        Do you want to enter player names? (y/n) y 
+        Enter player name: kyren wilson
+        Enter player name: neil robertson
+
+        What's the value of the shot: 1
+                Kyren Wilson: score 1, potential score 147
+                Neil Robertson: score 0, potential score 139
+        14 red balls left
+        Kyren Wilson must pot a colored ball next
+
+        What's the value of the shot: 6
+                Kyren Wilson: score 7, potential score 146
+                Neil Robertson: score 0, potential score 139
+        14 red balls left
+        Kyren Wilson must pot a red ball next
+
+        What's the value of the shot: 1
+                Kyren Wilson: score 8, potential score 146
+                Neil Robertson: score 0, potential score 131
+        13 red balls left
+        Kyren Wilson must pot a colored ball next
+
+        What's the value of the shot: 7
+        Break: 15
+                Kyren Wilson: score 15, potential score 146
+                Neil Robertson: score 0, potential score 131
+        13 red balls left
+        Kyren Wilson must pot a red ball next
+
+        What's the value of the shot: 1
+        Break: 16
+                Kyren Wilson: score 16, potential score 146
+                Neil Robertson: score 0, potential score 123
+        12 red balls left
+        Kyren Wilson must pot a colored ball next
+
+        What's the value of the shot: 7
+        Break: 23
+                Kyren Wilson: score 23, potential score 146
+                Neil Robertson: score 0, potential score 123
+        12 red balls left
+        Kyren Wilson must pot a red ball next
+
+        What's the value of the shot: 1
+        Break: 24
+                Kyren Wilson: score 24, potential score 146
+                Neil Robertson: score 0, potential score 115
+        11 red balls left
+        Kyren Wilson must pot a colored ball next
+
+        What's the value of the shot: 7
+        Break: 31
+                Kyren Wilson: score 31, potential score 146
+                Neil Robertson: score 0, potential score 115
+        11 red balls left
+        Kyren Wilson must pot a red ball next
+
+        What's the value of the shot: 0
+        Switching players...
+        Active player: Neil Robertson
+        Neil Robertson must pot a red ball next
+                Kyren Wilson: score 31, potential score 146
+                Neil Robertson: score 0, potential score 115
+        11 red balls left
+        Neil Robertson must pot a red ball next
+
+        What's the value of the shot: 1
+                Kyren Wilson: score 31, potential score 138
+                Neil Robertson: score 1, potential score 115
+        10 red balls left
+        Neil Robertson must pot a colored ball next
+
+        What's the value of the shot: 0
+        Switching players...
+        Active player: Kyren Wilson
+        Kyren Wilson must pot a red ball next
+                Kyren Wilson: score 31, potential score 131
+                Neil Robertson: score 1, potential score 115
+        10 red balls left
+        Kyren Wilson must pot a red ball next
+
+        What's the value of the shot: 1
+                Kyren Wilson: score 32, potential score 131
+                Neil Robertson: score 1, potential score 107
+        9 red balls left
+        Kyren Wilson must pot a colored ball next
+
+        What's the value of the shot: 7
+                Kyren Wilson: score 39, potential score 131
+                Neil Robertson: score 1, potential score 107
+        9 red balls left
+        Kyren Wilson must pot a red ball next
+
+        What's the value of the shot: 1
+                Kyren Wilson: score 40, potential score 131
+                Neil Robertson: score 1, potential score 99
+        8 red balls left
+        Kyren Wilson must pot a colored ball next
+
+        What's the value of the shot: 7
+        Break: 16
+                Kyren Wilson: score 47, potential score 131
+                Neil Robertson: score 1, potential score 99
+        8 red balls left
+        Kyren Wilson must pot a red ball next
+
+        What's the value of the shot: 1
+        Break: 17
+                Kyren Wilson: score 48, potential score 131
+                Neil Robertson: score 1, potential score 91
+        7 red balls left
+        Kyren Wilson must pot a colored ball next
+
+        What's the value of the shot: 6
+        Break: 23
+                Kyren Wilson: score 54, potential score 130
+                Neil Robertson: score 1, potential score 91
+        7 red balls left
+        Kyren Wilson must pot a red ball next
+
+        What's the value of the shot: 1
+        Break: 24
+                Kyren Wilson: score 55, potential score 130
+                Neil Robertson: score 1, potential score 83
+        6 red balls left
+        Kyren Wilson must pot a colored ball next
+
+        What's the value of the shot: 7
+        Break: 31
+                Kyren Wilson: score 62, potential score 130
+                Neil Robertson: score 1, potential score 83
+        6 red balls left
+        Kyren Wilson must pot a red ball next
+
+        What's the value of the shot: 1
+        Break: 32
+                Kyren Wilson: score 63, potential score 130
+                Neil Robertson: score 1, potential score 75
+        5 red balls left
+        Kyren Wilson must pot a colored ball next
+
+        What's the value of the shot: 7
+        Break: 39
+                Kyren Wilson: score 70, potential score 130
+                Neil Robertson: score 1, potential score 75
+        5 red balls left
+        Kyren Wilson must pot a red ball next
+
+        What's the value of the shot: 0
+        Switching players...
+        Active player: Neil Robertson
+        Neil Robertson must pot a red ball next
+                Kyren Wilson: score 70, potential score 130
+                Neil Robertson: score 1, potential score 75
+        5 red balls left
+        Neil Robertson must pot a red ball next
+
+        What's the value of the shot: 1
+                Kyren Wilson: score 70, potential score 122
+                Neil Robertson: score 2, potential score 75
+        4 red balls left
+        Neil Robertson must pot a colored ball next
+
+        What's the value of the shot: 0
+        Switching players...
+        Active player: Kyren Wilson
+        Kyren Wilson must pot a red ball next
+                Kyren Wilson: score 70, potential score 115
+                Neil Robertson: score 2, potential score 75
+        4 red balls left
+        Kyren Wilson must pot a red ball next
+
+        What's the value of the shot: w
+
+        Kyren Wilson wins! (with a score of 70 vs 2)
+```
+
 
 - ToDo: GUI
 
