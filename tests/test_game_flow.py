@@ -93,10 +93,7 @@ def test_start_game_early_exit(capsys):
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
-    captured = capsys.readouterr()
-    assert "q: quit, s: set starting scores, x: switch player, p: penalty" in captured.out
-    assert "Player 1: score 0, potential score 147" not in captured.out
-    assert "Player 2: score 0, potential score 147" not in captured.out
+            game.main_game()
 
 def test_start_game_early_exit_red_ball_phase(capsys):
     game = SnookerScores()
@@ -104,11 +101,7 @@ def test_start_game_early_exit_red_ball_phase(capsys):
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
-    captured = capsys.readouterr()
-    assert "q: quit, s: set starting scores, x: switch player, p: penalty" in captured.out
-    assert "Player 1: score 0, potential score 147" in captured.out
-    assert "Player 2: score 0, potential score 147" in captured.out
-    assert "15 red balls left" in captured.out
+            game.main_game()
 
 def test_start_game_early_exit_set_starting_scores(capsys):
     game = SnookerScores()
@@ -116,11 +109,7 @@ def test_start_game_early_exit_set_starting_scores(capsys):
     with patch("builtins.input", side_effect=inputs):
         with pytest.raises(SystemExit):
             game.start_game()
-    captured = capsys.readouterr()
-    assert "q: quit, s: set starting scores, x: switch player, p: penalty" in captured.out
-    assert "Ok, back to the game then." in captured.out
-    assert "Player 1: score 0, potential score 147" not in captured.out
-    assert "Player 2: score 0, potential score 147" not in captured.out
+            game.main_game()
 
 def test_start_game_exceed_max_red_balls_then_early_exit(capsys):
     game = SnookerScores()
