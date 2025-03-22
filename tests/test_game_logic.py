@@ -152,7 +152,6 @@ def test_display_next_ball_red_player_1(capsys):
 
 # Handling colored ball shots
 def test_handle_ball_color():
-    """Test the handle_ball method when a colored ball is potted."""
     game = SnookerScores()
     
     assert game.red_balls == 15
@@ -166,6 +165,9 @@ def test_handle_ball_color():
     assert game.red_balls == 14
     assert game.score_player_1 == 8
     assert game.red_needed_next == True
+    assert game.available_player_1 == 139
+    assert game.available_player_2 == 139
+
 
 def test_handle_color_ball_player_1():
     game = SnookerScores()
