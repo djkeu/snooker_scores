@@ -72,6 +72,11 @@ def test_display_next_ball_edge_cases(capsys):
     game.display_next_ball()
     captured = capsys.readouterr()
     assert "Player 2 must pot a colored ball next" in captured.out
+    game.player_1_turn = True
+    game.red_needed_next = False
+    game.display_next_ball()
+    captured = capsys.readouterr()
+    assert "Player 1 must pot a colored ball next" in captured.out
 
 
 # Handling red ball shots
