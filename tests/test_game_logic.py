@@ -229,6 +229,7 @@ def test_handle_last_colored_ball():
     assert game.available_player_1 == 27
     assert game.available_player_2 == 27
     assert game.red_needed_next == True
+    assert game.score_player_2 == 2
 
 def test_handle_last_colored_ball_edge_cases(capsys):
     game = SnookerScores()
