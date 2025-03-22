@@ -25,26 +25,7 @@ This program is to display how many points are still available for each player t
     35. Wilson vs Robertson: 116 - 6
     36. Wilson vs Robertson: 106 - 13
     37. Wilson vs Robertson: 70 - 2
-        https://www.youtube.com/watch?v=hAw1cb7G4j8
-        31:00
-        FixMe: potential score Robertson incorrect
-        ```
-        What's the value of the shot: 1
-                Wilson: score 31, potential score 138
-                Robertson: score 1, potential score 115
-        10 red balls left
-        Robertson must pot a colored ball next
-
-        What's the value of the shot: 0
-        Switching players...
-        Active player: Wilson
-        Wilson must pot a red ball next
-                Wilson: score 31, potential score 131
-                Robertson: score 1, potential score 115
-        10 red balls left
-        Wilson must pot a red ball next
-        ```
-
+    38. 
 
 - ToDo: GUI
 
