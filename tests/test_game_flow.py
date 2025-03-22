@@ -266,3 +266,66 @@ def test_main_game_red_balls_phase(capsys):
             game.start_game()
             game.main_game()
 
+def test_main_game_colored_balls_phase(capsys):
+    game = SnookerScores()
+    inputs = generate_inputs(
+        ["n",
+         "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6",
+         "2", "3", "4", "5", "6", "7",
+         QUIT_INPUT]
+    )
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+            game.main_game()
+
+def test_main_game_early_exit(capsys):
+    game = SnookerScores()
+    inputs = generate_inputs(
+        ["n",
+         QUIT_INPUT]
+    )
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+            game.main_game()
+
+def test_main_game_penalty_handling(capsys):
+    game = SnookerScores()
+    inputs = generate_inputs(
+        ["n",
+         "p", "4", "n",
+         "p", "5", "y",
+         QUIT_INPUT]
+    )
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+            game.main_game()
+
+def test_main_game_player_switching(capsys):
+    game = SnookerScores()
+    inputs = generate_inputs(
+        ["n",
+         "x",
+         "x",
+         QUIT_INPUT]
+    )
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+            game.main_game()
+
+def test_main_game_black_ball_phase(capsys):
+    game = SnookerScores()
+    inputs = generate_inputs(
+        ["n",
+         "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6", "1", "6",
+         "2", "3", "4", "5", "6", "7",
+         "0", "7",
+         QUIT_INPUT]
+    )
+    with patch("builtins.input", side_effect=inputs):
+        with pytest.raises(SystemExit):
+            game.start_game()
+            game.main_game()
