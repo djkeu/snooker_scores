@@ -139,7 +139,6 @@ def test_handle_red_ball_player_2():
     assert game.red_needed_next == False
 
 def test_display_next_ball_red_player_1(capsys):
-    """Test display_next_ball when Player 1 needs to pot a red ball."""
     game = SnookerScores()
     game.player_1_turn = True
     game.red_needed_next = True
@@ -148,6 +147,7 @@ def test_display_next_ball_red_player_1(capsys):
 
     captured = capsys.readouterr()
     assert "Player 1 must pot a red ball next" in captured.out
+    assert "Player 2 must pot a red ball next" not in captured.out
 
 
 # Handling colored ball shots
