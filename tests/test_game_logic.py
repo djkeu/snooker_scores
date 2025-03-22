@@ -136,6 +136,7 @@ def test_handle_red_ball_player_2():
     assert game.available_player_2 == 146
     assert game.available_player_1 == 139
     assert game.score_player_2 == 1
+    assert game.red_needed_next == False
 
 def test_display_next_ball_red_player_1(capsys):
     """Test display_next_ball when Player 1 needs to pot a red ball."""
