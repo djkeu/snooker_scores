@@ -12,6 +12,8 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
+- ToDo: refactor display_colored_ball_to_play
+
 - ToDo: pytest
     - Note: do live tests after a test phase is marked Done:
     - Done: test_game_flow.py:
