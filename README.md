@@ -15,7 +15,7 @@ This program is to display how many points are still available for each player t
 - ToDo: pytest
     - Note: do live tests after a test phase is marked Done:
     - Done: test_game_flow.py:
-    - ToDo: test_game_logic.py
+    - Done: test_game_logic.py
     - ToDo: test_input_validation.py
     - ToDo: test_score_calculation.py
 
