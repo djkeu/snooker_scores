@@ -360,7 +360,7 @@ class SnookerScores:
     def handle_hotkeys(self, shot):
         """Handle hotkeys."""
         if shot == "q":
-            sys.exit()
+            self.exit_game()
         elif shot == "p":
             self.add_penalty()
             return "penalty"
