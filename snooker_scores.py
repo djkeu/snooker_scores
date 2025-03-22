@@ -37,10 +37,6 @@ class SnookerScores:
         """Start the game."""
         self.display_startup_message()
         self.store_players_names()
-        self.red_balls_phase()
-        # self.colored_balls_phase()
-        self.display_winner()
-        self.restart_game()
 
     def display_startup_message(self):
         """Display welcome message and hotkeys."""
@@ -71,6 +67,13 @@ class SnookerScores:
 
 
     # Game phases 2: run of the balls
+    def main_game(self):
+        """Main game loop."""
+        self.red_balls_phase()
+        # self.colored_balls_phase()
+        self.display_winner()
+        self.restart
+    
     def red_balls_phase(self):
         """Play the red balls phase of the game."""
         while self.red_balls > 0:
@@ -663,6 +666,7 @@ class SnookerScores:
 def main():
     scores = SnookerScores()
     scores.start_game()
+    scores.main_game()
 
 
 if __name__ == "__main__":
