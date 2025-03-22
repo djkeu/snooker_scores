@@ -199,6 +199,8 @@ def test_handle_miss():
     game.handle_miss()
     assert game.available_player_1 == 139
     assert game.available_player_2 == 139
+    assert game.break_size == 0
+    assert game.player_1_turn == False
 
 def test_red_balls_phase_edge_cases(capsys):
     """Test edge cases in the red balls phase."""
