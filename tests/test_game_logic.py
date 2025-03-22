@@ -258,6 +258,7 @@ def test_colored_balls_phase(capsys):
     captured = capsys.readouterr()
 
     assert "Player 1 must pot a yellow ball" in captured.out
+    assert "Player 1: score 2, potential score 2" in captured.out
 
 def test_colored_balls_phase_basic():
     game = SnookerScores()
@@ -266,9 +267,10 @@ def test_colored_balls_phase_basic():
     with patch("builtins.input", side_effect=["2"]):
         game.colored_balls_phase()
     assert game.available_player_1 == 0
+    assert game.score_player_1 == 2
+    assert game.yellow_ball == 3
 
 def test_colored_balls_phase_edge_cases(capsys):
-    """Test edge cases in the colored balls phase."""
     game = SnookerScores()
     game.available_player_1 = 27
     game.yellow_ball = 2
