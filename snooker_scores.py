@@ -655,6 +655,11 @@ class SnookerScores:
 
 
 def main():
+    """
+    Note:
+    Program is actually run from main.py
+    Changes made here don't affect the main program
+    """
     scores = SnookerScores()
     scores.start_game()
     scores.main_game()
