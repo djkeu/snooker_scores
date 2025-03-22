@@ -19,11 +19,12 @@ This program is to display how many points are still available for each player t
     - ToDo: test_input_validation.py
     - ToDo: test_score_calculation.py
 
-- ToDo: Live tests with videos of snooker games (35 / 100)
+- ToDo: Live tests with videos of snooker games (36 / 100)
     33. Trumpo vs Peifan: 65 - 56
     34. Williams vs Wilson: 5 - 75
     35. Wilson vs Robertson: 116 - 6
-    36. 
+    36. Wilson vs Robertson: 106 - 13
+    37. 
 
 - ToDo: GUI
 
