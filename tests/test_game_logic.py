@@ -176,6 +176,7 @@ def test_handle_color_ball_player_1():
     game.handle_color_ball(5)
     assert game.score_player_1 == 6
     assert game.available_player_1 == 139
+    assert game.red_needed_next == True
 
 def test_handle_color_ball_player_2():
     game = SnookerScores()
@@ -185,6 +186,7 @@ def test_handle_color_ball_player_2():
     game.handle_color_ball(4)
     assert game.score_player_2 == 5
     assert game.available_player_2 == 139
+    assert game.red_needed_next == True
 
 
 # Handling other game events
