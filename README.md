@@ -28,8 +28,7 @@ This program is to display how many points are still available for each player t
     36. Wilson vs Robertson: 106 - 13
     37. Wilson vs Robertson: 70 - 2
     38. Wilson vs Robertson:
-        https://www.youtube.com/watch?v=hAw1cb7G4j8&t=1847s
-        41:00
+
 
 - ToDo: GUI
 

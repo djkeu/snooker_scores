@@ -57,6 +57,9 @@ class SnookerScores:
         if player_names == 'y':
             self.player_1 = self.get_player_name()
             self.player_2 = self.get_player_name()
+        
+            self.display_active_player()
+    
         return
 
     def get_player_name(self):
