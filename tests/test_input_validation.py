@@ -181,7 +181,7 @@ def test_respot_balls_no_red_balls():
         assert game.red_needed_next is False
 
 
-# Starting scores validation
+# Set starting scores validation
 def test_set_starting_scores_valid_input():
     inputs = [
         "5", "15", "15",
@@ -251,7 +251,8 @@ def test_set_starting_scores_switch_players():
             game.set_starting_scores()
             assert game.player_1_turn is True
 
-# Starting scores inputs
+
+# Set starting scores inputs
 def test_get_input_starting_scores_valid():
     with patch("builtins.input", side_effect=["10", "10", "10"]):
         game = SnookerScores()
@@ -288,7 +289,8 @@ def test_collect_starting_scores_inputs_invalid_player_scores():
         result = game.collect_starting_scores_inputs()
         assert result is None
 
-# Starting scores red balls
+
+# Set starting scores red balls
 def test_handle_red_ball_valid():
     game = SnookerScores()
     game.red_needed_next = True
@@ -310,7 +312,8 @@ def test_handle_red_ball_invalid():
         mock_print.assert_any_call("\nYou need to hit a color!")
     assert game.player_1_turn != initial_player_1_turn
 
-# Starting scores colored balls
+
+# Set starting scores colored balls
 def test_handle_color_ball_invalid():
     game = SnookerScores()
     game.red_needed_next = True
@@ -330,6 +333,7 @@ def test_handle_color_ball_valid():
     assert game.available_player_1 == initial_available_player_1
     assert game.available_player_2 == initial_available_player_2 - 7
     assert game.red_needed_next is True
+
 
 # Validate red balls
 def test_validate_red_balls_no_reds():
@@ -374,7 +378,8 @@ def test_validate_red_balls_edge_cases():
         result = game.collect_starting_scores_inputs()
         assert result is None
 
-# Starting scores player scores
+
+# Set starting scores player scores
 def test_validate_player_scores_valid():
     game = SnookerScores()
     with patch("builtins.input", side_effect=["0", "50", "60"]):
@@ -399,7 +404,8 @@ def test_validate_player_scores_edge_cases():
         result = game.collect_starting_scores_inputs()
         assert result is None
 
-# Starting scores minimum scores
+
+# Set starting scores minimum scores
 def test_validate_min_score_valid():
     game = SnookerScores()
     with patch("builtins.input", side_effect=["5", "30", "35"]):
@@ -537,141 +543,5 @@ def test_get_player_name_mixed_case():
         name = game.get_player_name()
     assert name == "Alice Smith"
 
+
 # Update player scores
-def test_update_score_player_1():
-    game = SnookerScores()
-    game.player_1_turn = True
-    initial_score_player_1 = game.score_player_1
-    initial_break_size = game.break_size
-    game.update_score(5)
-    assert game.score_player_1 == initial_score_player_1 + 5
-    assert game.break_size == initial_break_size + 5
-
-def test_update_score_player_2():
-    game = SnookerScores()
-    game.player_1_turn = False
-    initial_score_player_2 = game.score_player_2
-    initial_break_size = game.break_size
-    game.update_score(5)
-    assert game.score_player_2 == initial_score_player_2 + 5
-    assert game.break_size == initial_break_size + 5
-
-def test_display_game_state(capsys):
-    game = SnookerScores()
-    game.score_player_1 = 30
-    game.score_player_2 = 20
-    game.potential_score_player_1 = 100
-    game.potential_score_player_2 = 90
-    game.break_size = 15
-    game.red_balls = 10
-    with patch.object(game, "calculate_potential_scores"):
-        game.display_game_state()
-        captured = capsys.readouterr()
-        assert f"{game.player_1}: score 30, potential score 100" in captured.out
-        assert f"{game.player_2}: score 20, potential score 90" in captured.out
-        assert "Break: 15" in captured.out
-        assert "10 red balls left" in captured.out
-
-def test_calculate_potential_scores():
-    game = SnookerScores()
-    game.score_player_1 = 30
-    game.score_player_2 = 20
-    game.available_player_1 = 100
-    game.available_player_2 = 90
-    game.calculate_potential_scores()
-    assert game.potential_score_player_1 == 130
-    assert game.potential_score_player_2 == 110
-
-def test_display_break_size_above_10(capsys):
-    game = SnookerScores()
-    game.break_size = 15
-    game.display_break_size()
-    captured = capsys.readouterr()
-    assert "Break: 15" in captured.out
-
-def test_display_break_size_below_10(capsys):
-    game = SnookerScores()
-    game.break_size = 10
-    game.display_break_size()
-    captured = capsys.readouterr()
-    assert "Break: 10" not in captured.out
-
-def test_display_snookers_needed_player_2(capsys):
-    game = SnookerScores()
-    game.score_player_1 = 50
-    game.score_player_2 = 20
-    game.available_player_2 = 25
-    game.display_snookers_needed()
-    captured = capsys.readouterr()
-    assert f"{game.player_2} needs snookers!" in captured.out
-    assert game.snookers_needed is True
-
-def test_display_snookers_needed_player_1(capsys):
-    game = SnookerScores()
-    game.score_player_2 = 50
-    game.score_player_1 = 20
-    game.available_player_1 = 25
-    game.display_snookers_needed()
-    captured = capsys.readouterr()
-    assert f"{game.player_1} needs snookers!" in captured.out
-    assert game.snookers_needed is True
-
-def test_display_snookers_needed_none(capsys):
-    game = SnookerScores()
-    game.score_player_1 = 30
-    game.score_player_2 = 20
-    game.available_player_1 = 50
-    game.available_player_2 = 50
-    game.display_snookers_needed()
-    captured = capsys.readouterr()
-    assert "needs snookers!" not in captured.out
-    assert game.snookers_needed is False
-
-def test_red_balls_left_player_1(capsys):
-    game = SnookerScores()
-    game.player_1_turn = True
-    game.red_balls = 10
-    game.available_player_1 = 100
-    with patch.object(game, "display_next_ball"):
-        game.red_balls_left()
-        captured = capsys.readouterr()
-        assert "10 red balls left" in captured.out
-        game.display_next_ball.assert_called_once()
-
-def test_red_balls_left_player_2(capsys):
-    game = SnookerScores()
-    game.player_1_turn = False
-    game.red_balls = 10
-    game.available_player_2 = 100
-    with patch.object(game, "display_next_ball"):
-        game.red_balls_left()
-        captured = capsys.readouterr()
-        assert "10 red balls left" in captured.out
-        game.display_next_ball.assert_called_once()
-
-def test_red_balls_left_none(capsys):
-    game = SnookerScores()
-    game.player_1_turn = True
-    game.red_balls = 0
-    game.available_player_1 = 100
-    with patch.object(game, "display_next_ball"):
-        game.red_balls_left()
-        captured = capsys.readouterr()
-        assert "0 red balls left" in captured.out
-        game.display_next_ball.assert_called_once()
-
-def test_display_next_ball_red_ball_needed(capsys):
-    game = SnookerScores()
-    game.player_1_turn = True
-    game.red_needed_next = True
-    game.display_next_ball()
-    captured = capsys.readouterr()
-    assert f"{game.player_1} must pot a red ball next" in captured.out
-
-def test_display_next_ball_colored_ball_needed(capsys):
-    game = SnookerScores()
-    game.player_1_turn = False
-    game.red_needed_next = False
-    game.display_next_ball()
-    captured = capsys.readouterr()
-    assert f"{game.player_2} must pot a colored ball next" in captured.out

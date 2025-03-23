@@ -81,6 +81,116 @@ def test_display_next_ball_edge_cases(capsys):
     captured = capsys.readouterr()
     assert "Player 1 must pot a colored ball next" in captured.out
 
+def test_display_game_state(capsys):
+    game = SnookerScores()
+    game.score_player_1 = 30
+    game.score_player_2 = 20
+    game.potential_score_player_1 = 100
+    game.potential_score_player_2 = 90
+    game.break_size = 15
+    game.red_balls = 10
+    with patch.object(game, "calculate_potential_scores"):
+        game.display_game_state()
+        captured = capsys.readouterr()
+        assert f"{game.player_1}: score 30, potential score 100" in captured.out
+        assert f"{game.player_2}: score 20, potential score 90" in captured.out
+        assert "Break: 15" in captured.out
+        assert "10 red balls left" in captured.out
+
+def test_display_break_size_above_10(capsys):
+    game = SnookerScores()
+    game.break_size = 15
+    game.display_break_size()
+    captured = capsys.readouterr()
+    assert "Break: 15" in captured.out
+
+def test_display_break_size_below_10(capsys):
+    game = SnookerScores()
+    game.break_size = 10
+    game.display_break_size()
+    captured = capsys.readouterr()
+    assert "Break: 10" not in captured.out
+
+def test_display_snookers_needed_player_2(capsys):
+    game = SnookerScores()
+    game.score_player_1 = 50
+    game.score_player_2 = 20
+    game.available_player_2 = 25
+    game.display_snookers_needed()
+    captured = capsys.readouterr()
+    assert f"{game.player_2} needs snookers!" in captured.out
+    assert game.snookers_needed is True
+
+def test_display_snookers_needed_player_1(capsys):
+    game = SnookerScores()
+    game.score_player_2 = 50
+    game.score_player_1 = 20
+    game.available_player_1 = 25
+    game.display_snookers_needed()
+    captured = capsys.readouterr()
+    assert f"{game.player_1} needs snookers!" in captured.out
+    assert game.snookers_needed is True
+
+def test_display_snookers_needed_none(capsys):
+    game = SnookerScores()
+    game.score_player_1 = 30
+    game.score_player_2 = 20
+    game.available_player_1 = 50
+    game.available_player_2 = 50
+    game.display_snookers_needed()
+    captured = capsys.readouterr()
+    assert "needs snookers!" not in captured.out
+    assert game.snookers_needed is False
+
+def test_red_balls_left_player_1(capsys):
+    game = SnookerScores()
+    game.player_1_turn = True
+    game.red_balls = 10
+    game.available_player_1 = 100
+    with patch.object(game, "display_next_ball"):
+        game.red_balls_left()
+        captured = capsys.readouterr()
+        assert "10 red balls left" in captured.out
+        game.display_next_ball.assert_called_once()
+
+def test_red_balls_left_player_2(capsys):
+    game = SnookerScores()
+    game.player_1_turn = False
+    game.red_balls = 10
+    game.available_player_2 = 100
+    with patch.object(game, "display_next_ball"):
+        game.red_balls_left()
+        captured = capsys.readouterr()
+        assert "10 red balls left" in captured.out
+        game.display_next_ball.assert_called_once()
+
+def test_red_balls_left_none(capsys):
+    game = SnookerScores()
+    game.player_1_turn = True
+    game.red_balls = 0
+    game.available_player_1 = 100
+    with patch.object(game, "display_next_ball"):
+        game.red_balls_left()
+        captured = capsys.readouterr()
+        assert "0 red balls left" in captured.out
+        game.display_next_ball.assert_called_once()
+
+def test_display_next_ball_red_ball_needed(capsys):
+    game = SnookerScores()
+    game.player_1_turn = True
+    game.red_needed_next = True
+    game.display_next_ball()
+    captured = capsys.readouterr()
+    assert f"{game.player_1} must pot a red ball next" in captured.out
+
+def test_display_next_ball_colored_ball_needed(capsys):
+    game = SnookerScores()
+    game.player_1_turn = False
+    game.red_needed_next = False
+    game.display_next_ball()
+    captured = capsys.readouterr()
+    assert f"{game.player_2} must pot a colored ball next" in captured.out
+
 
 # Handling red ball shots
 def test_handle_ball_edge_cases():

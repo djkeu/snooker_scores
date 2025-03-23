@@ -64,6 +64,25 @@ def test_add_penalty_edge_cases_2():
     assert game.score_player_2 == 0
 
 
+def test_update_score_player_1():
+    game = SnookerScores()
+    game.player_1_turn = True
+    initial_score_player_1 = game.score_player_1
+    initial_break_size = game.break_size
+    game.update_score(5)
+    assert game.score_player_1 == initial_score_player_1 + 5
+    assert game.break_size == initial_break_size + 5
+
+def test_update_score_player_2():
+    game = SnookerScores()
+    game.player_1_turn = False
+    initial_score_player_2 = game.score_player_2
+    initial_break_size = game.break_size
+    game.update_score(5)
+    assert game.score_player_2 == initial_score_player_2 + 5
+    assert game.break_size == initial_break_size + 5
+
+
 def test_update_score_edge_cases():
     game = SnookerScores()
     game.player_1_turn = True
@@ -73,6 +92,15 @@ def test_update_score_edge_cases():
     game.update_score(3)
     assert game.score_player_2 == 3
 
+def test_calculate_potential_scores():
+    game = SnookerScores()
+    game.score_player_1 = 30
+    game.score_player_2 = 20
+    game.available_player_1 = 100
+    game.available_player_2 = 90
+    game.calculate_potential_scores()
+    assert game.potential_score_player_1 == 130
+    assert game.potential_score_player_2 == 110
 
 def test_calculate_potential_scores_edge_cases():
     game = SnookerScores()
