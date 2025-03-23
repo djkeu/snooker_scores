@@ -22,6 +22,7 @@ def test_initial_game_setup():
     assert game.break_size == 0
 
 
+# Player switching
 def test_switch_players():
     game = SnookerScores()
 
@@ -43,6 +44,8 @@ def test_switch_players_edge_cases():
     assert game.player_1_turn is True
     assert game.red_needed_next is True
 
+
+# Displaying game state
 def test_display_game_state_edge_cases(capsys):
     game = SnookerScores()
     game.score_player_1 = 10
@@ -168,7 +171,6 @@ def test_handle_ball_color():
     assert game.available_player_1 == 139
     assert game.available_player_2 == 139
 
-
 def test_handle_color_ball_player_1():
     game = SnookerScores()
 
@@ -189,7 +191,7 @@ def test_handle_color_ball_player_2():
     assert game.red_needed_next == True
 
 
-# Handling other game events
+# Handling misses
 def test_handle_miss():
     game = SnookerScores()
 
@@ -202,6 +204,8 @@ def test_handle_miss():
     assert game.break_size == 0
     assert game.player_1_turn == False
 
+
+# Game Phases
 def test_red_balls_phase_edge_cases(capsys):
     game = SnookerScores()
     game.red_balls = 1
@@ -243,7 +247,6 @@ def test_handle_last_colored_ball_edge_cases(capsys):
     assert "Player 1: score 2, potential score 22" in captured.out
     assert "Player 2: score 0, potential score 27" in captured.out
 
-
 def test_colored_balls_phase(capsys):
     game = SnookerScores()
     game.player_1_turn = True
@@ -283,6 +286,7 @@ def test_colored_balls_phase_edge_cases(capsys):
     assert "Player 1: score 2, potential score 27" in captured.out
     assert "Player 1: score 27, potential score 27" in captured.out
     assert "Player 1 wins!" in captured.out
+
 
 # Game conclusion
 def test_display_winner():
