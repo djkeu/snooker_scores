@@ -75,6 +75,15 @@ def test_validate_shot_edge_cases():
     assert game.validate_shot("") is None
 
 
+def test_validate_scores_exceeds_max():
+    game = SnookerScores()
+    assert game.validate_scores(10, 100, 50) is False
+
+def test_validate_scores_min_score_calculation():
+    game = SnookerScores()
+    assert game.validate_scores(10, 10, 5) is True
+
+
 # Handle special inputs
 def test_handle_special_input_q():
     snooker_game = SnookerScores()
@@ -124,6 +133,19 @@ def test_respot_balls_edge_cases():
     with patch("builtins.input", side_effect=["n"]):
         game.respot_balls()
         assert game.red_needed_next is True
+
+def test_respot_balls_invalid_then_valid():
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["a", "yes", "no", "y"]):
+        game.respot_balls()
+        assert game.red_needed_next is True
+
+def test_respot_balls_no_red_balls():
+    game = SnookerScores()
+    game.red_balls = 0
+    with patch("builtins.input", side_effect=["n"]):
+        game.respot_balls()
+        assert game.red_needed_next is False
 
 
 # Starting scores validation
@@ -212,6 +234,24 @@ def test_get_input_starting_scores_invalid_then_valid():
 def test_get_input_starting_scores_edge_cases():
     game = SnookerScores()
     with patch("builtins.input", side_effect=["invalid", "invalid", "5", "5", "5"]):
+        result = game.collect_starting_scores_inputs()
+        assert result is None
+
+def test_collect_starting_scores_inputs_early_exit():
+    with patch("builtins.input", side_effect=["q"]):
+        game = SnookerScores()
+        result = game.collect_starting_scores_inputs()
+        assert result is None
+
+def test_collect_starting_scores_inputs_invalid_red_balls():
+    with patch("builtins.input", side_effect=["-1", "16", "15", "0", "0"]):
+        game = SnookerScores()
+        result = game.collect_starting_scores_inputs()
+        assert result is None
+
+def test_collect_starting_scores_inputs_invalid_player_scores():
+    with patch("builtins.input", side_effect=["15", "-10", "20"]):
+        game = SnookerScores()
         result = game.collect_starting_scores_inputs()
         assert result is None
 

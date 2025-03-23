@@ -647,6 +647,8 @@ class SnookerScores:
             self.switch_players()
         elif self.red_balls > 0:
             self.red_needed_next = True
+        else:
+            self.red_needed_next = False
 
 
 def main():
