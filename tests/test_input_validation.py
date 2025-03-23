@@ -100,6 +100,20 @@ def test_handle_special_input_s():
         snooker_game.handle_hotkeys("s")
         mock_set_starting_scores.assert_called_once()
 
+def test_handle_special_input_w():
+    snooker_game = SnookerScores()
+    with patch.object(snooker_game, 'early_victory') as mock_early_victory:
+        result = snooker_game.handle_hotkeys("w")
+        mock_early_victory.assert_called_once()
+        assert result == "winner"
+
+def test_handle_special_input_r():
+    snooker_game = SnookerScores()
+    with patch.object(snooker_game, 'red_ball_down') as mock_red_ball_down:
+        result = snooker_game.handle_hotkeys("r")
+        mock_red_ball_down.assert_called_once()
+        assert result == "red_ball_down"
+
 
 # Re-spot input validation
 def test_respot_balls_edge_cases():
@@ -167,6 +181,20 @@ def test_set_starting_scores_edge_cases():
         game.set_starting_scores()
         assert game.score_player_1 == 0
         assert game.score_player_2 == 0
+
+def test_set_starting_scores_early_exit():
+    game = SnookerScores()
+    with patch("builtins.input", side_effect=["q"]):
+        game.set_starting_scores()
+        assert game.red_balls == 15
+
+def test_set_starting_scores_switch_players():
+    game = SnookerScores()
+    game.player_1_turn = False
+    with patch("builtins.input", side_effect=["15", "0", "0"]):
+        with patch.object(game, "red_balls_phase"):
+            game.set_starting_scores()
+            assert game.player_1_turn is True
 
 # Starting scores inputs
 def test_get_input_starting_scores_valid():
@@ -329,6 +357,15 @@ def test_store_players_names_yes():
         game.store_players_names()
     assert game.player_1 == "Alice"
     assert game.player_2 == "Bob"
+
+def test_store_players_names_invalid_then_valid():
+    game = SnookerScores()
+    inputs = ["a", "yes", "no", "y", "Alice", "Bob"]
+    with mock_input("Do you want to enter player names? (y/n) ", *inputs):
+        game.store_players_names()
+    assert game.player_1 == "Alice"
+    assert game.player_2 == "Bob"
+
 
 def test_get_player_name_empty():
     game = SnookerScores()
