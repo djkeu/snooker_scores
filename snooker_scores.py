@@ -492,7 +492,7 @@ class SnookerScores:
             self.display_next_ball()
 
     def display_snookers_needed(self):
-        """Display the number of snookers needed."""
+        """Display if snookers are needed."""
         if (
             self.snookers_needed is False and
             self.score_player_1 > self.score_player_2 + self.available_player_2
