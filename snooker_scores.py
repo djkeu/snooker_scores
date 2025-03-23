@@ -162,7 +162,7 @@ class SnookerScores:
         while True:
             shot = input("Enter 0 for miss, 7 for black: ")
             if shot == "q":
-                sys.exit()
+                self.exit_game()
             elif shot not in ["0", "7"]:
                 print("0 or 7 please")
             elif int(shot) == 0:
