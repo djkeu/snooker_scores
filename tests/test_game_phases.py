@@ -64,7 +64,9 @@ def test_winner_black_ball_phase_player_2():
 
 def test_handle_hotkeys_quit(monkeypatch):
     scores = SnookerScores()
-    monkeypatch.setattr(sys, 'exit', lambda _: None)
+    def mock_exit(_):
+        raise SystemExit()
+    monkeypatch.setattr(sys, 'exit', mock_exit)
     
     with pytest.raises(SystemExit):
         scores.handle_hotkeys("q")
