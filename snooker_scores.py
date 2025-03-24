@@ -48,7 +48,9 @@ class SnookerScores:
     def store_players_names(self):
         """Store players names in vars."""
         while True:
-            player_names = input("Do you want to enter player names? (y/n) ").strip().lower()
+            player_names = input(
+                "Do you want to enter player names? (y/n) "
+            ).strip().lower()
             if player_names in ['y', 'n']:
                 break
             else:
@@ -57,9 +59,9 @@ class SnookerScores:
         if player_names == 'y':
             self.player_1 = self.get_player_name()
             self.player_2 = self.get_player_name()
-        
+
             self.display_active_player()
-    
+
         return
 
     def get_player_name(self):
@@ -76,7 +78,7 @@ class SnookerScores:
         # self.colored_balls_phase()
         self.display_winner()
         self.restart_game()
-    
+
     def red_balls_phase(self):
         """Play the red balls phase of the game."""
         while self.red_balls > 0:
@@ -106,7 +108,9 @@ class SnookerScores:
                 continue
 
             if shot < 2 or shot > 7:
-                active_player = self.player_1 if self.player_1_turn else self.player_2
+                active_player = (
+                    self.player_1 if self.player_1_turn else self.player_2
+                )
                 print(f"\n{active_player} must pot a colored ball!")
                 continue
 
@@ -114,11 +118,11 @@ class SnookerScores:
                 self.available_player_1 -= 7
             else:
                 self.available_player_2 -= 7
-                
+
             self.update_score(shot)
             self.display_game_state()
             break
- 
+
         self.available_player_1 = self.end_break
         self.available_player_2 = self.end_break
 
@@ -143,7 +147,7 @@ class SnookerScores:
                 self.display_winner()
                 self.restart_game()
                 return
-    
+
     def display_colored_ball_to_play(self):
         """Display which colored ball should be played next."""
         if self.player_1_turn:
@@ -160,7 +164,7 @@ class SnookerScores:
         """Respot black ball after a tie."""
         print("\n\tBlack ball phase!")
         self.display_active_player()
-        
+
         while True:
             shot = input("Enter 0 for miss, 7 for black: ")
             if shot == "q":
@@ -207,7 +211,10 @@ class SnookerScores:
     def restart_game(self):
         """Ask user if they want to play again."""
         while True:
-            restart = input("Do you want to play again? (y/n) ").strip().lower()
+            restart = input(
+                "Do you want to play again? (y/n) "
+            ).strip().lower()
+
             if restart in ['y', 'n']:
                 break
             else:
@@ -330,7 +337,9 @@ class SnookerScores:
 
         while True:
             try:
-                colored_ball_input = int(input("Which colored ball is the first to play: "))
+                colored_ball_input = int(
+                    input("Which colored ball is the first to play: ")
+                )
                 if 2 <= colored_ball_input <= 7:
                     break
                 else:
@@ -483,10 +492,14 @@ class SnookerScores:
 
     def red_balls_left(self):
         """Display the number of red balls left."""
-        if self.player_1_turn and self.available_player_1 > self.end_break:
+        if (
+            self.player_1_turn and self.available_player_1 > self.end_break
+        ):
             print(f"{self.red_balls} red balls left")
             self.display_next_ball()
-        elif not self.player_1_turn and self.available_player_2 > self.end_break:
+        elif (
+            not self.player_1_turn and self.available_player_2 > self.end_break
+        ):
             print(f"{self.red_balls} red balls left")
             self.display_next_ball()
 
