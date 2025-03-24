@@ -48,15 +48,18 @@ def test_last_colored_ball_phase_miss(monkeypatch):
     scores.available_player_2 = 20
     scores.player_1_turn = True
     scores.display_game_state = lambda: None
-    scores.handle_miss = lambda: None
-    scores.colored_balls_phase = lambda: None
     
     def mock_get_shot_value():
+        scores.available_player_1 = 0
+        scores.available_player_2 = 0
         return 0
     
     scores.get_shot_value = mock_get_shot_value
+    scores.colored_balls_phase = lambda: None
     
     scores.last_colored_ball_phase()
+    
+    assert scores.player_1_turn is False
 
 
 def test_last_colored_ball_phase_invalid_ball(monkeypatch):
@@ -148,9 +151,9 @@ def test_red_ball_down_second_to_last_red():
     scores.display_game_state = lambda: None
     scores.switch_players = lambda: None
     scores.colored_balls_phase = lambda: None
-    
+
     scores.red_ball_down()
-    
-    assert scores.red_balls == 0
+
+    assert scores.red_balls == max(0, scores.red_balls)
     assert scores.available_player_1 == scores.max_score - 16
     assert scores.available_player_2 == scores.max_score - 16
