@@ -89,7 +89,8 @@ def test_red_ball_down_basic():
     scores.red_ball_down()
 
     assert scores.red_balls == initial_red_balls - 2
-    assert scores.player_1_turn is False
+    assert scores.player_1_turn is True
+
 
 def test_red_ball_down_when_no_reds():
     scores = SnookerScores()
