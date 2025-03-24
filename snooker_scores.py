@@ -147,15 +147,14 @@ class SnookerScores:
     def display_colored_ball_to_play(self):
         """Display which colored ball should be played next."""
         if self.player_1_turn:
-            print(
-                f"{self.player_1} must pot a "
-                f"{self.colored_balls[self.yellow_ball]} ball"
-            )
+            active_player = self.player_1
         else:
-            print(
-                f"{self.player_2} must pot a "
-                f"{self.colored_balls[self.yellow_ball]} ball"
-            )
+            active_player = self.player_2
+
+        print(
+            f"{active_player} must pot a "
+            f"{self.colored_balls[self.yellow_ball]} ball"
+        )
 
     def black_ball_phase(self):
         """Respot black ball after a tie."""
