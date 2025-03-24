@@ -15,12 +15,12 @@ This program is to display how many points are still available for each player t
 - ToDo: display_snookers_needed
     - Done: reformat
     - ToDo: manual tests
-    - ToDo: remove obsolete_display_snookers_needed
+    - Done: remove obsolete_display_snookers_needed
 
 - ToDo: red_ball_down
     - Done: reformat
     - ToDo: manual tests
-    - ToDo: remove obsolete_red_ball_down
+    - Done: remove obsolete_red_ball_down
 
 - Done: ask Claude to write pytest test suite
     - Note: pytetst.ini
