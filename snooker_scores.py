@@ -75,7 +75,7 @@ class SnookerScores:
         self.red_balls_phase()
         # self.colored_balls_phase()
         self.display_winner()
-        self.restart
+        self.restart_game()
     
     def red_balls_phase(self):
         """Play the red balls phase of the game."""

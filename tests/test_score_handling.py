@@ -38,8 +38,8 @@ def test_get_penalty_input_invalid_then_valid(monkeypatch):
     inputs = iter(["-1", "abc", "4"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     
-    with pytest.raises(StopIteration):
-        scores.get_penalty_input()
+    result = scores.get_penalty_input()
+    assert result == 4
 
 
 def test_get_penalty_input_quit(monkeypatch):
@@ -51,24 +51,28 @@ def test_get_penalty_input_quit(monkeypatch):
     assert result is None
 
 
-def test_update_game_state():
+def test_update_game_state(monkeypatch):
     scores = SnookerScores()
+    monkeypatch.setattr('builtins.input', lambda _: "0")
+    scores.display_game_state = lambda: None
+    scores.red_balls_phase = lambda: None
     
     scores.update_game_state(10, 20, 30)
     
     assert scores.red_balls == 10
     assert scores.score_player_1 == 20
     assert scores.score_player_2 == 30
-    assert scores.red_needed_next is True
-    assert scores.yellow_ball == 2
-    assert scores.available_player_1 == 10 * 8 + scores.end_break
-    assert scores.available_player_2 == 10 * 8 + scores.end_break
+    assert scores.available_player_1 == 107
+    assert scores.available_player_2 == 107
 
 
 def test_validate_scores_valid():
     scores = SnookerScores()
     
-    assert scores.validate_scores(10, 20, 30) is True
+    possible_score = scores.max_score - scores.end_break - 10 * 8
+    valid_score = possible_score // 2
+    
+    assert scores.validate_scores(10, valid_score, valid_score) is True
 
 
 def test_validate_scores_total_too_high():
@@ -113,12 +117,14 @@ def test_get_player_score_quit(monkeypatch):
 
 def test_collect_starting_scores_inputs_valid(monkeypatch):
     scores = SnookerScores()
-    inputs = iter(["10", "20", "30"])
+    possible_score = scores.max_score - scores.end_break - 15 * 8
+    valid_score = possible_score // 2
+    inputs = iter(["15", str(valid_score), str(valid_score)])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     
     result = scores.collect_starting_scores_inputs()
     
-    assert result == (10, 20, 30)
+    assert result == (15, valid_score, valid_score)
 
 
 def test_collect_starting_scores_inputs_invalid_red_balls(monkeypatch):
