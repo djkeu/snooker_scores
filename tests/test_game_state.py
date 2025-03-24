@@ -17,8 +17,10 @@ def test_restart_game_yes(monkeypatch):
 
 def test_restart_game_no(monkeypatch):
     scores = SnookerScores()
+    def mock_exit(_):
+        raise SystemExit()
     monkeypatch.setattr('builtins.input', lambda _: "n")
-    monkeypatch.setattr(sys, 'exit', lambda _: None)
+    monkeypatch.setattr(sys, 'exit', mock_exit)
     
     with pytest.raises(SystemExit):
         scores.restart_game()
@@ -39,7 +41,9 @@ def test_restart_game_invalid_then_valid(monkeypatch):
 
 def test_exit_game(monkeypatch):
     scores = SnookerScores()
-    monkeypatch.setattr(sys, 'exit', lambda _: None)
+    def mock_exit(_):
+        raise SystemExit()
+    monkeypatch.setattr(sys, 'exit', mock_exit)
     
     with pytest.raises(SystemExit):
         scores.exit_game()
