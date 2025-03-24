@@ -23,12 +23,8 @@ This program is to display how many points are still available for each player t
     - Done: remove obsolete_red_ball_down
 
 - ToDo: Live tests with videos of snooker games (38 / 100)
-    38. Wilson vs Robertson: 57 - 64
-    39. Wilson vs Robertson: 89 - 0
-    40. 
-    
-    https://www.youtube.com/watch?v=hAw1cb7G4j8&t=1847s : 1:26:00
-
+    41. Wilson vs Robertson: 134 - 0
+    42. 
 
 - ToDo: GUI
 
