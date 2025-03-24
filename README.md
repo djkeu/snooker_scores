@@ -12,15 +12,6 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: refactor display_colored_ball_to_play
-
-- ToDo: pytest
-    - Note: do live tests after a test phase is marked Done:
-    - Done: test_game_flow.py:
-    - Done: test_game_logic.py
-    - ToDo: test_input_validation.py
-    - ToDo: test_score_calculation.py
-
 - ToDo: Live tests with videos of snooker games (38 / 100)
     38. Wilson vs Robertson: 57 - 64
     39. https://www.youtube.com/watch?v=hAw1cb7G4j8&t=1847s : 1:26:00
