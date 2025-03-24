@@ -12,9 +12,13 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: reformat display_snookers_needed
+- ToDo: display_snookers_needed
+    - Done: reformat
+    - ToDo: manual tests
+    - ToDo: remove obsolete_display_snookers_needed
 
 - ToDo: red_ball_down
+    - Done: reformat
     - ToDo: manual tests
     - ToDo: remove obsolete_red_ball_down
 
