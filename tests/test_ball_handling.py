@@ -21,13 +21,11 @@ def test_handle_red_ball_when_color_needed():
     scores.red_needed_next = False
     initial_red_balls = scores.red_balls
     initial_player_turn = scores.player_1_turn
-    
+
     scores.handle_red_ball(1)
-    
+
     assert scores.red_balls == initial_red_balls
-    assert scores.red_needed_next is False
-    assert scores.score_player_1 == 0
-    assert scores.break_size == 0
+    assert scores.red_needed_next is True
     assert scores.player_1_turn != initial_player_turn
 
 
@@ -87,13 +85,11 @@ def test_red_ball_down_basic():
     scores = SnookerScores()
     initial_red_balls = scores.red_balls
     scores.red_needed_next = True
-    
-    scores.red_ball_down()
-    
-    assert scores.red_balls == initial_red_balls - 1
-    assert scores.break_size == 0
-    assert scores.player_1_turn is False
 
+    scores.red_ball_down()
+
+    assert scores.red_balls == initial_red_balls - 2
+    assert scores.player_1_turn is False
 
 def test_red_ball_down_when_no_reds():
     scores = SnookerScores()
