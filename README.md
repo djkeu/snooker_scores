@@ -12,6 +12,8 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
+- ToDo: manual tests red_ball_down
+
 - ToDo: ask Claude to write pytest test suite
     - Note: pytetst.ini
     - Note: test map: ./tests
