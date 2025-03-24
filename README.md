@@ -20,6 +20,7 @@ This program is to display how many points are still available for each player t
 - ToDo: red_ball_down
     - Done: reformat
     - ToDo: manual tests
+    - Done: legal to pot two reds in one stroke: no switching players
     - Done: remove obsolete_red_ball_down
 
 - ToDo: Live tests with videos of snooker games (38 / 100)

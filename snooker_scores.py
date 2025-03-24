@@ -562,8 +562,8 @@ class SnookerScores:
             self.red_balls = max(0, self.red_balls - 2)
             self.available_player_1 -= 16
             self.available_player_2 -= 16
+            self.red_needed_next = False
             self.display_game_state()
-            self.switch_players()
             if self.red_balls == 0:
                 self.colored_balls_phase()
             return
@@ -575,9 +575,6 @@ class SnookerScores:
         else:
             self.available_player_1 -= 8
             self.available_player_2 -= 15
-
-        if self.red_balls > 0:
-            self.red_needed_next = True
 
         self.switch_players()
         self.display_game_state()
