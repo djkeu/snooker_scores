@@ -503,7 +503,7 @@ class SnookerScores:
             print(f"{self.red_balls} red balls left")
             self.display_next_ball()
 
-    def display_snookers_needed(self):
+    def obsolete_display_snookers_needed(self):
         """Display if snookers are needed."""
         if (
             self.snookers_needed is False and
@@ -517,6 +517,21 @@ class SnookerScores:
         ):
             print(f"{self.player_1} needs snookers!")
             self.snookers_needed = True
+
+    def display_snookers_needed(self):
+        """Display if snookers are needed."""
+        while self.snookers_needed is False:
+            if (
+                self.score_player_1 > self.score_player_2 + self.available_player_2
+            ):
+                print(f"{self.player_2} needs snookers!")
+                self.snookers_needed = True
+            elif (
+                self.score_player_2 > self.score_player_1 + self.available_player_1
+            ):
+                print(f"{self.player_1} needs snookers!")
+                self.snookers_needed = True
+            break
 
     def display_active_player(self):
         """Display the name of the active player."""
