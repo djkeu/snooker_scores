@@ -61,16 +61,16 @@ def test_break_calculation():
     
     scores.break_size = 0
     
-    scores.update_score(1)  # Red
+    scores.update_score(1)
     assert scores.break_size == 1
     
-    scores.update_score(7)  # Black
+    scores.update_score(7)
     assert scores.break_size == 8
     
-    scores.update_score(1)  # Red
+    scores.update_score(1)
     assert scores.break_size == 9
     
-    scores.update_score(7)  # Black
+    scores.update_score(7)
     assert scores.break_size == 16
     
     scores.break_size = 0
