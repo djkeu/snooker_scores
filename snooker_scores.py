@@ -244,6 +244,7 @@ class SnookerScores:
             return
 
         self.break_size = 0
+        self.snookers_needed = False
         red_balls, score_player_1, score_player_2 = inputs
         self.update_game_state(red_balls, score_player_1, score_player_2)
 
