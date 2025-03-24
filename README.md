@@ -22,7 +22,7 @@ This program is to display how many points are still available for each player t
     - ToDo: manual tests
     - ToDo: remove obsolete_red_ball_down
 
-- ToDo: ask Claude to write pytest test suite
+- Done: ask Claude to write pytest test suite
     - Note: pytetst.ini
     - Note: test map: ./tests
     - Note: multiple files
