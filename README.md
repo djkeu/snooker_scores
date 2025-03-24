@@ -22,13 +22,6 @@ This program is to display how many points are still available for each player t
     - ToDo: manual tests
     - Done: remove obsolete_red_ball_down
 
-- Done: ask Claude to write pytest test suite
-    - Note: pytetst.ini
-    - Note: test map: ./tests
-    - Note: multiple files
-    - Note: postfix _test
-
-
 - ToDo: Live tests with videos of snooker games (38 / 100)
     38. Wilson vs Robertson: 57 - 64
     39. https://www.youtube.com/watch?v=hAw1cb7G4j8&t=1847s : 1:26:00
