@@ -13,15 +13,11 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: display_snookers_needed
-    - Done: reformat
-    - ToDo: manual tests
-    - Done: remove obsolete_display_snookers_needed
+    - Note: displays only once, not if snookers are needed again
+    - ToDo: manual tests (1 / 10)
 
 - ToDo: red_ball_down
-    - Done: reformat
-    - ToDo: manual tests
-    - Done: legal to pot two reds in one stroke: no switching players
-    - Done: remove obsolete_red_ball_down
+    - ToDo: manual tests (0 / 10)
 
 - ToDo: Live tests with videos of snooker games (38 / 100)
     41. Wilson vs Robertson: 134 - 0
