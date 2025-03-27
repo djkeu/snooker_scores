@@ -19,12 +19,9 @@ This program is to display how many points are still available for each player t
 - ToDo: red_ball_down
     - ToDo: manual tests (0 / 10)
 
-- ToDo: Live tests with videos of snooker games (43 / 100)
-    41. Wilson vs Robertson: 134 - 0
-    42. Trump vs Wilson: 95 - 70
-    43. Trump vs Wilson: 14 - 106
-    44. Murphy vs O'Connor: 1 - 133
-    45. 
+- ToDo: Live tests with videos of snooker games (45 / 100)
+    45. Higgins vs Zhou: 73 - 30
+    46. 
 
 
 - ToDo: GUI
