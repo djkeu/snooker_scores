@@ -12,10 +12,6 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: display_snookers_needed
-    - Note: displays only once, not if snookers are needed again
-    - ToDo: manual tests (1 / 10)
-
 - ToDo: red_ball_down
     - ToDo: manual tests (0 / 10)
 
