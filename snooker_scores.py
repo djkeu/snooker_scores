@@ -156,7 +156,7 @@ class SnookerScores:
             active_player = self.player_2
 
         print(
-            f"{active_player} must pot a "
+            f"{active_player} must play the "
             f"{self.colored_balls[self.yellow_ball]} ball"
         )
 

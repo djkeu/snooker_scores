@@ -14,7 +14,7 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: pot vs play
     - ToDo: red_balls_phase: pot -> play
-    - ToDo: colored_balls_phase: pot a -> play the
+    - Done: display_colored_ball_to_play: pot a -> play the
 
 - ToDo: statistics
     - ToDo: total number of shots
