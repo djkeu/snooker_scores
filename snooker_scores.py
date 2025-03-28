@@ -454,7 +454,7 @@ class SnookerScores:
         else:
             ball = "colored ball"
 
-        print(f"{player} must pot a {ball} next")
+        print(f"{player} must play a {ball} next")
 
 
     # Score handling
