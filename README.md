@@ -12,16 +12,10 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: pot vs play
-    - Done: display_next_ball: pot -> play
-    - Done: display_colored_ball_to_play: pot a -> play the
-    - Done: last_colored_ball_phase: pot -> play
-
 - ToDo: statistics
     - ToDo: total number of shots
     - ToDo: break_size > 0
     - ToDo: largest break
-    
 
 - ToDo: red_ball_down
     - ToDo: manual tests (0 / 10)
