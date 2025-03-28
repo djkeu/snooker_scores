@@ -111,7 +111,7 @@ class SnookerScores:
                 active_player = (
                     self.player_1 if self.player_1_turn else self.player_2
                 )
-                print(f"\n{active_player} must pot a colored ball!")
+                print(f"\n{active_player} must play a colored ball!")
                 continue
 
             if self.player_1_turn:
