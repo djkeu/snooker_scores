@@ -16,14 +16,15 @@ This program is to display how many points are still available for each player t
     - ToDo: total number of shots
     - ToDo: break_size > 0
     - ToDo: largest break
-    - ToDo: set break_size in set_starting_scores
+    - ToDo: incorrect break_size in set_starting_scores
+        - ToDo: fix or warning
 
 - ToDo: red_ball_down
     - ToDo: manual tests (0 / 10)
 
 - ToDo: Live tests with videos of snooker games (45 / 100)
-    45. Higgins vs Zhou: 73 - 30
-    46. Selby vs Page:
+    47. Gilbert vs Robertson: 79 - 1
+    48. 
 
 
 - ToDo: GUI
