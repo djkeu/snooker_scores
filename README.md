@@ -16,6 +16,7 @@ This program is to display how many points are still available for each player t
     - ToDo: total number of shots
     - ToDo: break_size > 0
     - ToDo: largest break
+    - ToDo: set break_size in set_starting_scores
 
 - ToDo: red_ball_down
     - ToDo: manual tests (0 / 10)
