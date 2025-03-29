@@ -14,7 +14,7 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: statistics
     - ToDo: total number of shots
-    - ToDo: break_size > 0
+    - Done: break_size > 1
     - ToDo: largest break
     - ToDo: incorrect break_size in set_starting_scores
         - ToDo: fix or warning
