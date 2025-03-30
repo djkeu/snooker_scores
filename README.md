@@ -14,6 +14,7 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: red_balls_left
     - ToDo: simpler logic to display number of red balls left
+    - Abandoned: check if yellow_ball == 2
 
 - ToDo: statistics
     - ToDo: total number of shots
