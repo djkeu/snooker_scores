@@ -24,7 +24,8 @@ This program is to display how many points are still available for each player t
 
 - ToDo: Live tests with videos of snooker games (48 / 100)
     51. Murphy vs Hawkins: 35 - 67
-    52. 
+    52. Murphy vs Hawkins: 13 - 67
+    53. 
 
 
 - ToDo: GUI
