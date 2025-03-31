@@ -22,7 +22,8 @@ This program is to display how many points are still available for each player t
 - ToDo: Live tests with videos of snooker games (48 / 100)
     47. Gilbert vs Robertson: 79 - 1
     48. Williams vs Ding: 70 - 27
-    49. 
+    49. Si vs Vafaei: 61 vs 75
+    50. 
 
 
 - ToDo: GUI
