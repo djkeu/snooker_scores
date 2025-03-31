@@ -12,6 +12,9 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
+- ToDo: free ball
+    - Note: can be a color!
+
 - ToDo: set_starting_scores
     - FixMe: incorrect break_size
     - ToDo: prompt or warning
@@ -24,7 +27,7 @@ This program is to display how many points are still available for each player t
     48. Williams vs Ding: 70 - 27
     49. Si vs Vafaei: 61 vs 75
     50. Murphy vs Hawkins: 0 - 89
-    51. 
+    51. Murphy vs Hawkins: 
 
 
 - ToDo: GUI
