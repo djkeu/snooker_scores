@@ -133,7 +133,7 @@ class SnookerScores:
             shot = self.get_shot_value()
 
             if shot != self.yellow_ball:
-                print("Wrong ball!")
+                print(f"Missed {self.colored_balls[self.yellow_ball]} ball!")
                 self.break_size = 0
                 self.switch_players()
             else:
