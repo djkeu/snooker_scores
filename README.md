@@ -23,7 +23,8 @@ This program is to display how many points are still available for each player t
     47. Gilbert vs Robertson: 79 - 1
     48. Williams vs Ding: 70 - 27
     49. Si vs Vafaei: 61 vs 75
-    50. 
+    50. Murphy vs Hawkins: 0 - 89
+    51. 
 
 
 - ToDo: GUI
