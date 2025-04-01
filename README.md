@@ -12,8 +12,13 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
+- ToDo: colored_balls_phase
+    - ToDo: name player in 'if shot != self.yellow_ball'
+
 - ToDo: free ball
-    - Note: can be a color!
+    - Note: free ball is a color!
+    - ToDo: assign 'f' to free ball
+    - ToDo: update hotkeys.txt
 
 - ToDo: set_starting_scores
     - FixMe: incorrect break_size
