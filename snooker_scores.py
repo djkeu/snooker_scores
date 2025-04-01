@@ -128,12 +128,19 @@ class SnookerScores:
 
     def colored_balls_phase(self):
         """Play the colored balls phase of the game."""
+        active_player = (
+            self.player_1 if self.player_1_turn else self.player_2
+        )
+
         while self.available_player_1 > 0:
             self.display_colored_ball_to_play()
             shot = self.get_shot_value()
 
             if shot != self.yellow_ball:
-                print(f"Missed {self.colored_balls[self.yellow_ball]} ball!")
+                print(
+                    f"{active_player} missed the "
+                    f"{self.colored_balls[self.yellow_ball]} ball!"
+                )
                 self.break_size = 0
                 self.switch_players()
             else:
