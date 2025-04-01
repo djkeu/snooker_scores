@@ -4,7 +4,7 @@ from snooker_scores import SnookerScores
 
 def test_colored_balls_phase_correct_ball(monkeypatch):
     scores = SnookerScores()
-    scores.available_player_1 = 27
+    scores.available_player_1 = 2
     scores.player_1_turn = True
     scores.yellow_ball = 2
     scores.display_colored_ball_to_play = lambda: None
@@ -13,8 +13,7 @@ def test_colored_balls_phase_correct_ball(monkeypatch):
     scores.restart_game = lambda: None
     
     def mock_get_shot_value():
-        scores.yellow_ball = 8
-        return 2
+        return scores.yellow_ball
     
     scores.get_shot_value = mock_get_shot_value
     
