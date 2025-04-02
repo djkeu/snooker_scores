@@ -13,7 +13,7 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - ToDo: setup_colored_balls_phase
-    - ToDo: 'q' to quit
+    - ToDo: 'q' to quit: self.exit_game()
 
 - ToDo: free ball
     - Note: free ball is a color!
