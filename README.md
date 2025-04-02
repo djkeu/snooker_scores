@@ -18,8 +18,9 @@ This program is to display how many points are still available for each player t
     - ToDo: update hotkeys.txt
 
 - ToDo: set_starting_scores
-    - FixMe: incorrect break_size
-    - ToDo: prompt or warning
+    - Note: incorrect break_size
+    - ToDo: add warning
+    - FixMe: replace warning with prompt?
 
 - ToDo: red_ball_down
     - ToDo: manual tests (0 / 10)
