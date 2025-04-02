@@ -350,12 +350,16 @@ class SnookerScores:
     def setup_colored_balls_phase(self):
         """Setup for the colored balls phase."""
         self.red_needed_next = False
-
         while True:
+            colored_ball_input = input(
+                "Which colored ball is the first to play: "
+            ).strip()
+
+            if colored_ball_input.lower() == "q":
+                self.exit_game()
+
             try:
-                colored_ball_input = int(
-                    input("Which colored ball is the first to play: ")
-                )
+                colored_ball_input = int(colored_ball_input)
                 if 2 <= colored_ball_input <= 7:
                     break
                 else:
