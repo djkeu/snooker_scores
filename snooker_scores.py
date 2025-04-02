@@ -331,6 +331,8 @@ class SnookerScores:
         self.yellow_ball = 2
         self.break_size = 0
         self.snookers_needed = False
+        self.warn_incorrect_break_size()
+
         self.score_player_1 = score_player_1
         self.score_player_2 = score_player_2
         self.available_player_1 = red_balls * 8 + self.end_break
@@ -338,6 +340,12 @@ class SnookerScores:
         self.display_game_state()
         if self.red_balls > 0:
             self.red_balls_phase()
+
+    def warn_incorrect_break_size(self):
+        """Warn about incorrect break size."""
+        print(
+            "Warning: Break size is incorrect. "
+        )
 
     def setup_colored_balls_phase(self):
         """Setup for the colored balls phase."""
