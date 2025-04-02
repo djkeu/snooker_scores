@@ -250,7 +250,6 @@ class SnookerScores:
             print("Ok, back to the game then.")
             return
 
-        self.snookers_needed = False
         red_balls, score_player_1, score_player_2 = inputs
         self.update_game_state(red_balls, score_player_1, score_player_2)
 
@@ -331,6 +330,7 @@ class SnookerScores:
         self.red_needed_next = True
         self.yellow_ball = 2
         self.break_size = 0
+        self.snookers_needed = False
         self.score_player_1 = score_player_1
         self.score_player_2 = score_player_2
         self.available_player_1 = red_balls * 8 + self.end_break
