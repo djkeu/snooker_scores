@@ -28,13 +28,14 @@ This program is to display how many points are still available for each player t
 - ToDo: red_ball_down
     - ToDo: manual tests (0 / 10)
 
-- ToDo: Live tests with videos of snooker games (55 / 100)
+- ToDo: Live tests with videos of snooker games (56 / 100)
     51. Murphy vs Hawkins: 35 - 67
     52. Murphy vs Hawkins: 13 - 67
     53. Williams vs Ding: 70 - 19
     54. Trump vs Hawkins: 0 - 82
     55. Trump vs Hawkins: 10 - 76
-    56. 
+    56. Trump vs Hawkins: 35 - 83
+    57. 
 
 
 - ToDo: GUI
