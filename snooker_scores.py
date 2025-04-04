@@ -407,6 +407,9 @@ class SnookerScores:
         elif shot == "r":
             self.red_ball_down()
             return "red_ball_down"
+        elif shot == "f":
+            self.free_ball()
+            return "free_ball"
         else:
             return None
 
@@ -612,6 +615,8 @@ class SnookerScores:
 
     def free_ball(self):
         """Handle free ball."""
+        print("\tFree ball!")
+
         prompt = (
             "Enter the value of the free ball (2-7): "
         )
