@@ -15,7 +15,7 @@ This program is to display how many points are still available for each player t
 - ToDo: free ball
     - ToDo: create free_ball()
     - ToDo: handle_hotkeys: assign 'f' to free ball
-    - ToDo: update hotkeys.txt
+    - Done: update hotkeys.txt
 
 - ToDo: set_starting_scores
     - Note: incorrect break_size
