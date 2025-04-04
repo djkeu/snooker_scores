@@ -241,24 +241,6 @@ class SnookerScores:
 
     # Set starting scores
     def set_starting_scores(self):
-        """Set starting scores for an ongoing game."""
-        print("\n\tSet starting scores")
-        self.display_active_player()
-
-        while True:
-            starting_scores = input(
-                "Do you want to set starting scores? (y/n) "
-            ).strip().lower()
-            if starting_scores in ['y', 'n']:
-                break
-            else:
-                print("Invalid input. Please enter 'y' or 'n'.")
-
-        if starting_scores == 'y':
-            self.set_starting_scores()
-        else:
-            print("Ok, back to the game then.")
-    def set_starting_scores(self):
         """Set scores for an ongoing game."""
         if not self.player_1_turn:
             self.switch_players()
@@ -268,9 +250,10 @@ class SnookerScores:
             print("Ok, back to the game then.")
             return
 
+        self.break_size = 0
+        self.snookers_needed = False
         red_balls, score_player_1, score_player_2 = inputs
         self.update_game_state(red_balls, score_player_1, score_player_2)
-
 
         if red_balls == 0:
             self.setup_colored_balls_phase()
