@@ -632,9 +632,9 @@ class SnookerScores:
                 print("Invalid input. Please enter a valid number.")
 
         if self.player_1_turn:
-            self.available_player_1 += free_ball
+            self.score_player_1 += free_ball
         else:
-            self.available_player_2 += free_ball
+            self.score_player_2 += free_ball
 
 
     # Handle penalties
