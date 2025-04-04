@@ -29,8 +29,8 @@ This program is to display how many points are still available for each player t
 
 - ToDo: Live tests with videos of snooker games (56 / 100)
     56. Trump vs Hawkins: 35 - 83
-    57. 
-
+    57. Higgins vs Hawkins: 66 - 0
+    58. 
 
 - ToDo: GUI
 
