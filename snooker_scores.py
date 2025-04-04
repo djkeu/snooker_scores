@@ -610,6 +610,27 @@ class SnookerScores:
         if self.red_balls > 0:
             self.red_needed_next = True
 
+    def free_ball(self):
+        """Handle free ball."""
+        prompt = (
+            "Enter the value of the free ball (2-7): "
+        )
+        while True:
+            free_ball = input(prompt).strip()
+            try:
+                free_ball = int(free_ball)
+                if 2 <= free_ball <= 7:
+                    break
+                else:
+                    print("Invalid input. Please enter a number between 2 and 7.")
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+
+        if self.player_1_turn:
+            self.available_player_1 += free_ball
+        else:
+            self.available_player_2 += free_ball
+
 
     # Handle penalties
     def add_penalty(self):
