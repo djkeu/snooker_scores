@@ -561,6 +561,7 @@ class SnookerScores:
             print("Century break!")
             self.century_break = True
 
+
     # Handle missed balls
     def handle_miss(self):
         """Handle a miss."""
