@@ -21,6 +21,7 @@ This program is to display how many points are still available for each player t
     - ToDo: pytest
 
 - ToDo: red_ball_down
+    - Done: pytest
     - ToDo: manual tests (0 / 10)
 
 - ToDo: Live tests with videos of snooker games (59 / 100)
