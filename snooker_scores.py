@@ -16,6 +16,7 @@ class SnookerScores:
         self.potential_score_player_1 = self.max_score
         self.potential_score_player_2 = self.max_score
         self.break_size = 0
+        self.century_break = False
         self.red_needed_next = True
         self.player_1_turn = True
         self.snookers_needed = False
@@ -556,6 +557,9 @@ class SnookerScores:
         if self.break_size > 0:
             print(f"Break: {self.break_size}")
 
+        if self.break_size >= 100 and self.century_break is False:
+            print("\tCentury break!")
+            self.century_break = True
 
     # Handle missed balls
     def handle_miss(self):
