@@ -557,7 +557,7 @@ class SnookerScores:
         if self.break_size > 0:
             print(f"Break: {self.break_size}")
 
-        if self.break_size >= 100 and self.century_break is False:
+        if self.century_break is False and self.break_size >= 100:
             print("Century break!")
             self.century_break = True
 
