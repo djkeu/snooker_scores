@@ -20,11 +20,6 @@ This program is to display how many points are still available for each player t
 - ToDo: free ball
     - ToDo: pytest
 
-- ToDo: set_starting_scores
-    - Note: incorrect break_size
-    - Done: add warning
-    - Abandoned: add prompt to warning
-
 - ToDo: red_ball_down
     - ToDo: manual tests (0 / 10)
 
