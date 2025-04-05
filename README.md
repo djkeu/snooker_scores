@@ -17,11 +17,7 @@ This program is to display how many points are still available for each player t
     - Abandoned: display maximum break if 147
 
 - ToDo: free ball
-    - Done: manual tests
     - ToDo: pytest
-    - Done: create free_ball()
-    - Done: handle_hotkeys: assign 'f' to free ball
-    - Done: update hotkeys.txt
 
 - ToDo: set_starting_scores
     - Note: incorrect break_size
