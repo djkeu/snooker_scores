@@ -558,7 +558,7 @@ class SnookerScores:
             print(f"Break: {self.break_size}")
 
         if self.break_size >= 100 and self.century_break is False:
-            print("\tCentury break!")
+            print("Century break!")
             self.century_break = True
 
     # Handle missed balls
