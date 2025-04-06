@@ -134,5 +134,9 @@ def test_display_colored_ball_to_play_player2():
     scores.display_colored_ball_to_play()
 
 
-def test_display_break_size():
-    pass
+def test_display_break_below_century():
+    scores = SnookerScores()
+    scores.break_size = 90
+    assert scores.century_break is False
+    scores.break_size = 99
+    assert scores.century_break is False
