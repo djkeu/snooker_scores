@@ -132,3 +132,7 @@ def test_display_colored_ball_to_play_player2():
     scores.yellow_ball = 4
     
     scores.display_colored_ball_to_play()
+
+
+def test_display_break_size():
+    pass
