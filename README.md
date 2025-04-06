@@ -33,124 +33,103 @@ This program is to display how many points are still available for each player t
 
 ## Pytest
 
-### Commands to show only failed tests:
-    - $ pytest -v --tb=no --no-header --no-summary | grep FAILED | awk '{print $1}'
-    - $ pytest --lf --collect-only -q
-
-### Files
-- test_game_flow.py:
-    - Test the overall game flow from start to finish.
-
-- test_game_logic.py
-    - Test the main game logic, including handling shots, phases, and score calculations.
-
-- test_input_validation.py
-    - Test input validation, such as handling invalid values and ensuring correct user prompts.
-
-- test_score_calculation.py
-    - Test how scores are updated based on different scenarios.
-
-### All tests updated 17-3-2025
+### All tests updated 6-4-2025
 ```
 $ pytest --collect-only --quiet
-tests/test_game_flow.py::test_game_flow
-tests/test_game_flow.py::test_multiple_penalties
-tests/test_game_flow.py::test_switch_players_red_ball_phase
-tests/test_game_flow.py::test_start_game_full_flow
-tests/test_game_flow.py::test_start_game_early_exit
-tests/test_game_flow.py::test_start_game_early_exit_red_ball_phase
-tests/test_game_flow.py::test_start_game_early_exit_set_starting_scores
-tests/test_game_flow.py::test_start_game_exceed_max_red_balls_then_early_exit
-tests/test_game_flow.py::test_start_game_invalid_inputs
-tests/test_game_flow.py::test_start_game_multiple_invalid_inputs
-tests/test_game_flow.py::test_start_game_invalid_red_balls_then_early_exit
-tests/test_game_flow.py::test_start_game_invalid_player_scores_then_early_exit
-tests/test_game_flow.py::test_start_game_negative_player_scores_then_early_exit
-tests/test_game_flow.py::test_start_game_penalty
-tests/test_game_flow.py::test_start_game_penalty_no_respot
-tests/test_game_flow.py::test_start_game_penalty_no_respot_edge_case
-tests/test_game_flow.py::test_start_game_penalty_respot
-tests/test_game_flow.py::test_start_game_penalty_respot_edge_case
-tests/test_game_flow.py::test_start_game_set_scores
-tests/test_game_flow.py::test_start_game_switch_players
-tests/test_game_logic.py::test_initial_game_setup
-tests/test_game_logic.py::test_switch_players
-tests/test_game_logic.py::test_switch_players_edge_cases
-tests/test_game_logic.py::test_display_game_state_edge_cases
-tests/test_game_logic.py::test_display_next_ball_edge_cases
-tests/test_game_logic.py::test_handle_ball_edge_cases
-tests/test_game_logic.py::test_handle_ball_red
-tests/test_game_logic.py::test_handle_red_ball_player_1
-tests/test_game_logic.py::test_handle_red_ball_player_2
-tests/test_game_logic.py::test_display_next_ball_red_player_1
-tests/test_game_logic.py::test_handle_ball_color
-tests/test_game_logic.py::test_handle_color_ball_player_1
-tests/test_game_logic.py::test_handle_color_ball_player_2
-tests/test_game_logic.py::test_handle_miss
-tests/test_game_logic.py::test_red_balls_phase_edge_cases
-tests/test_game_logic.py::test_handle_last_colored_ball
-tests/test_game_logic.py::test_handle_last_colored_ball_edge_cases
-tests/test_game_logic.py::test_colored_balls_phase
-tests/test_game_logic.py::test_colored_balls_phase_basic
-tests/test_game_logic.py::test_colored_balls_phase_edge_cases
-tests/test_game_logic.py::test_display_winner
-tests/test_input_validation.py::test_validate_shot_valid
-tests/test_input_validation.py::test_validate_shot_invalid
-tests/test_input_validation.py::test_validate_shot_quit
-tests/test_input_validation.py::test_validate_shot_p
-tests/test_input_validation.py::test_validate_shot_x
-tests/test_input_validation.py::test_validate_shot_s
-tests/test_input_validation.py::test_validate_shot_edge_cases
-tests/test_input_validation.py::test_handle_special_input_q
-tests/test_input_validation.py::test_handle_special_input_p
-tests/test_input_validation.py::test_handle_special_input_x
-tests/test_input_validation.py::test_handle_special_input_s
-tests/test_input_validation.py::test_respot_balls_edge_cases
-tests/test_input_validation.py::test_set_starting_scores_valid_input
-tests/test_input_validation.py::test_set_starting_scores_invalid_score
-tests/test_input_validation.py::test_set_starting_scores_invalid_red_balls
-tests/test_input_validation.py::test_set_starting_scores_invalid_total_score
-tests/test_input_validation.py::test_set_starting_scores_edge_cases
-tests/test_input_validation.py::test_get_input_starting_scores_valid
-tests/test_input_validation.py::test_get_input_starting_scores_invalid_then_valid
-tests/test_input_validation.py::test_get_input_starting_scores_edge_cases
-tests/test_input_validation.py::test_validate_red_balls_no_reds
-tests/test_input_validation.py::test_validate_red_balls_valid_1_red
-tests/test_input_validation.py::test_validate_red_balls_valid_2_reds
-tests/test_input_validation.py::test_validate_red_balls_invalid_low
-tests/test_input_validation.py::test_validate_red_balls_invalid_high
-tests/test_input_validation.py::test_validate_red_balls_edge_cases
-tests/test_input_validation.py::test_validate_player_scores_valid
-tests/test_input_validation.py::test_validate_player_scores_negative
-tests/test_input_validation.py::test_validate_player_scores_exceed_maximum_break
-tests/test_input_validation.py::test_validate_player_scores_edge_cases
-tests/test_input_validation.py::test_validate_min_score_valid
-tests/test_input_validation.py::test_validate_min_score_invalid
-tests/test_input_validation.py::test_validate_min_score_edge_cases
-tests/test_input_validation.py::test_get_penalty_input_valid
-tests/test_input_validation.py::test_get_penalty_input_invalid
-tests/test_input_validation.py::test_get_penalty_input_edge_cases
-tests/test_input_validation.py::test_get_penalty_input_early_exit
-tests/test_input_validation.py::test_get_penalty_input_invalid_then_early_exit
-tests/test_input_validation.py::test_get_penalty_input_negative_then_early_exit
-tests/test_input_validation.py::test_store_players_names_no
-tests/test_input_validation.py::test_store_players_names_yes
-tests/test_input_validation.py::test_get_player_name_empty
-tests/test_input_validation.py::test_get_player_name_valid
-tests/test_input_validation.py::test_get_player_name_capitalized
-tests/test_input_validation.py::test_get_player_name_whitespace
-tests/test_input_validation.py::test_get_player_name_special_characters
-tests/test_input_validation.py::test_get_player_name_multiple_words
-tests/test_input_validation.py::test_get_player_name_all_lowercase
-tests/test_input_validation.py::test_get_player_name_all_uppercase
-tests/test_input_validation.py::test_get_player_name_mixed_case
-tests/test_score_calculation.py::test_apply_penalty
-tests/test_score_calculation.py::test_apply_penalty_edge_cases
-tests/test_score_calculation.py::test_add_penalty_valid
-tests/test_score_calculation.py::test_add_penalty_invalid
-tests/test_score_calculation.py::test_add_penalty_edge_cases_2
-tests/test_score_calculation.py::test_update_score_edge_cases
-tests/test_score_calculation.py::test_calculate_potential_scores_edge_cases
+
+tests/test_ball_handling.py::test_handle_red_ball
+tests/test_ball_handling.py::test_handle_red_ball_when_color_needed
+tests/test_ball_handling.py::test_handle_color_ball
+tests/test_ball_handling.py::test_handle_color_ball_when_red_needed
+tests/test_ball_handling.py::test_handle_miss
+tests/test_ball_handling.py::test_handle_miss_after_color
+tests/test_ball_handling.py::test_red_ball_down_basic
+tests/test_ball_handling.py::test_red_ball_down_when_no_reds
+tests/test_ball_handling.py::test_validate_shot_valid
+tests/test_ball_handling.py::test_validate_shot_invalid
+
+tests/test_colored_balls_phase.py::test_colored_balls_phase_correct_ball
+tests/test_colored_balls_phase.py::test_colored_balls_phase_wrong_ball
+tests/test_colored_balls_phase.py::test_last_colored_ball_phase_miss
+tests/test_colored_balls_phase.py::test_last_colored_ball_phase_invalid_ball
+tests/test_colored_balls_phase.py::test_last_colored_ball_phase_valid_ball
+tests/test_colored_balls_phase.py::test_display_next_ball_red_player1
+tests/test_colored_balls_phase.py::test_display_next_ball_color_player2
+tests/test_colored_balls_phase.py::test_red_ball_down_no_reds
+tests/test_colored_balls_phase.py::test_red_ball_down_last_red_needed
+tests/test_colored_balls_phase.py::test_red_ball_down_second_to_last_red
+
+tests/test_game_phases.py::test_display_snookers_needed_player_1
+tests/test_game_phases.py::test_display_snookers_needed_player_2
+tests/test_game_phases.py::test_display_snookers_needed_no_snookers
+tests/test_game_phases.py::test_winner_black_ball_phase_player_1
+tests/test_game_phases.py::test_winner_black_ball_phase_player_2
+tests/test_game_phases.py::test_handle_hotkeys_quit
+tests/test_game_phases.py::test_handle_hotkeys_penalty
+tests/test_game_phases.py::test_handle_hotkeys_switch
+tests/test_game_phases.py::test_handle_hotkeys_set_scores
+tests/test_game_phases.py::test_handle_hotkeys_early_victory
+tests/test_game_phases.py::test_handle_hotkeys_red_ball_down
+tests/test_game_phases.py::test_handle_hotkeys_invalid
+tests/test_game_phases.py::test_setup_colored_balls_phase
+tests/test_game_phases.py::test_last_colored_ball_phase
+
+tests/test_game_state.py::test_restart_game_yes
+tests/test_game_state.py::test_restart_game_no
+tests/test_game_state.py::test_restart_game_invalid_then_valid
+tests/test_game_state.py::test_exit_game
+tests/test_game_state.py::test_early_victory
+tests/test_game_state.py::test_black_ball_phase_miss_then_black
+tests/test_game_state.py::test_black_ball_phase_invalid_then_black
+tests/test_game_state.py::test_display_winner_player_1
+tests/test_game_state.py::test_display_winner_player_2
+tests/test_game_state.py::test_display_winner_tie
+tests/test_game_state.py::test_display_colored_ball_to_play_player1
+tests/test_game_state.py::test_display_colored_ball_to_play_player2
+
+tests/test_initialization.py::test_initialization
+tests/test_initialization.py::test_colored_balls_dict
+tests/test_initialization.py::test_get_player_name
+tests/test_initialization.py::test_get_player_name_empty
+tests/test_initialization.py::test_switch_players
+tests/test_initialization.py::test_update_score
+tests/test_initialization.py::test_calculate_potential_scores
+
+tests/test_input_handling.py::test_store_players_names_yes
+tests/test_input_handling.py::test_store_players_names_no
+tests/test_input_handling.py::test_store_players_names_invalid_then_valid
+tests/test_input_handling.py::test_get_shot_value_valid
+tests/test_input_handling.py::test_get_shot_value_invalid_then_valid
+tests/test_input_handling.py::test_get_shot_value_hotkey
+tests/test_input_handling.py::test_respot_balls_yes
+tests/test_input_handling.py::test_respot_balls_no_with_reds
+tests/test_input_handling.py::test_respot_balls_no_without_reds
+tests/test_input_handling.py::test_respot_balls_invalid_then_valid
+
+tests/test_integration.py::test_basic_game_flow
+tests/test_integration.py::test_full_red_phase_simple
+tests/test_integration.py::test_break_calculation
+tests/test_integration.py::test_potential_scores_calculation
+tests/test_integration.py::test_snookers_needed_calculation
+tests/test_integration.py::test_combine_penalties_and_scoring
+tests/test_integration.py::test_player_switching
+
+tests/test_score_handling.py::test_apply_penalty_player_1
+tests/test_score_handling.py::test_apply_penalty_player_2
+tests/test_score_handling.py::test_get_penalty_input_valid
+tests/test_score_handling.py::test_get_penalty_input_invalid_then_valid
+tests/test_score_handling.py::test_get_penalty_input_quit
+tests/test_score_handling.py::test_update_game_state
+tests/test_score_handling.py::test_validate_scores_valid
+tests/test_score_handling.py::test_validate_scores_total_too_high
+tests/test_score_handling.py::test_validate_scores_total_too_low
+tests/test_score_handling.py::test_get_player_score_valid
+tests/test_score_handling.py::test_get_player_score_negative
+tests/test_score_handling.py::test_get_player_score_quit
+tests/test_score_handling.py::test_collect_starting_scores_inputs_valid
+tests/test_score_handling.py::test_collect_starting_scores_inputs_invalid_red_balls
+
+84 tests collected in 0.04s
 ```
 
 
