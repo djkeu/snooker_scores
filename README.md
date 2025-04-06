@@ -39,7 +39,6 @@ tests/test_ball_handling.py::test_red_ball_down_basic
 tests/test_ball_handling.py::test_red_ball_down_when_no_reds
 tests/test_ball_handling.py::test_validate_shot_valid
 tests/test_ball_handling.py::test_validate_shot_invalid
-
 tests/test_colored_balls_phase.py::test_colored_balls_phase_correct_ball
 tests/test_colored_balls_phase.py::test_colored_balls_phase_wrong_ball
 tests/test_colored_balls_phase.py::test_last_colored_ball_phase_miss
@@ -78,6 +77,8 @@ tests/test_game_state.py::test_display_winner_player_2
 tests/test_game_state.py::test_display_winner_tie
 tests/test_game_state.py::test_display_colored_ball_to_play_player1
 tests/test_game_state.py::test_display_colored_ball_to_play_player2
+tests/test_game_state.py::test_display_break_below_century
+tests/test_game_state.py::test_display_century_break
 
 tests/test_initialization.py::test_initialization
 tests/test_initialization.py::test_colored_balls_dict
@@ -111,6 +112,11 @@ tests/test_score_handling.py::test_apply_penalty_player_2
 tests/test_score_handling.py::test_get_penalty_input_valid
 tests/test_score_handling.py::test_get_penalty_input_invalid_then_valid
 tests/test_score_handling.py::test_get_penalty_input_quit
+tests/test_score_handling.py::test_free_ball_player1_valid_input_first_try
+tests/test_score_handling.py::test_free_ball_player2_valid_input_first_try
+tests/test_score_handling.py::test_free_ball_invalid_then_valid_input
+tests/test_score_handling.py::test_free_ball_min_max_values_player1
+tests/test_score_handling.py::test_free_ball_min_max_values_player2
 tests/test_score_handling.py::test_update_game_state
 tests/test_score_handling.py::test_validate_scores_valid
 tests/test_score_handling.py::test_validate_scores_total_too_high
@@ -121,7 +127,7 @@ tests/test_score_handling.py::test_get_player_score_quit
 tests/test_score_handling.py::test_collect_starting_scores_inputs_valid
 tests/test_score_handling.py::test_collect_starting_scores_inputs_invalid_red_balls
 
-84 tests collected in 0.04s
+91 tests collected in 0.18s
 ```
 
 
