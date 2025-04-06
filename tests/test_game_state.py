@@ -141,6 +141,7 @@ def test_display_break_below_century():
     scores.break_size = 99
     assert scores.century_break is False
 
+
 def test_display_century_break():
     scores = SnookerScores()
     scores.break_size = 100
