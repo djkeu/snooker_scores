@@ -12,6 +12,8 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
+- FixMe: game not restarted correctly after w in colored_balls_phase
+
 - ToDo: red_ball_down
     - Done: pytest
     - ToDo: manual tests (0 / 10)
