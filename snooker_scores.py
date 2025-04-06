@@ -346,7 +346,7 @@ class SnookerScores:
     def warn_incorrect_break_size(self):
         """Warn about incorrect break size."""
         print(
-            "Warning: Displayed break size does not match actual break size. "
+            "Warning: displayed break size does not match actual break size. "
         )
 
     def setup_colored_balls_phase(self):
