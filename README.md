@@ -13,6 +13,7 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - FixMe: game not restarted correctly after w in colored_balls_phase
+    - Done: call main_game() in restart_game()
 
 - ToDo: red_ball_down
     - Done: pytest
@@ -21,7 +22,8 @@ This program is to display how many points are still available for each player t
 - ToDo: Live tests with videos of snooker games (59 / 100)
     59. Higgins vs Hawkins: 111 - 12
     60. Selby vs Higgins: 119 - 0
-    61. 
+    61. Selby vs Higgins: 0 - 72
+    62. 
 
 - ToDo: GUI
 
