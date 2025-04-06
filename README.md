@@ -14,7 +14,7 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: display_break_size
     - Done: display century break if >= 100
-    - ToDo: pytest: test_game_phases.py
+    - ToDo: pytest: test_game_state.py
 
 - ToDo: free ball
     - ToDo: pytest: test_score_handling.py
