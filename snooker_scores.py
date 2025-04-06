@@ -231,6 +231,7 @@ class SnookerScores:
         if restart == 'y':
             self.__init__()
             self.start_game()
+            self.main_game()
         else:
             self.exit_game()
 
