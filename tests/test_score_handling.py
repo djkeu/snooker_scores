@@ -51,6 +51,10 @@ def test_get_penalty_input_quit(monkeypatch):
     assert result is None
 
 
+def test_free_ball():
+    pass
+
+
 def test_update_game_state(monkeypatch):
     scores = SnookerScores()
     monkeypatch.setattr('builtins.input', lambda _: "0")
