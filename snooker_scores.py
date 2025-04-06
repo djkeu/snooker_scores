@@ -9,12 +9,12 @@ class SnookerScores:
         self.player_2 = "Player 2"
         self.score_player_1 = 0
         self.score_player_2 = 0
-        self.max_score = 147
+        self.max_break = 147
         self.end_break = 27
-        self.available_player_1 = self.max_score
-        self.available_player_2 = self.max_score
-        self.potential_score_player_1 = self.max_score
-        self.potential_score_player_2 = self.max_score
+        self.available_player_1 = self.max_break
+        self.available_player_2 = self.max_break
+        self.potential_score_player_1 = self.max_break
+        self.potential_score_player_2 = self.max_break
         self.break_size = 0
         self.century_break = False
         self.red_needed_next = True
@@ -312,7 +312,7 @@ class SnookerScores:
 
     def validate_scores(self, red_balls, score_player_1, score_player_2):
         """Validate that the combined scores make sense for the game state."""
-        possible_score = self.max_score - self.end_break - red_balls * 8
+        possible_score = self.max_break - self.end_break - red_balls * 8
         if score_player_1 + score_player_2 > possible_score:
             print(f"Total score cannot exceed {possible_score}.")
             return False

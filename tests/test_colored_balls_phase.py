@@ -154,5 +154,5 @@ def test_red_ball_down_second_to_last_red():
     scores.red_ball_down()
 
     assert scores.red_balls == max(0, scores.red_balls)
-    assert scores.available_player_1 == scores.max_score - 16
-    assert scores.available_player_2 == scores.max_score - 16
+    assert scores.available_player_1 == scores.max_break - 16
+    assert scores.available_player_2 == scores.max_break - 16

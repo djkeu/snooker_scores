@@ -12,8 +12,8 @@ def test_handle_red_ball():
     assert scores.red_needed_next is False
     assert scores.score_player_1 == 1
     assert scores.break_size == 1
-    assert scores.available_player_1 == scores.max_score - 1
-    assert scores.available_player_2 == scores.max_score - 8
+    assert scores.available_player_1 == scores.max_break - 1
+    assert scores.available_player_2 == scores.max_break - 8
 
 
 def test_handle_red_ball_when_color_needed():
@@ -38,7 +38,7 @@ def test_handle_color_ball():
     assert scores.red_needed_next is True
     assert scores.score_player_1 == 5
     assert scores.break_size == 5
-    assert scores.available_player_1 == scores.max_score - 7
+    assert scores.available_player_1 == scores.max_break - 7
 
 
 def test_handle_color_ball_when_red_needed():
