@@ -589,8 +589,14 @@ class SnookerScores:
 
         if self.red_needed_next and self.red_balls >= 2:
             self.red_balls = max(0, self.red_balls - 2)
-            self.available_player_1 -= 16
-            self.available_player_2 -= 16
+
+            if self.player_1_turn:
+                self.available_player_1 -= 8
+                self.available_player_2 -= 16
+            else:
+                self.available_player_1 -= 16
+                self.available_player_2 -= 8
+
             self.red_needed_next = False
             self.display_game_state()
             if self.red_balls == 0:

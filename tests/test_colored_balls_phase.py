@@ -111,7 +111,7 @@ def test_display_next_ball_red_player1():
     scores.player_1 = "John"
     scores.player_1_turn = True
     scores.red_needed_next = True
-    
+
     scores.display_next_ball()
 
 
@@ -120,16 +120,16 @@ def test_display_next_ball_color_player2():
     scores.player_2 = "Mary"
     scores.player_1_turn = False
     scores.red_needed_next = False
-    
+
     scores.display_next_ball()
 
 
 def test_red_ball_down_no_reds():
     scores = SnookerScores()
     scores.red_balls = 0
-    
+
     scores.red_ball_down()
-    
+
     assert scores.red_balls == 0
 
 
@@ -137,14 +137,31 @@ def test_red_ball_down_last_red_needed():
     scores = SnookerScores()
     scores.red_balls = 1
     scores.red_needed_next = True
-    
+
     scores.red_ball_down()
-    
+
     assert scores.red_balls == 1
 
 
-def test_red_ball_down_second_to_last_red():
+def test_red_ball_down_second_to_last_red_player_1():
     scores = SnookerScores()
+    scores.player_1_turn = True
+    scores.red_balls = 2
+    scores.red_needed_next = True
+    scores.display_game_state = lambda: None
+    scores.switch_players = lambda: None
+    scores.colored_balls_phase = lambda: None
+
+    scores.red_ball_down()
+
+    assert scores.red_balls == max(0, scores.red_balls)
+    assert scores.available_player_1 == scores.max_break - 8
+    assert scores.available_player_2 == scores.max_break - 16
+
+
+def test_red_ball_down_second_to_last_red_player_2():
+    scores = SnookerScores()
+    scores.player_1_turn = False
     scores.red_balls = 2
     scores.red_needed_next = True
     scores.display_game_state = lambda: None
@@ -155,4 +172,4 @@ def test_red_ball_down_second_to_last_red():
 
     assert scores.red_balls == max(0, scores.red_balls)
     assert scores.available_player_1 == scores.max_break - 16
-    assert scores.available_player_2 == scores.max_break - 16
+    assert scores.available_player_2 == scores.max_break - 8
