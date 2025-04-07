@@ -16,9 +16,7 @@ This program is to display how many points are still available for each player t
     - Done: pytest
     - ToDo: manual tests (0 / 10)
 
-- ToDo: Live tests with videos of snooker games (59 / 100)
-    59. Higgins vs Hawkins: 111 - 12
-    60. Selby vs Higgins: 119 - 0
+- ToDo: Live tests with videos of snooker games (61 / 100)
     61. Selby vs Higgins: 0 - 72
     62. 
 
