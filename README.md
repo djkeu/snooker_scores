@@ -12,12 +12,6 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- Done: red_ball_down
-    - Done: manual tests
-        - Done: 1. if first shot == 'r':
-            potential score p1: 139 (not 131)
-    - Done: adjust pytest        
-
 - ToDo: Live tests with videos of snooker games (61 / 100)
     61. Selby vs Higgins: 0 - 72
     62. 
