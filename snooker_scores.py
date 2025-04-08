@@ -577,6 +577,7 @@ class SnookerScores:
         self.display_next_ball()
 
     def red_ball_down(self):
+        """Handle an accidentally potted red ball."""
         if self.red_balls == 0:
             print("No reds available to accidentally pot!")
             return
