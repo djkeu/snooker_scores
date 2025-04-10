@@ -22,7 +22,7 @@ This program is to display how many points are still available for each player t
 
 ## Pytest
 
-### All tests updated 6-4-2025
+### All tests updated 10-4-2025
 ```
 $ pytest --collect-only --quiet
 
@@ -36,6 +36,7 @@ tests/test_ball_handling.py::test_red_ball_down_basic
 tests/test_ball_handling.py::test_red_ball_down_when_no_reds
 tests/test_ball_handling.py::test_validate_shot_valid
 tests/test_ball_handling.py::test_validate_shot_invalid
+
 tests/test_colored_balls_phase.py::test_colored_balls_phase_correct_ball
 tests/test_colored_balls_phase.py::test_colored_balls_phase_wrong_ball
 tests/test_colored_balls_phase.py::test_last_colored_ball_phase_miss
@@ -45,7 +46,8 @@ tests/test_colored_balls_phase.py::test_display_next_ball_red_player1
 tests/test_colored_balls_phase.py::test_display_next_ball_color_player2
 tests/test_colored_balls_phase.py::test_red_ball_down_no_reds
 tests/test_colored_balls_phase.py::test_red_ball_down_last_red_needed
-tests/test_colored_balls_phase.py::test_red_ball_down_second_to_last_red
+tests/test_colored_balls_phase.py::test_red_ball_down_second_to_last_red_player_1
+tests/test_colored_balls_phase.py::test_red_ball_down_second_to_last_red_player_2
 
 tests/test_game_phases.py::test_display_snookers_needed_player_1
 tests/test_game_phases.py::test_display_snookers_needed_player_2
@@ -124,7 +126,7 @@ tests/test_score_handling.py::test_get_player_score_quit
 tests/test_score_handling.py::test_collect_starting_scores_inputs_valid
 tests/test_score_handling.py::test_collect_starting_scores_inputs_invalid_red_balls
 
-91 tests collected in 0.18s
+92 tests collected in 0.03s
 ```
 
 
