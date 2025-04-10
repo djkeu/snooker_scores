@@ -12,9 +12,10 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: Live tests with videos of snooker games (61 / 100)
+- ToDo: Live tests with videos of snooker games (62 / 100)
     61. Selby vs Higgins: 0 - 72
-    62. 
+    62. Trump vs Hawkins: 0 - 82
+    63. 
 
 - ToDo: GUI
 
