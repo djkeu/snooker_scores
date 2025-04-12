@@ -76,7 +76,6 @@ class SnookerScores:
     def main_game(self):
         """Main game loop."""
         self.red_balls_phase()
-        # self.colored_balls_phase()
         self.display_winner()
         self.restart_game()
 
