@@ -129,11 +129,11 @@ class SnookerScores:
 
     def colored_balls_phase(self):
         """Play the colored balls phase of the game."""
-        active_player = (
-            self.player_1 if self.player_1_turn else self.player_2
-        )
-
         while self.available_player_1 > 0:
+            active_player = (
+                self.player_1 if self.player_1_turn else self.player_2
+            )
+
             self.display_colored_ball_to_play()
             shot = self.get_shot_value()
 

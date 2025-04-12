@@ -14,7 +14,7 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: Live tests with videos of snooker games (62 / 100)
     65. Wilson vs Ding: 13 - 66
-    66. 
+    66. Higgins vs Xiao: 
     
 
 - ToDo: GUI
