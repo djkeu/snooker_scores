@@ -192,190 +192,6 @@ class SnookerScores:
             self.score_player_2 += 7
 
 
-    # Game phases 3: end the game
-    def early_victory(self):
-        """Show winner of an early victory."""
-        self.display_winner()
-        self.restart_game()
-
-    def display_winner(self):
-        """Display winner of the game."""
-        winner = ""
-
-        if self.score_player_1 == self.score_player_2:
-            self.black_ball_phase()
-
-        if self.score_player_1 > self.score_player_2:
-            winner = self.player_1
-        elif self.score_player_1 < self.score_player_2:
-            winner = self.player_2
-
-        print(
-            f"\n{winner} wins! "
-            f"(with a score of {max(self.score_player_1, self.score_player_2)}"
-            f" vs {min(self.score_player_1, self.score_player_2)})")
-
-    def restart_game(self):
-        """Ask user if they want to play again."""
-        while True:
-            restart = input(
-                "Do you want to play again? (y/n) "
-            ).strip().lower()
-
-            if restart in ['y', 'n']:
-                break
-            else:
-                print("Invalid input. Please enter 'y' or 'n'.")
-
-        if restart == 'y':
-            self.__init__()
-            self.start_game()
-            self.main_game()
-        else:
-            self.exit_game()
-
-    def exit_game(self):
-        """Exit the game."""
-        print("Bye!")
-        sys.exit(0)
-
-
-    # Set starting scores
-    def set_starting_scores(self):
-        """Set scores for an ongoing game."""
-        if not self.player_1_turn:
-            self.switch_players()
-
-        inputs = self.collect_starting_scores_inputs()
-        if not inputs:
-            print("Ok, back to the game then.")
-            return
-
-        self.break_size = 0
-        self.snookers_needed = False
-        red_balls, score_player_1, score_player_2 = inputs
-        self.update_game_state(red_balls, score_player_1, score_player_2)
-
-        if red_balls == 0:
-            self.setup_colored_balls_phase()
-
-        self.display_game_state()
-
-    def collect_starting_scores_inputs(self):
-        """Collect and validate all inputs for game setup."""
-        try:
-            red_balls_input = input(
-                "Enter the number of red balls left: "
-            ).strip()
-            if red_balls_input.lower() == "q" or red_balls_input == "":
-                return None
-
-            red_balls = int(red_balls_input)
-            if red_balls < 0 or red_balls > 15:
-                print(
-                    "Invalid number of red balls. "
-                    "It must be between 0 and 15."
-                )
-                return None
-
-            score_player_1 = self.get_player_score(self.player_1)
-            if score_player_1 is None:
-                return None
-
-            score_player_2 = self.get_player_score(self.player_2)
-            if score_player_2 is None:
-                return None
-
-            if not self.validate_scores(
-                red_balls, score_player_1, score_player_2
-            ):
-                return None
-
-            return red_balls, score_player_1, score_player_2
-
-        except ValueError as e:
-            print(f"Error: {e}. Please try again.")
-            return None
-
-    def get_player_score(self, player_name):
-        """Get and validate a player's score."""
-        score_input = input(f"Enter score for {player_name}: ").strip()
-        if score_input.lower() == "q" or score_input == "":
-            return None
-
-        score = int(score_input)
-        if score < 0:
-            print("Scores must be positive values.")
-            return None
-
-        return score
-
-    def validate_scores(self, red_balls, score_player_1, score_player_2):
-        """Validate that the combined scores make sense for the game state."""
-        possible_score = self.max_break - self.end_break - red_balls * 8
-        if score_player_1 + score_player_2 > possible_score:
-            print(f"Total score cannot exceed {possible_score}.")
-            return False
-
-        if red_balls != 15 or score_player_1 != 0 or score_player_2 != 0:
-            red_balls_played = 15 - red_balls
-            min_score = max(0, red_balls_played + (red_balls_played - 1) * 2)
-            if score_player_1 + score_player_2 < min_score:
-                print("Total score is too low.")
-                return False
-
-        return True
-
-    def update_game_state(self, red_balls, score_player_1, score_player_2):
-        """Update the game state with new values."""
-        self.red_balls = red_balls
-        self.red_needed_next = True
-        self.yellow_ball = 2
-        self.break_size = 0
-        self.snookers_needed = False
-        self.warn_incorrect_break_size()
-
-        self.score_player_1 = score_player_1
-        self.score_player_2 = score_player_2
-        self.available_player_1 = red_balls * 8 + self.end_break
-        self.available_player_2 = red_balls * 8 + self.end_break
-        self.display_game_state()
-        if self.red_balls > 0:
-            self.red_balls_phase()
-
-    def warn_incorrect_break_size(self):
-        """Warn about incorrect break size."""
-        print(
-            "Warning: displayed break size does not match actual break size. "
-        )
-
-    def setup_colored_balls_phase(self):
-        """Setup for the colored balls phase."""
-        self.red_needed_next = False
-        while True:
-            colored_ball_input = input(
-                "Which colored ball is the first to play: "
-            ).strip()
-
-            if colored_ball_input.lower() == "q":
-                self.exit_game()
-
-            try:
-                colored_ball_input = int(colored_ball_input)
-                if 2 <= colored_ball_input <= 7:
-                    break
-                else:
-                    print("A number between 2 and 7 please")
-            except ValueError:
-                print("A number between 2 and 7 please")
-
-        self.yellow_ball = colored_ball_input
-        balls_played = sum(range(2, self.yellow_ball))
-        self.available_player_1 -= balls_played
-        self.available_player_2 -= balls_played
-        self.colored_balls_phase()
-
-
     # Shot handling
     def get_shot_value(self):
         """Get the value of the shot."""
@@ -710,6 +526,190 @@ class SnookerScores:
             self.red_needed_next = True
         else:
             self.red_needed_next = False
+
+
+    # Set starting scores
+    def set_starting_scores(self):
+        """Set scores for an ongoing game."""
+        if not self.player_1_turn:
+            self.switch_players()
+
+        inputs = self.collect_starting_scores_inputs()
+        if not inputs:
+            print("Ok, back to the game then.")
+            return
+
+        self.break_size = 0
+        self.snookers_needed = False
+        red_balls, score_player_1, score_player_2 = inputs
+        self.update_game_state(red_balls, score_player_1, score_player_2)
+
+        if red_balls == 0:
+            self.setup_colored_balls_phase()
+
+        self.display_game_state()
+
+    def collect_starting_scores_inputs(self):
+        """Collect and validate all inputs for game setup."""
+        try:
+            red_balls_input = input(
+                "Enter the number of red balls left: "
+            ).strip()
+            if red_balls_input.lower() == "q" or red_balls_input == "":
+                return None
+
+            red_balls = int(red_balls_input)
+            if red_balls < 0 or red_balls > 15:
+                print(
+                    "Invalid number of red balls. "
+                    "It must be between 0 and 15."
+                )
+                return None
+
+            score_player_1 = self.get_player_score(self.player_1)
+            if score_player_1 is None:
+                return None
+
+            score_player_2 = self.get_player_score(self.player_2)
+            if score_player_2 is None:
+                return None
+
+            if not self.validate_scores(
+                red_balls, score_player_1, score_player_2
+            ):
+                return None
+
+            return red_balls, score_player_1, score_player_2
+
+        except ValueError as e:
+            print(f"Error: {e}. Please try again.")
+            return None
+
+    def get_player_score(self, player_name):
+        """Get and validate a player's score."""
+        score_input = input(f"Enter score for {player_name}: ").strip()
+        if score_input.lower() == "q" or score_input == "":
+            return None
+
+        score = int(score_input)
+        if score < 0:
+            print("Scores must be positive values.")
+            return None
+
+        return score
+
+    def validate_scores(self, red_balls, score_player_1, score_player_2):
+        """Validate that the combined scores make sense for the game state."""
+        possible_score = self.max_break - self.end_break - red_balls * 8
+        if score_player_1 + score_player_2 > possible_score:
+            print(f"Total score cannot exceed {possible_score}.")
+            return False
+
+        if red_balls != 15 or score_player_1 != 0 or score_player_2 != 0:
+            red_balls_played = 15 - red_balls
+            min_score = max(0, red_balls_played + (red_balls_played - 1) * 2)
+            if score_player_1 + score_player_2 < min_score:
+                print("Total score is too low.")
+                return False
+
+        return True
+
+    def update_game_state(self, red_balls, score_player_1, score_player_2):
+        """Update the game state with new values."""
+        self.red_balls = red_balls
+        self.red_needed_next = True
+        self.yellow_ball = 2
+        self.break_size = 0
+        self.snookers_needed = False
+        self.warn_incorrect_break_size()
+
+        self.score_player_1 = score_player_1
+        self.score_player_2 = score_player_2
+        self.available_player_1 = red_balls * 8 + self.end_break
+        self.available_player_2 = red_balls * 8 + self.end_break
+        self.display_game_state()
+        if self.red_balls > 0:
+            self.red_balls_phase()
+
+    def warn_incorrect_break_size(self):
+        """Warn about incorrect break size."""
+        print(
+            "Warning: displayed break size does not match actual break size. "
+        )
+
+    def setup_colored_balls_phase(self):
+        """Setup for the colored balls phase."""
+        self.red_needed_next = False
+        while True:
+            colored_ball_input = input(
+                "Which colored ball is the first to play: "
+            ).strip()
+
+            if colored_ball_input.lower() == "q":
+                self.exit_game()
+
+            try:
+                colored_ball_input = int(colored_ball_input)
+                if 2 <= colored_ball_input <= 7:
+                    break
+                else:
+                    print("A number between 2 and 7 please")
+            except ValueError:
+                print("A number between 2 and 7 please")
+
+        self.yellow_ball = colored_ball_input
+        balls_played = sum(range(2, self.yellow_ball))
+        self.available_player_1 -= balls_played
+        self.available_player_2 -= balls_played
+        self.colored_balls_phase()
+
+
+    # Game phases 3: end the game
+    def early_victory(self):
+        """Show winner of an early victory."""
+        self.display_winner()
+        self.restart_game()
+
+    def display_winner(self):
+        """Display winner of the game."""
+        winner = ""
+
+        if self.score_player_1 == self.score_player_2:
+            self.black_ball_phase()
+
+        if self.score_player_1 > self.score_player_2:
+            winner = self.player_1
+        elif self.score_player_1 < self.score_player_2:
+            winner = self.player_2
+
+        print(
+            f"\n{winner} wins! "
+            f"(with a score of {max(self.score_player_1, self.score_player_2)}"
+            f" vs {min(self.score_player_1, self.score_player_2)})")
+
+    def restart_game(self):
+        """Ask user if they want to play again."""
+        while True:
+            restart = input(
+                "Do you want to play again? (y/n) "
+            ).strip().lower()
+
+            if restart in ['y', 'n']:
+                break
+            else:
+                print("Invalid input. Please enter 'y' or 'n'.")
+
+        if restart == 'y':
+            self.__init__()
+            self.start_game()
+            self.main_game()
+        else:
+            self.exit_game()
+
+    def exit_game(self):
+        """Exit the game."""
+        print("Bye!")
+        sys.exit(0)
 
 
 def main():
