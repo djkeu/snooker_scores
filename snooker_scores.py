@@ -534,7 +534,7 @@ class SnookerScores:
         if not self.player_1_turn:
             self.switch_players()
 
-        inputs = self.collect_starting_scores_inputs()
+        inputs = self.get_starting_scores()
         if not inputs:
             print("Ok, back to the game then.")
             return
@@ -549,7 +549,7 @@ class SnookerScores:
 
         self.display_game_state()
 
-    def collect_starting_scores_inputs(self):
+    def get_starting_scores(self):
         """Collect and validate all inputs for game setup."""
         try:
             red_balls_input = input(

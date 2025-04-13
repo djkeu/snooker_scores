@@ -194,7 +194,7 @@ def test_collect_starting_scores_inputs_valid(monkeypatch):
     inputs = iter(["15", str(valid_score), str(valid_score)])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     
-    result = scores.collect_starting_scores_inputs()
+    result = scores.get_starting_scores()
     
     assert result == (15, valid_score, valid_score)
 
@@ -203,6 +203,6 @@ def test_collect_starting_scores_inputs_invalid_red_balls(monkeypatch):
     scores = SnookerScores()
     monkeypatch.setattr('builtins.input', lambda _: "20")
     
-    result = scores.collect_starting_scores_inputs()
+    result = scores.get_starting_scores()
     
     assert result is None
