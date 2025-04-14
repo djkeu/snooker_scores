@@ -12,11 +12,13 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- ToDo: Live tests with videos of snooker games (67 / 100)
+- FixMe: freeball == 1 point
+
+- ToDo: Live tests with videos of snooker games (68 / 100)
     65. Wilson vs Ding: 13 - 66
     66. Higgins vs Xiao: 62 - 43
     67. Selby vs Higgins: 0 - 72
-    68. 
+    68. Selby vs Higgins:
     
 
 - ToDo: GUI
