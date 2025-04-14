@@ -104,11 +104,12 @@ def test_free_ball_min_max_values_player1(monkeypatch):
     game.player_1_turn = True
     game.score_player_1 = 44
     game.score_player_2 = 44
-    inputs = iter(['2'])
+    inputs = iter(['1'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     monkeypatch.setattr('builtins.print', lambda *args, **kwargs: None)
     game.free_ball()
-    assert game.score_player_1 == 46
+    assert game.score_player_1 == 45
+    assert game.score_player_2 == 44
     
 
 def test_free_ball_min_max_values_player2(monkeypatch):
