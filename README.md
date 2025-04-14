@@ -13,6 +13,9 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 - FixMe: freeball == 1 to 7 points
+    Done: fix free_ball()
+    ToDo: manual test
+    ToDo: adjust pytest: test_score_handling.py
 
 - ToDo: Live tests with videos of snooker games (68 / 100)
     65. Wilson vs Ding: 13 - 66
