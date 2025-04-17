@@ -17,12 +17,16 @@ This program is to display how many points are still available for each player t
     ToDo: manual test
     Done: adjust pytest: test_score_handling.py
 
-- ToDo: Live tests with videos of snooker games (68 / 100)
+- ToDo: respot_balls
+    Done: remove abundant call of display_active_player
+    ToDo: tests
+
+- ToDo: Live tests with videos of snooker games (69 / 100)
     65. Wilson vs Ding: 13 - 66
     66. Higgins vs Xiao: 62 - 43
     67. Selby vs Higgins: 0 - 72
     68. Selby vs Higgins: 61 - 18
-    69. 
+    69. Trump vs Wilson: 
     
 
 - ToDo: GUI
