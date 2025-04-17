@@ -12,10 +12,14 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- FixMe: freeball == 1 to 7 points
-    Done: fix free_ball()
-    ToDo: manual test
-    Done: adjust pytest: test_score_handling.py
+- ToDo: freeball()
+    Done: freeball == 1 to 7 points
+    ToDo: set which ball next
+        - ToDo: if red_balls > 0: free_ball == 1, next_ball == 2 - 7 (red_needed_next is False)
+        - ToDo: if red_balls = 0: free_ball == 2 - 7, next_ball == free_ball + 1 (yellow_ball == free_ball + 1)
+    ToDo: adjust pytest: test_score_handling.py
+        - Done: 1 to 7 points
+        - ToDo: which ball next
 
 - ToDo: respot_balls
     Done: remove abundant call of display_active_player
