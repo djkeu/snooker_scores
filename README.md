@@ -26,7 +26,8 @@ This program is to display how many points are still available for each player t
     66. Higgins vs Xiao: 62 - 43
     67. Selby vs Higgins: 0 - 72
     68. Selby vs Higgins: 61 - 18
-    69. Trump vs Wilson: 
+    69. Trump vs Wilson: 30 - 69
+    70. 
     
 
 - ToDo: GUI
