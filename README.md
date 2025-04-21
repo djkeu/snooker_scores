@@ -34,7 +34,7 @@ This program is to display how many points are still available for each player t
     69. Trump vs Wilson: 30 - 69
     70. Wilson vs Jones: 71 - 4
     71. Higgins vs O'Connor: 63 - 5
-    
+    72. Higgins vs O'Connor: 
     
 
 - ToDo: GUI

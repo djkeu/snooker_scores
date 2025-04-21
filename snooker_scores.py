@@ -389,7 +389,7 @@ class SnookerScores:
 
         self.break_size = 0
         self.switch_players()
-        self.display_next_ball()
+        # self.display_next_ball()
 
     def red_ball_down(self):
         """Handle an accidentally potted red ball."""
