@@ -25,10 +25,11 @@ This program is to display how many points are still available for each player t
     Done: remove abundant call of display_active_player
     ToDo: tests
 
-- ToDo: Live tests with videos of snooker games (73 / 100)
+- ToDo: Live tests with videos of snooker games
     73. Trump vs Yuelong: 113 - 1
-    74. 
-    
+    74. Trump vs Yuelong: 114 - 0
+    75. 
+
 
 - ToDo: GUI
 
