@@ -12,12 +12,6 @@ This program is to display how many points are still available for each player t
 
 
 ## ToDo Section
-- FixMe: pytest display_colored_ball_to_play
-    - Done: test_colored_balls_phase_correct_ball
-    - Done: test_colored_balls_phase_wrong_ball
-    - FixMe: test_display_colored_ball_to_play_player1
-    - FixMe: test_display_colored_ball_to_play_player2
-
 - ToDo: freeball
     FixMe: display_free_ball also displays next ball after free ball
         - init: self.active_player
