@@ -524,13 +524,13 @@ class SnookerScores:
     def get_free_ball_value(self):
         """Get the value of the free ball."""
         prompt = (
-            "Enter the value of the free ball (1-7): "
+            "Enter the value of the free ball (2-7): "
         )
         while True:
             free_ball = input(prompt).strip()
             try:
                 free_ball = int(free_ball)
-                if 1 <= free_ball <= 7:
+                if 2 <= free_ball <= 7:
                     break
                 else:
                     print("Invalid input. Please enter a number between 1 and 7.")
