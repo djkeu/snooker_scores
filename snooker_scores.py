@@ -471,6 +471,8 @@ class SnookerScores:
                     print("Invalid input. Please enter a number between 1 and 7.")
             except ValueError:
                 print("Invalid input. Please enter a valid number.")
+        
+        return free_ball
 
 
     # Handle penalties
