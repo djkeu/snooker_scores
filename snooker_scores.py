@@ -36,7 +36,7 @@ class SnookerScores:
 
     # Game phases 1: set up the game
     def set_up_game(self):
-        """Get and show information before starting the game."""
+        """Show and get information before starting the game."""
         self.display_startup_message()
         self.store_players_names()
 
