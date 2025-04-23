@@ -51,7 +51,7 @@ def test_get_penalty_input_quit(monkeypatch):
     assert result is None
 
 
-def test_free_ball_player_1_red_balls_phase(monkeypatch):
+def test_free_ball_player_1_red_balls_phase():
     game = SnookerScores()
     game.player_1_turn = True
     game.score_player_1 = 44
@@ -63,7 +63,7 @@ def test_free_ball_player_1_red_balls_phase(monkeypatch):
     assert game.score_player_2 == 44
 
 
-def test_free_ball_player_2_red_balls_phase(monkeypatch):
+def test_free_ball_player_2_red_balls_phase():
     game = SnookerScores()
     game.player_1_turn = False
     game.score_player_1 = 44
@@ -74,7 +74,8 @@ def test_free_ball_player_2_red_balls_phase(monkeypatch):
     assert game.score_player_1 == 44
     assert game.score_player_2 == 45
 
-def test_free_ball_player_1_colored_balls_phase(monkeypatch):
+
+def test_free_ball_player_1_colored_balls_phase():
     game = SnookerScores()
     game.player_1_turn = True
     game.score_player_1 = 44
@@ -87,7 +88,8 @@ def test_free_ball_player_1_colored_balls_phase(monkeypatch):
     assert game.score_player_1 == 48
     assert game.score_player_2 == 44
 
-def test_free_ball_player_2_colored_balls_phase(monkeypatch):
+
+def test_free_ball_player_2_colored_balls_phase():
     game = SnookerScores()
     game.player_1_turn = False
     game.score_player_1 = 44
@@ -99,6 +101,7 @@ def test_free_ball_player_2_colored_balls_phase(monkeypatch):
 
     assert game.score_player_1 == 44
     assert game.score_player_2 == 49
+
 
 def test_update_game_state(monkeypatch):
     scores = SnookerScores()
