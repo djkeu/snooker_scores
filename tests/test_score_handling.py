@@ -61,7 +61,7 @@ def test_free_ball_player1_valid_input_first_try(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     monkeypatch.setattr('builtins.print', lambda *args, **kwargs: None)
     
-    game.free_ball()
+    game.handle_free_ball()
     
     assert game.score_player_1 == 49
     assert game.score_player_2 == 44
@@ -77,7 +77,7 @@ def test_free_ball_player2_valid_input_first_try(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     monkeypatch.setattr('builtins.print', lambda *args, **kwargs: None)
     
-    game.free_ball()
+    game.handle_free_ball()
     
     assert game.score_player_1 == 44
     assert game.score_player_2 == 51
@@ -93,7 +93,7 @@ def test_free_ball_invalid_then_valid_input(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     monkeypatch.setattr('builtins.print', lambda *args, **kwargs: None)
     
-    game.free_ball()
+    game.handle_free_ball()
     
     assert game.score_player_1 == 47
     assert game.score_player_2 == 44
@@ -108,7 +108,7 @@ def test_free_ball_min_max_values_player1(monkeypatch):
     inputs = iter(['1'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     monkeypatch.setattr('builtins.print', lambda *args, **kwargs: None)
-    game.free_ball()
+    game.handle_free_ball()
 
     assert game.score_player_1 == 45
     assert game.score_player_2 == 44
@@ -123,7 +123,7 @@ def test_free_ball_min_max_values_player2(monkeypatch):
     inputs = iter(['7'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     monkeypatch.setattr('builtins.print', lambda *args, **kwargs: None)
-    game.free_ball()
+    game.handle_free_ball()
 
     assert game.score_player_1 == 44
     assert game.score_player_2 == 51
