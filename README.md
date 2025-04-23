@@ -25,7 +25,7 @@ This program is to display how many points are still available for each player t
     Done: remove abundant call of display_active_player
     ToDo: tests
 
-- ToDo: Live tests with videos of snooker games (72 / 100)
+- ToDo: Live tests with videos of snooker games (73 / 100)
     65. Wilson vs Ding: 13 - 66
     66. Higgins vs Xiao: 62 - 43
     67. Selby vs Higgins: 0 - 72
@@ -34,7 +34,8 @@ This program is to display how many points are still available for each player t
     70. Wilson vs Jones: 71 - 4
     71. Higgins vs O'Connor: 63 - 5
     72. Higgins vs O'Connor: 63 - 1
-    73. 
+    73. Trump vs Yuelong: 113 - 1
+    74. 
     
 
 - ToDo: GUI
