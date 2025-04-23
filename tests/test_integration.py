@@ -8,7 +8,7 @@ def test_basic_game_flow(monkeypatch):
     
     monkeypatch.setattr(sys, 'exit', lambda _: None)
     
-    scores.start_game = lambda: None
+    scores.set_up_game = lambda: None
     scores.red_balls = 1
     scores.display_game_state = lambda: None
     scores.display_next_ball = lambda: None

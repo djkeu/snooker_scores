@@ -4,7 +4,7 @@ from snooker_scores import SnookerScores
 def main():
     """Show the snooker scores."""
     scores = SnookerScores()
-    scores.start_game()
+    scores.set_up_game()
     scores.main_game()
 
 

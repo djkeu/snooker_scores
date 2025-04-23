@@ -7,7 +7,7 @@ def test_restart_game_yes(monkeypatch):
     scores = SnookerScores()
     original_init = scores.__init__
     scores.__init__ = lambda: None
-    scores.start_game = lambda: None
+    scores.set_up_game = lambda: None
     scores.main_game = lambda: None
     monkeypatch.setattr('builtins.input', lambda _: "y")
     
@@ -31,7 +31,7 @@ def test_restart_game_invalid_then_valid(monkeypatch):
     scores = SnookerScores()
     original_init = scores.__init__
     scores.__init__ = lambda: None
-    scores.start_game = lambda: None
+    scores.set_up_game = lambda: None
     scores.main_game = lambda: None
     inputs = iter(["invalid", "y"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))

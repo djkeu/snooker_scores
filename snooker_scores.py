@@ -34,9 +34,9 @@ class SnookerScores:
         self.shot_prompt = "\nWhat's the value of the shot: "
 
 
-    # Game phases 1: start the game
-    def start_game(self):
-        """Start the game."""
+    # Game phases 1: set up the game
+    def set_up_game(self):
+        """Get and show information before starting the game."""
         self.display_startup_message()
         self.store_players_names()
 
@@ -705,7 +705,7 @@ class SnookerScores:
 
         if restart == 'y':
             self.__init__()
-            self.start_game()
+            self.set_up_game()
             self.main_game()
         else:
             self.exit_game()
@@ -719,7 +719,7 @@ class SnookerScores:
 def main():
     """ Run program from main.py """
     scores = SnookerScores()
-    scores.start_game()
+    scores.set_up_game()
     scores.main_game()
 
 
