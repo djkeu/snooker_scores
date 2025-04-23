@@ -133,7 +133,7 @@ class SnookerScores:
                 self.player_1 if self.player_1_turn else self.player_2
             )
 
-            self.display_colored_ball_to_play()
+            self.display_colored_ball_to_play(active_player)
             shot = self.get_shot_value()
 
             if shot != self.yellow_ball:
@@ -155,13 +155,8 @@ class SnookerScores:
                 self.restart_game()
                 return
 
-    def display_colored_ball_to_play(self):
+    def display_colored_ball_to_play(self, active_player):
         """Display which colored ball should be played next."""
-        if self.player_1_turn:
-            active_player = self.player_1
-        else:
-            active_player = self.player_2
-
         print(
             f"{active_player} must play the "
             f"{self.colored_balls[self.yellow_ball]} ball"
@@ -517,9 +512,6 @@ class SnookerScores:
 
         self.display_free_ball(free_ball)
 
-        if self.red_balls > 0:
-            self.display_next_ball()
-
     def display_free_ball(self, free_ball):
         """Display which player gets the points of the free ball."""
         if self.player_1_turn:
@@ -531,6 +523,12 @@ class SnookerScores:
             print(f"{free_ball} point for {active_player}")
         else:
             print(f"{free_ball} points for {active_player}")
+
+        # FixMe: Refactor
+        if self.red_balls > 0:
+            self.display_next_ball()
+        else:
+            self.display_colored_ball_to_play(active_player)
 
 
     # Set starting scores
