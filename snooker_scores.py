@@ -448,6 +448,16 @@ class SnookerScores:
         """The free ball has the value of the ball to play."""
         print("\tFree ball!")
 
+        free_ball = self.get_free_ball()
+
+        if self.player_1_turn:
+            self.score_player_1 += free_ball
+        else:
+            self.score_player_2 += free_ball
+
+
+    def get_free_ball(self):
+        """Get the value of the free ball."""
         prompt = (
             "Enter the value of the free ball (1-7): "
         )
@@ -461,11 +471,6 @@ class SnookerScores:
                     print("Invalid input. Please enter a number between 1 and 7.")
             except ValueError:
                 print("Invalid input. Please enter a valid number.")
-
-        if self.player_1_turn:
-            self.score_player_1 += free_ball
-        else:
-            self.score_player_2 += free_ball
 
 
     # Handle penalties
