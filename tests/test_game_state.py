@@ -133,7 +133,7 @@ def test_display_colored_ball_to_play_player2():
     scores.player_1_turn = False
     scores.yellow_ball = 4
     
-    scores.display_colored_ball_to_play()
+    scores.display_colored_ball_to_play(active_player=scores.player_1)
 
 
 def test_display_break_below_century():
