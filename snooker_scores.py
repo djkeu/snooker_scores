@@ -514,6 +514,7 @@ class SnookerScores:
             self.score_player_2 += free_ball
 
         self.display_free_ball(free_ball)
+        self.display_next_ball()
 
     def get_free_ball_value(self):
         """Get the value of the free ball."""
