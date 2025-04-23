@@ -14,6 +14,7 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: freeball
     FixMe: display_free_ball also displays next ball after free ball
+        - init: self.active_player
 
     ToDo: tests
 
