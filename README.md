@@ -15,9 +15,9 @@ This program is to display how many points are still available for each player t
 
 
         Note:
-        ToDo: 
+        ToDo: self.active_player
             !!! active_player now is self.active_player !!!
-            !!! tests before changing anything !!!
+            !!! tests before changing anything else !!!
         Note:
 
 
