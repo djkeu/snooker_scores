@@ -444,43 +444,6 @@ class SnookerScores:
         if self.red_balls > 0:
             self.red_needed_next = True
 
-    def handle_free_ball(self):
-        """FixMe: The free ball has the value of the ball to play."""
-        print("\tFree ball!")
-
-        free_ball = self.get_free_ball()
-
-        if self.player_1_turn:
-            active_player = self.player_1
-            self.score_player_1 += free_ball
-        else:
-            active_player = self.player_2
-            self.score_player_2 += free_ball
-
-        if free_ball == 1:
-            print(f"{free_ball} point for {active_player}")
-        else:
-            print(f"{free_ball} points for {active_player}")
-
-
-    def get_free_ball(self):
-        """Get the value of the free ball."""
-        prompt = (
-            "Enter the value of the free ball (1-7): "
-        )
-        while True:
-            free_ball = input(prompt).strip()
-            try:
-                free_ball = int(free_ball)
-                if 1 <= free_ball <= 7:
-                    break
-                else:
-                    print("Invalid input. Please enter a number between 1 and 7.")
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
-        
-        return free_ball
-
 
     # Handle penalties
     def add_penalty(self):
@@ -538,6 +501,42 @@ class SnookerScores:
             self.red_needed_next = True
         else:
             self.red_needed_next = False
+
+    def handle_free_ball(self):
+        """FixMe: The free ball has the value of the ball to play."""
+        print("\tFree ball!")
+
+        free_ball = self.get_free_ball()
+
+        if self.player_1_turn:
+            active_player = self.player_1
+            self.score_player_1 += free_ball
+        else:
+            active_player = self.player_2
+            self.score_player_2 += free_ball
+
+        if free_ball == 1:
+            print(f"{free_ball} point for {active_player}")
+        else:
+            print(f"{free_ball} points for {active_player}")
+
+    def get_free_ball_value(self):
+        """Get the value of the free ball."""
+        prompt = (
+            "Enter the value of the free ball (1-7): "
+        )
+        while True:
+            free_ball = input(prompt).strip()
+            try:
+                free_ball = int(free_ball)
+                if 1 <= free_ball <= 7:
+                    break
+                else:
+                    print("Invalid input. Please enter a number between 1 and 7.")
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+        
+        return free_ball
 
 
     # Set starting scores
