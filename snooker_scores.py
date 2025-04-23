@@ -226,7 +226,7 @@ class SnookerScores:
             self.red_ball_down()
             return "red_ball_down"
         elif shot == "f":
-            self.free_ball()
+            self.handle_free_ball()
             return "free_ball"
         else:
             return None
@@ -509,16 +509,11 @@ class SnookerScores:
         free_ball = self.get_free_ball_value()
 
         if self.player_1_turn:
-            active_player = self.player_1
             self.score_player_1 += free_ball
         else:
-            active_player = self.player_2
             self.score_player_2 += free_ball
 
-        if free_ball == 1:
-            print(f"{free_ball} point for {active_player}")
-        else:
-            print(f"{free_ball} points for {active_player}")
+        self.display_free_ball(free_ball)
 
     def get_free_ball_value(self):
         """Get the value of the free ball."""
@@ -537,6 +532,18 @@ class SnookerScores:
                 print("Invalid input. Please enter a valid number.")
         
         return free_ball
+
+    def display_free_ball(self, free_ball):
+        """Display which player gets the points of the free ball."""
+        if self.player_1_turn:
+            active_player = self.player_1
+        else:
+            active_player = self.player_2
+
+        if free_ball == 1:
+            print(f"{free_ball} point for {active_player}")
+        else:
+            print(f"{free_ball} points for {active_player}")
 
 
     # Set starting scores
