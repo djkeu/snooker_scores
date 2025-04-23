@@ -505,11 +505,10 @@ class SnookerScores:
     def handle_free_ball(self):
         """In case a player gets to play a 'free ball'."""
         print("\tFree ball!")
-
         if self.red_balls > 0:
             free_ball = 1
         else:
-            free_ball = self.get_free_ball_value()
+            free_ball = self.yellow_ball
 
         if self.player_1_turn:
             self.score_player_1 += free_ball
@@ -517,27 +516,9 @@ class SnookerScores:
             self.score_player_2 += free_ball
 
         self.display_free_ball(free_ball)
-        if self.red_balls > 0:
-            # Note: next ball = always red ball!
-            self.display_next_ball()
 
-    def get_free_ball_value(self):
-        """Get the value of the free ball."""
-        prompt = (
-            "Enter the value of the free ball (2-7): "
-        )
-        while True:
-            free_ball = input(prompt).strip()
-            try:
-                free_ball = int(free_ball)
-                if 2 <= free_ball <= 7:
-                    break
-                else:
-                    print("Invalid input. Please enter a number between 1 and 7.")
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
-        
-        return free_ball
+        if self.red_balls > 0:
+            self.display_next_ball()
 
     def display_free_ball(self, free_ball):
         """Display which player gets the points of the free ball."""
