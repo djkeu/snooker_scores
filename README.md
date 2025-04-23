@@ -21,7 +21,7 @@ This program is to display how many points are still available for each player t
         Note:
 
 
-- ToDo: display_break_size
+- ToDo: display_break_size  # Score handling section
     - Todo: create display_century_break
     - ToDo: call from display_game_state
     - ToDo: tests: test_game_state.py:
