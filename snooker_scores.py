@@ -506,7 +506,7 @@ class SnookerScores:
         """In case a player gets to play a 'free ball'."""
         print("\tFree ball!")
 
-        free_ball = self.get_free_ball()
+        free_ball = self.get_free_ball_value()
 
         if self.player_1_turn:
             active_player = self.player_1
