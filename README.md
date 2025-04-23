@@ -14,7 +14,10 @@ This program is to display how many points are still available for each player t
 ## ToDo Section
 - ToDo: freeball()
     Note: freeball = any value could be used to correct wrongly entered values
-    Done: freeball = 1 to 7 points
+    FixMe: freeball = 1 to 7 points
+        - ToDo: if red_ball_next == False:  Note: may not work, test
+            free_ball == 1
+        - FixMe: free_ball = 2 to 7 points
     ToDo: set which ball next
         - ToDo: if red_balls > 0: free_ball == 1, next_ball == 2 - 7 (red_needed_next is False)
         - ToDo: if red_balls = 0: free_ball == 2 - 7, next_ball == free_ball + 1 (yellow_ball == free_ball + 1)
