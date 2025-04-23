@@ -7,6 +7,8 @@ class SnookerScores:
         self.red_balls = 15
         self.player_1 = "Player 1"
         self.player_2 = "Player 2"
+        self.player_1_turn = True
+        self.active_player = self.player_1
         self.score_player_1 = 0
         self.score_player_2 = 0
         self.max_break = 147
@@ -18,7 +20,6 @@ class SnookerScores:
         self.break_size = 0
         self.century_break = False
         self.red_needed_next = True
-        self.player_1_turn = True
         self.snookers_needed = False
         self.yellow_ball = 2
         self.colored_balls = {
@@ -108,10 +109,10 @@ class SnookerScores:
                 continue
 
             if shot < 2 or shot > 7:
-                active_player = (
+                self.active_player = (
                     self.player_1 if self.player_1_turn else self.player_2
                 )
-                print(f"\n{active_player} must play a colored ball!")
+                print(f"\n{self.active_player} must play a colored ball!")
                 continue
 
             if self.player_1_turn:
@@ -129,16 +130,16 @@ class SnookerScores:
     def colored_balls_phase(self):
         """Play the colored balls phase of the game."""
         while self.available_player_1 > 0:
-            active_player = (
+            self.active_player = (
                 self.player_1 if self.player_1_turn else self.player_2
             )
 
-            self.display_colored_ball_to_play(active_player)
+            self.display_colored_ball_to_play()
             shot = self.get_shot_value()
 
             if shot != self.yellow_ball:
                 print(
-                    f"{active_player} missed the "
+                    f"{self.active_player} missed the "
                     f"{self.colored_balls[self.yellow_ball]} ball!"
                 )
                 self.break_size = 0
@@ -155,10 +156,10 @@ class SnookerScores:
                 self.restart_game()
                 return
 
-    def display_colored_ball_to_play(self, active_player):
+    def display_colored_ball_to_play(self):
         """Display which colored ball should be played next."""
         print(
-            f"{active_player} must play the "
+            f"{self.active_player} must play the "
             f"{self.colored_balls[self.yellow_ball]} ball"
         )
 
@@ -280,16 +281,16 @@ class SnookerScores:
     def display_next_ball(self):
         """Display the next ball to pot."""
         if self.player_1_turn:
-            player = self.player_1
+            self.active_player = self.player_1
         else:
-            player = self.player_2
+            self.active_player = self.player_2
 
         if self.red_needed_next:
             ball = "red ball"
         else:
             ball = "colored ball"
 
-        print(f"{player} must play a {ball} next")
+        print(f"{self.active_player} must play a {ball} next")
 
 
     # Score handling
@@ -357,11 +358,11 @@ class SnookerScores:
     def display_active_player(self):
         """Display the name of the active player."""
         if self.player_1_turn:
-            active_player = self.player_1
+            self.active_player = self.player_1
         else:
-            active_player = self.player_2
+            self.active_player = self.player_2
 
-        print(f"Active player: {active_player}")
+        print(f"Active player: {self.active_player}")
 
     def display_break_size(self):
         """Display the size of the current break ."""
@@ -515,20 +516,20 @@ class SnookerScores:
     def display_free_ball(self, free_ball):
         """Display which player gets the points of the free ball."""
         if self.player_1_turn:
-            active_player = self.player_1
+            self.active_player = self.player_1
         else:
-            active_player = self.player_2
+            self.active_player = self.player_2
 
         if free_ball == 1:
-            print(f"{free_ball} point for {active_player}")
+            print(f"{free_ball} point for {self.active_player}")
         else:
-            print(f"{free_ball} points for {active_player}")
+            print(f"{free_ball} points for {self.active_player}")
 
         # FixMe: Refactor
         if self.red_balls > 0:
             self.display_next_ball()
         else:
-            self.display_colored_ball_to_play(active_player)
+            self.display_colored_ball_to_play()
 
 
     # Set starting scores

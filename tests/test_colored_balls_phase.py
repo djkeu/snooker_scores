@@ -7,7 +7,7 @@ def test_colored_balls_phase_correct_ball(monkeypatch):
     scores.available_player_1 = 2
     scores.player_1_turn = True
     scores.yellow_ball = 2
-    scores.display_colored_ball_to_play = lambda active_player: None
+    scores.display_colored_ball_to_play = lambda : None
     scores.display_game_state = lambda: None
     scores.display_winner = lambda: None
     scores.restart_game = lambda: None
@@ -25,7 +25,7 @@ def test_colored_balls_phase_wrong_ball(monkeypatch):
     scores.available_player_1 = 27
     scores.player_1_turn = True
     scores.yellow_ball = 2
-    scores.display_colored_ball_to_play = lambda active_player: None
+    scores.display_colored_ball_to_play = lambda : None
     scores.display_game_state = lambda: None
 
     def mock_get_shot_value():
