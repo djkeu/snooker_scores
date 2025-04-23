@@ -451,9 +451,16 @@ class SnookerScores:
         free_ball = self.get_free_ball()
 
         if self.player_1_turn:
+            active_player = self.player_1
             self.score_player_1 += free_ball
         else:
+            active_player = self.player_2
             self.score_player_2 += free_ball
+
+        if free_ball == 1:
+            print(f"{free_ball} point for {active_player}")
+        else:
+            print(f"{free_ball} points for {active_player}")
 
 
     def get_free_ball(self):
