@@ -506,6 +506,7 @@ class SnookerScores:
         """In case a player gets to play a 'free ball'."""
         print("\tFree ball!")
 
+        # FixMe: if red_balls > 0: free_ball = 1
         free_ball = self.get_free_ball_value()
 
         if self.player_1_turn:
@@ -514,7 +515,9 @@ class SnookerScores:
             self.score_player_2 += free_ball
 
         self.display_free_ball(free_ball)
-        self.display_next_ball()
+        if self.red_balls > 0:
+            # Note: next ball = always red ball!
+            self.display_next_ball()
 
     def get_free_ball_value(self):
         """Get the value of the free ball."""
