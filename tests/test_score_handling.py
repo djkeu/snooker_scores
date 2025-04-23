@@ -51,83 +51,54 @@ def test_get_penalty_input_quit(monkeypatch):
     assert result is None
 
 
-def test_free_ball_player1_valid_input_first_try(monkeypatch):
-    game = SnookerScores()
-    game.player_1_turn = True
-    game.score_player_1 = 44
-    game.score_player_2 = 44
-    
-    inputs = iter(['5'])
-    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-    monkeypatch.setattr('builtins.print', lambda *args, **kwargs: None)
-    
-    game.handle_free_ball()
-    
-    assert game.score_player_1 == 49
-    assert game.score_player_2 == 44
-
-
-def test_free_ball_player2_valid_input_first_try(monkeypatch):
-    game = SnookerScores()
-    game.player_1_turn = False
-    game.score_player_1 = 44
-    game.score_player_2 = 44
-    
-    inputs = iter(['7'])
-    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-    monkeypatch.setattr('builtins.print', lambda *args, **kwargs: None)
-    
-    game.handle_free_ball()
-    
-    assert game.score_player_1 == 44
-    assert game.score_player_2 == 51
-
-
-def test_free_ball_invalid_then_valid_input(monkeypatch):
-    game = SnookerScores()
-    game.player_1_turn = True
-    game.score_player_1 = 44
-    game.score_player_2 = 44
-    
-    inputs = iter(['8', 'abc', '3'])
-    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-    monkeypatch.setattr('builtins.print', lambda *args, **kwargs: None)
-    
-    game.handle_free_ball()
-    
-    assert game.score_player_1 == 47
-    assert game.score_player_2 == 44
-
-
-def test_free_ball_min_max_values_player1(monkeypatch):
+def test_free_ball_player_1_red_balls_phase(monkeypatch):
     game = SnookerScores()
     game.player_1_turn = True
     game.score_player_1 = 44
     game.score_player_2 = 44
 
-    inputs = iter(['1'])
-    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-    monkeypatch.setattr('builtins.print', lambda *args, **kwargs: None)
     game.handle_free_ball()
 
     assert game.score_player_1 == 45
     assert game.score_player_2 == 44
-    
 
-def test_free_ball_min_max_values_player2(monkeypatch):
+
+def test_free_ball_player_2_red_balls_phase(monkeypatch):
     game = SnookerScores()
     game.player_1_turn = False
     game.score_player_1 = 44
     game.score_player_2 = 44
 
-    inputs = iter(['7'])
-    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-    monkeypatch.setattr('builtins.print', lambda *args, **kwargs: None)
     game.handle_free_ball()
 
     assert game.score_player_1 == 44
-    assert game.score_player_2 == 51
+    assert game.score_player_2 == 45
 
+def test_free_ball_player_1_colored_balls_phase(monkeypatch):
+    game = SnookerScores()
+    game.player_1_turn = True
+    game.score_player_1 = 44
+    game.score_player_2 = 44
+    game.red_balls = 0
+    game.yellow_ball = 4
+
+    game.handle_free_ball()
+
+    assert game.score_player_1 == 48
+    assert game.score_player_2 == 44
+
+def test_free_ball_player_2_colored_balls_phase(monkeypatch):
+    game = SnookerScores()
+    game.player_1_turn = False
+    game.score_player_1 = 44
+    game.score_player_2 = 44
+    game.red_balls = 0
+    game.yellow_ball = 5
+
+    game.handle_free_ball()
+
+    assert game.score_player_1 == 44
+    assert game.score_player_2 == 49
 
 def test_update_game_state(monkeypatch):
     scores = SnookerScores()
