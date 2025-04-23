@@ -29,7 +29,8 @@ This program is to display how many points are still available for each player t
     73. Trump vs Yuelong: 113 - 1
     74. Trump vs Yuelong: 114 - 0
     75. Trump vs Yuelong: 114 - 0
-    76. 
+    76. Trump vs Yuelong: 47 - 80
+    77. 
 
 
 - ToDo: GUI
