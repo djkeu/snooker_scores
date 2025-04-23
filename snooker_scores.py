@@ -503,7 +503,7 @@ class SnookerScores:
             self.red_needed_next = False
 
     def handle_free_ball(self):
-        """FixMe: The free ball has the value of the ball to play."""
+        """In case a player gets to play a 'free ball'."""
         print("\tFree ball!")
 
         free_ball = self.get_free_ball()
