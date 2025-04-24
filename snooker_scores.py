@@ -364,7 +364,6 @@ class SnookerScores:
         if self.break_size > 0:
             print(f"Break: {self.break_size}")
 
-
     def display_century_break(self):
         """Signal if a player has made a century break."""
         if self.century_break is False and self.break_size >= 100:
