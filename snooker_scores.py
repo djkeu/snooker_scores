@@ -74,12 +74,6 @@ class SnookerScores:
 
 
     # Game phases 2: run of the balls
-    def main_game(self):
-        """Main game loop."""
-        self.red_balls_phase()
-        self.display_winner()
-        self.restart_game()
-
     def red_balls_phase(self):
         """Play the red balls phase of the game."""
         while self.red_balls > 0:
@@ -314,6 +308,7 @@ class SnookerScores:
         """Display the current game state."""
         self.calculate_potential_scores()
         self.display_break_size()
+        self.display_century_break()
 
         print(
             f"\t{self.player_1}: score {self.score_player_1}, "
@@ -369,6 +364,8 @@ class SnookerScores:
         if self.break_size > 0:
             print(f"Break: {self.break_size}")
 
+    def display_century_break(self):
+        """Signal if a player has made a century break."""
         if self.century_break is False and self.break_size >= 100:
             print("Century break!")
             self.century_break = True
@@ -720,7 +717,9 @@ def main():
     """ Run program from main.py """
     scores = SnookerScores()
     scores.set_up_game()
-    scores.main_game()
+    scores.red_balls_phase()
+    scores.display_winner()
+    scores.restart_game()
 
 
 if __name__ == "__main__":

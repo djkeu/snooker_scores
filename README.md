@@ -13,39 +13,11 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 
-
-        Note:
-        ToDo: self.active_player
-            !!! active_player now is self.active_player !!!
-            !!! tests before changing anything else !!!
-        Note:
-
-- ToDo: main_game()
-    - Note: main.py + snooker_scores.py
-    - ToDo: Move function calls to main():
-        - Todo: red_balls_phase()
-        - ToDo: display_winner()
-        - ToDo: restart_game()
-        - ToDo: test_integration.py:
-            - ToDo: test_basic_game_flow()
-        - ToDo: remove main_game()
-
-- ToDo: display_break_size  # Score handling section
-    - Todo: create display_century_break
-    - ToDo: call from display_game_state
-    - ToDo: tests: test_game_state.py:
-        - ToDo: test_display_break_below_century
-        - Todo: test_display_century_break
-
-- ToDo: respot_balls
-    Done: remove abundant call of display_active_player
-    ToDo: tests
-
 - ToDo: Live tests with videos of snooker games
     78. Selby vs Woollaston: 51 - 58
     79. 
 
-- ToDo: GUI
+- Abandoned: GUI
 
 
 ## Pytest

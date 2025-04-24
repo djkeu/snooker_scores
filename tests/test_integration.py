@@ -28,7 +28,9 @@ def test_basic_game_flow(monkeypatch):
     scores.get_shot_value = mock_get_shot_value
     scores.colored_balls_phase = lambda: None
     
-    scores.main_game()
+    scores.red_balls_phase()
+    scores.display_winner()
+    scores.restart_game()
 
 
 def test_full_red_phase_simple(monkeypatch):
