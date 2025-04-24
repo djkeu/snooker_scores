@@ -13,6 +13,9 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 
+- FixMe: player x missed the y ball:
+    - ToDo: player x failed to pot the y ball
+
 - ToDo: store_players_names + get_player_name
     - ToDo: refactor
 
@@ -21,7 +24,7 @@ This program is to display how many points are still available for each player t
 - ToDo: Live tests with videos of snooker games
     78. Selby vs Woollaston: 51 - 58
     79. Selby vs Woollaston: 34 - 66
-    80. 
+    80. Selby vs Woollaston:
 
 - Abandoned: GUI
 
