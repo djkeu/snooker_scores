@@ -13,8 +13,9 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 
-- FixMe: player x missed the y ball:
-    - ToDo: player x failed to pot the y ball
+- Todo: player x missed the y ball:
+    - Done: player x failed to pot the y ball
+    - ToDo: print message @handle_miss: failed to pot
 
 - ToDo: store_players_names + get_player_name
     - ToDo: refactor
