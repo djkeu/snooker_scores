@@ -720,7 +720,9 @@ def main():
     """ Run program from main.py """
     scores = SnookerScores()
     scores.set_up_game()
-    scores.main_game()
+    scores.red_balls_phase()
+    scores.display_winner()
+    scores.restart_game()
 
 
 if __name__ == "__main__":
