@@ -13,13 +13,6 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 
-
-        Note:
-        ToDo: self.active_player
-            !!! active_player now is self.active_player !!!
-            !!! tests before changing anything else !!!
-        Note:
-
 - ToDo: display_break_size  # Score handling section
     - Todo: create display_century_break
     - ToDo: call from display_game_state
