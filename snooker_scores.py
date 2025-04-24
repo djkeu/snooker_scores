@@ -74,12 +74,6 @@ class SnookerScores:
 
 
     # Game phases 2: run of the balls
-    def main_game(self):
-        """Main game loop."""
-        self.red_balls_phase()
-        self.display_winner()
-        self.restart_game()
-
     def red_balls_phase(self):
         """Play the red balls phase of the game."""
         while self.red_balls > 0:
