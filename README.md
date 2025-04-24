@@ -20,10 +20,6 @@ This program is to display how many points are still available for each player t
         - ToDo: test_display_break_below_century
         - Todo: test_display_century_break
 
-- ToDo: respot_balls
-    Done: remove abundant call of display_active_player
-    ToDo: tests
-
 - ToDo: Live tests with videos of snooker games
     78. Selby vs Woollaston: 51 - 58
     79. 
