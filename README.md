@@ -27,7 +27,7 @@ This program is to display how many points are still available for each player t
         - ToDo: display_winner()
         - ToDo: restart_game()
         - ToDo: test_integration.py:
-            - ToDo: test_basic_game_flow()
+            - FixMe: test_basic_game_flow()
         - ToDo: remove main_game()
 
 - ToDo: display_break_size  # Score handling section
