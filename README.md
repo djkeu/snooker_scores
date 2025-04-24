@@ -13,6 +13,9 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 
+- ToDo: store_players_names + get_player_name
+    - ToDo: refactor
+
 - ToDo: check Requirements section
 
 - ToDo: Live tests with videos of snooker games
