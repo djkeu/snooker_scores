@@ -703,7 +703,9 @@ class SnookerScores:
         if restart == 'y':
             self.__init__()
             self.set_up_game()
-            self.main_game()
+            self.red_balls_phase()
+            self.display_winner()
+            self.restart_game()
         else:
             self.exit_game()
 
