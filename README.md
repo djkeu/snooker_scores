@@ -13,15 +13,6 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 
-- ToDo: display_break_size()  # Score handling section
-    - Todo: create display_century_break
-    - ToDo: call from display_game_state
-
-    - ToDo: tests: test_game_state.py:
-        - ToDo: test_display_break_below_century
-        - Todo: test_display_century_break
-
-
 - ToDo: Live tests with videos of snooker games
     78. Selby vs Woollaston: 51 - 58
     79. 
