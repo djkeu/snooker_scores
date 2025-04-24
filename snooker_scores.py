@@ -133,7 +133,7 @@ class SnookerScores:
 
             if shot != self.yellow_ball:
                 print(
-                    f"{self.active_player} missed the "
+                    f"{self.active_player} failed to pot the "
                     f"{self.colored_balls[self.yellow_ball]} ball!"
                 )
                 self.break_size = 0
