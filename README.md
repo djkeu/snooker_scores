@@ -22,10 +22,9 @@ This program is to display how many points are still available for each player t
 - ToDo: check Requirements section
 
 - ToDo: Live tests with videos of snooker games
-    78. Selby vs Woollaston: 51 - 58
-    79. Selby vs Woollaston: 34 - 66
     80. Selby vs Woollaston: 62 - 57
-    81. 
+    81. Selby vs Woollaston: 21 - 56
+    82. 
 
 - Abandoned: GUI
 
