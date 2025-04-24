@@ -217,9 +217,3 @@ Nadat er een fout werd gemaakt mag de tegenspeler:
 - from unittest.mock import patch
 
 - from snooker_scores import SnookerScores
-
-
-## End notes
-
-### Do It Yourself Scoreboards
-Do you hate how scoreboards on tv suddenly disappear during because some director wants to switch to the face of the player claiming that makes good television? 
