@@ -27,7 +27,8 @@ This program is to display how many points are still available for each player t
 - ToDo: Live tests with videos of snooker games
     84. Trump vs Williams: 14 -123
     85. Williams vs Zhao: 38 - 100
-    86. 
+    86. Williams vs Zhao: 44 - 47
+    87. 
 
 - Abandoned: GUI
 
