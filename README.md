@@ -13,7 +13,8 @@ This program is to display how many points are still available for each player t
 
 ## ToDo Section
 
-- FixMe: when a red ball is accidentally potted instead of a colored ball, the count of red balls should be diminished by 1
+- FixMe: red_ball_down():
+    - FixMe: when a red ball is accidentally potted instead of a colored ball, the count of red balls should be diminished by 1
 
 - Todo: player x missed the y ball:
     - Note: colored_balls_phase
