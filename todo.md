@@ -9,6 +9,7 @@ Maintained from 2025-07-14 on
     - [ ] Note: red_ball_down() is only called manually by hotkey 'r'
     - [ ] check if red_ball_down() can be called automatically when shot should be 2 - 7 but == 1
     - ToDo: check if hotkey 'r' is still needed
+    - FixMe: change else condition in handle_red_ball()
 
 ## ToDo
 - [ ] colored_balls_phase: player x missed the y ball:
