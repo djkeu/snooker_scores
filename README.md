@@ -11,11 +11,6 @@ Watching a snooker game, it can be pretty confusing when it comes to seeing how 
 This program is to display how many points are still available for each player throughout the game. This could only be achieved by having the logic follow the games dynamics and rules. As a (desirable) side-effect, the program also shows the current scores, which balls are to be played next and more. 
 
 
-## ToDo Section
-
-- Moved to todo.md
-
-
 ## Pytest
 
 ### All tests updated 10-4-2025
