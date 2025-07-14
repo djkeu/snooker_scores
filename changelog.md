@@ -1,5 +1,5 @@
 # Changelog
-Changelog for Snooker Scores
+Changelog for Snooker Scores\
 Maintained from version 1.0.0 on
 
 
