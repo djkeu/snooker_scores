@@ -22,9 +22,7 @@ Maintained from 2025-07-14 on
 
 ## Done/Fixed
 - [ ] Live tests with videos of snooker games
-    - [*] Live tests 0 - 83
-    - [*] 84. Trump vs Williams: 14 - 123
-    - [*] 85. Williams vs Zhao: 38 - 100
+    - [*] Live tests 1 - 83
     - [*] 86. Williams vs Zhao: 44 - 47
 
 ## Abandoned
