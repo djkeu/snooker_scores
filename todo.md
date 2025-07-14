@@ -6,7 +6,9 @@ Maintained from 2025-07-14 on
 - [ ] red ball accidentally potted
     - [ ] self.red_balls should be diminished by 1
     - [ ] check red_ball_down()
-    - [ ] check if red_ball_down() is called when shot should be 2 - 7 but == 1
+    - [ ] Note: red_ball_down() is only called manually by hotkey 'r'
+    - [ ] check if red_ball_down() can be called automatically when shot should be 2 - 7 but == 1
+    - ToDo: check if hotkey 'r' is still needed
 
 ## ToDo
 - [ ] colored_balls_phase: player x missed the y ball:
