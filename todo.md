@@ -3,8 +3,10 @@ ToDo file for Snooker Scores\
 Maintained from 2025-07-14 on
 
 ## FixMe
-- [ ] red_ball_down()
-    - [ ] when a red ball is accidentally potted instead of a colored ball, the count of red balls should be diminished by 1
+- [ ] red ball accidentally potted
+    - [ ] self.red_balls should be diminished by 1
+    - [ ] check red_ball_down()
+    - [ ] check if red_ball_down() is called when shot should be 2 - 7 but == 1
 
 ## ToDo
 - [ ] colored_balls_phase: player x missed the y ball:
