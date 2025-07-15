@@ -19,7 +19,7 @@ def test_handle_red_ball():
 def test_handle_red_ball_when_color_needed():
     scores = SnookerScores()
     scores.red_needed_next = False
-    initial_red_balls = scores.red_balls
+    initial_red_balls = scores.red_balls - 1
     initial_player_turn = scores.player_1_turn
 
     scores.handle_red_ball(1)
