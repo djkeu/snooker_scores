@@ -4,12 +4,11 @@ Maintained from 2025-07-14 on
 
 ## FixMe
 - [ ] red ball accidentally potted
-    - [ ] Note: self.red_balls should be diminished by 1
-    - [ ] Done: check red_ball_down()
-    - [ ] Note: red_ball_down() is only called manually by hotkey 'r'
-    - [ ] Abandoned: check if red_ball_down() can be called automatically when shot should be 2 - 7 but == 1
-    - Done: check if hotkey 'r' is still needed
-    - FixMe: change else condition in handle_red_ball()
+    - [*] check red_ball_down()
+    - [*] check if red_ball_down() can be called automatically
+    - [*] check if hotkey 'r' is still needed
+    - [*] change else condition in handle_red_ball()
+    - [ ] test changed else condition in handle_red_ball()
 
 ## ToDo
 - [ ] explanation on when to use hotkey 'm'
