@@ -3,12 +3,6 @@ ToDo file for Snooker Scores\
 Maintained from 2025-07-14 on
 
 ## FixMe
-- [ ] red ball accidentally potted
-    - [*] check red_ball_down()
-    - [*] check if red_ball_down() can be called automatically
-    - [*] check if hotkey 'r' is still needed
-    - [*] change else condition in handle_red_ball()
-    - [ ] test changed else condition in handle_red_ball()
 
 ## ToDo
 - [ ] explanation on when to use hotkey 'm'
@@ -27,6 +21,12 @@ Maintained from 2025-07-14 on
     - [ ] 87. 
 
 ## Done/Fixed
+- [*] red ball accidentally potted
+    - [*] check red_ball_down()
+    - [*] check if red_ball_down() can be called automatically
+    - [*] check if hotkey 'r' is still needed
+    - [*] change else condition in handle_red_ball()
+    - [*] test changed else condition in handle_red_ball()
 
 ## Abandoned
 - [ ] GUI
