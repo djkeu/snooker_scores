@@ -242,6 +242,7 @@ class SnookerScores:
             self.handle_ball(shot, is_red_ball=True)
         else:
             print("\nYou need to hit a color!")
+            self.red_balls -= 1
             self.switch_players()
 
     def handle_color_ball(self, shot):
