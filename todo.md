@@ -20,13 +20,14 @@ Maintained from 2025-07-14 on
 - [ ] store_players_names + get_player_name
     - [ ] refactor
 - [ ] todo.md: check Requirements section
+
+## In Progress
 - [ ] Live tests with videos of snooker games
+    - [*] Live tests 1 - 85
+    - [*] 86. Williams vs Zhao: 44 - 47
     - [ ] 87. 
 
 ## Done/Fixed
-- [ ] Live tests with videos of snooker games
-    - [*] Live tests 1 - 83
-    - [*] 86. Williams vs Zhao: 44 - 47
 
 ## Abandoned
 - [ ] GUI
