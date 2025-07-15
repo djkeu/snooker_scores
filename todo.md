@@ -3,6 +3,11 @@ ToDo file for Snooker Scores\
 Maintained from 2025-07-14 on
 
 ## FixMe
+- [ ] test_game_state.py
+    - [ ] test_restart_game_yes() (test hangs)
+    - [ ] test_restart_game_invalid_then_valid()
+- [ ] test_ball_handling
+    - [*] test_handle_red_ball_when_color_needed
 
 ## ToDo
 - [ ] explanation on when to use hotkey 'm'
