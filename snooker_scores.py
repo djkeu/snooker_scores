@@ -47,24 +47,20 @@ class SnookerScores:
         with open("txt/hotkeys.txt") as f:
             print(f.read())
 
-    def store_players_names(self):
-        """Store players names in vars."""
+    def prompt_for_player_names(self):
+        """Ask user if they want to enter custom player names."""
         while True:
-            player_names = input(
-                "Do you want to enter player names? (y/n) "
-            ).strip().lower()
-            if player_names in ['y', 'n']:
-                break
-            else:
-                print("Invalid input. Please enter 'y' or 'n'.")
+            response = input("Do you want to enter player names? (y/n) ").strip().lower()
+            if response in ['y', 'n']:
+                return response == 'y'
+            print("Invalid input. Please enter 'y' or 'n'.")
 
-        if player_names == 'y':
+    def store_players_names(self):
+        """Store players' names if requested."""
+        if self.prompt_for_player_names():
             self.player_1 = self.get_player_name()
             self.player_2 = self.get_player_name()
-
             self.display_active_player()
-
-        return
 
     def get_player_name(self):
         """Get the name of the player."""
