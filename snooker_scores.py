@@ -63,10 +63,12 @@ class SnookerScores:
             self.display_active_player()
 
     def get_player_name(self):
-        """Get the name of the player."""
-        player_name = input("Enter player name: ").strip().title()
-        if player_name:
-            return player_name
+        """Get and return the name of a player."""
+        while True:
+            player_name = input("Enter player name: ").strip().title()
+            if player_name:
+                return player_name
+            print("Please enter the player name")
 
 
     # Game phases 2: run of the balls
