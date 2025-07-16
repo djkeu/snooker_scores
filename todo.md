@@ -1,5 +1,5 @@
 # ToDo
-ToDo file for Snooker Scores
+ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 
 ## FixMe
 - [ ] test_game_state.py
@@ -25,7 +25,6 @@ ToDo file for Snooker Scores
     - [ ] 87. 
 
 ## Done/Fixed
-Maintained from 2025-07-14 on
 - [*] red ball accidentally potted
     - [*] change else condition in handle_red_ball()
     - [*] test changed else condition in handle_red_ball()
