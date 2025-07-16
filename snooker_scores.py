@@ -56,7 +56,7 @@ class SnookerScores:
             print("Invalid input. Please enter 'y' or 'n'.")
 
     def store_players_names(self):
-        """Store players' names if requested."""
+        """Store players names."""
         if self.prompt_for_player_names():
             self.player_1 = self.get_player_name()
             self.player_2 = self.get_player_name()
