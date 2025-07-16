@@ -7,6 +7,7 @@ Changelog for Snooker Scores
 - adjust test_handle_red_ball_when_color_needed() in test_ball_handling.py
 ### Changed
 - comment out hanging test_restart_game_yes() in test_game_state.py
+- refactor store_players_names() for clarity
 
 ---
 
