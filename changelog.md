@@ -9,6 +9,7 @@ Maintained from version 1.0.0 on
 - adjust test_handle_red_ball_when_color_needed() in test_ball_handling.py
 ### Changed
 - comment out hanging test_restart_game_yes() in test_game_state.py
+
 ---
 
 ## [1.0.0] - 2025-07-14
