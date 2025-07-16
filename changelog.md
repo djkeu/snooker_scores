@@ -1,7 +1,5 @@
 # Changelog
-Changelog for Snooker Scores\
-Maintained from version 1.0.0 on
-
+Changelog for Snooker Scores
 
 ## [1.0.1] - 2025-07-16
 ### Fixed
@@ -17,6 +15,7 @@ Maintained from version 1.0.0 on
 - create todo.md to hold todo's, fixme's and history
 - create changelog.md to hold version information
 ### Changed
+- add version number
 - move todo section from readme.md to todo.md
 
 ---

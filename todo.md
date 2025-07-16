@@ -1,6 +1,5 @@
 # ToDo
-ToDo file for Snooker Scores\
-Maintained from 2025-07-14 on
+ToDo file for Snooker Scores
 
 ## FixMe
 - [ ] test_game_state.py
@@ -26,10 +25,10 @@ Maintained from 2025-07-14 on
     - [ ] 87. 
 
 ## Done/Fixed
+Maintained from 2025-07-14 on
 - [*] red ball accidentally potted
-    - [*] check red_ball_down()
-    - [*] check if red_ball_down() can be called automatically
-    - [*] check if hotkey 'r' is still needed
+    - [*] check if red_ball_down() can be called automatically (no)
+    - [*] check if hotkey 'r' is still needed (yes)
     - [*] change else condition in handle_red_ball()
     - [*] test changed else condition in handle_red_ball()
 
