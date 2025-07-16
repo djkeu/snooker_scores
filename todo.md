@@ -28,6 +28,9 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 - [*] red ball accidentally potted
     - [*] change else condition in handle_red_ball()
     - [*] test changed else condition in handle_red_ball()
+- [*] store_players_names()
+    - [*] misleading variable name player_names
+    - [*] split store_players_names into prompt function and store function
 
 ## Abandoned
 - [ ] GUI
