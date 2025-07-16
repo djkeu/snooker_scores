@@ -27,8 +27,6 @@ ToDo file for Snooker Scores
 ## Done/Fixed
 Maintained from 2025-07-14 on
 - [*] red ball accidentally potted
-    - [*] check if red_ball_down() can be called automatically (no)
-    - [*] check if hotkey 'r' is still needed (yes)
     - [*] change else condition in handle_red_ball()
     - [*] test changed else condition in handle_red_ball()
 
