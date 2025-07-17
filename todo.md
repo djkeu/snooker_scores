@@ -11,6 +11,7 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 ## ToDo
 - [ ] add '0' to txt/hotkeys.txt, displayed from display_startup_message()
 - [ ] refactor display_startup_message() : create display_hotkeys()
+- [ ] set_up_game(): add call of display_hotkeys()
 - [ ] colored_balls_phase: player x missed the y ball:
     - [*] player x failed to pot the y ball
     - [ ] print message @handle_miss: failed to pot
