@@ -9,7 +9,6 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
     - [*] test_handle_red_ball_when_color_needed
 
 ## ToDo
-- [ ] explanation on when to use hotkey 'r'
 - [ ] colored_balls_phase: player x missed the y ball:
     - [*] player x failed to pot the y ball
     - [ ] print message @handle_miss: failed to pot
@@ -43,3 +42,4 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
     - [ ] get_shot_value()
     - [ ] handle_miss()
     - [ ] handle_hotkeys()
+- [ ] explanation on when to use hotkey 'r'
