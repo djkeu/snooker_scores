@@ -16,6 +16,10 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 - [ ] store_players_names + get_player_name
     - [ ] refactor
 - [ ] todo.md: check Requirements section
+- [ ] test_initialization.py:
+    - [ ] prompt_for_player_names()
+    - [ ] store_players_names()
+    - [ ] get_player_name()
 
 ## In Progress
 - [ ] Live tests with videos of snooker games
