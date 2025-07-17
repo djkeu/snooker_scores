@@ -9,6 +9,9 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
     - [*] test_handle_red_ball_when_color_needed
 
 ## ToDo
+- [ ] snooker_scores.py
+    - [ ] main()
+    - [ ] print message about running main.py instead of running the code
 - [ ] add '0' to txt/hotkeys.txt, displayed from display_startup_message()
 - [ ] refactor display_startup_message() : create display_hotkeys()
 - [ ] set_up_game(): add call of display_hotkeys()
