@@ -4,6 +4,8 @@ Changelog for Snooker Scores
 ## [1.0.2] - 2025-07-18
 ### Removed
 - remove execution calls from main() in snooker_scores.py
+### Changed
+- refactor display_startup_message()
 
 ---
 
