@@ -6,3 +6,4 @@ w: early victory
 r: red ball down
 p: penalty
 f: free ball
+0: missed ball
