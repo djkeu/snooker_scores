@@ -33,7 +33,6 @@ class SnookerScores:
         self.first_input = True
         self.shot_prompt = "\nWhat's the value of the shot: "
 
-
     # Game phases 1: set up the game
     def set_up_game(self):
         """Show and get information before starting the game."""
@@ -50,7 +49,10 @@ class SnookerScores:
     def prompt_for_player_names(self):
         """Ask user if they want to enter custom player names."""
         while True:
-            response = input("Do you want to enter player names? (y/n) ").strip().lower()
+            response = input(
+                "Do you want to enter player names? (y/n) "
+            ).strip().lower()
+
             if response in ['y', 'n']:
                 return response == 'y'
             print("Invalid input. Please enter 'y' or 'n'.")
@@ -69,7 +71,6 @@ class SnookerScores:
             if player_name:
                 return player_name
             print("Please enter the player name")
-
 
     # Game phases 2: run of the balls
     def red_balls_phase(self):
@@ -179,7 +180,6 @@ class SnookerScores:
         else:
             self.score_player_2 += 7
 
-
     # Shot handling
     def get_shot_value(self):
         """Get the value of the shot."""
@@ -231,7 +231,6 @@ class SnookerScores:
 
         print("Only numbers between 0 and 7 are valid!")
         return None
-
 
     # Ball handling
     def handle_red_ball(self, shot):
@@ -285,7 +284,6 @@ class SnookerScores:
 
         print(f"{self.active_player} must play a {ball} next")
 
-
     # Score handling
     def update_score(self, shot):
         """Update the score of the player."""
@@ -338,12 +336,12 @@ class SnookerScores:
         """Display if snookers are needed."""
         while self.snookers_needed is False:
             if (
-                self.score_player_1 > self.score_player_2 + self.available_player_2
+                self.score_player_1 > self.score_player_2 + self.available_player_2  # noqa: W501
             ):
                 print(f"{self.player_2} needs snookers!")
                 self.snookers_needed = True
             elif (
-                self.score_player_2 > self.score_player_1 + self.available_player_1
+                self.score_player_2 > self.score_player_1 + self.available_player_1  # noqa: W501
             ):
                 print(f"{self.player_1} needs snookers!")
                 self.snookers_needed = True
@@ -368,7 +366,6 @@ class SnookerScores:
         if self.century_break is False and self.break_size >= 100:
             print("Century break!")
             self.century_break = True
-
 
     # Handle missed balls
     def handle_miss(self):
@@ -435,7 +432,6 @@ class SnookerScores:
 
         if self.red_balls > 0:
             self.red_needed_next = True
-
 
     # Handle penalties
     def add_penalty(self):
@@ -526,7 +522,6 @@ class SnookerScores:
             self.display_next_ball()
         else:
             self.display_colored_ball_to_play()
-
 
     # Set starting scores
     def set_starting_scores(self):
@@ -662,7 +657,6 @@ class SnookerScores:
         self.available_player_1 -= balls_played
         self.available_player_2 -= balls_played
         self.colored_balls_phase()
-
 
     # Game phases 3: end the game
     def early_victory(self):
