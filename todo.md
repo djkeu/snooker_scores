@@ -16,7 +16,7 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 - [ ] colored_balls_phase: player x missed the y ball:
     - [*] player x failed to pot the y ball
     - [ ] print message @handle_miss: failed to pot
-- [ ] todo.md: check Requirements section
+- [ ] readme.md: check Requirements section
 - [ ] test_initialization.py:
     - [ ] prompt_for_player_names()
     - [ ] store_players_names()
