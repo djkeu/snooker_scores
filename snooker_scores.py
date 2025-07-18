@@ -715,12 +715,9 @@ class SnookerScores:
 
 
 def main():
-    """ Run program from main.py """
-    scores = SnookerScores()
-    scores.set_up_game()
-    scores.red_balls_phase()
-    scores.display_winner()
-    scores.restart_game()
+    """ Message about running the program """
+    print("This is the module 'snooker_scores.py'\n"
+        "You can run the program from main.py")
 
 
 if __name__ == "__main__":

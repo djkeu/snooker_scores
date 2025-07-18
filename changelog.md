@@ -1,6 +1,11 @@
 # Changelog
 Changelog for Snooker Scores
 
+## [1.0.1] - 2025-07-18
+- remove execution calls from main() in snooker_scores.py
+
+---
+
 ## [1.0.1] - 2025-07-16
 ### Fixed
 - miscaculation of remaining red balls when a red ball is accidentally potted instead of a colored ball in handle_red_ball()
