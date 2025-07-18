@@ -37,6 +37,7 @@ class SnookerScores:
     def set_up_game(self):
         """Show and get information before starting the game."""
         self.display_startup_message()
+        self.display_hotkeys()
         self.store_players_names()
 
     def display_startup_message(self):
