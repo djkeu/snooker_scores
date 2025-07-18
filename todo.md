@@ -16,8 +16,6 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 - [ ] colored_balls_phase: player x missed the y ball:
     - [*] player x failed to pot the y ball
     - [ ] print message @handle_miss: failed to pot
-- [ ] store_players_names + get_player_name
-    - [ ] refactor
 - [ ] todo.md: check Requirements section
 - [ ] test_initialization.py:
     - [ ] prompt_for_player_names()
@@ -42,6 +40,8 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
     - [*] print message about running main.py instead of running the module
 - [*] test_ball_handling
     - [*] test_handle_red_ball_when_color_needed
+- [*] store_players_names + get_player_name
+    - [*] refactor
 
 ## Abandoned
 - [ ] GUI
