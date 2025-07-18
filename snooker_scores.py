@@ -716,8 +716,10 @@ class SnookerScores:
 
 def main():
     """ Message about running the program """
-    print("This is the module 'snooker_scores.py'\n"
-        "You can run the program from main.py")
+    print(
+        "This is the module 'snooker_scores.py'\n"
+        "You can run the program from main.py"
+    )
 
 
 if __name__ == "__main__":
