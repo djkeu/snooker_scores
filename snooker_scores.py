@@ -43,6 +43,8 @@ class SnookerScores:
         """Display welcome message and hotkeys."""
         print(f"\t\tSnooker at its best!")
 
+    def display_hotkeys(self):
+        """Display hotkeys."""
         with open("txt/hotkeys.txt") as f:
             print(f.read())
 
