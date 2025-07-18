@@ -8,7 +8,6 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 - [ ] test_initialization
     - [ ] test_get_player_name_empty() (test hangs)
 
-
 ## ToDo
 - [ ] colored_balls_phase: player x missed the y ball:
     - [*] player x failed to pot the y ball
