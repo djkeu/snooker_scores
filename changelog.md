@@ -1,7 +1,7 @@
 # Changelog
 Changelog for Snooker Scores
 
-## [1.0.1] - 2025-07-18
+## [1.0.2] - 2025-07-18
 - remove execution calls from main() in snooker_scores.py
 
 ---
