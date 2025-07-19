@@ -42,12 +42,74 @@ def test_get_player_name(monkeypatch):
     assert scores.get_player_name() == "John Doe"
 
 
-"""
-def test_get_player_name_empty(monkeypatch):
+def test_get_player_name_empty_then_valid(monkeypatch):
     scores = SnookerScores()
-    monkeypatch.setattr('builtins.input', lambda _: "")
-    assert scores.get_player_name() is None
-"""
+    # Mock input to return empty string first, then valid name
+    inputs = iter(["", "John Doe"])
+    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+    # Mock print to avoid output during test
+    monkeypatch.setattr('builtins.print', lambda *args: None)
+    assert scores.get_player_name() == "John Doe"
+
+
+def test_get_player_name_strips_and_titles(monkeypatch):
+    scores = SnookerScores()
+    monkeypatch.setattr('builtins.input', lambda _: "  john doe  ")
+    assert scores.get_player_name() == "John Doe"
+
+
+def test_prompt_for_player_names_yes(monkeypatch):
+    scores = SnookerScores()
+    monkeypatch.setattr('builtins.input', lambda _: "y")
+    assert scores.prompt_for_player_names() == True
+
+
+def test_prompt_for_player_names_no(monkeypatch):
+    scores = SnookerScores()
+    monkeypatch.setattr('builtins.input', lambda _: "n")
+    assert scores.prompt_for_player_names() == False
+
+
+def test_prompt_for_player_names_invalid_then_yes(monkeypatch):
+    scores = SnookerScores()
+    inputs = iter(["invalid", "y"])
+    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+    # Mock print to avoid output during test
+    monkeypatch.setattr('builtins.print', lambda *args: None)
+    assert scores.prompt_for_player_names() == True
+
+
+def test_store_players_names_with_custom_names(monkeypatch):
+    scores = SnookerScores()
+    
+    # Mock the methods that store_players_names calls
+    scores.prompt_for_player_names = lambda: True
+    scores.get_player_name = lambda: "Test Player"
+    scores.display_active_player = lambda: None
+    
+    scores.store_players_names()
+    
+    # Both players should be set to "Test Player" since get_player_name returns the same value
+    assert scores.player_1 == "Test Player"
+    assert scores.player_2 == "Test Player"
+
+
+def test_store_players_names_without_custom_names(monkeypatch):
+    scores = SnookerScores()
+    
+    # Store original values
+    original_player_1 = scores.player_1
+    original_player_2 = scores.player_2
+    
+    # Mock prompt_for_player_names to return False
+    scores.prompt_for_player_names = lambda: False
+    scores.display_active_player = lambda: None
+    
+    scores.store_players_names()
+    
+    # Players should remain unchanged
+    assert scores.player_1 == original_player_1
+    assert scores.player_2 == original_player_2
 
 
 def test_switch_players():
