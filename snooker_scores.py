@@ -9,15 +9,14 @@ class SnookerScores:
         self.player_2 = "Player 2"
         self.player_1_turn = True
         self.active_player = self.player_1
-        self.starting_score = 0
-        self.score_player_1 = self.starting_score
-        self.score_player_2 = self.starting_score
-        self.max_break = 147
-        self.available_player_1 = self.max_break
-        self.available_player_2 = self.max_break
-        self.end_break = 27
-        self.potential_score_player_1 = self.max_break
-        self.potential_score_player_2 = self.max_break
+        self.score_player_1 = 0
+        self.score_player_2 = 0
+        self.MAX_BREAK = 147
+        self.available_player_1 = self.MAX_BREAK
+        self.available_player_2 = self.MAX_BREAK
+        self.potential_score_player_1 = self.MAX_BREAK
+        self.potential_score_player_2 = self.MAX_BREAK
+        self.END_BREAK = 27
         self.break_size = 0
         self.century_break = False
         self.red_needed_next = True
@@ -123,8 +122,8 @@ class SnookerScores:
             self.display_game_state()
             break
 
-        self.available_player_1 = self.end_break
-        self.available_player_2 = self.end_break
+        self.available_player_1 = self.END_BREAK
+        self.available_player_2 = self.END_BREAK
 
     def colored_balls_phase(self):
         """Play the colored balls phase of the game."""
@@ -304,12 +303,12 @@ class SnookerScores:
     def red_balls_left(self):
         """Display the number of red balls left."""
         if (
-            self.player_1_turn and self.available_player_1 > self.end_break
+            self.player_1_turn and self.available_player_1 > self.END_BREAK
         ):
             print(f"{self.red_balls} red balls left")
             self.display_next_ball()
         elif (
-            not self.player_1_turn and self.available_player_2 > self.end_break
+            not self.player_1_turn and self.available_player_2 > self.END_BREAK
         ):
             print(f"{self.red_balls} red balls left")
             self.display_next_ball()
@@ -577,7 +576,7 @@ class SnookerScores:
 
     def validate_scores(self, red_balls, score_player_1, score_player_2):
         """Validate that the combined scores make sense for the game state."""
-        possible_score = self.max_break - self.end_break - red_balls * 8
+        possible_score = self.MAX_BREAK - self.END_BREAK - red_balls * 8
         if score_player_1 + score_player_2 > possible_score:
             print(f"Total score cannot exceed {possible_score}.")
             return False
@@ -602,8 +601,8 @@ class SnookerScores:
 
         self.score_player_1 = score_player_1
         self.score_player_2 = score_player_2
-        self.available_player_1 = red_balls * 8 + self.end_break
-        self.available_player_2 = red_balls * 8 + self.end_break
+        self.available_player_1 = red_balls * 8 + self.END_BREAK
+        self.available_player_2 = red_balls * 8 + self.END_BREAK
         self.display_game_state()
         if self.red_balls > 0:
             self.red_balls_phase()
