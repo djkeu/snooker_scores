@@ -33,6 +33,7 @@ class SnookerScores:
         self.first_input = True
         self.shot_prompt = "\nWhat's the value of the shot: "
 
+
     # Game phases 1: set up the game
     def set_up_game(self):
         """Show and get information before starting the game."""
@@ -74,6 +75,7 @@ class SnookerScores:
             if player_name:
                 return player_name
             print("Please enter the player name")
+
 
     # Game phases 2: run of the balls
     def red_balls_phase(self):
@@ -636,6 +638,7 @@ class SnookerScores:
         self.available_player_1 -= balls_played
         self.available_player_2 -= balls_played
         self.colored_balls_phase()
+
 
     # Game phases 3: end the game
     def early_victory(self):
