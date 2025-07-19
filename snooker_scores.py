@@ -701,9 +701,10 @@ class SnookerScores:
             self.set_up_game()
             self.red_balls_phase()
             self.display_winner()
-            self.restart_game()
+            # self.restart_game()
         else:
             self.exit_game()
+
 
     def exit_game(self):
         """Exit the game."""
