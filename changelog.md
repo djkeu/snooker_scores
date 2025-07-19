@@ -7,6 +7,7 @@ Changelog for Snooker Scores
 ### Changed
 - refactor display_startup_message()
 - move functions to appropriate sections
+- update and create tests
 
 ---
 
