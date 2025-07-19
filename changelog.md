@@ -6,6 +6,7 @@ Changelog for Snooker Scores
 - remove execution calls from main() in snooker_scores.py
 ### Changed
 - refactor display_startup_message()
+- move some function to appropriate sections
 
 ---
 
