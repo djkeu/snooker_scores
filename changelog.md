@@ -1,6 +1,8 @@
 # Changelog
 Changelog for Snooker Scores
 
+---
+
 ## [1.0.2] - 2025-07-20
 ### Removed
 - main.py
