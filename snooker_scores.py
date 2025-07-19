@@ -152,13 +152,6 @@ class SnookerScores:
                 self.restart_game()
                 return
 
-    def display_colored_ball_to_play(self):
-        """Display which colored ball should be played next."""
-        print(
-            f"{self.active_player} must play the "
-            f"{self.colored_balls[self.yellow_ball]} ball"
-        )
-
     # Shot handling
     def get_shot_value(self):
         """Get the value of the shot."""
@@ -262,6 +255,13 @@ class SnookerScores:
             ball = "colored ball"
 
         print(f"{self.active_player} must play a {ball} next")
+
+    def display_colored_ball_to_play(self):
+        """Display which colored ball should be played next."""
+        print(
+            f"{self.active_player} must play the "
+            f"{self.colored_balls[self.yellow_ball]} ball"
+        )
 
     # Score handling
     def update_score(self, shot):
