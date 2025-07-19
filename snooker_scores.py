@@ -9,12 +9,13 @@ class SnookerScores:
         self.player_2 = "Player 2"
         self.player_1_turn = True
         self.active_player = self.player_1
-        self.score_player_1 = 0
-        self.score_player_2 = 0
+        self.starting_score = 0
+        self.score_player_1 = self.starting_score
+        self.score_player_2 = self.starting_score
         self.max_break = 147
-        self.end_break = 27
         self.available_player_1 = self.max_break
         self.available_player_2 = self.max_break
+        self.end_break = 27
         self.potential_score_player_1 = self.max_break
         self.potential_score_player_2 = self.max_break
         self.break_size = 0
