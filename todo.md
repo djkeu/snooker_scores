@@ -8,7 +8,6 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
     - [*] player x failed to pot the y ball
     - [ ] print message @handle_miss: failed to pot
 - [ ] readme.md: check Requirements section
-- [ ] start program from snooker_scores.py, remove main.py
 
 ## In Progress
 - [ ] Live tests with videos of snooker games
@@ -32,6 +31,7 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
     - [*] prompt_for_player_names()
     - [*] store_players_names()
     - [*] get_player_name()
+- [*] start program from snooker_scores.py, remove main.py
 
 ## Fixed
 - [*] red ball accidentally potted
