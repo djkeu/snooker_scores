@@ -2,8 +2,6 @@
 ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 
 ## FixMe
-- [ ] test_initialization
-    - [ ] test_get_player_name_empty() (test hangs)
 
 ## ToDo
 - [ ] colored_balls_phase: player x missed the y ball:
@@ -41,6 +39,8 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 - [*] test_game_state.py
     - [*] test_restart_game_yes() (test hangs)
     - [*] test_restart_game_invalid_then_valid() (test fails)
+- [*] test_initialization.py
+    - [*] test_get_player_name_empty() (test hangs)
 
 ## Abandoned
 - [ ] GUI
