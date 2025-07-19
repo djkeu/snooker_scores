@@ -1,13 +1,15 @@
 # Changelog
 Changelog for Snooker Scores
 
-## [1.0.2] - 2025-07-19
+## [1.0.2] - 2025-07-20
 ### Removed
-- remove execution calls from main() in snooker_scores.py
+- main.py
 ### Changed
+- run program from snooker_scores.py instead of main.py
 - refactor display_startup_message()
-- move functions to appropriate sections
-- update and create tests
+- snooker_scores.py: move functions to appropriate sections
+- update tests
+- create new tests for the new/refactored functions in snooker_scores.py
 
 ---
 
