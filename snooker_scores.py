@@ -159,30 +159,6 @@ class SnookerScores:
             f"{self.colored_balls[self.yellow_ball]} ball"
         )
 
-    def black_ball_phase(self):
-        """Respot black ball after a tie."""
-        print("\n\tBlack ball phase!")
-        self.display_active_player()
-
-        while True:
-            shot = input("Enter 0 for miss, 7 for black: ")
-            if shot == "q":
-                self.exit_game()
-            elif shot not in ["0", "7"]:
-                print("0 or 7 please")
-            elif int(shot) == 0:
-                self.switch_players()
-            elif int(shot) == 7:
-                self.winner_black_ball_phase()
-                break
-
-    def winner_black_ball_phase(self):
-        """Apply points to the winner of the black ball phase."""
-        if self.player_1_turn:
-            self.score_player_1 += 7
-        else:
-            self.score_player_2 += 7
-
     # Shot handling
     def get_shot_value(self):
         """Get the value of the shot."""
@@ -683,6 +659,30 @@ class SnookerScores:
             f"\n{winner} wins! "
             f"(with a score of {max(self.score_player_1, self.score_player_2)}"
             f" vs {min(self.score_player_1, self.score_player_2)})")
+
+    def black_ball_phase(self):
+        """Respot black ball after a tie."""
+        print("\n\tBlack ball phase!")
+        self.display_active_player()
+
+        while True:
+            shot = input("Enter 0 for miss, 7 for black: ")
+            if shot == "q":
+                self.exit_game()
+            elif shot not in ["0", "7"]:
+                print("0 or 7 please")
+            elif int(shot) == 0:
+                self.switch_players()
+            elif int(shot) == 7:
+                self.winner_black_ball_phase()
+                break
+
+    def winner_black_ball_phase(self):
+        """Apply points to the winner of the black ball phase."""
+        if self.player_1_turn:
+            self.score_player_1 += 7
+        else:
+            self.score_player_2 += 7
 
     def restart_game(self):
         """Ask user if they want to play again."""
