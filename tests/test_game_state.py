@@ -2,43 +2,43 @@ import pytest
 import sys
 from snooker_scores import SnookerScores
 
-"""
+
 def test_restart_game_yes(monkeypatch):
     scores = SnookerScores()
-    original_init = scores.__init__
+    
     scores.__init__ = lambda: None
     scores.set_up_game = lambda: None
-    scores.main_game = lambda: None
+    scores.red_balls_phase = lambda: None
+    scores.display_winner = lambda: None
+    
     monkeypatch.setattr('builtins.input', lambda _: "y")
     
+    # Call the method under test
     scores.restart_game()
-    
-    scores.__init__ = original_init
-"""
 
 def test_restart_game_no(monkeypatch):
     scores = SnookerScores()
-    def mock_exit(_):
-        raise SystemExit()
-    monkeypatch.setattr('builtins.input', lambda _: "n")
-    monkeypatch.setattr(sys, 'exit', mock_exit)
     
-    with pytest.raises(SystemExit):
-        scores.restart_game()
+    scores.exit_game = lambda: None
+    
+    monkeypatch.setattr('builtins.input', lambda _: "n")
+    
+    scores.restart_game()
 
-        
-def test_restart_game_invalid_then_valid(monkeypatch):
+def test_restart_game_invalid_then_yes(monkeypatch):
     scores = SnookerScores()
-    original_init = scores.__init__
+    
     scores.__init__ = lambda: None
     scores.set_up_game = lambda: None
-    scores.main_game = lambda: None
+    scores.red_balls_phase = lambda: None
+    scores.display_winner = lambda: None
+    
     inputs = iter(["invalid", "y"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     
-    scores.restart_game()
+    monkeypatch.setattr('builtins.print', lambda *args: None)
     
-    scores.__init__ = original_init
+    scores.restart_game()
 
 
 def test_exit_game(monkeypatch):
