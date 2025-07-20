@@ -168,31 +168,6 @@ class SnookerScores:
             if valid_shot is not None:
                 return valid_shot
 
-    def handle_hotkeys(self, shot):
-        """Handle hotkeys."""
-        if shot == "q":
-            self.exit_game()
-        elif shot == "p":
-            self.add_penalty()
-            return "penalty"
-        elif shot == "x":
-            self.switch_players()
-            return "switch"
-        elif shot == "s":
-            self.set_starting_scores()
-            return "scores_set"
-        elif shot == "w":
-            self.early_victory()
-            return "winner"
-        elif shot == "r":
-            self.red_ball_down()
-            return "red_ball_down"
-        elif shot == "f":
-            self.handle_free_ball()
-            return "free_ball"
-        else:
-            return None
-
     def validate_shot(self, shot):
         """Validate the shot."""
         try:
@@ -266,6 +241,31 @@ class SnookerScores:
         )
 
     # Score handling
+    def handle_hotkeys(self, shot):
+        """Handle hotkeys."""
+        if shot == "q":
+            self.exit_game()
+        elif shot == "p":
+            self.add_penalty()
+            return "penalty"
+        elif shot == "x":
+            self.switch_players()
+            return "switch"
+        elif shot == "s":
+            self.set_starting_scores()
+            return "scores_set"
+        elif shot == "w":
+            self.early_victory()
+            return "winner"
+        elif shot == "r":
+            self.red_ball_down()
+            return "red_ball_down"
+        elif shot == "f":
+            self.handle_free_ball()
+            return "free_ball"
+        else:
+            return None
+
     def update_score(self, shot):
         """Update the score of the player."""
         if self.player_1_turn:
