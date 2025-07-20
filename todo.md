@@ -18,9 +18,6 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
     - [*] split store_players_names into prompt function and store function
 - [*] colored_balls_phase: player x missed the y ball:
     - [*] player x failed to pot the y ball
-- [*] main() in snooker_scores.py
-    - [*] remove calls of functions
-    - [*] print message about running main.py instead of running the module
 - [*] store_players_names + get_player_name
     - [*] refactor
 - [*] add '0' to txt/hotkeys.txt, displayed from display_startup_message()
@@ -58,3 +55,6 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
     - [ ] handle_miss()
     - [ ] handle_hotkeys()
 - [ ] explanation on when to use hotkey 'r'
+- [*] main() in snooker_scores.py
+    - [*] remove calls of functions
+    - [*] print message about running main.py instead of running the module
