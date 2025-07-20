@@ -4,9 +4,11 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 ## FixMe
 
 ## ToDo
-- [ ] Check if dictionary self.COLORED_BALLS is used anywhere
-    - [*] colored_balls_phase()
-    - [*] display_colored_ball_to_play()
+- [ ] COLORED_BALLS
+    - [*] Check if dictionary self.colored_balls is used anywhere
+        - [*] colored_balls_phase()
+        - [*] display_colored_ball_to_play()
+    - [ ] rename self.colored_balls to COLORS
 
 - [ ] colored_balls_phase: player x missed the y ball:
     - [*] player x failed to pot the y ball
