@@ -4,7 +4,6 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 ## FixMe
 
 ## ToDo
-- [ ] readme.md: check Requirements section
 
 ## In Progress
 - [ ] Live tests with videos of snooker games
@@ -33,6 +32,9 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
         - [*] colored_balls_phase()
         - [*] display_colored_ball_to_play()
     - [*] rename self.colored_balls to COLORS
+- [*] readme.md
+    - [*] check Requirements section
+    - [*] remove obsolete/abundant sections
 
 ## Fixed
 - [*] red ball accidentally potted
