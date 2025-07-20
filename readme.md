@@ -13,19 +13,20 @@ This program is to display how many points are still available for each player t
     snooker_scores/
     ├── .venv/
     ├── tests/
-    │   ├──  test_ball_handling.py
-    │   ├──  test_colored_balls_phase.py
-    │   ├──  test_game_phases.py
-    │   ├──  test_game_state.py
-    │   ├──  test_initialization.py
-    │   ├──  test_input_handling.py
-    │   ├──  test_integration.py
-    │   ├──  test_score_handling.py
+        ├──  test_ball_handling.py
+        ├──  test_colored_balls_phase.py
+        ├──  test_game_phases.py
+        ├──  test_game_state.py
+        ├──  test_initialization.py
+        ├──  test_input_handling.py
+        ├──  test_integration.py
+        └──  test_score_handling.py
     ├── txt/
-    │   ├──  hotkeys.txt
+        ├──  hotkeys.txt
+        └──  startup_message.txt
     ├── .gitignore 
     ├── changelog.md 
     ├── pytest.ini 
     ├── readme.md 
     ├── snooker_scores.py 
-    ├── todo.md 
+    └── todo.md 
