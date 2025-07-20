@@ -4,6 +4,7 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 ## FixMe
 
 ## ToDo
+- [*] rename variable self.yellow_ball
 
 ## In Progress
 - [ ] Live tests with videos of snooker games
