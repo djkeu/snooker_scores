@@ -5,7 +5,9 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 
 ## ToDo
 - [ ] Check if dictionary self.COLORED_BALLS is used anywhere
-    - [*] it is
+    - [*] colored_balls_phase()
+    - [*] display_colored_ball_to_play()
+
 - [ ] colored_balls_phase: player x missed the y ball:
     - [*] player x failed to pot the y ball
     - [ ] print message @handle_miss: failed to pot
