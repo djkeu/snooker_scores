@@ -1,4 +1,5 @@
 import sys
+from random import randint
 
 
 class SnookerScores:
@@ -43,7 +44,12 @@ class SnookerScores:
 
     def display_startup_message(self):
         """Display welcome message and hotkeys."""
-        print(f"\t\tSnooker at its best!")
+        with open("txt/startup_messages.txt") as f:
+            for count, line in enumerate(f):
+                if count == randint(0, count):
+                    welcome_message = line
+
+        print(f"\n\t\t{welcome_message}")
 
     def display_hotkeys(self):
         """Display hotkeys."""
