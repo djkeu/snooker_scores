@@ -22,7 +22,6 @@ Changelog for Snooker Scores
 - miscaculation of remaining red balls when a red ball is accidentally potted instead of a colored ball in handle_red_ball()
 - adjust test_handle_red_ball_when_color_needed() in test_ball_handling.py
 ### Changed
-- comment out hanging test_restart_game_yes() in test_game_state.py
 - refactor store_players_names() for clarity
 
 ---
