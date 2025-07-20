@@ -22,7 +22,7 @@ class SnookerScores:
         self.red_needed_next = True
         self.snookers_needed = False
         self.yellow_ball = 2
-        self.colored_balls = {
+        self.COLORED_BALLS= {
             2: "yellow",
             3: "green",
             4: "brown",
