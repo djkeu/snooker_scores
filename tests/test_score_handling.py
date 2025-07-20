@@ -121,7 +121,7 @@ def test_update_game_state(monkeypatch):
 def test_validate_scores_valid():
     scores = SnookerScores()
     
-    possible_score = scores.max_break - scores.end_break - 10 * 8
+    possible_score = scores.MAX_BREAK - scores.end_break - 10 * 8
     valid_score = possible_score // 2
     
     assert scores.validate_scores(10, valid_score, valid_score) is True
@@ -129,7 +129,7 @@ def test_validate_scores_valid():
 
 def test_validate_scores_total_too_high():
     scores = SnookerScores()
-    possible_score = scores.max_break - scores.end_break - 10 * 8
+    possible_score = scores.MAX_BREAK - scores.end_break - 10 * 8
     
     assert scores.validate_scores(10, possible_score, 1) is False
 
@@ -169,7 +169,7 @@ def test_get_player_score_quit(monkeypatch):
 
 def test_collect_starting_scores_inputs_valid(monkeypatch):
     scores = SnookerScores()
-    possible_score = scores.max_break - scores.end_break - 15 * 8
+    possible_score = scores.MAX_BREAK - scores.end_break - 15 * 8
     valid_score = possible_score // 2
     inputs = iter(["15", str(valid_score), str(valid_score)])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))

@@ -155,8 +155,8 @@ def test_red_ball_down_second_to_last_red_player_1():
     scores.red_ball_down()
 
     assert scores.red_balls == max(0, scores.red_balls)
-    assert scores.available_player_1 == scores.max_break - 8
-    assert scores.available_player_2 == scores.max_break - 16
+    assert scores.available_player_1 == scores.MAX_BREAK - 8
+    assert scores.available_player_2 == scores.MAX_BREAK - 16
 
 
 def test_red_ball_down_second_to_last_red_player_2():
@@ -171,5 +171,5 @@ def test_red_ball_down_second_to_last_red_player_2():
     scores.red_ball_down()
 
     assert scores.red_balls == max(0, scores.red_balls)
-    assert scores.available_player_1 == scores.max_break - 16
-    assert scores.available_player_2 == scores.max_break - 8
+    assert scores.available_player_1 == scores.MAX_BREAK - 16
+    assert scores.available_player_2 == scores.MAX_BREAK - 8

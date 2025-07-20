@@ -9,12 +9,12 @@ def test_initialization():
     assert scores.player_2 == "Player 2"
     assert scores.score_player_1 == 0
     assert scores.score_player_2 == 0
-    assert scores.max_break == 147
+    assert scores.MAX_BREAK == 147
     assert scores.end_break == 27
-    assert scores.available_player_1 == scores.max_break
-    assert scores.available_player_2 == scores.max_break
-    assert scores.potential_score_player_1 == scores.max_break
-    assert scores.potential_score_player_2 == scores.max_break
+    assert scores.available_player_1 == scores.MAX_BREAK
+    assert scores.available_player_2 == scores.MAX_BREAK
+    assert scores.potential_score_player_1 == scores.MAX_BREAK
+    assert scores.potential_score_player_2 == scores.MAX_BREAK
     assert scores.break_size == 0
     assert scores.red_needed_next is True
     assert scores.player_1_turn is True
