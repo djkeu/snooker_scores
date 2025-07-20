@@ -43,13 +43,13 @@ class SnookerScores:
         self.store_players_names()
 
     def display_startup_message(self):
-        """Display welcome message and hotkeys."""
+        """Display random startup message."""
         with open("txt/startup_messages.txt") as f:
             for count, line in enumerate(f):
                 if count == randint(0, count):
-                    welcome_message = line
+                    startup_message = line
 
-        print(f"\n\t\t{welcome_message}")
+        print(f"\n\t\t{startup_message}")
 
     def display_hotkeys(self):
         """Display hotkeys."""
