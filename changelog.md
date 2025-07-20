@@ -12,6 +12,7 @@ Changelog for Snooker Scores
 - snooker_scores.py: move functions to appropriate sections
 - update tests
 - create new tests for the new/refactored functions in snooker_scores.py
+- uppercase consts in __init__
 
 ---
 
