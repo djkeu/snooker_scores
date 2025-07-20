@@ -13,6 +13,7 @@ Changelog for Snooker Scores
 - update tests
 - create new tests for the new/refactored functions in snooker_scores.py
 - uppercase consts in __init__, functions, tests
+- clean up readme.md
 
 ---
 
