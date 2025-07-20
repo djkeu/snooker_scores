@@ -4,9 +4,6 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 ## FixMe
 
 ## ToDo
-- [ ] display_startup_message()
-    - [ ] get message from txt/startup_message.txt
-    - [ ] display random message
 
 ## In Progress
 - [ ] Live tests with videos of snooker games
@@ -38,6 +35,9 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 - [*] readme.md
     - [*] check Requirements section
     - [*] remove obsolete/abundant sections
+- [*] display startup message
+    - [*] get message from txt/startup_message.txt
+    - [*] display random message
 
 ## Fixed
 - [*] red ball accidentally potted
