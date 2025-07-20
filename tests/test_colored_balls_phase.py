@@ -102,8 +102,8 @@ def test_last_colored_ball_phase_valid_ball(monkeypatch):
 
     scores.last_colored_ball_phase()
 
-    assert scores.available_player_1 == scores.end_break
-    assert scores.available_player_2 == scores.end_break
+    assert scores.available_player_1 == scores.END_BREAK
+    assert scores.available_player_2 == scores.END_BREAK
 
 
 def test_display_next_ball_red_player1():

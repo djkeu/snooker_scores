@@ -10,7 +10,7 @@ def test_initialization():
     assert scores.score_player_1 == 0
     assert scores.score_player_2 == 0
     assert scores.MAX_BREAK == 147
-    assert scores.end_break == 27
+    assert scores.END_BREAK == 27
     assert scores.available_player_1 == scores.MAX_BREAK
     assert scores.available_player_2 == scores.MAX_BREAK
     assert scores.potential_score_player_1 == scores.MAX_BREAK
@@ -33,7 +33,7 @@ def test_colored_balls_dict():
         6: "pink",
         7: "black",
     }
-    assert scores.colored_balls == expected_colored_balls
+    assert scores.COLORED_BALLS == expected_colored_balls
 
 
 def test_get_player_name(monkeypatch):
