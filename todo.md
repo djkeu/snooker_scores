@@ -4,9 +4,6 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 ## FixMe
 
 ## ToDo
-- [ ] colored_balls_phase: player x missed the y ball:
-    - [*] player x failed to pot the y ball
-    - [ ] print message @handle_miss: failed to pot
 - [ ] readme.md: check Requirements section
 
 ## In Progress
@@ -19,6 +16,8 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 - [*] store_players_names()
     - [*] misleading variable name player_names
     - [*] split store_players_names into prompt function and store function
+- [*] colored_balls_phase: player x missed the y ball:
+    - [*] player x failed to pot the y ball
 - [*] main() in snooker_scores.py
     - [*] remove calls of functions
     - [*] print message about running main.py instead of running the module
