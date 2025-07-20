@@ -3,15 +3,16 @@ Changelog for Snooker Scores
 
 ---
 
-## [1.0.2] - 2025-07-20
+## [1.0.2] - 2025-07-21
 ### Removed
 - main.py
 ### Changed
 - run program from snooker_scores.py instead of main.py
 - refactor display_startup_message()
+- random startup messages
 - snooker_scores.py: move functions to appropriate sections
-- update tests
-- create new tests for the new/refactored functions in snooker_scores.py
+- pytest: update tests
+- pytest: create new tests for the new/refactored functions in snooker_scores.py
 - uppercase consts in __init__, functions, tests
 - clean up readme.md
 

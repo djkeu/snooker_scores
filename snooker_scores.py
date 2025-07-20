@@ -5,6 +5,14 @@ from random import randint
 class SnookerScores:
     def __init__(self):
         """Initialize SnookerScores."""
+        self.COLORS = {
+            2: "yellow",
+            3: "green",
+            4: "brown",
+            5: "blue",
+            6: "pink",
+            7: "black",
+        }
         self.red_balls = 15
         self.player_1 = "Player 1"
         self.player_2 = "Player 2"
@@ -23,14 +31,6 @@ class SnookerScores:
         self.red_needed_next = True
         self.snookers_needed = False
         self.yellow_ball = 2
-        self.COLORS = {
-            2: "yellow",
-            3: "green",
-            4: "brown",
-            5: "blue",
-            6: "pink",
-            7: "black",
-        }
         self.first_input = True
         self.shot_prompt = "\nWhat's the value of the shot: "
 
