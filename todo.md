@@ -4,12 +4,6 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 ## FixMe
 
 ## ToDo
-- [ ] COLORED_BALLS
-    - [*] Check if dictionary self.colored_balls is used anywhere
-        - [*] colored_balls_phase()
-        - [*] display_colored_ball_to_play()
-    - [ ] rename self.colored_balls to COLORS
-
 - [ ] colored_balls_phase: player x missed the y ball:
     - [*] player x failed to pot the y ball
     - [ ] print message @handle_miss: failed to pot
@@ -38,6 +32,11 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
     - [*] store_players_names()
     - [*] get_player_name()
 - [*] start program from snooker_scores.py, remove main.py
+- [*] COLORED_BALLS
+    - [*] Check if dictionary self.colored_balls is used anywhere
+        - [*] colored_balls_phase()
+        - [*] display_colored_ball_to_play()
+    - [*] rename self.colored_balls to COLORS
 
 ## Fixed
 - [*] red ball accidentally potted
