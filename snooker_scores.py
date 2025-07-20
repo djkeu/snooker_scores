@@ -22,7 +22,7 @@ class SnookerScores:
         self.red_needed_next = True
         self.snookers_needed = False
         self.yellow_ball = 2
-        self.COLORED_BALLS = {
+        self.COLORS = {
             2: "yellow",
             3: "green",
             4: "brown",
@@ -138,7 +138,7 @@ class SnookerScores:
             if shot != self.yellow_ball:
                 print(
                     f"{self.active_player} failed to pot the "
-                    f"{self.COLORED_BALLS[self.yellow_ball]} ball!"
+                    f"{self.COLORS[self.yellow_ball]} ball!"
                 )
                 self.break_size = 0
                 self.switch_players()
@@ -237,7 +237,7 @@ class SnookerScores:
         """Display which colored ball should be played next."""
         print(
             f"{self.active_player} must play the "
-            f"{self.COLORED_BALLS[self.yellow_ball]} ball"
+            f"{self.COLORS[self.yellow_ball]} ball"
         )
 
     # Score handling
