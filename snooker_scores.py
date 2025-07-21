@@ -30,7 +30,7 @@ class SnookerScores:
         self.century_break = False
         self.red_needed_next = True
         self.snookers_needed = False
-        self.yellow_ball = 2
+        self.color_in_line = 2
         self.first_input = True
         self.shot_prompt = "\nWhat's the value of the shot: "
 
@@ -141,21 +141,21 @@ class SnookerScores:
             self.display_colored_ball_to_play()
             shot = self.get_shot_value()
 
-            if shot != self.yellow_ball:
+            if shot != self.color_in_line:
                 print(
                     f"{self.active_player} failed to pot the "
-                    f"{self.COLORS[self.yellow_ball]} ball!"
+                    f"{self.COLORS[self.color_in_line]} ball!"
                 )
                 self.break_size = 0
                 self.switch_players()
             else:
-                self.available_player_1 -= self.yellow_ball
-                self.available_player_2 -= self.yellow_ball
+                self.available_player_1 -= self.color_in_line
+                self.available_player_2 -= self.color_in_line
                 self.update_score(shot)
-                self.yellow_ball += 1
+                self.color_in_line += 1
 
             self.display_game_state()
-            if self.yellow_ball > 7:
+            if self.color_in_line > 7:
                 self.display_winner()
                 self.restart_game()
                 return
@@ -243,7 +243,7 @@ class SnookerScores:
         """Display which colored ball should be played next."""
         print(
             f"{self.active_player} must play the "
-            f"{self.COLORS[self.yellow_ball]} ball"
+            f"{self.COLORS[self.color_in_line]} ball"
         )
 
     # Score handling
@@ -483,7 +483,7 @@ class SnookerScores:
         if self.red_balls > 0:
             free_ball = 1
         else:
-            free_ball = self.yellow_ball
+            free_ball = self.color_in_line
 
         if self.player_1_turn:
             self.score_player_1 += free_ball
@@ -600,7 +600,7 @@ class SnookerScores:
         """Update the game state with new values."""
         self.red_balls = red_balls
         self.red_needed_next = True
-        self.yellow_ball = 2
+        self.color_in_line = 2
         self.break_size = 0
         self.snookers_needed = False
         self.warn_incorrect_break_size()
@@ -639,8 +639,8 @@ class SnookerScores:
             except ValueError:
                 print("A number between 2 and 7 please")
 
-        self.yellow_ball = colored_ball_input
-        balls_played = sum(range(2, self.yellow_ball))
+        self.color_in_line = colored_ball_input
+        balls_played = sum(range(2, self.color_in_line))
         self.available_player_1 -= balls_played
         self.available_player_2 -= balls_played
         self.colored_balls_phase()
