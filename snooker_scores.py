@@ -648,7 +648,7 @@ class SnookerScores:
     # Game phases 3: end the game
 
     def early_victory(self):
-        """Show winner of an early victory."""
+        """Use hotkey 'w' in case of an early victory."""
         self.display_winner()
         self.restart_game()
 
