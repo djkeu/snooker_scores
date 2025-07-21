@@ -7,12 +7,11 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 - [ ] mention hotkeys in docstrings in applicable functions
     - [*] exit_game: q
     - [*] add_penalty: p
-    - [ ] switch_players: x
-    - [ ] set_starting_scores: s
+    - [*] switch_players: x
+    - [*] set_starting_scores: s
     - [*] early_victory: w
-    - [ ] red_ball_down: r
-    - [ ] handle_free_ball: f
-    - [ ] handle_miss: 0
+    - [*] red_ball_down: r
+    - [*] handle_free_ball: f
 - [ ] helper methods in SnookerScores
     - [ ] identify helper methods, add leading underscore
         - [*] _display_startup_message

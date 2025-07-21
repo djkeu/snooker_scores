@@ -368,7 +368,10 @@ class SnookerScores:
         # self.display_next_ball()
 
     def red_ball_down(self):
-        """Handle an accidentally potted red ball."""
+        """
+        Handle an accidentally potted red ball.
+        Only accessible through hotkey 'r'.
+        """
         no_reds_available = "No reds available to accidentally pot!"
 
         if self.red_balls == 0:
@@ -412,7 +415,7 @@ class SnookerScores:
             self.colored_balls_phase()
 
     def switch_players(self):
-        """Switch players."""
+        """Switch players. Accessible through hotkey 'x'."""
         print("Switching players...")
         self.player_1_turn = not self.player_1_turn
         self.display_active_player()
@@ -478,7 +481,10 @@ class SnookerScores:
             self.red_needed_next = False
 
     def handle_free_ball(self):
-        """In case a player gets to play a 'free ball'."""
+        """
+        In case a player gets to play a 'free ball'.
+        Only accessible through hotkey 'f'.
+        """
         print("\tFree ball!")
         if self.red_balls > 0:
             free_ball = 1
@@ -512,7 +518,10 @@ class SnookerScores:
 
     # Set starting scores
     def set_starting_scores(self):
-        """Set scores for an ongoing game."""
+        """
+        Set scores for an ongoing game.
+        Only accessible through hotkey 's'.
+        """
         if not self.player_1_turn:
             self.switch_players()
 
