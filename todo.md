@@ -4,6 +4,15 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 ## FixMe
 
 ## ToDo
+- [ ] mention hotkeys in docstrings in applicable functions
+    - [ ] exit_game: q
+    - [ ] add_penalty: p
+    - [ ] switch_players: x
+    - [ ] set_starting_scores: s
+    - [*] early_victory: w
+    - [ ] red_ball_down: r
+    - [ ] handle_free_ball: f
+    - [ ] handle_miss: 0
 - [ ] helper methods in SnookerScores
     - [ ] identify helper methods, add leading underscore
         - [*] _display_startup_message
@@ -21,15 +30,6 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
         - [ ] _colored_balls_phase
     - [ ] helper functions
         - [ ] identify helper functions
-- [ ] mention hotkeys in docstrings in applicable functions
-    - [ ] exit_game: q
-    - [ ] add_penalty: p
-    - [ ] switch_players: x
-    - [ ] set_starting_scores: s
-    - [*] early_victory: w
-    - [ ] red_ball_down: r
-    - [ ] handle_free_ball: f
-    - [ ] handle_miss: 0
 
 - [*] display startup message
     - [*] get message from txt/startup_messages.txt
