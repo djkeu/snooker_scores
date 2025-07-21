@@ -6,7 +6,7 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 ## ToDo
 - [ ] mention hotkeys in docstrings in applicable functions
     - [*] exit_game: q
-    - [ ] add_penalty: p
+    - [*] add_penalty: p
     - [ ] switch_players: x
     - [ ] set_starting_scores: s
     - [*] early_victory: w

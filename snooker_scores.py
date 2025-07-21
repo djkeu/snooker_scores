@@ -422,7 +422,7 @@ class SnookerScores:
 
     # Handle penalties
     def add_penalty(self):
-        """Add penalty to the player."""
+        """Add penalty to the player. Only accesible through hotkey 'p'."""
         penalty = self.get_penalty_input()
         if penalty is None:
             return
