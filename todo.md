@@ -21,7 +21,16 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
         - [ ] _colored_balls_phase
     - [ ] helper functions
         - [ ] identify helper functions
-    - [ ] move early_victory?
+- [ ] mention hotkeys in docstrings in applicable functions
+    - [ ] exit_game: q
+    - [ ] add_penalty: p
+    - [ ] switch_players: x
+    - [ ] set_starting_scores: s
+    - [*] early_victory: w
+    - [ ] red_ball_down: r
+    - [ ] handle_free_ball: f
+    - [ ] handle_miss: 0
+
 - [*] display startup message
     - [*] get message from txt/startup_messages.txt
     - [*] display random message
