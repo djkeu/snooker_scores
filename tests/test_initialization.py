@@ -19,7 +19,7 @@ def test_initialization():
     assert scores.red_needed_next is True
     assert scores.player_1_turn is True
     assert scores.snookers_needed is False
-    assert scores.yellow_ball == 2
+    assert scores.color_in_line == 2
     assert scores.first_input is True
 
 

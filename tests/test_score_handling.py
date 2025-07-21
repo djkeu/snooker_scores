@@ -81,7 +81,7 @@ def test_free_ball_player_1_colored_balls_phase():
     game.score_player_1 = 44
     game.score_player_2 = 44
     game.red_balls = 0
-    game.yellow_ball = 4
+    game.color_in_line = 4
 
     game.handle_free_ball()
 
@@ -95,7 +95,7 @@ def test_free_ball_player_2_colored_balls_phase():
     game.score_player_1 = 44
     game.score_player_2 = 44
     game.red_balls = 0
-    game.yellow_ball = 5
+    game.color_in_line = 5
 
     game.handle_free_ball()
 

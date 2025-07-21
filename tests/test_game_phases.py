@@ -134,7 +134,7 @@ def test_setup_colored_balls_phase(monkeypatch):
     scores.setup_colored_balls_phase()
     
     assert scores.red_needed_next is False
-    assert scores.yellow_ball == 4
+    assert scores.color_in_line == 4
     # 2+3 = sum(range(2, 4))
     assert scores.available_player_1 == scores.available_player_1
     assert scores.available_player_2 == scores.available_player_2
