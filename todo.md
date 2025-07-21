@@ -4,11 +4,6 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 ## FixMe
 
 ## ToDo
-- [*] rename variable self.yellow_ball:
-    - [ ] first_color
-    - [ ] end_game_color
-    - [ ] dedicated_color
-    - [*] color_in_line
 
 ## In Progress
 - [ ] Live tests with videos of snooker games
@@ -43,6 +38,11 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 - [*] display startup message
     - [*] get message from txt/startup_message.txt
     - [*] display random message
+- [*] rename variable self.yellow_ball:
+    - [ ] first_color
+    - [ ] end_game_color
+    - [ ] dedicated_color
+    - [*] color_in_line
 
 ## Fixed
 - [*] red ball accidentally potted
