@@ -715,7 +715,7 @@ class SnookerScores:
             self.exit_game()
 
     def exit_game(self):
-        """Exit the game."""
+        """Exit the game. Hotkey 'q'. """
         print("Bye!")
         sys.exit(0)
 
