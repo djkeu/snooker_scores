@@ -12,10 +12,16 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
         - [*] _prompt_for_player_names
         - [*] _get_players_name
     - [ ] create run_of_the_balls method to hold the helper methods below
-    - [ ] call run_of_the_balls instead of red_balls_phase
+    - [ ] call run_of_the_balls instead of red_balls_phase in
+        - [ ] update_game_state
+        - [ ] main()
+    - [ ] helper functions
         - [ ] _red_balls_phase
         - [ ] _last_colored_ball_phase
         - [ ] _colored_balls_phase
+    - [ ] helper functions
+        - [ ] identify helper functions
+    - [ ] move early_victory?
 - [*] display startup message
     - [*] get message from txt/startup_messages.txt
     - [*] display random message
