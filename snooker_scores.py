@@ -38,11 +38,11 @@ class SnookerScores:
 
     def set_up_game(self):
         """Show and get information before starting the game."""
-        self.display_startup_message()
-        self.display_hotkeys()
-        self.store_players_names()
+        self._display_startup_message()
+        self._display_hotkeys()
+        self._store_players_names()
 
-    def display_startup_message(self):
+    def _display_startup_message(self):
         """Display random startup message."""
         with open("txt/startup_messages.txt") as f:
             for count, line in enumerate(f):
@@ -51,19 +51,19 @@ class SnookerScores:
 
         print(f"\n\t\t{startup_message}")
 
-    def display_hotkeys(self):
+    def _display_hotkeys(self):
         """Display hotkeys."""
         with open("txt/hotkeys.txt") as f:
             print(f.read())
 
-    def store_players_names(self):
+    def _store_players_names(self):
         """Store players names."""
-        if self.prompt_for_player_names():
-            self.player_1 = self.get_player_name()
-            self.player_2 = self.get_player_name()
+        if self._prompt_for_player_names():
+            self.player_1 = self._get_player_name()
+            self.player_2 = self._get_player_name()
             self.display_active_player()
 
-    def prompt_for_player_names(self):
+    def _prompt_for_player_names(self):
         """Ask user if they want to enter custom player names."""
         while True:
             response = input(
@@ -74,7 +74,7 @@ class SnookerScores:
                 return response == 'y'
             print("Invalid input. Please enter 'y' or 'n'.")
 
-    def get_player_name(self):
+    def _get_player_name(self):
         """Get and return the name of a player."""
         while True:
             player_name = input("Enter player name: ").strip().title()

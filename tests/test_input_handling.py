@@ -8,7 +8,7 @@ def test_store_players_names_yes(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     scores.display_active_player = lambda: None
     
-    scores.store_players_names()
+    scores._store_players_names()
     
     assert scores.player_1 == "John"
     assert scores.player_2 == "Mary"
@@ -18,7 +18,7 @@ def test_store_players_names_no(monkeypatch):
     scores = SnookerScores()
     monkeypatch.setattr('builtins.input', lambda _: "n")
     
-    scores.store_players_names()
+    scores._store_players_names()
     
     assert scores.player_1 == "Player 1"
     assert scores.player_2 == "Player 2"
@@ -30,7 +30,7 @@ def test_store_players_names_invalid_then_valid(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     scores.display_active_player = lambda: None
     
-    scores.store_players_names()
+    scores._store_players_names()
     
     assert scores.player_1 == "John"
     assert scores.player_2 == "Mary"
