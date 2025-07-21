@@ -4,6 +4,10 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 ## FixMe
 
 ## ToDo
+- [ ] helper methods in SnookerScores
+    - [ ] identify helper methods, add leading underscore
+        - [ ] display_startup_message
+        - [ ] display_hotkeysAdd
 - [*] display startup message
     - [*] get message from txt/startup_messages.txt
     - [*] display random message
