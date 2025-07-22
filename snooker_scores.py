@@ -544,6 +544,32 @@ class SnookerScores:
 
         self.display_game_state()
 
+    def setup_colored_balls_phase(self):
+        """Setup for the colored balls phase."""
+        self.red_needed_next = False
+        while True:
+            colored_ball_input = input(
+                "Which colored ball is the first to play: "
+            ).strip()
+
+            if colored_ball_input.lower() == "q":
+                self.exit_game()
+
+            try:
+                colored_ball_input = int(colored_ball_input)
+                if 2 <= colored_ball_input <= 7:
+                    break
+                else:
+                    print("A number between 2 and 7 please")
+            except ValueError:
+                print("A number between 2 and 7 please")
+
+        self.color_in_line = colored_ball_input
+        balls_played = sum(range(2, self.color_in_line))
+        self.available_player_1 -= balls_played
+        self.available_player_2 -= balls_played
+        self._colored_balls_phase()
+
     def get_starting_scores(self):
         """Collect and validate all inputs for game setup."""
         try:
@@ -631,32 +657,6 @@ class SnookerScores:
         print(
             "Warning: displayed break size does not match actual break size. "
         )
-
-    def setup_colored_balls_phase(self):
-        """Setup for the colored balls phase."""
-        self.red_needed_next = False
-        while True:
-            colored_ball_input = input(
-                "Which colored ball is the first to play: "
-            ).strip()
-
-            if colored_ball_input.lower() == "q":
-                self.exit_game()
-
-            try:
-                colored_ball_input = int(colored_ball_input)
-                if 2 <= colored_ball_input <= 7:
-                    break
-                else:
-                    print("A number between 2 and 7 please")
-            except ValueError:
-                print("A number between 2 and 7 please")
-
-        self.color_in_line = colored_ball_input
-        balls_played = sum(range(2, self.color_in_line))
-        self.available_player_1 -= balls_played
-        self.available_player_2 -= balls_played
-        self._colored_balls_phase()
 
     # Game phases 3: end the game
 
