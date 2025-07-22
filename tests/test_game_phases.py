@@ -131,7 +131,7 @@ def test_setup_colored_balls_phase(monkeypatch):
     scores._colored_balls_phase = lambda: None
     scores.red_balls = 0
     
-    scores.setup_colored_balls_phase()
+    scores.starting_scores_colored_balls()
     
     assert scores.red_needed_next is False
     assert scores.color_in_line == 4

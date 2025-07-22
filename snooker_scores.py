@@ -540,11 +540,11 @@ class SnookerScores:
         self.update_game_state(red_balls, score_player_1, score_player_2)
 
         if red_balls == 0:
-            self.setup_colored_balls_phase()
+            self.starting_scores_colored_balls()
 
         self.display_game_state()
 
-    def setup_colored_balls_phase(self):
+    def starting_scores_colored_balls(self):
         """Setup for the colored balls phase."""
         self.red_needed_next = False
         while True:
