@@ -625,7 +625,7 @@ class SnookerScores:
         self.available_player_2 = red_balls * 8 + self.END_BREAK
         self.display_game_state()
         if self.red_balls > 0:
-            self.red_balls_phase()
+            self.run_of_the_balls()
 
     def warn_incorrect_break_size(self):
         """Warn about incorrect break size."""
@@ -738,7 +738,7 @@ def main():
     """Show the snooker scores."""
     scores = SnookerScores()
     scores.set_up_game()
-    scores.red_balls_phase()
+    scores.run_of_the_balls()
     scores.display_winner()
     scores.restart_game()
 
