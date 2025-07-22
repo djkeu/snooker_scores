@@ -84,6 +84,14 @@ class SnookerScores:
 
     # Game phases 2: run of the balls
 
+    def run_of_the_balls(self):
+        """Play the red balls phase of the game."""
+        self.red_balls_phase()
+
+        if self.red_balls == 0:
+            self.last_colored_ball_phase()
+            self.colored_balls_phase()
+
     def red_balls_phase(self):
         """Play the red balls phase of the game."""
         while self.red_balls > 0:
@@ -98,9 +106,6 @@ class SnookerScores:
 
             self.display_game_state()
 
-        if self.red_balls == 0:
-            self.last_colored_ball_phase()
-            self.colored_balls_phase()
 
     def last_colored_ball_phase(self):
         """Handle the last colored ball."""
