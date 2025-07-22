@@ -16,9 +16,9 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
         - [*] update_game_state
         - [*] main()
     - [ ] helper functions
-        - [ ] _red_balls_phase
-        - [ ] _last_colored_ball_phase
-        - [ ] _colored_balls_phase
+        - [*] _red_balls_phase
+        - [*] _last_colored_ball
+        - [*] _colored_balls_phase
         - [ ] add test for run_of_the_balls()
         - [ ] check test for _red_balls_phase()
         - [ ] check test for _last_colored_ball_phase()
