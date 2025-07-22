@@ -128,7 +128,7 @@ def test_handle_hotkeys_invalid():
 def test_setup_colored_balls_phase(monkeypatch):
     scores = SnookerScores()
     monkeypatch.setattr('builtins.input', lambda _: "4")
-    scores.colored_balls_phase = lambda: None
+    scores._colored_balls_phase = lambda: None
     scores.red_balls = 0
     
     scores.setup_colored_balls_phase()
@@ -148,7 +148,7 @@ def test_last_colored_ball_phase(monkeypatch):
     scores.update_score = lambda x: None
     
     monkeypatch.setattr(scores, 'get_shot_value', lambda: 2)
-    scores.last_colored_ball_phase()
+    scores._last_colored_ball()
     
     assert scores.available_player_1 == scores.END_BREAK
     assert scores.available_player_2 == scores.END_BREAK

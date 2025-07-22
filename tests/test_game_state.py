@@ -8,7 +8,7 @@ def test_restart_game_yes(monkeypatch):
     
     scores.__init__ = lambda: None
     scores.set_up_game = lambda: None
-    scores.red_balls_phase = lambda: None
+    scores._red_balls_phase = lambda: None
     scores.display_winner = lambda: None
     
     monkeypatch.setattr('builtins.input', lambda _: "y")
@@ -30,7 +30,7 @@ def test_restart_game_invalid_then_yes(monkeypatch):
     
     scores.__init__ = lambda: None
     scores.set_up_game = lambda: None
-    scores.red_balls_phase = lambda: None
+    scores._red_balls_phase = lambda: None
     scores.display_winner = lambda: None
     
     inputs = iter(["invalid", "y"])

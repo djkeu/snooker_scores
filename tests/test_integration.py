@@ -26,9 +26,9 @@ def test_basic_game_flow(monkeypatch):
             return 0
     
     scores.get_shot_value = mock_get_shot_value
-    scores.colored_balls_phase = lambda: None
+    scores._colored_balls_phase = lambda: None
     
-    scores.red_balls_phase()
+    scores._red_balls_phase()
     scores.display_winner()
     scores.restart_game()
 
@@ -38,8 +38,8 @@ def test_full_red_phase_simple(monkeypatch):
     
     scores.red_balls = 2
     scores.display_game_state = lambda: None
-    scores.last_colored_ball_phase = lambda: None
-    scores.colored_balls_phase = lambda: None
+    scores._last_colored_ball = lambda: None
+    scores._colored_balls_phase = lambda: None
     
     shot_sequence = [1, 2, 1, 3, 0]
     shot_iterator = iter(shot_sequence)
@@ -53,7 +53,7 @@ def test_full_red_phase_simple(monkeypatch):
     
     scores.get_shot_value = mock_get_shot_value
     
-    scores.red_balls_phase()
+    scores._red_balls_phase()
     
     assert scores.score_player_1 == 4
 

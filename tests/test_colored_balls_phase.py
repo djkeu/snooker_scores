@@ -17,7 +17,7 @@ def test_colored_balls_phase_correct_ball(monkeypatch):
 
     scores.get_shot_value = mock_get_shot_value
 
-    scores.colored_balls_phase()
+    scores._colored_balls_phase()
 
 
 def test_colored_balls_phase_wrong_ball(monkeypatch):
@@ -34,7 +34,7 @@ def test_colored_balls_phase_wrong_ball(monkeypatch):
 
     scores.get_shot_value = mock_get_shot_value
 
-    scores.colored_balls_phase()
+    scores._colored_balls_phase()
 
     assert scores.break_size == 0
     assert scores.player_1_turn is False
@@ -54,9 +54,9 @@ def test_last_colored_ball_phase_miss(monkeypatch):
         return 0
 
     scores.get_shot_value = mock_get_shot_value
-    scores.colored_balls_phase = lambda: None
+    scores._colored_balls_phase = lambda: None
 
-    scores.last_colored_ball_phase()
+    scores._last_colored_ball()
 
     assert scores.player_1_turn is False
 
@@ -81,9 +81,9 @@ def test_last_colored_ball_phase_invalid_ball(monkeypatch):
 
     scores.get_shot_value = mock_get_shot_value
     scores.handle_miss = lambda: None
-    scores.colored_balls_phase = lambda: None
+    scores._colored_balls_phase = lambda: None
 
-    scores.last_colored_ball_phase()
+    scores._last_colored_ball()
 
 
 def test_last_colored_ball_phase_valid_ball(monkeypatch):
@@ -100,7 +100,7 @@ def test_last_colored_ball_phase_valid_ball(monkeypatch):
 
     scores.get_shot_value = mock_get_shot_value
 
-    scores.last_colored_ball_phase()
+    scores._last_colored_ball()
 
     assert scores.available_player_1 == scores.END_BREAK
     assert scores.available_player_2 == scores.END_BREAK
@@ -150,7 +150,7 @@ def test_red_ball_down_second_to_last_red_player_1():
     scores.red_needed_next = True
     scores.display_game_state = lambda: None
     scores.switch_players = lambda: None
-    scores.colored_balls_phase = lambda: None
+    scores._colored_balls_phase = lambda: None
 
     scores.red_ball_down()
 
@@ -166,7 +166,7 @@ def test_red_ball_down_second_to_last_red_player_2():
     scores.red_needed_next = True
     scores.display_game_state = lambda: None
     scores.switch_players = lambda: None
-    scores.colored_balls_phase = lambda: None
+    scores._colored_balls_phase = lambda: None
 
     scores.red_ball_down()
 

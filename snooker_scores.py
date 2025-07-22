@@ -86,13 +86,13 @@ class SnookerScores:
 
     def run_of_the_balls(self):
         """Play the red balls phase of the game."""
-        self.red_balls_phase()
+        self._red_balls_phase()
 
         if self.red_balls == 0:
-            self.last_colored_ball_phase()
-            self.colored_balls_phase()
+            self._last_colored_ball()
+            self._colored_balls_phase()
 
-    def red_balls_phase(self):
+    def _red_balls_phase(self):
         """Play the red balls phase of the game."""
         while self.red_balls > 0:
             shot = self.get_shot_value()
@@ -106,14 +106,14 @@ class SnookerScores:
 
             self.display_game_state()
 
-    def last_colored_ball_phase(self):
+    def _last_colored_ball(self):
         """Handle the last colored ball."""
         while self.available_player_1 > 0 or self.available_player_2 > 0:
             shot = self.get_shot_value()
 
             if shot == 0 and self.red_balls == 0:
                 self.handle_miss()
-                self.colored_balls_phase()
+                self._colored_balls_phase()
                 continue
 
             if shot < 2 or shot > 7:
@@ -135,7 +135,7 @@ class SnookerScores:
         self.available_player_1 = self.END_BREAK
         self.available_player_2 = self.END_BREAK
 
-    def colored_balls_phase(self):
+    def _colored_balls_phase(self):
         """Play the colored balls phase of the game."""
         while self.available_player_1 > 0:
             self.active_player = (
@@ -401,7 +401,7 @@ class SnookerScores:
             self.red_needed_next = False
             self.display_game_state()
             if self.red_balls == 0:
-                self.colored_balls_phase()
+                self._colored_balls_phase()
             return
 
         self.red_balls = max(0, self.red_balls - 1)
@@ -416,7 +416,7 @@ class SnookerScores:
         self.display_game_state()
 
         if self.red_balls == 0:
-            self.colored_balls_phase()
+            self._colored_balls_phase()
 
     def switch_players(self):
         """Switch players. Accessible through hotkey 'x'."""
@@ -656,7 +656,7 @@ class SnookerScores:
         balls_played = sum(range(2, self.color_in_line))
         self.available_player_1 -= balls_played
         self.available_player_2 -= balls_played
-        self.colored_balls_phase()
+        self._colored_balls_phase()
 
     # Game phases 3: end the game
 
@@ -721,7 +721,7 @@ class SnookerScores:
         if restart == 'y':
             self.__init__()
             self.set_up_game()
-            self.red_balls_phase()
+            self._red_balls_phase()
             self.display_winner()
             # self.restart_game()
         else:
