@@ -19,8 +19,7 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
         - [ ] _red_balls_phase
         - [ ] _last_colored_ball_phase
         - [ ] _colored_balls_phase
-    - [ ] helper functions
-        - [ ] identify remaining helper functions
+    - [ ] identify remaining helper functions
 
 - [*] display startup message
     - [*] get message from txt/startup_messages.txt
