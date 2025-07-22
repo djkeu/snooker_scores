@@ -106,7 +106,6 @@ class SnookerScores:
 
             self.display_game_state()
 
-
     def last_colored_ball_phase(self):
         """Handle the last colored ball."""
         while self.available_player_1 > 0 or self.available_player_2 > 0:
