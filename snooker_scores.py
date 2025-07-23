@@ -195,7 +195,7 @@ class SnookerScores:
     def _handle_red_ball(self, shot):
         """Handle a red ball."""
         if self.red_needed_next:
-            self.handle_ball(shot, is_red_ball=True)
+            self._handle_ball(shot, is_red_ball=True)
         else:
             print("\nYou need to hit a color!")
             self.red_balls -= 1
@@ -207,9 +207,9 @@ class SnookerScores:
             print("\nYou need to hit a red ball first!")
             self.switch_players()
         else:
-            self.handle_ball(shot, is_red_ball=False)
+            self._handle_ball(shot, is_red_ball=False)
 
-    def handle_ball(self, shot, is_red_ball):
+    def _handle_ball(self, shot, is_red_ball):
         """Handle a ball."""
         if is_red_ball:
             self.red_balls -= 1
