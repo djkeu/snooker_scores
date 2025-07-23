@@ -4,7 +4,6 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 ## FixMe
 
 ## ToDo
-- [ ] new test suite
 
 ## In Progress
 - [ ] Live tests with videos of snooker games
@@ -84,3 +83,4 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 - [*] main() in snooker_scores.py
     - [*] remove calls of functions
     - [*] print message about running main.py instead of running the module
+- [ ] new test suite
