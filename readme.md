@@ -8,6 +8,18 @@ Watching a snooker game, it can be pretty confusing when it comes to seeing how 
 
 This program is to display how many points are still available for each player throughout the game. This could only be achieved by having the logic follow the games dynamics and rules. As a side-effect, the program also shows the current scores, which balls are to be played next and more. Although it was not the original intent of the program, I consider it to be desirable.
 
+## Hotkeys
+
+Hotkeys:
+q: quit
+s: set starting scores
+x: switch player
+w: early victory
+r: red ball down
+p: penalty
+f: free ball
+0: missed ball
+
 ## File structure
 
     snooker_scores/
@@ -29,7 +41,7 @@ This program is to display how many points are still available for each player t
     ├── pytest.ini 
     ├── readme.md 
     ├── snooker_scores.py 
-    └── todo.md 
+    └── todo.md
 
 ## Pytest
 
