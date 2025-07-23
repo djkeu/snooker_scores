@@ -529,7 +529,7 @@ class SnookerScores:
         if not self.player_1_turn:
             self.switch_players()
 
-        inputs = self.get_starting_scores()
+        inputs = self._get_starting_scores()
         if not inputs:
             print("Ok, back to the game then.")
             return
@@ -537,14 +537,14 @@ class SnookerScores:
         self.break_size = 0
         self.snookers_needed = False
         red_balls, score_player_1, score_player_2 = inputs
-        self.update_game_state(red_balls, score_player_1, score_player_2)
+        self._update_game_state(red_balls, score_player_1, score_player_2)
 
         if red_balls == 0:
-            self.starting_scores_colored_balls()
+            self._starting_scores_colored_balls()
 
         self._display_game_state()
 
-    def starting_scores_colored_balls(self):
+    def _starting_scores_colored_balls(self):
         """Setup for the colored balls phase."""
         self.red_needed_next = False
         while True:
@@ -570,7 +570,7 @@ class SnookerScores:
         self.available_player_2 -= balls_played
         self._colored_balls_phase()
 
-    def get_starting_scores(self):
+    def _get_starting_scores(self):
         """Collect and validate all inputs for game setup."""
         try:
             red_balls_input = input(
@@ -587,15 +587,15 @@ class SnookerScores:
                 )
                 return None
 
-            score_player_1 = self.get_player_score(self.player_1)
+            score_player_1 = self._get_player_score(self.player_1)
             if score_player_1 is None:
                 return None
 
-            score_player_2 = self.get_player_score(self.player_2)
+            score_player_2 = self._get_player_score(self.player_2)
             if score_player_2 is None:
                 return None
 
-            if not self.validate_scores(
+            if not self._validate_scores(
                 red_balls, score_player_1, score_player_2
             ):
                 return None
@@ -606,7 +606,7 @@ class SnookerScores:
             print(f"Error: {e}. Please try again.")
             return None
 
-    def get_player_score(self, player_name):
+    def _get_player_score(self, player_name):
         """Get and validate a player's score."""
         score_input = input(f"Enter score for {player_name}: ").strip()
         if score_input.lower() == "q" or score_input == "":
@@ -619,7 +619,7 @@ class SnookerScores:
 
         return score
 
-    def validate_scores(self, red_balls, score_player_1, score_player_2):
+    def _validate_scores(self, red_balls, score_player_1, score_player_2):
         """Validate that the combined scores make sense for the game state."""
         possible_score = self.MAX_BREAK - self.END_BREAK - red_balls * 8
         if score_player_1 + score_player_2 > possible_score:
@@ -635,14 +635,14 @@ class SnookerScores:
 
         return True
 
-    def update_game_state(self, red_balls, score_player_1, score_player_2):
+    def _update_game_state(self, red_balls, score_player_1, score_player_2):
         """Update the game state with new values."""
         self.red_balls = red_balls
         self.red_needed_next = True
         self.color_in_line = 2
         self.break_size = 0
         self.snookers_needed = False
-        self.warn_incorrect_break_size()
+        self._warn_incorrect_break_size()
 
         self.score_player_1 = score_player_1
         self.score_player_2 = score_player_2
@@ -652,7 +652,7 @@ class SnookerScores:
         if self.red_balls > 0:
             self.run_of_the_balls()
 
-    def warn_incorrect_break_size(self):
+    def _warn_incorrect_break_size(self):
         """Warn about incorrect break size."""
         print(
             "Warning: displayed break size does not match actual break size. "
