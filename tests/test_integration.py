@@ -11,7 +11,7 @@ def test_basic_game_flow(monkeypatch):
     scores.set_up_game = lambda: None
     scores.red_balls = 1
     scores.display_game_state = lambda: None
-    scores.display_next_ball = lambda: None
+    scores._display_next_ball = lambda: None
     scores.display_winner = lambda: None
     scores.restart_game = lambda: None
     

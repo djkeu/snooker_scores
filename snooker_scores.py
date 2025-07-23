@@ -229,7 +229,7 @@ class SnookerScores:
 
         self.update_score(shot)
 
-    def display_next_ball(self):
+    def _display_next_ball(self):
         """Display the next ball to pot."""
         if self.player_1_turn:
             self.active_player = self.player_1
@@ -316,12 +316,12 @@ class SnookerScores:
             self.player_1_turn and self.available_player_1 > self.END_BREAK
         ):
             print(f"{self.red_balls} red balls left")
-            self.display_next_ball()
+            self._display_next_ball()
         elif (
             not self.player_1_turn and self.available_player_2 > self.END_BREAK
         ):
             print(f"{self.red_balls} red balls left")
-            self.display_next_ball()
+            self._display_next_ball()
 
     def display_snookers_needed(self):
         """Display if snookers are needed."""
@@ -516,7 +516,7 @@ class SnookerScores:
 
         # FixMe: Refactor
         if self.red_balls > 0:
-            self.display_next_ball()
+            self._display_next_ball()
         else:
             self.display_colored_ball_to_play()
 

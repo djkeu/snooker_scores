@@ -112,7 +112,7 @@ def test_display_next_ball_red_player1():
     scores.player_1_turn = True
     scores.red_needed_next = True
 
-    scores.display_next_ball()
+    scores._display_next_ball()
 
 
 def test_display_next_ball_color_player2():
@@ -121,7 +121,7 @@ def test_display_next_ball_color_player2():
     scores.player_1_turn = False
     scores.red_needed_next = False
 
-    scores.display_next_ball()
+    scores._display_next_ball()
 
 
 def test_red_ball_down_no_reds():
