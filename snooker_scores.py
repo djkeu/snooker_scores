@@ -85,7 +85,7 @@ class SnookerScores:
     # Game phases 2: run of the balls
 
     def run_of_the_balls(self):
-        """Play the red balls phase of the game."""
+        """Start the game after the setup is done."""
         self._red_balls_phase()
 
         if self.red_balls == 0:
