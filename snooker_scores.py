@@ -142,7 +142,7 @@ class SnookerScores:
                 self.player_1 if self.player_1_turn else self.player_2
             )
 
-            self.display_colored_ball_to_play()
+            self._display_colored_ball_to_play()
             shot = self._get_shot_value()
 
             if shot != self.color_in_line:
@@ -243,7 +243,7 @@ class SnookerScores:
 
         print(f"{self.active_player} must play a {ball} next")
 
-    def display_colored_ball_to_play(self):
+    def _display_colored_ball_to_play(self):
         """Display which colored ball should be played next."""
         print(
             f"{self.active_player} must play the "
@@ -518,7 +518,7 @@ class SnookerScores:
         if self.red_balls > 0:
             self._display_next_ball()
         else:
-            self.display_colored_ball_to_play()
+            self._display_colored_ball_to_play()
 
     # Set starting scores
     def set_starting_scores(self):

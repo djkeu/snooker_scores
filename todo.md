@@ -22,6 +22,7 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
     - [*] _handle_color_ball
     - [*] _handle_ball
     - [*] _display_next_ball
+    - [*] _display_colored_ball_to_play
 
 
     - [ ] identify remaining helper functions
