@@ -69,14 +69,14 @@ def test_handle_hotkeys_quit(monkeypatch):
     monkeypatch.setattr(sys, 'exit', mock_exit)
     
     with pytest.raises(SystemExit):
-        scores.handle_hotkeys("q")
+        scores._handle_hotkeys("q")
 
 
 def test_handle_hotkeys_penalty():
     scores = SnookerScores()
     scores.add_penalty = lambda: None
     
-    result = scores.handle_hotkeys("p")
+    result = scores._handle_hotkeys("p")
     
     assert result == "penalty"
 
@@ -85,7 +85,7 @@ def test_handle_hotkeys_switch():
     scores = SnookerScores()
     scores.switch_players = lambda: None
     
-    result = scores.handle_hotkeys("x")
+    result = scores._handle_hotkeys("x")
     
     assert result == "switch"
 
@@ -94,7 +94,7 @@ def test_handle_hotkeys_set_scores():
     scores = SnookerScores()
     scores.set_starting_scores = lambda: None
     
-    result = scores.handle_hotkeys("s")
+    result = scores._handle_hotkeys("s")
     
     assert result == "scores_set"
 
@@ -103,7 +103,7 @@ def test_handle_hotkeys_early_victory():
     scores = SnookerScores()
     scores.early_victory = lambda: None
     
-    result = scores.handle_hotkeys("w")
+    result = scores._handle_hotkeys("w")
     
     assert result == "winner"
 
@@ -112,7 +112,7 @@ def test_handle_hotkeys_red_ball_down():
     scores = SnookerScores()
     scores.red_ball_down = lambda: None
     
-    result = scores.handle_hotkeys("r")
+    result = scores._handle_hotkeys("r")
     
     assert result == "red_ball_down"
 
@@ -120,7 +120,7 @@ def test_handle_hotkeys_red_ball_down():
 def test_handle_hotkeys_invalid():
     scores = SnookerScores()
     
-    result = scores.handle_hotkeys("z")
+    result = scores._handle_hotkeys("z")
     
     assert result is None
 
