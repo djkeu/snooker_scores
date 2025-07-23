@@ -19,10 +19,9 @@ Changelog for Snooker Scores
 
 ## [1.0.0] - 2025-07-14
 ### Added
-- create todo.md
-- create changelog.md
+- todo.md
+- changelog.md for version numbers and information
 ### Changed
-- add version number
 - move todo section from readme.md to todo.md
 
 ---
