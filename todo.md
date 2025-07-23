@@ -4,38 +4,12 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 ## FixMe
 
 ## ToDo
-- [ ] add leading underscores to helper methods in SnookerScores
-    - [*] _display_startup_message
-    - [*] _display_hotkeys
-    - [*] _store_players_names
-    - [*] _prompt_for_player_names
-    - [*] _get_players_name
-
-    - [*] _red_balls_phase
-    - [*] _last_colored_ball
-    - [*] _colored_balls_phase
-
-    - [*] _get_shot_value
-    - [*] _validate_shot
-
-    - [*] _handle_red_ball
-    - [*] _handle_color_ball
-    - [*] _handle_ball
-    - [*] _display_next_ball
-    - [*] _display_colored_ball_to_play
-
-
-    - [ ] identify remaining helper functions
-
 - [ ] pytest
     - [ ] add test for run_of_the_balls()
     - [ ] check test for _red_balls_phase()
     - [ ] check test for _last_colored_ball_phase()
     - [ ] check test for _colored_balls_phase()
-- [*] display startup message
-    - [*] get message from txt/startup_messages.txt
-    - [*] display random message
-    - [ ] add messages to txt/startup_messages.txt
+- [ ] add messages to txt/startup_messages.txt
 
 ## In Progress
 - [ ] Live tests with videos of snooker games
@@ -67,6 +41,9 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 - [*] readme.md
     - [*] check Requirements section
     - [*] remove obsolete/abundant sections
+- [*] display startup message
+    - [*] get message from txt/startup_messages.txt
+    - [*] display random message
 - [*] rename variable self.yellow_ball:
     - [ ] first_color
     - [ ] end_game_color
@@ -85,6 +62,7 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
     - [*] update_game_state
     - [*] main()
 - [*] Add Hotkeys section to readme.md
+- [*] add leading underscores to helper methods in SnookerScores
 
 ## Fixed
 - [*] red ball accidentally potted
