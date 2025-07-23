@@ -4,11 +4,7 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 ## FixMe
 
 ## ToDo
-- [ ] pytest
-    - [ ] add test for run_of_the_balls()
-    - [ ] check test for _red_balls_phase()
-    - [ ] check test for _last_colored_ball_phase()
-    - [ ] check test for _colored_balls_phase()
+- [ ] new test suite
 
 ## In Progress
 - [ ] Live tests with videos of snooker games
