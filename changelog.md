@@ -3,7 +3,7 @@ Changelog for Snooker Scores
 
 ---
 
-## [1.0.2] - 2025-07-21
+## [1.0.2] - 2025-07-23
 ### Removed
 - main.py
 ### Changed
@@ -14,7 +14,7 @@ Changelog for Snooker Scores
 - pytest: update tests
 - pytest: create new tests for the new/refactored functions in snooker_scores.py
 - uppercase consts in __init__, functions, tests
-- clean up readme.md
+- clean up readme.md, add hotkeys section
 
 ---
 

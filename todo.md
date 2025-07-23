@@ -84,6 +84,7 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 - [*] call run_of_the_balls instead of red_balls_phase in
     - [*] update_game_state
     - [*] main()
+- [*] Add Hotkeys section to readme.md
 
 ## Fixed
 - [*] red ball accidentally potted
