@@ -9,13 +9,13 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
     - [ ] check test for _red_balls_phase()
     - [ ] check test for _last_colored_ball_phase()
     - [ ] check test for _colored_balls_phase()
-- [ ] add messages to txt/startup_messages.txt
 
 ## In Progress
 - [ ] Live tests with videos of snooker games
     - [*] Live tests 1 - 85
     - [*] 86. Williams vs Zhao: 44 - 47
     - [ ] 87. 
+- [ ] add messages to txt/startup_messages.txt
 
 ## Done
 - [*] store_players_names()
