@@ -11,17 +11,16 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
         - [*] _store_players_names
         - [*] _prompt_for_player_names
         - [*] _get_players_name
-    - [ ] helper functions
         - [*] _red_balls_phase
         - [*] _last_colored_ball
         - [*] _colored_balls_phase
-        - [ ] check test for _red_balls_phase()
-        - [ ] check test for _last_colored_ball_phase()
-        - [ ] check test for _colored_balls_phase()
     - [ ] identify remaining helper functions
 
 - [ ] pytest
     - [ ] add test for run_of_the_balls()
+    - [ ] check test for _red_balls_phase()
+    - [ ] check test for _last_colored_ball_phase()
+    - [ ] check test for _colored_balls_phase()
 - [*] display startup message
     - [*] get message from txt/startup_messages.txt
     - [*] display random message
