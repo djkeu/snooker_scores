@@ -78,6 +78,7 @@ class SnookerScores:
         """Get and return the name of a player."""
         while True:
             player_name = input("Enter player name: ").strip().title()
+    
             if player_name:
                 return player_name
             print("Please enter the player name")
