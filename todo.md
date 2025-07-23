@@ -13,11 +13,10 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
     - [*] _red_balls_phase
     - [*] _last_colored_ball
     - [*] _colored_balls_phase
-
     - [*] _get_shot_value
     - [*] _validate_shot
-
     - [*] _handle_red_ball
+    - [*] _handle_color_ball
 
 
     - [ ] identify remaining helper functions
