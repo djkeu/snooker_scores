@@ -100,7 +100,7 @@ class SnookerScores:
             if shot == 0:
                 self.handle_miss()
             elif shot == 1:
-                self.handle_red_ball(shot)
+                self._handle_red_ball(shot)
             else:
                 self.handle_color_ball(shot)
 
@@ -192,7 +192,7 @@ class SnookerScores:
         return None
 
     # Ball handling
-    def handle_red_ball(self, shot):
+    def _handle_red_ball(self, shot):
         """Handle a red ball."""
         if self.red_needed_next:
             self.handle_ball(shot, is_red_ball=True)

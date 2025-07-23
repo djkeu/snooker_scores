@@ -6,7 +6,7 @@ def test_handle_red_ball():
     scores = SnookerScores()
     initial_red_balls = scores.red_balls
     
-    scores.handle_red_ball(1)
+    scores._handle_red_ball(1)
     
     assert scores.red_balls == initial_red_balls - 1
     assert scores.red_needed_next is False
@@ -22,7 +22,7 @@ def test_handle_red_ball_when_color_needed():
     initial_red_balls = scores.red_balls - 1
     initial_player_turn = scores.player_1_turn
 
-    scores.handle_red_ball(1)
+    scores._handle_red_ball(1)
 
     assert scores.red_balls == initial_red_balls
     assert scores.red_needed_next is True
