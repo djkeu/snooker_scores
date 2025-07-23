@@ -5,15 +5,14 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
 
 ## ToDo
 - [ ] helper methods in SnookerScores
-    - [ ] identify helper methods, add leading underscore
-        - [*] _display_startup_message
-        - [*] _display_hotkeys
-        - [*] _store_players_names
-        - [*] _prompt_for_player_names
-        - [*] _get_players_name
-        - [*] _red_balls_phase
-        - [*] _last_colored_ball
-        - [*] _colored_balls_phase
+    - [*] _display_startup_message
+    - [*] _display_hotkeys
+    - [*] _store_players_names
+    - [*] _prompt_for_player_names
+    - [*] _get_players_name
+    - [*] _red_balls_phase
+    - [*] _last_colored_ball
+    - [*] _colored_balls_phase
     - [ ] identify remaining helper functions
 
 - [ ] pytest
