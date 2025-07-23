@@ -4,10 +4,10 @@ Changelog for Snooker Scores
 ---
 
 ## [1.0.2] - 2025-07-21
-### Removed
-- main.py
 ### Changed
 - run program from snooker_scores.py instead of main.py
+### Removed
+- main.py
 
 ---
 
