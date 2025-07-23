@@ -144,11 +144,11 @@ def test_combine_penalties_and_scoring():
     scores._update_score(7)
     assert scores.score_player_2 == 7
     
-    scores.apply_penalty(4)
+    scores._apply_penalty(4)
     assert scores.score_player_2 == 11
     
     scores.player_1_turn = True
-    scores.apply_penalty(6)
+    scores._apply_penalty(6)
     assert scores.score_player_1 == 11
     
     assert scores.score_player_1 + scores.score_player_2 == 22

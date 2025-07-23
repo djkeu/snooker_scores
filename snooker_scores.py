@@ -430,14 +430,14 @@ class SnookerScores:
     # Handle penalties
     def add_penalty(self):
         """Add penalty to the player. Only accesible through hotkey 'p'."""
-        penalty = self.get_penalty_input()
+        penalty = self._get_penalty_input()
         if penalty is None:
             return
-        self.apply_penalty(penalty)
+        self._apply_penalty(penalty)
         self._display_game_state()
-        self.respot_balls()
+        self._respot_balls()
 
-    def get_penalty_input(self):
+    def _get_penalty_input(self):
         """Get input for penalty."""
         while True:
             try:
@@ -453,7 +453,7 @@ class SnookerScores:
                     f"Invalid input: {e}. Please enter a valid penalty value."
                 )
 
-    def apply_penalty(self, penalty_value):
+    def _apply_penalty(self, penalty_value):
         """Apply penalty to the player."""
         if self.player_1_turn:
             print(
@@ -468,7 +468,7 @@ class SnookerScores:
             )
             self.score_player_2 += penalty_value
 
-    def respot_balls(self):
+    def _respot_balls(self):
         """Respot balls if needed."""
         while True:
             respot = input("Do you want a respot? (y/n) ").strip().lower()
@@ -500,9 +500,9 @@ class SnookerScores:
         else:
             self.score_player_2 += free_ball
 
-        self.display_free_ball(free_ball)
+        self._display_free_ball(free_ball)
 
-    def display_free_ball(self, free_ball):
+    def _display_free_ball(self, free_ball):
         """Display which player gets the points of the free ball."""
         if self.player_1_turn:
             self.active_player = self.player_1

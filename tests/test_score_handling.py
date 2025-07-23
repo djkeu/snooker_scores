@@ -7,7 +7,7 @@ def test_apply_penalty_player_1():
     scores.player_1_turn = True
     initial_score = scores.score_player_1
     
-    scores.apply_penalty(4)
+    scores._apply_penalty(4)
     
     assert scores.score_player_1 == initial_score + 4
     assert scores.score_player_2 == 0
@@ -18,7 +18,7 @@ def test_apply_penalty_player_2():
     scores.player_1_turn = False
     initial_score = scores.score_player_2
     
-    scores.apply_penalty(7)
+    scores._apply_penalty(7)
     
     assert scores.score_player_2 == initial_score + 7
     assert scores.score_player_1 == 0
@@ -28,7 +28,7 @@ def test_get_penalty_input_valid(monkeypatch):
     scores = SnookerScores()
     monkeypatch.setattr('builtins.input', lambda _: "4")
     
-    result = scores.get_penalty_input()
+    result = scores._get_penalty_input()
     
     assert result == 4
 
@@ -38,7 +38,7 @@ def test_get_penalty_input_invalid_then_valid(monkeypatch):
     inputs = iter(["-1", "abc", "4"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     
-    result = scores.get_penalty_input()
+    result = scores._get_penalty_input()
     assert result == 4
 
 
@@ -46,7 +46,7 @@ def test_get_penalty_input_quit(monkeypatch):
     scores = SnookerScores()
     monkeypatch.setattr('builtins.input', lambda _: "q")
     
-    result = scores.get_penalty_input()
+    result = scores._get_penalty_input()
     
     assert result is None
 

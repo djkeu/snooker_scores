@@ -75,7 +75,7 @@ def test_respot_balls_yes(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     scores._display_active_player = lambda: None
     
-    scores.respot_balls()
+    scores._respot_balls()
     
     assert scores.player_1_turn is False
 
@@ -87,7 +87,7 @@ def test_respot_balls_no_with_reds(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     scores._display_active_player = lambda: None
     
-    scores.respot_balls()
+    scores._respot_balls()
     
     assert scores.red_needed_next is True
 
@@ -99,7 +99,7 @@ def test_respot_balls_no_without_reds(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     scores._display_active_player = lambda: None
     
-    scores.respot_balls()
+    scores._respot_balls()
     
     assert scores.red_needed_next is False
 
@@ -110,6 +110,6 @@ def test_respot_balls_invalid_then_valid(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     scores._display_active_player = lambda: None
     
-    scores.respot_balls()
+    scores._respot_balls()
     
     assert scores.player_1_turn is False
