@@ -670,7 +670,7 @@ class SnookerScores:
         winner = ""
 
         if self.score_player_1 == self.score_player_2:
-            self.black_ball_phase()
+            self._black_ball_phase()
 
         if self.score_player_1 > self.score_player_2:
             winner = self.player_1
@@ -682,7 +682,7 @@ class SnookerScores:
             f"(with a score of {max(self.score_player_1, self.score_player_2)}"
             f" vs {min(self.score_player_1, self.score_player_2)})")
 
-    def black_ball_phase(self):
+    def _black_ball_phase(self):
         """Respot black ball after a tie."""
         print("\n\tBlack ball phase!")
         self._display_active_player()
@@ -696,10 +696,10 @@ class SnookerScores:
             elif int(shot) == 0:
                 self.switch_players()
             elif int(shot) == 7:
-                self.winner_black_ball_phase()
+                self._winner_black_ball_phase()
                 break
 
-    def winner_black_ball_phase(self):
+    def _winner_black_ball_phase(self):
         """Apply points to the winner of the black ball phase."""
         if self.player_1_turn:
             self.score_player_1 += 7

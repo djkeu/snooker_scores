@@ -45,7 +45,7 @@ def test_winner_black_ball_phase_player_1():
     scores.player_1_turn = True
     scores.score_player_1 = 60
     
-    scores.winner_black_ball_phase()
+    scores._winner_black_ball_phase()
     
     assert scores.score_player_1 == 67
     assert scores.score_player_2 == 0
@@ -56,7 +56,7 @@ def test_winner_black_ball_phase_player_2():
     scores.player_1_turn = False
     scores.score_player_2 = 60
     
-    scores.winner_black_ball_phase()
+    scores._winner_black_ball_phase()
     
     assert scores.score_player_2 == 67
     assert scores.score_player_1 == 0

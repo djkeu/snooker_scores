@@ -63,11 +63,11 @@ def test_black_ball_phase_miss_then_black(monkeypatch):
     scores = SnookerScores()
     scores.player_1_turn = True
     scores._display_active_player = lambda: None
-    scores.winner_black_ball_phase = lambda: None
+    scores._winner_black_ball_phase = lambda: None
     inputs = iter(["0", "7"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     
-    scores.black_ball_phase()
+    scores._black_ball_phase()
     
     assert scores.player_1_turn is False
 
@@ -76,11 +76,11 @@ def test_black_ball_phase_invalid_then_black(monkeypatch):
     scores = SnookerScores()
     scores.player_1_turn = True
     scores._display_active_player = lambda: None
-    scores.winner_black_ball_phase = lambda: None
+    scores._winner_black_ball_phase = lambda: None
     inputs = iter(["invalid", "9", "7"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     
-    scores.black_ball_phase()
+    scores._black_ball_phase()
     
     assert scores.player_1_turn is True
 
@@ -91,7 +91,7 @@ def test_display_winner_player_1():
     scores.player_2 = "Mary"
     scores.score_player_1 = 100
     scores.score_player_2 = 50
-    scores.black_ball_phase = lambda: None
+    scores._black_ball_phase = lambda: None
     
     scores.display_winner()
 
@@ -102,7 +102,7 @@ def test_display_winner_player_2():
     scores.player_2 = "Mary"
     scores.score_player_1 = 50
     scores.score_player_2 = 100
-    scores.black_ball_phase = lambda: None
+    scores._black_ball_phase = lambda: None
     
     scores.display_winner()
 
@@ -113,7 +113,7 @@ def test_display_winner_tie():
     scores.player_2 = "Mary"
     scores.score_player_1 = 50
     scores.score_player_2 = 50
-    scores.black_ball_phase = lambda: None
+    scores._black_ball_phase = lambda: None
     
     scores.display_winner()
 
