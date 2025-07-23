@@ -147,7 +147,7 @@ def test_last_colored_ball_phase(monkeypatch):
     scores.available_player_2 = 50
     scores.update_score = lambda x: None
     
-    monkeypatch.setattr(scores, 'get_shot_value', lambda: 2)
+    monkeypatch.setattr(scores, '_get_shot_value', lambda: 2)
     scores._last_colored_ball()
     
     assert scores.available_player_1 == scores.END_BREAK

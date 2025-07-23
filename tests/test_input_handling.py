@@ -40,7 +40,7 @@ def test_get_shot_value_valid(monkeypatch):
     scores = SnookerScores()
     monkeypatch.setattr('builtins.input', lambda _: "5")
     
-    result = scores.get_shot_value()
+    result = scores._get_shot_value()
     
     assert result == 5
     assert scores.first_input is False
@@ -51,7 +51,7 @@ def test_get_shot_value_invalid_then_valid(monkeypatch):
     inputs = iter(["invalid", "8", "5"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     
-    result = scores.get_shot_value()
+    result = scores._get_shot_value()
     
     assert result == 5
     assert scores.first_input is False
@@ -63,7 +63,7 @@ def test_get_shot_value_hotkey(monkeypatch):
     inputs = iter(["x", "5"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     
-    result = scores.get_shot_value()
+    result = scores._get_shot_value()
     
     assert result == 5
 

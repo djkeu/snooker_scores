@@ -15,7 +15,7 @@ def test_colored_balls_phase_correct_ball(monkeypatch):
     def mock_get_shot_value():
         return scores.yellow_ball
 
-    scores.get_shot_value = mock_get_shot_value
+    scores._get_shot_value = mock_get_shot_value
 
     scores._colored_balls_phase()
 
@@ -32,7 +32,7 @@ def test_colored_balls_phase_wrong_ball(monkeypatch):
         scores.available_player_1 = 0
         return 3
 
-    scores.get_shot_value = mock_get_shot_value
+    scores._get_shot_value = mock_get_shot_value
 
     scores._colored_balls_phase()
 
@@ -53,7 +53,7 @@ def test_last_colored_ball_phase_miss(monkeypatch):
         scores.available_player_2 = 0
         return 0
 
-    scores.get_shot_value = mock_get_shot_value
+    scores._get_shot_value = mock_get_shot_value
     scores._colored_balls_phase = lambda: None
 
     scores._last_colored_ball()
@@ -79,7 +79,7 @@ def test_last_colored_ball_phase_invalid_ball(monkeypatch):
             scores.available_player_2 = 0
             return 0
 
-    scores.get_shot_value = mock_get_shot_value
+    scores._get_shot_value = mock_get_shot_value
     scores.handle_miss = lambda: None
     scores._colored_balls_phase = lambda: None
 
@@ -98,7 +98,7 @@ def test_last_colored_ball_phase_valid_ball(monkeypatch):
     def mock_get_shot_value():
         return 3
 
-    scores.get_shot_value = mock_get_shot_value
+    scores._get_shot_value = mock_get_shot_value
 
     scores._last_colored_ball()
 

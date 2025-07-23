@@ -95,7 +95,7 @@ class SnookerScores:
     def _red_balls_phase(self):
         """Play the red balls phase of the game."""
         while self.red_balls > 0:
-            shot = self.get_shot_value()
+            shot = self._get_shot_value()
 
             if shot == 0:
                 self.handle_miss()
@@ -109,7 +109,7 @@ class SnookerScores:
     def _last_colored_ball(self):
         """Handle the last colored ball."""
         while self.available_player_1 > 0 or self.available_player_2 > 0:
-            shot = self.get_shot_value()
+            shot = self._get_shot_value()
 
             if shot == 0 and self.red_balls == 0:
                 self.handle_miss()
@@ -143,7 +143,7 @@ class SnookerScores:
             )
 
             self.display_colored_ball_to_play()
-            shot = self.get_shot_value()
+            shot = self._get_shot_value()
 
             if shot != self.color_in_line:
                 print(
@@ -165,7 +165,7 @@ class SnookerScores:
                 return
 
     # Shot handling
-    def get_shot_value(self):
+    def _get_shot_value(self):
         """Get the value of the shot."""
         while True:
             shot = input(self.shot_prompt).strip().lower()
@@ -174,11 +174,11 @@ class SnookerScores:
             if result is not None:
                 continue
 
-            valid_shot = self.validate_shot(shot)
+            valid_shot = self._validate_shot(shot)
             if valid_shot is not None:
                 return valid_shot
 
-    def validate_shot(self, shot):
+    def _validate_shot(self, shot):
         """Validate the shot."""
         try:
             shot = int(shot)

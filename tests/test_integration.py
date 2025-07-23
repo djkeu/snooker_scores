@@ -25,7 +25,7 @@ def test_basic_game_flow(monkeypatch):
             scores.red_balls = 0
             return 0
     
-    scores.get_shot_value = mock_get_shot_value
+    scores._get_shot_value = mock_get_shot_value
     scores._colored_balls_phase = lambda: None
     
     scores._red_balls_phase()
@@ -51,7 +51,7 @@ def test_full_red_phase_simple(monkeypatch):
             scores.red_balls = 0
             return 0
     
-    scores.get_shot_value = mock_get_shot_value
+    scores._get_shot_value = mock_get_shot_value
     
     scores._red_balls_phase()
     

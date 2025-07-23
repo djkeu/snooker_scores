@@ -105,16 +105,16 @@ def test_red_ball_down_when_no_reds():
 def test_validate_shot_valid():
     scores = SnookerScores()
     
-    assert scores.validate_shot("3") == 3
-    assert scores.validate_shot("0") == 0
-    assert scores.validate_shot("7") == 7
+    assert scores._validate_shot("3") == 3
+    assert scores._validate_shot("0") == 0
+    assert scores._validate_shot("7") == 7
     assert scores.first_input is False
 
 
 def test_validate_shot_invalid():
     scores = SnookerScores()
     
-    assert scores.validate_shot("8") is None
-    assert scores.validate_shot("-1") is None
-    assert scores.validate_shot("abc") is None
+    assert scores._validate_shot("8") is None
+    assert scores._validate_shot("-1") is None
+    assert scores._validate_shot("abc") is None
     assert scores.first_input is True
