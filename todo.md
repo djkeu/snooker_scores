@@ -80,7 +80,6 @@ ToDo file for Snooker Scores. Maintained from 2025-07-14 on.
     - [ ] handle_miss()
     - [ ] handle_hotkeys()
 - [ ] explanation on when to use hotkey 'r'
-- [*] main() in snooker_scores.py
-    - [*] remove calls of functions
-    - [*] print message about running main.py instead of running the module
+- [*] remove calls of functions from main() in snooker_scores.py
+- [*] print message about running main.py instead of running the module
 - [ ] new test suite
