@@ -106,7 +106,7 @@ def test_free_ball_player_2_colored_balls_phase():
 def test_update_game_state(monkeypatch):
     scores = SnookerScores()
     monkeypatch.setattr('builtins.input', lambda _: "0")
-    scores.display_game_state = lambda: None
+    scores._display_game_state = lambda: None
     scores._red_balls_phase = lambda: None
     
     scores.update_game_state(10, 20, 30)

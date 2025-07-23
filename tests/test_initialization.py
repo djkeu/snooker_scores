@@ -85,7 +85,7 @@ def test_store_players_names_with_custom_names(monkeypatch):
     # Mock the methods that store_players_names calls
     scores._prompt_for_player_names = lambda: True
     scores._get_player_name = lambda: "Test Player"
-    scores.display_active_player = lambda: None
+    scores._display_active_player = lambda: None
     
     scores._store_players_names()
     
@@ -103,7 +103,7 @@ def test_store_players_names_without_custom_names(monkeypatch):
     
     # Mock prompt_for_player_names to return False
     scores._prompt_for_player_names = lambda: False
-    scores.display_active_player = lambda: None
+    scores._display_active_player = lambda: None
     
     scores._store_players_names()
     
@@ -126,13 +126,13 @@ def test_switch_players():
 def test_update_score():
     scores = SnookerScores()
     
-    scores.update_score(7)
+    scores._update_score(7)
     assert scores.score_player_1 == 7
     assert scores.score_player_2 == 0
     assert scores.break_size == 7
     
     scores.player_1_turn = False
-    scores.update_score(5)
+    scores._update_score(5)
     assert scores.score_player_1 == 7
     assert scores.score_player_2 == 5
     assert scores.break_size == 12
@@ -145,7 +145,7 @@ def test_calculate_potential_scores():
     scores.available_player_1 = 100
     scores.available_player_2 = 90
     
-    scores.calculate_potential_scores()
+    scores._calculate_potential_scores()
     
     assert scores.potential_score_player_1 == 130
     assert scores.potential_score_player_2 == 110

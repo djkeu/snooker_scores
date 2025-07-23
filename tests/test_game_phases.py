@@ -10,7 +10,7 @@ def test_display_snookers_needed_player_1():
     scores.available_player_1 = 70
     scores.snookers_needed = False
     
-    scores.display_snookers_needed()
+    scores._display_snookers_needed()
     
     assert scores.snookers_needed is True
 
@@ -22,7 +22,7 @@ def test_display_snookers_needed_player_2():
     scores.available_player_2 = 70
     scores.snookers_needed = False
     
-    scores.display_snookers_needed()
+    scores._display_snookers_needed()
     
     assert scores.snookers_needed is True
 
@@ -35,7 +35,7 @@ def test_display_snookers_needed_no_snookers():
     scores.available_player_2 = 70
     scores.snookers_needed = False
     
-    scores.display_snookers_needed()
+    scores._display_snookers_needed()
     
     assert scores.snookers_needed is False
 
@@ -145,7 +145,7 @@ def test_last_colored_ball_phase(monkeypatch):
     scores.red_balls = 0
     scores.available_player_1 = 50
     scores.available_player_2 = 50
-    scores.update_score = lambda x: None
+    scores._update_score = lambda x: None
     
     monkeypatch.setattr(scores, '_get_shot_value', lambda: 2)
     scores._last_colored_ball()

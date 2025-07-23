@@ -61,7 +61,7 @@ class SnookerScores:
         if self._prompt_for_player_names():
             self.player_1 = self._get_player_name()
             self.player_2 = self._get_player_name()
-            self.display_active_player()
+            self._display_active_player()
 
     def _prompt_for_player_names(self):
         """Ask user if they want to enter custom player names."""
@@ -104,7 +104,7 @@ class SnookerScores:
             else:
                 self._handle_color_ball(shot)
 
-            self.display_game_state()
+            self._display_game_state()
 
     def _last_colored_ball(self):
         """Handle the last colored ball."""
@@ -128,8 +128,8 @@ class SnookerScores:
             else:
                 self.available_player_2 -= 7
 
-            self.update_score(shot)
-            self.display_game_state()
+            self._update_score(shot)
+            self._display_game_state()
             break
 
         self.available_player_1 = self.END_BREAK
@@ -155,10 +155,10 @@ class SnookerScores:
             else:
                 self.available_player_1 -= self.color_in_line
                 self.available_player_2 -= self.color_in_line
-                self.update_score(shot)
+                self._update_score(shot)
                 self.color_in_line += 1
 
-            self.display_game_state()
+            self._display_game_state()
             if self.color_in_line > 7:
                 self.display_winner()
                 self.restart_game()
@@ -227,7 +227,7 @@ class SnookerScores:
                 self.available_player_2 -= 7
             self.red_needed_next = True
 
-        self.update_score(shot)
+        self._update_score(shot)
 
     def _display_next_ball(self):
         """Display the next ball to pot."""
@@ -276,7 +276,7 @@ class SnookerScores:
         else:
             return None
 
-    def update_score(self, shot):
+    def _update_score(self, shot):
         """Update the score of the player."""
         if self.player_1_turn:
             self.score_player_1 += shot
@@ -285,18 +285,18 @@ class SnookerScores:
 
         self.break_size += shot
 
-    def calculate_potential_scores(self):
+    def _calculate_potential_scores(self):
         """Calculate potential scores for each player."""
         self.potential_score_player_1 = \
             self.score_player_1 + self.available_player_1
         self.potential_score_player_2 = \
             self.score_player_2 + self.available_player_2
 
-    def display_game_state(self):
+    def _display_game_state(self):
         """Display the current game state."""
-        self.calculate_potential_scores()
-        self.display_break_size()
-        self.display_century_break()
+        self._calculate_potential_scores()
+        self._display_break_size()
+        self._display_century_break()
 
         print(
             f"\t{self.player_1}: score {self.score_player_1}, "
@@ -307,10 +307,10 @@ class SnookerScores:
             f"potential score {self.potential_score_player_2}"
         )
 
-        self.display_snookers_needed()
-        self.red_balls_left()
+        self._display_snookers_needed()
+        self._red_balls_left()
 
-    def red_balls_left(self):
+    def _red_balls_left(self):
         """Display the number of red balls left."""
         if (
             self.player_1_turn and self.available_player_1 > self.END_BREAK
@@ -323,7 +323,7 @@ class SnookerScores:
             print(f"{self.red_balls} red balls left")
             self._display_next_ball()
 
-    def display_snookers_needed(self):
+    def _display_snookers_needed(self):
         """Display if snookers are needed."""
         while self.snookers_needed is False:
             if (
@@ -338,7 +338,7 @@ class SnookerScores:
                 self.snookers_needed = True
             break
 
-    def display_active_player(self):
+    def _display_active_player(self):
         """Display the name of the active player."""
         if self.player_1_turn:
             self.active_player = self.player_1
@@ -347,12 +347,12 @@ class SnookerScores:
 
         print(f"Active player: {self.active_player}")
 
-    def display_break_size(self):
+    def _display_break_size(self):
         """Display the size of the current break ."""
         if self.break_size > 0:
             print(f"Break: {self.break_size}")
 
-    def display_century_break(self):
+    def _display_century_break(self):
         """Signal if a player has made a century break."""
         if self.century_break is False and self.break_size >= 100:
             print("Century break!")
@@ -399,7 +399,7 @@ class SnookerScores:
                 self.available_player_2 -= 8
 
             self.red_needed_next = False
-            self.display_game_state()
+            self._display_game_state()
             if self.red_balls == 0:
                 self._colored_balls_phase()
             return
@@ -413,7 +413,7 @@ class SnookerScores:
             self.available_player_2 -= 15
 
         self.switch_players()
-        self.display_game_state()
+        self._display_game_state()
 
         if self.red_balls == 0:
             self._colored_balls_phase()
@@ -422,7 +422,7 @@ class SnookerScores:
         """Switch players. Accessible through hotkey 'x'."""
         print("Switching players...")
         self.player_1_turn = not self.player_1_turn
-        self.display_active_player()
+        self._display_active_player()
 
         if self.red_balls > 0:
             self.red_needed_next = True
@@ -434,7 +434,7 @@ class SnookerScores:
         if penalty is None:
             return
         self.apply_penalty(penalty)
-        self.display_game_state()
+        self._display_game_state()
         self.respot_balls()
 
     def get_penalty_input(self):
@@ -542,7 +542,7 @@ class SnookerScores:
         if red_balls == 0:
             self.starting_scores_colored_balls()
 
-        self.display_game_state()
+        self._display_game_state()
 
     def starting_scores_colored_balls(self):
         """Setup for the colored balls phase."""
@@ -648,7 +648,7 @@ class SnookerScores:
         self.score_player_2 = score_player_2
         self.available_player_1 = red_balls * 8 + self.END_BREAK
         self.available_player_2 = red_balls * 8 + self.END_BREAK
-        self.display_game_state()
+        self._display_game_state()
         if self.red_balls > 0:
             self.run_of_the_balls()
 
@@ -685,7 +685,7 @@ class SnookerScores:
     def black_ball_phase(self):
         """Respot black ball after a tie."""
         print("\n\tBlack ball phase!")
-        self.display_active_player()
+        self._display_active_player()
 
         while True:
             shot = input("Enter 0 for miss, 7 for black: ")

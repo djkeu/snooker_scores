@@ -8,7 +8,7 @@ def test_colored_balls_phase_correct_ball(monkeypatch):
     scores.player_1_turn = True
     scores.yellow_ball = 2
     scores._display_colored_ball_to_play = lambda : None
-    scores.display_game_state = lambda: None
+    scores._display_game_state = lambda: None
     scores.display_winner = lambda: None
     scores.restart_game = lambda: None
 
@@ -26,7 +26,7 @@ def test_colored_balls_phase_wrong_ball(monkeypatch):
     scores.player_1_turn = True
     scores.yellow_ball = 2
     scores._display_colored_ball_to_play = lambda : None
-    scores.display_game_state = lambda: None
+    scores._display_game_state = lambda: None
 
     def mock_get_shot_value():
         scores.available_player_1 = 0
@@ -46,7 +46,7 @@ def test_last_colored_ball_phase_miss(monkeypatch):
     scores.available_player_1 = 20
     scores.available_player_2 = 20
     scores.player_1_turn = True
-    scores.display_game_state = lambda: None
+    scores._display_game_state = lambda: None
 
     def mock_get_shot_value():
         scores.available_player_1 = 0
@@ -92,8 +92,8 @@ def test_last_colored_ball_phase_valid_ball(monkeypatch):
     scores.available_player_1 = 20
     scores.available_player_2 = 20
     scores.player_1_turn = True
-    scores.update_score = lambda x: None
-    scores.display_game_state = lambda: None
+    scores._update_score = lambda x: None
+    scores._display_game_state = lambda: None
 
     def mock_get_shot_value():
         return 3
@@ -148,7 +148,7 @@ def test_red_ball_down_second_to_last_red_player_1():
     scores.player_1_turn = True
     scores.red_balls = 2
     scores.red_needed_next = True
-    scores.display_game_state = lambda: None
+    scores._display_game_state = lambda: None
     scores.switch_players = lambda: None
     scores._colored_balls_phase = lambda: None
 
@@ -164,7 +164,7 @@ def test_red_ball_down_second_to_last_red_player_2():
     scores.player_1_turn = False
     scores.red_balls = 2
     scores.red_needed_next = True
-    scores.display_game_state = lambda: None
+    scores._display_game_state = lambda: None
     scores.switch_players = lambda: None
     scores._colored_balls_phase = lambda: None
 

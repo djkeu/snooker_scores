@@ -10,7 +10,7 @@ def test_basic_game_flow(monkeypatch):
     
     scores.set_up_game = lambda: None
     scores.red_balls = 1
-    scores.display_game_state = lambda: None
+    scores._display_game_state = lambda: None
     scores._display_next_ball = lambda: None
     scores.display_winner = lambda: None
     scores.restart_game = lambda: None
@@ -37,7 +37,7 @@ def test_full_red_phase_simple(monkeypatch):
     scores = SnookerScores()
     
     scores.red_balls = 2
-    scores.display_game_state = lambda: None
+    scores._display_game_state = lambda: None
     scores._last_colored_ball = lambda: None
     scores._colored_balls_phase = lambda: None
     
@@ -63,16 +63,16 @@ def test_break_calculation():
     
     scores.break_size = 0
     
-    scores.update_score(1)
+    scores._update_score(1)
     assert scores.break_size == 1
     
-    scores.update_score(7)
+    scores._update_score(7)
     assert scores.break_size == 8
     
-    scores.update_score(1)
+    scores._update_score(1)
     assert scores.break_size == 9
     
-    scores.update_score(7)
+    scores._update_score(7)
     assert scores.break_size == 16
     
     scores.break_size = 0
@@ -87,7 +87,7 @@ def test_potential_scores_calculation():
     scores.available_player_1 = 100
     scores.available_player_2 = 90
     
-    scores.calculate_potential_scores()
+    scores._calculate_potential_scores()
     
     assert scores.potential_score_player_1 == 120
     assert scores.potential_score_player_2 == 100
@@ -95,7 +95,7 @@ def test_potential_scores_calculation():
     scores.score_player_1 = 30
     scores.available_player_1 = 80
     
-    scores.calculate_potential_scores()
+    scores._calculate_potential_scores()
     
     assert scores.potential_score_player_1 == 110
     assert scores.potential_score_player_2 == 100
@@ -109,7 +109,7 @@ def test_snookers_needed_calculation():
     scores.available_player_2 = 35
     scores.snookers_needed = False
     
-    scores.display_snookers_needed()
+    scores._display_snookers_needed()
     
     assert scores.snookers_needed is True
     
@@ -119,7 +119,7 @@ def test_snookers_needed_calculation():
     scores.available_player_1 = 35
     scores.snookers_needed = False
     
-    scores.display_snookers_needed()
+    scores._display_snookers_needed()
     
     assert scores.snookers_needed is True
     
@@ -129,7 +129,7 @@ def test_snookers_needed_calculation():
     scores.available_player_2 = 30
     scores.snookers_needed = False
     
-    scores.display_snookers_needed()
+    scores._display_snookers_needed()
     
     assert scores.snookers_needed is False
 
@@ -137,11 +137,11 @@ def test_snookers_needed_calculation():
 def test_combine_penalties_and_scoring():
     scores = SnookerScores()
     
-    scores.update_score(5)
+    scores._update_score(5)
     assert scores.score_player_1 == 5
     
     scores.player_1_turn = False
-    scores.update_score(7)
+    scores._update_score(7)
     assert scores.score_player_2 == 7
     
     scores.apply_penalty(4)
@@ -162,7 +162,7 @@ def test_player_switching():
     scores.handle_miss()
     assert scores.player_1_turn is False
     
-    scores.update_score(7)
+    scores._update_score(7)
     scores.handle_miss()
     assert scores.player_1_turn is True
     

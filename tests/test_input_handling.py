@@ -6,7 +6,7 @@ def test_store_players_names_yes(monkeypatch):
     scores = SnookerScores()
     inputs = iter(["y", "John", "Mary"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-    scores.display_active_player = lambda: None
+    scores._display_active_player = lambda: None
     
     scores._store_players_names()
     
@@ -28,7 +28,7 @@ def test_store_players_names_invalid_then_valid(monkeypatch):
     scores = SnookerScores()
     inputs = iter(["invalid", "y", "John", "Mary"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-    scores.display_active_player = lambda: None
+    scores._display_active_player = lambda: None
     
     scores._store_players_names()
     
@@ -73,7 +73,7 @@ def test_respot_balls_yes(monkeypatch):
     scores.player_1_turn = True
     inputs = iter(["y"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-    scores.display_active_player = lambda: None
+    scores._display_active_player = lambda: None
     
     scores.respot_balls()
     
@@ -85,7 +85,7 @@ def test_respot_balls_no_with_reds(monkeypatch):
     scores.red_balls = 5
     inputs = iter(["n"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-    scores.display_active_player = lambda: None
+    scores._display_active_player = lambda: None
     
     scores.respot_balls()
     
@@ -97,7 +97,7 @@ def test_respot_balls_no_without_reds(monkeypatch):
     scores.red_balls = 0
     inputs = iter(["n"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-    scores.display_active_player = lambda: None
+    scores._display_active_player = lambda: None
     
     scores.respot_balls()
     
@@ -108,7 +108,7 @@ def test_respot_balls_invalid_then_valid(monkeypatch):
     scores = SnookerScores()
     inputs = iter(["invalid", "y"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-    scores.display_active_player = lambda: None
+    scores._display_active_player = lambda: None
     
     scores.respot_balls()
     

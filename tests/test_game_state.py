@@ -62,7 +62,7 @@ def test_early_victory():
 def test_black_ball_phase_miss_then_black(monkeypatch):
     scores = SnookerScores()
     scores.player_1_turn = True
-    scores.display_active_player = lambda: None
+    scores._display_active_player = lambda: None
     scores.winner_black_ball_phase = lambda: None
     inputs = iter(["0", "7"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
@@ -75,7 +75,7 @@ def test_black_ball_phase_miss_then_black(monkeypatch):
 def test_black_ball_phase_invalid_then_black(monkeypatch):
     scores = SnookerScores()
     scores.player_1_turn = True
-    scores.display_active_player = lambda: None
+    scores._display_active_player = lambda: None
     scores.winner_black_ball_phase = lambda: None
     inputs = iter(["invalid", "9", "7"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
@@ -149,20 +149,20 @@ def test_display_century_break():
 
     scores.century_break = False
     scores.break_size = 5
-    scores.display_century_break()
+    scores._display_century_break()
     assert scores.century_break is False
 
     scores.century_break = False
     scores.break_size = 95
-    scores.display_century_break()
+    scores._display_century_break()
     assert scores.century_break is False
 
     scores.century_break = False
     scores.break_size = 100
-    scores.display_century_break()
+    scores._display_century_break()
     assert scores.century_break is True
 
     scores.century_break = False
     scores.break_size = 110
-    scores.display_century_break()
+    scores._display_century_break()
     assert scores.century_break is True
