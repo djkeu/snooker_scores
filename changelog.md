@@ -13,7 +13,7 @@ Changelog for Snooker Scores
 
 ## [1.0.1] - 2025-07-16
 ### Fixed
-- miscalculation of remaining red balls when a red ball is accidentally potted
+- calculation of remaining red balls when a red ball is accidentally potted
 
 ---
 
