@@ -4,19 +4,20 @@
 
 Watching a snooker game, it can be pretty confusing when it comes to seeing how many possible points are left for each player to score. This is mainly because it differs if a player misses a red ball or a colored ball. For instance, if a colored ball is missed, the next ball to pot must be a red ball. This means that the points of the missed colored ball will no longer be available. Also, if a red ball is potted, the next colored ball won't be available for the other player anymore.
 
-This program is to display how many points are still available for each player throughout the game. This could only be achieved by having the logic follow the games dynamics and rules. As a side-effect, the program also shows the current scores, which balls are to be played next and more. Although it was not the original intent of the program, I consider it to be desirable.
+This program is to display how many points are still available for each player throughout the game. This could only be achieved by having the logic follow the games dynamics and rules. As a side-effect, the program shows the current scores, which balls are to be played next and more. Although it was not the original intent of the program, I consider it to be desirable.
 
 ## Hotkeys
 
-Hotkeys:
-q: quit
-s: set starting scores
-x: switch player
-w: early victory
-r: red ball down
-p: penalty
-f: free ball
-0: missed ball
+    Hotkeys:
+
+    q: quit the program
+    s: set starting scores
+    x: switch players
+    w: call early victory
+    r: red ball down
+    p: penalty
+    f: free ball
+    0: missed ball
 
 ## File structure
 
