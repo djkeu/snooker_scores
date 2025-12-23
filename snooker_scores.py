@@ -44,6 +44,8 @@ class SnookerScores:
 
     def _display_startup_message(self):
         """Display random startup message."""
+        startup_message = ""
+        
         with open("txt/startup_messages.txt") as f:
             for count, line in enumerate(f):
                 if count == randint(0, count):
